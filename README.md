@@ -3,13 +3,13 @@
 
 ## Project 3 Point of Sales system
 ---
-- Members: Deric Le, James Guandolo, Ore, Lex Unwin, Brian Mceown
 - Project Manager: James Guandolo
+- Members: Deric Le, Oreoluwa Ogunleye-Olawuyi, Lex Unwin, Brian McKeown
 
-## To run the react and express (api) server
+### Usage
 ---
-~/project-3/frontend> npm start
-~/project-3/backend> npm start
+- Run react server: ~/project-3/frontend> npm start
+- Run express server: ~/project-3/backend> npm start
 
 
 
