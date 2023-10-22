@@ -1,53 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import { Form, Button } from "react-bootstrap";
+import { FloatingLabel, Form, Button } from "react-bootstrap";
+
+import { validateInput, handleSubmit } from "./authentication";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
 
 function Login() {
-
-  // use this to navigate between pages
-  const navigate = useNavigate();
-  
   /**
-   * @var username stores the username entered
-   * @var password stores the password entered
-   * @function setUsername changes the value of username
-   * @function setPassword changes the value of password
+   * @var variable stores the variable specified 
+   * @function setVariable changes the value of the variable
    */
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  /**
-   * @var loginMsg stores the message outputted on login attempt.
-   * @function setLoginMsg changes the value stored in loginMsg
-   */
   const [loginMsg, setLoginMsg] = useState("");
-
-  // access control variables
-  var isEmployee, isManager;
-
-  function validateInput() {
-    return username.length > 0 && password.length > 0;
-  }
-
-  function handleSubmit(event) {
-    // use this to prevent the browser from doing anything
-    // e.g. save credential prompt, page reload, etc
-    event.preventDefault();
-    
-    if (validateCredentials()) {
-    } else {
-      setLoginMsg(
-        <span style={{ color: "red" }}>Invalid username or password.</span>
-      );
-    }
-  }
-  
-  function validateCredentials() {
-  }
   
   return (
     <div className="Login">
@@ -62,15 +29,15 @@ function Login() {
         
         <Form className="rounded p-3 p-sm-3" onSubmit={handleSubmit}>
           <Form.Group>
-            <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
+            <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
               {/**
-               * @param autofocus automatically focus on the username text field
-               * @param value binds the text field to username variable
+               * @param autofocus automatically focus on the email text field
+               * @param value binds the text field to email variable
                * @param placeholder the gray text shown when input is empty
-               * @func onChange calls setUsername to change username value
+               * @func onChange calls setEmail to change email value
                * */
               }
-              <Form.Control autoFocus type="username" value={username} placeholder="Username" onChange={(event) => setUsername(event.target.value)}/>
+              <Form.Control autoFocus type="email" value={email} placeholder="Email address" onChange={(event) => setEmail(event.target.value)}/>
             </FloatingLabel>
           </Form.Group>
 
@@ -88,7 +55,7 @@ function Login() {
           </Form.Group>
 
           {/* only allow submission if the credential fields are non-empty*/}
-          <Button type="submit" variant="light" disabled={!validateInput()}>Login</Button>
+          <Button type="submit" variant="light" disabled={!validateInput(email, password)}>Login</Button>
 
         </Form>
       </header>
