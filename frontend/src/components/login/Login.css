@@ -5,6 +5,14 @@
     --normal: #A7C8C5;
   }
   
+p {
+    color: var(--normal);
+}
+
+form {
+    background-color: var(--normal);
+}
+
 .Login {
     text-align: center;
 }
@@ -21,11 +29,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-}
-
-p {
-    color: var(--normal);
 }
   
-  
+.Login-msg {
+    margin-bottom: 25px;
+}

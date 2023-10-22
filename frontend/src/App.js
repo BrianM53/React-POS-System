@@ -19,17 +19,19 @@ function App() {
       <header className="App-header">
 
         <img src={logo} className="App-logo" alt="Sweet Paris logo" />
-        
+
         <p>
           This is the landing (App) page. <br /> <strong>Please read:</strong>
           <br />
-          - See App.css for css file organizing.
+          - <strong>Working environment</strong>: See pinned Google Drive link in Discord for recommended working environment.
           <br />
-          - See file structure (components) for adding new features in an organized manner.
+          - <strong>Code organization</strong>: See file structure (components) for adding new features in an organized manner.
           <br /> 
-          - See "backend/connection.js" and "backend/routes/index.js" for creating and releasing connections.
+          - <strong>CSS organization</strong>: See App.css for css file organizing.
           <br /> 
-          - See pinned Google Drive link in Discord for recommended working environment.
+          - <strong>Backend communication</strong>: See "backend/connection.js" and "backend/routes/index.js" for creating and releasing connections.
+          <br />
+          - <strong>React-bootstrap</strong>: See localhost:3000/login and "src/components/login/Login.js"
         </p>
 
         <button onClick={goToLoginPage}>Go to Login Page</button>
