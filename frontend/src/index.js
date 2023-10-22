@@ -1,14 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './utility/reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './styles/index.css';
+
 import App from './App';
+
+// create a Routing component to allow
+// switching between multiple pages 
+const Routing = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+
+        <Route exact path="/" element={<App />} />   
+
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Routing />
   </React.StrictMode>
 );
 
