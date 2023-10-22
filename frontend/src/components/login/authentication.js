@@ -17,4 +17,3 @@ export function handleSubmit(event, email, password, setLoginMsg) {
         );
     }
 }
-      

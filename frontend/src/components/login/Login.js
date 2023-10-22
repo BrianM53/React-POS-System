@@ -13,8 +13,12 @@ function Login() {
    */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [loginMsg, setLoginMsg] = useState("");
+
+  const submit = (event) => {
+    event.preventDefault();
+    handleSubmit(event, email, password, setLoginMsg); 
+  };
   
   return (
     <div className="Login">
@@ -24,10 +28,8 @@ function Login() {
           <br />
           Use credentials root / root for testing purposes
         </p>
-
         <div className="Login-msg">{loginMsg}</div>
-        
-        <Form className="rounded p-3 p-sm-3" onSubmit={handleSubmit}>
+        <Form className="rounded p-3 p-sm-3" onSubmit={submit}>
           <Form.Group>
             <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
               {/**
@@ -55,8 +57,12 @@ function Login() {
           </Form.Group>
 
           {/* only allow submission if the credential fields are non-empty*/}
-          <Button type="submit" variant="light" disabled={!validateInput(email, password)}>Login</Button>
+          <Button type="submit" variant="light" disabled={!validateInput(email, password)}>Sign in</Button>
 
+          <div className="Sign-up-msg">
+            Don't have an account?
+            
+          </div>
         </Form>
       </header>
     </div>

@@ -32,5 +32,10 @@ p {
 }
   
 .Login-msg {
-    margin-bottom: 25px;
+    margin-bottom: 5px;
+}
+
+.Sign-up-msg {
+    margin-top: 5px;
+    color: var(--normal);
 }

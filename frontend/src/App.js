@@ -17,7 +17,9 @@ function App() {
           <br />
           - <strong>Working environment</strong>: See pinned Google Drive link in Discord for recommended working environment.
           <br />
-          - <strong>Code organization</strong>: See file structure (components) for adding new features in an organized manner.
+          - <strong>Frontend file naming conventions</strong>: Capitalize MainComponents, helper components shouldBeInCamelCase  
+          <br />
+          - <strong>Code organization</strong>: Follow frontend&backend structure for adding new features!!!
           <br /> 
           - <strong>CSS organization</strong>: See App.css for css file organizing.
           <br />
