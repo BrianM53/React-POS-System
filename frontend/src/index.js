@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './utility/reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import './styles/index.css';
+import './index.css';
 
+// the page components
 import App from './App';
+import Menu from './components/menu/Menu'
 
 // create a Routing component to allow
 // switching between multiple pages 
@@ -14,7 +16,9 @@ const Routing = () => {
     <BrowserRouter>
       <Routes>
 
+        {/* creating the routes for the components */}
         <Route exact path="/" element={<App />} />   
+        <Route exact path="/menu" element={<Menu />} />   
 
       </Routes>
     </BrowserRouter>
