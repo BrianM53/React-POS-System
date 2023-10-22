@@ -11,6 +11,10 @@
 - Run react server: ~/project-3/frontend> npm start
 - Run express server: ~/project-3/backend> npm start
 
+### Misc.
+---
+- client id: 646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com
+
 
 
 

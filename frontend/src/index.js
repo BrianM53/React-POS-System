@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './utility/reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import './index.css';
 
@@ -16,12 +17,16 @@ const Routing = () => {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* creating the routes for the components */}
         <Route exact path="/" element={<App />} />   
-        <Route exact path="/login" element={<Login />} />   
-        <Route exact path="/menu" element={<Menu />} />   
 
+        <Route exact path="/login" element= {
+          <GoogleOAuthProvider clientId = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com">
+            <Login />
+          </GoogleOAuthProvider>
+          } 
+        />   
+
+        <Route exact path="/menu" element={<Menu />} />   
       </Routes>
     </BrowserRouter>
   )

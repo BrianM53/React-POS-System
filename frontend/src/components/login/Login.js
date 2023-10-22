@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FloatingLabel, Form, Button } from "react-bootstrap";
+import { FloatingLabel, Form } from "react-bootstrap";
+import jwt_decode from "jwt-decode";
 
-import { validateInput, handleSubmit } from "./authentication";
+import { handleLogin, LoginButton } from "./loginButton";
+import { GoogleLoginButton } from "./googleLoginButton";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
@@ -15,55 +17,45 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loginMsg, setLoginMsg] = useState("");
 
-  const submit = (event) => {
-    event.preventDefault();
-    handleSubmit(event, email, password, setLoginMsg); 
-  };
+  const login = (event) => { handleLogin(event, email, password, setLoginMsg); event.preventDefault(); };
   
   return (
     <div className="Login">
       <header className="Login-header">
         <p>
           This is the Login page
-          <br />
-          Use credentials root / root for testing purposes
         </p>
         <div className="Login-msg">{loginMsg}</div>
-        <Form className="rounded p-3 p-sm-3" onSubmit={submit}>
+        <Form className="rounded p-3 p-sm-3" onSubmit={login}>
           <Form.Group>
-            <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
+            <FloatingLabel label="Email address" className="mb-3">
               {/**
-               * @param autofocus automatically focus on the email text field
-               * @param value binds the text field to email variable
-               * @param placeholder the gray text shown when input is empty
+               * @augments autofocus automatically focus on the email text field
+               * @augments value binds the text field to email variable
+               * @augments placeholder the gray text shown when input is empty
                * @func onChange calls setEmail to change email value
-               * */
-              }
+               * */ }
               <Form.Control autoFocus type="email" value={email} placeholder="Email address" onChange={(event) => setEmail(event.target.value)}/>
             </FloatingLabel>
           </Form.Group>
 
           <Form.Group size="lg" controlId="password">
-            <FloatingLabel controlId="floatingInput" label="Password" className="mb-3">
+            <FloatingLabel label="Password" className="mb-3">
               {/**
-               * @param type enables bootstrap input controls for password fields
-               * @param value binds the text field to password variable
-               * @param placeholder the gray text shown when input is empty
+               * @augments type enables bootstrap input controls for password fields
+               * @augments value binds the text field to password variable
+               * @augments placeholder the gray text shown when input is empty
                * @func onChange calls setPassword to change password value
-               * */
-              }
+               * */ }
               <Form.Control type="password" value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
             </FloatingLabel>
           </Form.Group>
-
-          {/* only allow submission if the credential fields are non-empty*/}
-          <Button type="submit" variant="light" disabled={!validateInput(email, password)}>Sign in</Button>
-
-          <div className="Sign-up-msg">
-            Don't have an account?
-            
-          </div>
+          
+          <LoginButton email={email} password={password} />
         </Form>
+
+        <div className="Sign-in-google">Don't have an account?</div>
+        <GoogleLoginButton />
       </header>
     </div>
   );

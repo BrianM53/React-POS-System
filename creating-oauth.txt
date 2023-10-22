@@ -1,0 +1,22 @@
+How does OAuth work?
+	- Authorization server
+Creating authorization server
+	- console.cloud.google.com
+	- OAuth consent screen > create External
+@OAuth consent screen
+	- add appname & email to the 2 email fields
+Scopes
+	- add first 2 scopes
+Test users
+	- only test users allowed access to the app
+@Credentials
+	- create OAuth client id
+	- add URI: 
+		- origin: http://localhost & http://localhost:3000
+		- redirect: http://localhost & http://localhost:3000/login
+	- copy oauth client id
+		- 646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com
+@frontend
+	- npm install @react-oauth/google@latest
+index.js
+	- wrap application component with the specified import
