@@ -5,16 +5,16 @@
     --normal: #A7C8C5;
   }
   
-.Menu {
+.Login {
     text-align: center;
 }
 
-.Menu-logo {
+.Login-logo {
     height: 40vmin;
     pointer-events: none;
 }
 
-.Menu-header {
+.Login-header {
     background-color: var(--background);
     min-height: 100vh;
     display: flex;

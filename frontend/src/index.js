@@ -7,6 +7,7 @@ import './index.css';
 
 // the page components
 import App from './App';
+import Login from './components/login/Login'
 import Menu from './components/menu/Menu'
 
 // create a Routing component to allow
@@ -18,6 +19,7 @@ const Routing = () => {
 
         {/* creating the routes for the components */}
         <Route exact path="/" element={<App />} />   
+        <Route exact path="/login" element={<Login />} />   
         <Route exact path="/menu" element={<Menu />} />   
 
       </Routes>

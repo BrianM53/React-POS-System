@@ -5,7 +5,7 @@ function Menu() {
     <div className="Menu">
       <header className="Menu-header">
         <p>
-          This is the Menu interface.
+          This is the Menu page.
         </p>
       </header>
     </div>
