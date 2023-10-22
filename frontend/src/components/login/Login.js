@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { Form, Button } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
 
@@ -59,7 +60,7 @@ function Login() {
 
         <div className="Login-msg">{loginMsg}</div>
         
-        <Form className="rounded p-1 p-sm-3" onSubmit={handleSubmit}>
+        <Form className="rounded p-3 p-sm-3" onSubmit={handleSubmit}>
           <Form.Group>
             <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
               {/**
@@ -87,7 +88,7 @@ function Login() {
           </Form.Group>
 
           {/* only allow submission if the credential fields are non-empty*/}
-          <Button type="submit" bsSize="large" disabled={!validateInput()}>Login</Button>
+          <Button type="submit" variant="light" disabled={!validateInput()}>Login</Button>
 
         </Form>
       </header>
