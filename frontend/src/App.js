@@ -7,6 +7,7 @@ function App() {
   const navigate = useNavigate();
   const goToLoginPage = () => { navigate('/login'); };
   const goToMenuPage = () => { navigate('/menu'); };
+  const goToLexPage = () => { navigate('/lexPage'); };
 
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
         </p>
         <button onClick={goToLoginPage}>Go to Login Page</button>
         <button onClick={goToMenuPage}>Go to Menu Page (temporary)</button>
+        <button onClick={goToLexPage}>Go to Lex Page (temporary)</button>
       </header>
     </div>
   );

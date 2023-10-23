@@ -10,7 +10,7 @@ import './index.css';
 import App from './App';
 import Login from './components/login/Login'
 import Menu from './components/menu/Menu'
-
+import LexPage from './components/lexPage/LexPage';
 // create a Routing component to allow
 // switching between multiple pages 
 const Routing = () => {
@@ -27,6 +27,9 @@ const Routing = () => {
         />   
 
         <Route exact path="/menu" element={<Menu />} />   
+
+        <Route exact path="/LexPage" element={<LexPage />} />
+
       </Routes>
     </BrowserRouter>
   )

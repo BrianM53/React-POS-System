@@ -1,0 +1,32 @@
+:root {
+    --background: #000000;
+    --bright: #BDE3DF;
+    --normal: #A7C8C5;
+}
+
+* {
+    color: var(--normal);
+}
+
+.lexBody {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: var(--background);
+}
+
+.lexHeader {
+    text-align: center;
+}
+
+.lexBody {
+    text-align: center;
+}
+
+.lexFooter {
+    text-align: center;
+
+}
