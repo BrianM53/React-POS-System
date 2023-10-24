@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './utility/reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { createSt}
+import thunk from "redux-thunk"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // the page components
@@ -12,7 +14,6 @@ import Cashier from './components/cashier/Cashier'
 import Customer from './components/customer/Customer'
 
 import { reducers } from './redux/reducers'
-import thunk from "redux-thunk"
 
 // create a Routing component to allow
 // switching between multiple pages 
