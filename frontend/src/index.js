@@ -11,6 +11,9 @@ import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
 import Customer from './components/customer/Customer'
 
+import { reducers } from './redux/reducers'
+import thunk from "redux-thunk"
+
 // create a Routing component to allow
 // switching between multiple pages 
 const Routing = () => {
