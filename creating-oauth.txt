@@ -5,8 +5,6 @@ Creating authorization server
 	- OAuth consent screen > create External
 @OAuth consent screen
 	- add appname & email to the 2 email fields
-Scopes
-	- add first 2 scopes
 Test users
 	- only test users allowed access to the app
 @Credentials

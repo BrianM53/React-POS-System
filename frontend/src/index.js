@@ -9,7 +9,9 @@ import './index.css';
 // the page components
 import App from './App';
 import Login from './components/login/Login'
-import Menu from './components/menu/Menu'
+import Manager from './components/manager/Manager'
+import Cashier from './components/cashier/Cashier'
+import Customer from './components/customer/Customer'
 
 // create a Routing component to allow
 // switching between multiple pages 
@@ -18,15 +20,15 @@ const Routing = () => {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<App />} />   
-
         <Route exact path="/login" element= {
           <GoogleOAuthProvider clientId = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com">
             <Login />
           </GoogleOAuthProvider>
           } 
         />   
-
-        <Route exact path="/menu" element={<Menu />} />   
+        <Route exact path="/manager" element={<Manager />} />   
+        <Route exact path="/cashier" element={<Cashier />} />   
+        <Route exact path="/customer" element={<Customer />} />   
       </Routes>
     </BrowserRouter>
   )

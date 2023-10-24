@@ -5,8 +5,6 @@ import './App.css';
 
 function App() {
   const navigate = useNavigate();
-  const goToLoginPage = () => { navigate('/login'); };
-  const goToMenuPage = () => { navigate('/menu'); };
 
   return (
     <div className="App">
@@ -29,8 +27,10 @@ function App() {
           <br />
           - <strong>React-bootstrap example</strong>: See localhost:3000/login and "src/components/login/Login.js"
         </p>
-        <button onClick={goToLoginPage}>Go to Login Page</button>
-        <button onClick={goToMenuPage}>Go to Menu Page (temporary)</button>
+        <button onClick={() => navigate('/login')}>Go to Login Interface</button>
+        <button onClick={() => navigate('/manager')}>Go to Manager Interface</button>
+        <button onClick={() => navigate('/cashier')}>Go to Cashier Interface</button>
+        <button onClick={() => navigate('/customer')}>Go to Customer Interface</button>
       </header>
     </div>
   );

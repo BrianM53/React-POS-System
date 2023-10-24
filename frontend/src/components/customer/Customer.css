@@ -5,16 +5,16 @@
     --normal: #A7C8C5;
   }
   
-.Menu {
+.Customer {
     text-align: center;
 }
 
-.Menu-logo {
+.Customer-logo {
     height: 40vmin;
     pointer-events: none;
 }
 
-.Menu-header {
+.Customer-header {
     background-color: var(--background);
     min-height: 100vh;
     display: flex;
