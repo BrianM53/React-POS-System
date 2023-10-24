@@ -4,8 +4,6 @@ import reportWebVitals from './utility/reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-import './index.css';
-
 // the page components
 import App from './App';
 import Login from './components/login/Login'
