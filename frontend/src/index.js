@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './utility/reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { createSt}
-import thunk from "redux-thunk"
-import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // the page components
 import App from './App';
 import Login from './components/login/Login'
+import Register from './components/register/Register'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
 import Customer from './components/customer/Customer'
 
-import { reducers } from './redux/reducers'
+// import { reducers } from './redux/reducers'
+// import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
+// import thunk from "redux-thunk"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 
 // create a Routing component to allow
 // switching between multiple pages 
@@ -21,13 +23,19 @@ const Routing = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<App />} />   
+        <Route exact path="/" element= {<App />} />   
         <Route exact path="/login" element= {
           <GoogleOAuthProvider clientId = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com">
             <Login />
           </GoogleOAuthProvider>
           } 
         />   
+        <Route exact path="/register" element= {
+          <GoogleOAuthProvider clientId = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com">
+            <Register />
+          </GoogleOAuthProvider>
+          } 
+        /> 
         <Route exact path="/manager" element={<Manager />} />   
         <Route exact path="/cashier" element={<Cashier />} />   
         <Route exact path="/customer" element={<Customer />} />   

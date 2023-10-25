@@ -7,20 +7,20 @@ function validateInput(email, password) {
 function validateCredentials(email, password) {
 }
 
-export function handleLogin(event, email, password, setLoginMsg) {
+export function handleRegister(event, email, password, setRegisterMsg) {
     // use this to prevent the browser from doing anything
     // e.g. save credential prompt, page reload, etc
     event.preventDefault();
     
     if (validateCredentials(email, password)) {
     } else {
-        setLoginMsg(
+        setRegisterMsg(
             <span style={{ color: "red" }}>Invalid username or password.</span>
         );
     }
 }
 
-export function LoginButton({ email, password }) {
+export function RegisterButton({ email, password }) {
     return (
         /**
         * @augments type enables Form to handle Form submit when this is pressed
@@ -28,7 +28,7 @@ export function LoginButton({ email, password }) {
         * @augments disabled the disable state logic
         * */ 
         <Button type="submit" variant="light" disabled={!validateInput(email, password)}>
-            Login
+            Register
         </Button>
     );
 }

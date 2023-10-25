@@ -9,7 +9,7 @@ p {
     color: var(--normal);
 }
 
-.Login {
+.Register {
     text-align: center;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
         url("../../images/bird-tree.png");
@@ -18,12 +18,12 @@ p {
     background-color: var(--dark);
 }
 
-.Login-logo {
+.Register-logo {
     height: 40vmin;
     pointer-events: none;
 }
 
-.Login-header {
+.Register-header {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -31,11 +31,11 @@ p {
     justify-content: center;
 }
   
-.Login-msg {
+.Register-msg {
     margin-bottom: 5px;
 }
 
-.Register-btn {
+.Login-btn {
     margin-top: 5px;
     color: var(--normal);
 }
