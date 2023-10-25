@@ -3,22 +3,26 @@ import { FloatingLabel, Form, Button } from "react-bootstrap";
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 
-import { handleLogin, LoginButton } from "./loginButton";
+import { handleSubmit, LoginButton } from "./loginButton";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
 import { Link } from "react-router-dom";
 
 function Login() {
-  /**
-   * @var variable stores the variable specified 
-   * @function setVariable changes the value of the variable
-   */
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [loginMsg, setLoginMsg] = useState("");
 
-  const login = (event) => { handleLogin(event, email, password, setLoginMsg); event.preventDefault(); };
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const login = (event) => { handleSubmit(event, loginData, setLoginMsg); event.preventDefault(); };
   
   return (
     <div className="Login">
@@ -29,14 +33,14 @@ function Login() {
         <div className="Login-msg">{loginMsg}</div>
         <Form className="rounded p-3 p-sm-3" onSubmit={login}>
           <FloatingLabel label="Email address" className="mb-3">
-            <Form.Control autoFocus type="email" value={email} placeholder="Email address" onChange={(event) => setEmail(event.target.value)}/>
+            <Form.Control autoFocus name="email" type="email" value={loginData.email} placeholder="Email address" onChange={handleInputChange}/>
           </FloatingLabel>
 
           <FloatingLabel label="Password" className="mb-3">
-            <Form.Control type="password" value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
+            <Form.Control name="password" type="password" value={loginData.password} placeholder="Password" onChange={handleInputChange}/>
           </FloatingLabel>
           
-          <LoginButton email={email} password={password} />
+          <LoginButton loginData={loginData} />
         </Form>
 
         <p>or</p>

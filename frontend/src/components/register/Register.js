@@ -3,7 +3,7 @@ import { FloatingLabel, Form, Button } from "react-bootstrap";
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 
-import { handleRegister, RegisterButton } from "./registerButton";
+import { handleSubmit, RegisterButton } from "./registerButton";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Register.css';
@@ -12,13 +12,21 @@ import { Link, useNavigate } from "react-router-dom";
 function Register() {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [registerMsg, setRegisterMsg] = useState("");
 
-  const login = (event) => { handleRegister(event, email, password, setRegisterMsg); event.preventDefault(); };
+  const [registerData, setRegisterData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setRegisterData({ ...registerData, [name]: value });
+  };
+
+  const register = (event) => { handleSubmit(event, registerData, setRegisterMsg); event.preventDefault(); };
   
   return (
     <div className="Register">
@@ -27,26 +35,25 @@ function Register() {
           This is the Register page
         </p>
         <div className="Register-msg">{registerMsg}</div>
-        <Form className="rounded p-3 p-sm-3" onSubmit={login}>
+        <Form className="rounded p-3 p-sm-3" onSubmit={register}>
         <FloatingLabel label="First name" className="mb-3">
-            <Form.Control autoFocus type="name" value={firstName} placeholder="First name" onChange={(event) => setFirstName(event.target.value)}/>
+            <Form.Control autoFocus name="firstName" type="text" value={registerData.firstName} placeholder="First name" onChange={handleInputChange}/>
           </FloatingLabel>
 
           <FloatingLabel label="Last name" className="mb-3">
-            <Form.Control type="name" value={lastname} placeholder="Last name" onChange={(event) => setLastName(event.target.value)}/>
+            <Form.Control name="lastName" type="text" value={registerData.lastName} placeholder="Last name" onChange={handleInputChange}/>
           </FloatingLabel>
 
           <FloatingLabel label="Email address" className="mb-3">
-            <Form.Control autoFocus type="email" value={email} placeholder="Email address" onChange={(event) => setEmail(event.target.value)}/>
+            <Form.Control name="email" type="email" value={registerData.email} placeholder="Email address" onChange={handleInputChange}/>
           </FloatingLabel>
 
           <FloatingLabel label="Password" className="mb-3">
-            <Form.Control type="password" value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
+            <Form.Control name="password" type="password" value={registerData.password} placeholder="Password" onChange={handleInputChange}/>
           </FloatingLabel>
           
-          <RegisterButton email={email} password={password} />
+          <RegisterButton registerData={registerData} />
         </Form>
-
         <p>or</p>
         <GoogleLogin
           text="signup_with"
