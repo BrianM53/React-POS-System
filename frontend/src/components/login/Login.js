@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import { GoogleLogin } from '@react-oauth/google';
-import { Link } from "react-router-dom";
 
 import { handleSubmit, LoginButton } from "./loginButton";
+import GoogleLoginButton from "./googleLoginButton";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
@@ -40,20 +39,7 @@ function Login() {
         </Form>
 
         <p>or</p>
-        <GoogleLogin
-          text="signin_with"
-          onSuccess={credentialResponse => {
-            console.log(credentialResponse);
-          }}
-          onError={() => {
-            console.log('Login Failed');
-          }}
-        />
-
-        <div className="Register-btn">
-          Don't have an account?
-          <Link to="/register" className="Register-link">Register</Link>
-        </div>
+        <GoogleLoginButton />
       </header>
     </div>
   );

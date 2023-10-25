@@ -34,14 +34,3 @@ p {
 .Login-msg {
     margin-bottom: calc(1vmin);
 }
-
-.Register-btn {
-    margin-top: 5px;
-    color: var(--normal);
-}
-
-.Register-link {
-    margin-left: calc(1vmin);
-    font-weight: 600;
-    color: var(--bright);
-}

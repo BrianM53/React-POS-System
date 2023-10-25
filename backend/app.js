@@ -17,13 +17,9 @@ app.set('view engine', 'jade');
 // enable communication between different domains
 var corsOptions = {
   origin: 'http://localhost:3000',
-  methods: 'GET,PUT,POST,DELETE',
+  methods: 'GET,POST',
 };
 app.use(cors(corsOptions));
-
-// set up api routing 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -31,10 +27,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// set up api routing 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -45,6 +46,24 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// get credential response of Google sign in success
+// app.post('/users', (req, res) => {
+//   const credentialResponse = req.body;
+
+//   // Now you can use the credentialResponse as needed in your backend
+//   // For example, you can save it to a database, perform user authentication, etc.
+
+//   console.log('Received credentialResponse in the backend:', credentialResponse);
+//   res.send('Credential received successfully');
+// });
+
+app.post('/send-message', (req, res) => {
+  const message = req.body.message;
+  console.log('Received message from the frontend:', message);
+  // You can now process the message or perform any other actions you need.
+  res.send('Message received successfully');
 });
 
 module.exports = app;
