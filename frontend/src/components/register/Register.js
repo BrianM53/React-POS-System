@@ -31,9 +31,6 @@ function Register() {
   return (
     <div className="Register">
       <header className="Register-header">
-        <p>
-          This is the Register page
-        </p>
         <div className="Register-msg">{registerMsg}</div>
         <Form className="rounded p-3 p-sm-3" onSubmit={register}>
         <FloatingLabel label="First name" className="mb-3">
@@ -67,7 +64,7 @@ function Register() {
 
         <div className="Login-btn">
           Already have an account?
-          <Link to='/login' className="link">Login</Link>
+          <Link to='/login' className="Login-link">Login</Link>
         </div>
       </header>
     </div>

@@ -32,7 +32,7 @@ p {
 }
   
 .Login-msg {
-    margin-bottom: 5px;
+    margin-bottom: calc(1vmin);
 }
 
 .Register-btn {
@@ -40,7 +40,7 @@ p {
     color: var(--normal);
 }
 
-.link {
+.Register-link {
     margin-left: calc(1vmin);
     font-weight: 600;
     color: var(--bright);

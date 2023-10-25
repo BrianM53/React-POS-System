@@ -27,9 +27,6 @@ function Login() {
   return (
     <div className="Login">
       <header className="Login-header">
-        <p>
-          This is the Login page
-        </p>
         <div className="Login-msg">{loginMsg}</div>
         <Form className="rounded p-3 p-sm-3" onSubmit={login}>
           <FloatingLabel label="Email address" className="mb-3">
@@ -56,7 +53,7 @@ function Login() {
 
         <div className="Register-btn">
           Don't have an account?
-          <Link to="/register" className="link">Register</Link>
+          <Link to="/register" className="Register-link">Register</Link>
         </div>
       </header>
     </div>
