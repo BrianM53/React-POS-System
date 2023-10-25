@@ -15,6 +15,7 @@ import Customer from './components/customer/Customer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
+const clientID = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
 // create a Routing component to allow
 // switching between multiple pages 
@@ -24,7 +25,7 @@ const Routing = () => {
       <Routes>
         <Route exact path="/" element= {<App />} />   
         <Route exact path="/login" element= {
-          <GoogleOAuthProvider clientId = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId={clientID} >
             <Login />
           </GoogleOAuthProvider>
           } 

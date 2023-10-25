@@ -1,11 +1,14 @@
+var jwtDecode = require('jwt-decode');
 var express = require('express');
 var router = express.Router();
-const connection = require('../connection')
-var { loginController, registerController } = require('../controllers/userController');
+const { OAuth2Client } = require('google-auth-library');
 
+const connection = require('../connection')
+
+const clientID = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
 // responds to localhost:3001/users/login request
-router.post('/login', async (req, res) => {
+router.post('/auth/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -35,6 +38,34 @@ router.post('/login', async (req, res) => {
   }
 });
 
+async function verifyToken(client_id, jwtToken) {
+  const client = new OAuth2Client(client_id);
+  
+  const ticket = await client.verifyIdToken({
+      idToken: jwtToken,
+      audience: client_id,
+  });
+  const payload = ticket.getPayload();
+  return payload.email;
+}
+
+router.post('/auth/google-login', async (req, res) => {
+  var jwtToken = Object.keys(req.body)[0];
+  try {
+    // wait for token verification to finish
+    const email = await verifyToken(clientID, jwtToken); 
+
+    if (email) {
+      console.log("Email:", email);
+      res.json({ success: true, email });
+    } else {
+      console.log("Verification failed");
+      res.status(401).json({ error: "Google token verification failed" });
+    }
+  } catch (error) {
+    console.error("Error verifying Google token:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 module.exports = router;
-
-
