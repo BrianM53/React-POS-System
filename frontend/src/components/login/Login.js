@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { FloatingLabel, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { FloatingLabel, Form } from "react-bootstrap";
 import { GoogleLogin } from '@react-oauth/google';
-import jwt_decode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 import { handleSubmit, LoginButton } from "./loginButton";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
-import { Link } from "react-router-dom";
 
 function Login() {
   const [loginMsg, setLoginMsg] = useState("");

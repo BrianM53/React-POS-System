@@ -4,20 +4,59 @@ function validateInput(loginData) {
     return loginData.email.length > 0 && loginData.password.length > 0;
 }
 
-function validateCredentials(loginData) {
+async function validateEmail(loginData) {
+    try {
+        const response = await fetch("http://localhost:3001/users/credentials");
+        if (!response.ok) {
+            throw new Error("Failed to fetch credentials");
+        }
+        
+        const jsonResponse = await response.json();
+        
+        const { employees, managers } = jsonResponse.data;
+
+        // Check if loginData.email is in the employees or managers array
+        const isEmployee = employees.find((employee) => employee.email === loginData.email);
+        const isManager = managers.find((manager) => manager.email === loginData.email);
+
+        return { isEmployee, isManager };
+    } catch (error) {
+        console.error("Error validating email:", error);
+        return { isEmployee: false, isManager: false };
+    }
 }
 
-export function handleSubmit(event, loginData, setLoginMsg) {
-    // use this to prevent the browser from doing anything
-    // e.g. save credential prompt, page reload, etc
+export async function handleSubmit(event, loginData, setLoginMsg) {
     event.preventDefault();
+
+    const { isEmployee, isManager } = await validateEmail(loginData);
+
+    if (isManager) {
+        const msg = (
+            <div style={{ color: "green" }}>
+              <p>Email: {loginData.email}</p>
+              <p>Password: {loginData.password}</p>
+              <p>manager</p>
+            </div>
+        );
     
-    if (validateCredentials(loginData)) {
+        setLoginMsg(msg);
+    } else if (isEmployee) {
+        const msg = (
+            <div style={{ color: "green" }}>
+              <p>Email: {loginData.email}</p>
+              <p>Password: {loginData.password}</p>
+              <p>employee</p>
+            </div>
+        );
+    
+        setLoginMsg(msg);
     } else {
         const msg = (
             <div style={{ color: "red" }}>
               <p>Email: {loginData.email}</p>
               <p>Password: {loginData.password}</p>
+              <p>Login Failed</p>
             </div>
         );
     
@@ -27,11 +66,6 @@ export function handleSubmit(event, loginData, setLoginMsg) {
 
 export function LoginButton({ loginData }) {
     return (
-        /**
-        * @augments type enables Form to handle Form submit when this is pressed
-        * @augments variant the color of the button
-        * @augments disabled the disable state logic
-        * */ 
         <Button type="submit" variant="light" disabled={!validateInput(loginData)}>
             Login
         </Button>

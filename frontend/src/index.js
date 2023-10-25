@@ -5,7 +5,6 @@ import reportWebVitals from './utility/reportWebVitals';
 // the page components
 import App from './App';
 import Login from './components/login/Login'
-import Register from './components/register/Register'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
 import Customer from './components/customer/Customer'
@@ -30,12 +29,6 @@ const Routing = () => {
           </GoogleOAuthProvider>
           } 
         />   
-        <Route exact path="/register" element= {
-          <GoogleOAuthProvider clientId = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com">
-            <Register />
-          </GoogleOAuthProvider>
-          } 
-        /> 
         <Route exact path="/manager" element={<Manager />} />   
         <Route exact path="/cashier" element={<Cashier />} />   
         <Route exact path="/customer" element={<Customer />} />   
