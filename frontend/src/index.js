@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './components/utility/reportWebVitals';
+import ErrorMessage from './components/utility/errorMessage';
 
 // controls user state
 import { UserProvider, useUser, getUserRole } from './components/utility/userControl'
@@ -26,7 +27,7 @@ function PrivateRoute({ element, requiredRole, fallbackPath }) {
   if (userRole === requiredRole) {
     return element;
   } else {
-    return <Navigate to={fallbackPath} />;
+    return <ErrorMessage userRole={userRole} requiredRole={requiredRole} />;
   }
 }
 
