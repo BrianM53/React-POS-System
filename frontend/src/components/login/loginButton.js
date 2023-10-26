@@ -11,33 +11,16 @@ const validateCredentials = async (loginData) => {
     return response.data;
   } catch (error) {
     console.error("Error validating credentials:", error);
-    return { isEmployee: false, isManager: false };
+    return { isCashier: false, isManager: false };
   }
 }
   
-export async function handleSubmit(event, loginData, setLoginMsg) {
+export async function handleSubmit(event, loginData) {
   event.preventDefault();
-  const { isEmployee, isManager } = await validateCredentials(loginData);
-    
-  if (isManager) {
-    setLoginMsg (
-      <div style={{ color: "green" }}>
-        Manager
-      </div>
-    );
-  } else if (isEmployee) {
-    setLoginMsg (
-      <div style={{ color: "green" }}>
-        Employee
-      </div>
-    );
-  } else {
-    setLoginMsg (
-      <div style={{ color: "red" }}>
-        Invalid email or password.
-      </div>
-    );
-  }
+
+  const { isCashier, isManager } = await validateCredentials(loginData);
+
+  return {  isCashier, isManager };
 } 
 
 export function LoginButton({ loginData }) {

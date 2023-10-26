@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import { handleSubmit, LoginButton } from "./loginButton";
 import GoogleLoginButton from "./googleLoginButton";
+import { useUser } from "../utility/userControl";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
 
 function Login() {
-  const [loginMsg, setLoginMsg] = useState("");
+  const navigate = useNavigate();
+  const { userRole, setUserRole } = useUser();
 
+  const [loginMsg, setLoginMsg] = useState("");
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
@@ -20,7 +24,25 @@ function Login() {
     setLoginData({ ...loginData, [name]: value });
   };
 
-  const login = (event) => { handleSubmit(event, loginData, setLoginMsg); event.preventDefault(); };
+  const login = async (event) => { 
+    const { isCashier, isManager } = await handleSubmit(event, loginData); 
+    console.log("login attempt with role " + userRole);
+    if (isManager) { 
+      setUserRole("manager");
+      navigate('/manager'); 
+    } 
+    else if (isCashier) { 
+      setUserRole("cashier");
+      navigate('/cashier'); 
+    } 
+    else {
+      setLoginMsg (
+        <div style={{ color: "red" }}>
+          Invalid email or password.
+        </div>
+      );
+    }
+  };
   
   return (
     <div className="Login">

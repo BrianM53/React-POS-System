@@ -1,4 +1,5 @@
 import './Manager.css';
+import LogoutButton from '../utility/logoutButton';
 
 function Manager() {
   return (
@@ -7,6 +8,7 @@ function Manager() {
         <p>
           This is the Manager page.
         </p>
+        <LogoutButton />
       </header>
     </div>
   );

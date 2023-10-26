@@ -25,11 +25,11 @@ router.post('/auth/login', async (req, res) => {
     console.log('closed connection');
 
     if (employeeCredentials.rowCount > 0) {
-      res.json({ isManager: false, isEmployee: true });
+      res.json({ isManager: false, isCashier: true });
     } else if (managerCredentials.rowCount > 0) {
-      res.json({ isManager: true, isEmployee: false });
+      res.json({ isManager: true, isCashier: false });
     } else {
-      res.json({ isEmployee: false, isManager: false });
+      res.json({ isCashier: false, isManager: false });
     }
 
   } catch (error) {
@@ -40,7 +40,7 @@ router.post('/auth/login', async (req, res) => {
 
 async function verifyToken(client_id, jwtToken) {
   const client = new OAuth2Client(client_id);
-  
+
   const ticket = await client.verifyIdToken({
       idToken: jwtToken,
       audience: client_id,
