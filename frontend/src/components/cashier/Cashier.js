@@ -1,3 +1,4 @@
+import LogoutButton from '../utility/logoutButton';
 import './Cashier.css';
 
 function Cashier() {
@@ -7,6 +8,7 @@ function Cashier() {
         <p>
           This is the Cashier page.
         </p>
+        <LogoutButton />
       </header>
     </div>
   );
