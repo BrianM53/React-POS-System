@@ -1,6 +1,6 @@
-var jwtDecode = require('jwt-decode');
 var express = require('express');
 var router = express.Router();
+var jwtDecode = require('jwt-decode');
 const { OAuth2Client } = require('google-auth-library');
 
 const connection = require('../connection')
