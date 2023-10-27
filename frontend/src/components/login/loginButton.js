@@ -7,7 +7,7 @@ function validateInput(loginData) {
 
 const validateCredentials = async (loginData) => {
   var backendURL = process.env.REACT_APP_BACKEND_URL;
-  // console.log(backendURL);
+  console.log(backendURL);
   // backendURL = 'http://localhost:3001'
   // console.log(backendURL);
   try {
