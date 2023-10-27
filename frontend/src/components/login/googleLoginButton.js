@@ -6,7 +6,7 @@ const GoogleLoginButton = () => {
   const handleSuccess = async (credential) => {
     try {
       console.log("sending credential response: " + credential);
-      await axios.post('http://localhost:3001/users/auth/google-login', credential);
+      await axios.post('${process.env.REACT_APP_BACKEND_URL}/users/auth/google-login', credential);
     } catch (error) {
       console.error("Error validating credentials:", error);
     }

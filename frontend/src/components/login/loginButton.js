@@ -7,7 +7,7 @@ function validateInput(loginData) {
 
 const validateCredentials = async (loginData) => {
   try {
-    const response = await axios.post('http://localhost:3001/users/auth/login', loginData);
+    const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/users/auth/login', loginData);
     return response.data;
   } catch (error) {
     console.error("Error validating credentials:", error);
