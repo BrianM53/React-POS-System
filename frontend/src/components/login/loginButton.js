@@ -6,8 +6,12 @@ function validateInput(loginData) {
 }
 
 const validateCredentials = async (loginData) => {
+  var backendURL = process.env.REACT_APP_BACKEND_URL;
+  // console.log(backendURL);
+  // backendURL = 'http://localhost:3001'
+  // console.log(backendURL);
   try {
-    const response = await axios.post('${process.env.REACT_APP_BACKEND_URL}/users/auth/login', loginData);
+    const response = await axios.post('${backendURL}/users/auth/login', loginData);
     return response.data;
   } catch (error) {
     console.error("Error validating credentials:", error);
