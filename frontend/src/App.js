@@ -7,6 +7,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#contactUs">Contact Us</a>
+        <a href="#aboutUs">About Us</a>
+      </div>
         <img src={logo} className="App-logo" alt="Sweet Paris logo" />
         <p>
           This is the landing (App) page. <br /> <strong>Please read:</strong>
