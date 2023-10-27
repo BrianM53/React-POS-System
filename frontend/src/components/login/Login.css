@@ -32,10 +32,5 @@ p {
 }
   
 .Login-msg {
-    margin-bottom: 5px;
-}
-
-.Sign-in-google {
-    margin-top: 5px;
-    color: var(--normal);
+    margin-bottom: calc(1vmin);
 }

@@ -2,14 +2,14 @@ var createError = require('http-errors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var express = require('express');
-var cors = require('cors');
+var app = express();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
-var app = express();
+var productsRouter = require('./routes/products');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,13 +18,9 @@ app.set('view engine', 'jade');
 // enable communication between different domains
 var corsOptions = {
   origin: 'http://localhost:3000',
-  methods: 'GET,PUT,POST,DELETE',
+  methods: 'GET,POST',
 };
 app.use(cors(corsOptions));
-
-// set up api routing 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,10 +28,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// set up api routing 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/products', productsRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -46,6 +48,24 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// get credential response of Google sign in success
+// app.post('/users', (req, res) => {
+//   const credentialResponse = req.body;
+
+//   // Now you can use the credentialResponse as needed in your backend
+//   // For example, you can save it to a database, perform user authentication, etc.
+
+//   console.log('Received credentialResponse in the backend:', credentialResponse);
+//   res.send('Credential received successfully');
+// });
+
+app.post('/send-message', (req, res) => {
+  const message = req.body.message;
+  console.log('Received message from the frontend:', message);
+  // You can now process the message or perform any other actions you need.
+  res.send('Message received successfully');
 });
 
 module.exports = app;

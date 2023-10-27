@@ -1,60 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
-import { handleLogin, LoginButton } from "./loginButton";
-import { GoogleLoginButton } from "./googleLoginButton";
+import { handleSubmit, LoginButton } from "./loginButton";
+import GoogleLoginButton from "./googleLoginButton";
+import { useUser } from "../utility/userControl";
 
 import "bootstrap/dist/css/bootstrap.css";
 import './Login.css';
 
 function Login() {
-  /**
-   * @var variable stores the variable specified 
-   * @function setVariable changes the value of the variable
-   */
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginMsg, setLoginMsg] = useState("");
+  const navigate = useNavigate();
+  const { userRole, setUserRole } = useUser();
 
-  const login = (event) => { handleLogin(event, email, password, setLoginMsg); event.preventDefault(); };
+  const [loginMsg, setLoginMsg] = useState("");
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const login = async (event) => { 
+    const { isCashier, isManager } = await handleSubmit(event, loginData); 
+    console.log("login attempt with role " + userRole);
+    if (isManager) { 
+      setUserRole("manager");
+      navigate('/manager'); 
+    } 
+    else if (isCashier) { 
+      setUserRole("cashier");
+      navigate('/cashier'); 
+    } 
+    else {
+      setLoginMsg (
+        <div style={{ color: "red" }}>
+          Invalid email or password.
+        </div>
+      );
+    }
+  };
   
   return (
     <div className="Login">
       <header className="Login-header">
-        <p>
-          This is the Login page
-        </p>
         <div className="Login-msg">{loginMsg}</div>
         <Form className="rounded p-3 p-sm-3" onSubmit={login}>
-          <Form.Group>
-            <FloatingLabel label="Email address" className="mb-3">
-              {/**
-               * @augments autofocus automatically focus on the email text field
-               * @augments value binds the text field to email variable
-               * @augments placeholder the gray text shown when input is empty
-               * @func onChange calls setEmail to change email value
-               * */ }
-              <Form.Control autoFocus type="email" value={email} placeholder="Email address" onChange={(event) => setEmail(event.target.value)}/>
-            </FloatingLabel>
-          </Form.Group>
+          <FloatingLabel label="Email address" className="mb-3">
+            <Form.Control autoFocus name="email" type="email" value={loginData.email} placeholder="Email address" onChange={handleInputChange}/>
+          </FloatingLabel>
 
-          <Form.Group size="lg" controlId="password">
-            <FloatingLabel label="Password" className="mb-3">
-              {/**
-               * @augments type enables bootstrap input controls for password fields
-               * @augments value binds the text field to password variable
-               * @augments placeholder the gray text shown when input is empty
-               * @func onChange calls setPassword to change password value
-               * */ }
-              <Form.Control type="password" value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
-            </FloatingLabel>
-          </Form.Group>
+          <FloatingLabel label="Password" className="mb-3">
+            <Form.Control name="password" type="password" value={loginData.password} placeholder="Password" onChange={handleInputChange}/>
+          </FloatingLabel>
           
-          <LoginButton email={email} password={password} />
+          <LoginButton loginData={loginData} />
         </Form>
 
-        <div className="Sign-in-google">Don't have an account?</div>
+        <p>or</p>
         <GoogleLoginButton />
       </header>
     </div>
