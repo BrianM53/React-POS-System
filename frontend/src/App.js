@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
-import sweetParisLocation from './sweetParisLocation.jpeg'; // Import your image
+import sweetParisLocation from './images/sweetParisLocation.jpeg'; // Import your image
 
 function App() {
   const navigate = useNavigate();
