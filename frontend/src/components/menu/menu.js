@@ -1,7 +1,7 @@
 import LogoutButton from '../utility/logoutButton';
 import './menu.css';
 
-function Cashier() {
+function Menu() {
   return (
     <div className="Cashier">
       <header className="Cashier-header">
@@ -14,4 +14,4 @@ function Cashier() {
   );
 }
 
-export default menu;
+export default Menu;
