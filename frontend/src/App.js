@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from './images/logo.png';
-
 import './App.css';
+import sweetParisLocation from './sweetParisLocation.jpeg'; // Import your image
 
 function App() {
   const navigate = useNavigate();
@@ -12,39 +11,55 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div class="topnav">
-          <a class="active" href="#home">
-            Home
-          </a>
-          <a href="#menu">Menu</a>
-          <a href="#contactUs">Contact Us</a>
-          <a href="#aboutUs">About Us</a>
+    <div className="menu-body">
+      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <nav className="menu-nav">
+        <a href="settings.html">
+          <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+        </a>
+        <a href="index.html">
+          <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
+        </a>
+        <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
+        <div className="menu-nav-container">
+          <a href="ordernow.html"><button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button></a>
+          <a href="menu.html"><button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button></a>
+          <a href="aboutus.html"><button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button></a>
+          <a href="contactus.html"><button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button></a>
         </div>
-        <img src={logo} className="App-logo" alt="Sweet Paris logo" />
-        <p>
-          This is the landing (App) page. <br /> <strong>Please read:</strong>
-          <br />
-          - <strong>Working environment</strong>: See pinned Google Drive link in Discord for recommended working environment.
-          <br />
-          - <strong>Frontend file naming conventions</strong>: Capitalize MainComponents, helper components shouldBeInCamelCase
-          <br />
-          - <strong>Code organization</strong>: Follow frontend & backend structure for adding new features!!!
-          <br />
-          - <strong>CSS organization</strong>: See App.css for CSS file organizing.
-          <br />
-          - <strong>Component organization</strong>: See components/login.js code and imports
-          <br />
-          - <strong>Backend communication</strong>: See "backend/connection.js" and "backend/routes/index.js" for creating and releasing connections.
-          <br />
-          - <strong>React-bootstrap example</strong>: See localhost:3000/login and "src/components/login/Login.js"
-        </p>
-        <button onClick={() => handleNavigation('/login')}>Go to Login Interface</button>
-        <button onClick={() => handleNavigation('/manager')}>Go to Manager Interface</button>
-        <button onClick={() => handleNavigation('/cashier')}>Go to Cashier Interface</button>
-        <button onClick={() => handleNavigation('/customer')}>Go to Customer Interface</button>
-      </header>
+        <button className="menu-nav-admin-login" onClick={() => handleNavigation('/admin')}>Admin Login</button>
+      </nav>
+      <main className="menu-main">
+        <section className="menu-main-section-1">
+          <h1 className="menu-main-section-1-h1">Let Them Eat Crepes!</h1>
+          <p className="menu-main-section-1-p">
+            Welcome to Sweet Paris' customer order interface! Feel free to browse the Menu by clicking the Menu tab, or check out the About Us and Contact Us pages if you're interested. Or, if you're ready to order, click the Order Now! button below to get started! Fresh crepes are just a few clicks away!
+            <br /> - <br />
+            Once you're in the menu page, go through each product category and click the plus button to add a product from that category to your cart. If you would like to remove them from your cart, you may click on the shopping cart icon from above to edit your order. Then, when you're finished, click on the shopping cart and click on the Pay Now! button and enter your details. Then, you're all set!
+          </p>
+        </section>
+        <aside className="menu-main-aside">
+          <img src={sweetParisLocation} alt="Sweet Crepes Logo" className="menu-main-aside-images" />
+        </aside>
+      </main>
+      <section className="menu-section-2">
+        <div className="menu-section-2-left">
+          <h3 className="menu-section-2-h3">Click Order Now to start your order!</h3>
+          <p className="menu-section-2-p">Once you sign in, you will have the ability to order any of the mouthwatering dishes! Click that button to the right or the sign-in button in the navigation bar above to build and submit your order!</p>
+        </div>
+        <div className="menu-section-2-right">
+          <button className="menu-nav-ordernow" onClick={() => handleNavigation('/ordernow')}>Click to Order Now!</button>
+        </div>
+      </section>
+      <footer className="menu-footer">
+        <div className="menu-footer-message">Get in touch with us! Follow us on:</div>
+        <div className="menu-footer-container">
+          <i className="fa-brands fa-square-instagram fa-2xl menu-footer-smlink" id="menu-footer-instagram"></i>
+          <i className="fa-brands fa-twitter fa-2xl menu-footer-smlink" id="menu-footer-twitter"></i>
+          <i className="fa-brands fa-facebook fa-2xl menu-footer-smlink" id="menu-footer-facebook"></i>
+          <i className="fa-brands fa-tiktok fa-2xl menu-footer-smlink" id="menu-footer-tiktok"></i>
+        </div>
+      </footer>
     </div>
   );
 }
