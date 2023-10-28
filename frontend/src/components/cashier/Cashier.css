@@ -1,20 +1,4 @@
 /* color controller */
-<<<<<<< HEAD:frontend/src/components/menu/Menu.css
-:root 
-{
-    --white: #fff;
-    --accent: #87CEEB;
-}
-
-* 
-{
-    /* border: 2px solid red; */
-}
-
-.menu-body
-{
-    background-color: var(--white);
-=======
 :root {
     --background: #000000;
     --bright: #BDE3DF;
@@ -32,7 +16,6 @@
 
 .Cashier-header {
     background-color: var(--background);
->>>>>>> 327a16b400d542bfa01f5321aa3d3fe56ca4558d:frontend/src/components/cashier/Cashier.css
     min-height: 100vh;
 }
 
