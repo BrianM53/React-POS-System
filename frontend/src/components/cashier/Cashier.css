@@ -1,0 +1,217 @@
+/* color controller */
+<<<<<<< HEAD:frontend/src/components/menu/Menu.css
+:root 
+{
+    --white: #fff;
+    --accent: #87CEEB;
+}
+
+* 
+{
+    /* border: 2px solid red; */
+}
+
+.menu-body
+{
+    background-color: var(--white);
+=======
+:root {
+    --background: #000000;
+    --bright: #BDE3DF;
+    --normal: #A7C8C5;
+  }
+  
+.Cashier {
+    text-align: center;
+}
+
+.Cashier-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.Cashier-header {
+    background-color: var(--background);
+>>>>>>> 327a16b400d542bfa01f5321aa3d3fe56ca4558d:frontend/src/components/cashier/Cashier.css
+    min-height: 100vh;
+}
+
+.menu-header 
+{
+    background-color: var(--white);
+    color: var(--accent);
+    min-height: 100px;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-nav
+{
+    background-color: var(--accent);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    gap: 2em;
+}
+
+.menu-nav-title
+{
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.menu-nav-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.menu-nav-container-button
+{
+    border-radius: 15px;
+    background-color: var(--white);
+    color: var(--accent);
+    font-size: 1.5rem;
+    border-color: var(--white);
+    border-width: 2px;
+}
+
+.menu-nav-signin
+{
+    border-radius: 15px;
+    background-color: var(--white);
+    color: var(--accent);
+    font-size: 1.5rem;
+    border-color: var(--white);
+    border-width: 2px;
+    width: 200px;
+}
+
+.menu-main-aside
+{
+    margin: 2em;
+}
+
+.menu-main-aside-images
+{
+    width: 425px;
+    height: 425px;
+}
+
+.menu-main
+{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
+
+}
+
+.menu-main-section-1
+{
+    background-color: var(--white);
+    color: var(--white);
+    margin-left: 10%;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.menu-main-section-1-h1
+{
+    background-color: var(--accent);
+    color: var(--white);
+    font-size: 4rem;
+    padding: .25em;
+}
+
+.menu-main-section-1-p
+{
+    background-color: var(--accent);
+    color: var(--white);
+    max-width: 700px;
+    font-size: 1.3rem;
+    padding: .5em;
+}
+
+.menu-section-2
+{
+    background-color: var(--accent);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1em;
+}
+
+.menu-section-2-left
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-section-2-right
+{
+
+}
+
+.menu-section-2-h3
+{
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.menu-section-2-p
+{
+    background-color: var(--accent);
+    color: var(--white);
+    width: 900px;
+    font-size: 1.2rem;
+}
+
+.menu-footer 
+{
+    background-color: var(--white);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.menu-footer-message
+{
+    font-size: 1.5rem;
+}
+
+.menu-footer-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}   
+
+.menu-footer-smlink
+{
+
+}
+
+.menu-footer-smlink-icon
+{
+    height: 50px;
+    width: 50px;
+}

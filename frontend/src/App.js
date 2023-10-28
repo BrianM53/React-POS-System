@@ -1,14 +1,9 @@
 import logo from './images/logo.png';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './App.css';
 
 function App() {
-  const navigate = useNavigate();
-  const goToLoginPage = () => { navigate('/login'); };
-  const goToMenuPage = () => { navigate('/menu'); };
-  const goToLexPage = () => { navigate('/lexPage'); };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -30,9 +25,10 @@ function App() {
           <br />
           - <strong>React-bootstrap example</strong>: See localhost:3000/login and "src/components/login/Login.js"
         </p>
-        <button onClick={goToLoginPage}>Go to Login Page</button>
-        <button onClick={goToMenuPage}>Go to Menu Page (temporary)</button>
-        <button onClick={goToLexPage}>Go to Lex Page (temporary)</button>
+        <Link to='/login'>Go to Login Interface</Link>
+        <Link to='/manager'>Go to Manager Interface</Link>
+        <Link to='/cashier'>Go to Cashier Interface</Link>
+        <Link to='/customer'>Go to Customer Interface</Link>
       </header>
     </div>
   );

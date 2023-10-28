@@ -1,16 +1,27 @@
 import React from "react";
 import { GoogleLogin } from '@react-oauth/google';
+import axios from 'axios'; // Import axios or your preferred HTTP library
 
-export function GoogleLoginButton() {
+const GoogleLoginButton = () => {
+  const handleSuccess = async (credential) => {
+    try {
+      console.log("sending credential response: " + credential);
+      await axios.post('http://localhost:3001/users/auth/google-login', credential);
+    } catch (error) {
+      console.error("Error validating credentials:", error);
+    }
+  };
+
   return (
     <GoogleLogin
-      text="signup_with"
-      onSuccess={credentialResponse => {
-        console.log(credentialResponse);
+      text="signin_with"
+      onSuccess={async (credentialResponse) => {
+        const result = await handleSuccess(credentialResponse.credential);
+        // You can use the 'result' here, such as updating the state or performing other actions.
       }}
-      onError={() => {
-        console.log('Login Failed');
-      }}
+      onError={() => { console.log("Login failed"); }}
     />
   );
 }
+
+export default GoogleLoginButton;
