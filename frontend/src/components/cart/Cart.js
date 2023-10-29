@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
+  
+  /*work on this js, ordernow.js should cover it I think but 
+  maybe not*/
+  
   return (
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
