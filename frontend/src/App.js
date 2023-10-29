@@ -22,10 +22,10 @@ function App() {
         </a>
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
         <div className="menu-nav-container">
-          <a href="ordernow.html"><button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button></a>
-          <a href="menu.html"><button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button></a>
-          <a href="aboutus.html"><button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button></a>
-          <a href="contactus.html"><button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button></a>
+          <button onClick={() => navigate('/menu')} className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
+          <button onClick={() => navigate('/menu')} className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
+          <button onClick={() => navigate('/about')} className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
+          <button onClick={() => navigate('/contact')} className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
         </div>
         <button className="menu-nav-admin-login" onClick={() => handleNavigation('/login')}>Admin Login</button>
       </nav>
