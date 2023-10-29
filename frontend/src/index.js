@@ -13,6 +13,7 @@ import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
 import Customer from './components/customer/Customer'
 import Menu from './components/menu/Menu'
+import AboutUs from './components/aboutUs/AboutUs'
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
@@ -68,6 +69,8 @@ function Routing() {
       <Route path="/customer" element={<Customer />} />
 
       <Route path="/menu" element={<Menu />} />
+
+      <Route path="/aboutus" element={<AboutUs />} />
 
 
     </Routes>
