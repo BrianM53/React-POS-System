@@ -17,6 +17,7 @@ import AboutUs from './components/aboutUs/AboutUs'
 import ContactUs from './components/contactUs/ContactUs'
 import Settings from './components/settings/Settings'
 import Cart from './components/cart/Cart'
+import OrderNowSettings from './components/orderNowSettings/OrderNowSettings'
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
@@ -80,6 +81,8 @@ function Routing() {
       <Route path="/settings" element={<Settings />} />
 
       <Route path="/cart" element={<Cart />} />
+
+      <Route path="/ordernowsettings" element={<OrderNowSettings />} />
 
     </Routes>
   );
