@@ -11,12 +11,12 @@ import App from './App';
 import Login from './components/login/Login'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
-import Customer from './components/customer/Customer'
 import Menu from './components/menu/Menu'
 import AboutUs from './components/aboutUs/AboutUs'
 import ContactUs from './components/contactUs/ContactUs'
 import Settings from './components/settings/Settings'
 import Cart from './components/cart/Cart'
+import OrderNow from './components/orderNow/OrderNow'
 import OrderNowSettings from './components/orderNowSettings/OrderNowSettings'
 
 // import { reducers } from './redux/reducers'
@@ -70,19 +70,13 @@ function Routing() {
           />
         }
       />
-      <Route path="/customer" element={<Customer />} />
-
       <Route path="/menu" element={<Menu />} />
-
       <Route path="/aboutus" element={<AboutUs />} />
-
       <Route path="/contactus" element={<ContactUs />} />
-
       <Route path="/settings" element={<Settings />} />
-
       <Route path="/cart" element={<Cart />} />
-
-      <Route path="/ordernowsettings" element={<OrderNowSettings />} />
+      <Route path="/order-now" element={<OrderNow />} />
+      <Route path="/order-now-settings" element={<OrderNowSettings />} />
 
     </Routes>
   );
