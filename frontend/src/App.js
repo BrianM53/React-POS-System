@@ -27,7 +27,7 @@ function App() {
           <a href="aboutus.html"><button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button></a>
           <a href="contactus.html"><button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button></a>
         </div>
-        <button className="menu-nav-admin-login" onClick={() => handleNavigation('/admin')}>Admin Login</button>
+        <button className="menu-nav-admin-login" onClick={() => handleNavigation('/login')}>Admin Login</button>
       </nav>
       <main className="menu-main">
         <section className="menu-main-section-1">
