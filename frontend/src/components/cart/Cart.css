@@ -1,0 +1,164 @@
+/* color controller */
+:root {
+    --white: white;
+    --accent: skyblue;
+    
+
+  }
+
+.menu-header 
+{
+    background-color: var(--white);
+    color: var(--accent);
+    min-height: 100px;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-nav
+{
+    background-color: var(--accent);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    gap: 5em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.order-now-nav-left
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.fa-arrow-left
+{
+    color: white;
+}
+
+#menu-nav-settings-icon
+{
+    color: white;
+}
+
+#menu-nav-home-icon 
+{
+    color: white;
+}
+
+.menu-nav-title
+{
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.menu-nav-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.menu-nav-container-button
+{
+    border-radius: 15px;
+    background-color: var(--white);
+    color: var(--accent);
+    font-size: 1.5rem;
+    border-color: var(--white);
+    border-width: 2px;
+}
+
+.menu-nav-admin-login
+{
+    border-radius: 15px;
+    background-color: var(--white);
+    color: var(--accent);
+    font-size: 1.5rem;
+    border-color: var(--white);
+    border-width: 2px;
+}
+
+/************/
+
+.main-cart-container
+{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    gap: 4em;
+}
+
+.main-cart-header
+{
+    font-size: 3.5rem;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: .25em;
+}
+
+.main-cart-order-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 1em;
+}
+
+.menu-main-settings-entry
+{
+    font-size: 2rem;
+}
+
+.main-cart-entry
+{
+    background-color: green;
+    color: red;
+}
+
+
+/************/
+
+
+
+.menu-footer 
+{
+    background-color: var(--accent);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: .75em;
+}
+
+.menu-footer-message
+{
+    font-size: 2rem;
+}
+
+.menu-footer-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}   
