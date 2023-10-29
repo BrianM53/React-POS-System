@@ -12,6 +12,7 @@ import Login from './components/login/Login'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
 import Customer from './components/customer/Customer'
+import Menu from './components/menu/Menu'
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
@@ -21,7 +22,8 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google'
 const clientID = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
-function PrivateRoute({ element, requiredRole, fallbackPath }) {
+function PrivateRoute({ element, requiredRole, fallbackPath }) 
+{
   const { userRole } = useUser();
   console.log("User role:", userRole);
   if (userRole === requiredRole) {
@@ -64,6 +66,10 @@ function Routing() {
         }
       />
       <Route path="/customer" element={<Customer />} />
+
+      <Route path="/menu" element={<Menu />} />
+
+
     </Routes>
   );
 }
