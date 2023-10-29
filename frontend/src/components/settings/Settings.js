@@ -1,0 +1,72 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Settings = () => {
+  return (
+    <div className="menu-body">
+      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <nav className="menu-nav">
+        <Link to="settings.html">
+          <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+        </Link>
+        <Link to="index.html">
+          <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
+        </Link>
+        <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
+        <div className="menu-nav-container">
+          <Link to="ordernow.html">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
+          </Link>
+          <Link to="menu.html">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
+          </Link>
+          <Link to="aboutus.html">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
+          </Link>
+          <Link to="contactus.html">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
+          </Link>
+        </div>
+        <button className="menu-nav-admin-login">Admin Login</button>
+      </nav>
+      <main className="menu-main-settings">
+        <div className="menu-main-settings-header">
+          Accessibility Settings
+        </div>
+        <div className="menu-main-settings-container">
+          <div className="menu-main-settings-entry" id="menu-main-settings-entry-1">
+            Display Contrast:
+            <input type="range" min="0" max="100" value="50" className="range-slider" id="display-contrast" />
+            <span id="display-contrast-value">50</span>
+          </div>
+          <div className="menu-main-settings-entry" id="menu-main-settings-entry-2">
+            Font Size:
+            <input type="range" min="10" max="50" value="16" className="range-slider" id="font-size" />
+            <span id="font-size-value">16</span>
+          </div>
+          <div className="menu-main-settings-entry" id="menu-main-settings-entry-3">
+            Mouse Sensitivity:
+            <input type="range" min="1" max="10" value="5" className="range-slider" id="mouse-sensitivity" />
+            <span id="mouse-sensitivity-value">5</span>
+          </div>
+          <div className="menu-main-settings-entry" id="menu-main-settings-entry-4">
+            Google Translate API
+          </div>
+        </div>
+      </main>
+      <footer className="menu-footer">
+        <div className="menu-footer-message">
+          Get in touch with us! Follow us on:
+        </div>
+        <div className="menu-footer-container">
+          <i className="fa-brands fa-square-instagram fa-2xl menu-footer-smlink" id="menu-footer-instagram"></i>
+          <i className="fa-brands fa-twitter fa-2xl menu-footer-smlink" id="menu-footer-twitter"></i>
+          <i className="fa-brands fa-facebook fa-2xl menu-footer-smlink" id="menu-footer-facebook"></i>
+          <i className="fa-brands fa-tiktok fa-2xl menu-footer-smlink" id="menu-footer-tiktok"></i>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Settings;
