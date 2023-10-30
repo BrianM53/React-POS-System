@@ -73,8 +73,7 @@
     border-width: 2px;
 }
 
-
-.menu-main-menu
+.menu-main-settings
 {
     background-color: var(--white);
     display: flex;
@@ -82,10 +81,10 @@
     justify-content: center;
     align-items: center;
     padding: 2em;
-    gap: 2em;
+    gap: 4em;
 }
 
-.menu-main-menu-header
+.menu-main-settings-header
 {
     font-size: 3.5rem;
     background-color: var(--accent);
@@ -93,144 +92,23 @@
     padding: .25em;
 }
 
-.menu-main-menu-categories 
-{
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--accent);
-    color: var(--white);
-    font-size: 1.5rem;
-    align-items: center;
-    padding: .5em 0;
-    line-height: 1.5em;
-    text-align: center;
-}
-
-.menu-main-menu-category 
-{
-    padding: 0 1em;
-    border-right: 5px solid var(--white); 
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.menu-main-menu-category:hover
-{
-    font-size: 2rem;
-}
-
-#menu-main-menu-water-and-beverages
-{
-    border-right: none; 
-}
-
-#menu-main-menu-sweet-crepes 
-{
-    border-left: none
-}
-
-.menu-body-entry-photo
-{
-    width: 125px;
-    height: 125px;
-    padding: 1em;
-}
-
-.menu-main-menu-body 
-{
-    height: 450px;
-    overflow-y: auto;
-}
-
-.menu-body-category-container
-{
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-
-.menu-body-entry-container
-{
-    display: flex;
-    flex-direction: row;
-    background-color: var(--accent);
-}
-
-.menu-body-entry-description-container
+.menu-main-settings-container
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 4em;
+    background-color: var(--accent);
+    color: var(--white);
     padding: 1em;
-    gap: .5em;
 }
 
-.menu-body-entry-title
+.menu-main-settings-entry
 {
     font-size: 2rem;
 }
 
-.menu-body-entry-description
-{
-    font-size: 1.5rem;
-}
-
-#menu-body-sweet-crepes
-{
-    display: flex;
-    
-}
-
-#menu-body-savory-crepes
-{
-    display: none;
-    
-}
-
-#menu-body-kids-crepes
-{
-    display: none;
-    
-}
-
-#menu-body-sweet-paris-waffles
-{
-    display: none;
-    
-}
-
-#menu-body-breakfast-crepes-and-waffles
-{
-    display: none;
-    
-}
-
-#menu-body-soups-salads-and-paninis
-{
-    display: none;
-    
-}
-
-#menu-body-le-bar
-{
-    display: none;
-    
-}
-
-#menu-body-hot-drinks-and-milkshakes
-{
-    display: none;
-    
-}
-
-#menu-body-beverages
-{
-    display: none;
-    
-}
 
 .menu-footer 
 {
@@ -256,3 +134,9 @@
     flex-direction: row;
     gap: 5em;
 }   
+
+.menu-footer-smlink-icon
+{
+    height: 50px;
+    width: 50px;
+}

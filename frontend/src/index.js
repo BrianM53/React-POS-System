@@ -11,10 +11,13 @@ import App from './App';
 import Login from './components/login/Login'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
-import Customer from './components/customer/Customer'
 import Menu from './components/menu/Menu'
-import About from './components/about/About'
-
+import AboutUs from './components/aboutUs/AboutUs'
+import ContactUs from './components/contactUs/ContactUs'
+import Settings from './components/settings/Settings'
+import Cart from './components/cart/Cart'
+import OrderNow from './components/orderNow/OrderNow'
+import OrderNowSettings from './components/orderNowSettings/OrderNowSettings'
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
@@ -24,7 +27,8 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google'
 const clientID = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
-function PrivateRoute({ element, requiredRole, fallbackPath }) {
+function PrivateRoute({ element, requiredRole, fallbackPath }) 
+{
   const { userRole } = useUser();
   console.log("User role:", userRole);
   if (userRole === requiredRole) {
@@ -66,9 +70,14 @@ function Routing() {
           />
         }
       />
-      <Route path="/customer" element={<Customer />} />
       <Route path="/menu" element={<Menu />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/contactus" element={<ContactUs />} />
+      <Route path="/settings" element={<Settings />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/order-now" element={<OrderNow />} />
+      <Route path="/order-now-settings" element={<OrderNowSettings />} />
+
     </Routes>
   );
 }
