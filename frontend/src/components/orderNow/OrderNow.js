@@ -225,7 +225,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-sweet-crepes" style={{ display: activeSection === 'sweetCrepes' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -242,7 +242,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -259,7 +259,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -276,7 +276,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -293,7 +293,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -310,7 +310,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -327,7 +327,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -344,7 +344,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -361,7 +361,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Crepes
@@ -382,7 +382,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-savory-crepes" style={{ display: activeSection === 'savoryCrepes' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -399,7 +399,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -416,7 +416,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -433,7 +433,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -450,7 +450,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -467,7 +467,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -484,7 +484,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -501,7 +501,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -518,7 +518,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -535,7 +535,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -552,7 +552,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Savory Crepes
@@ -573,7 +573,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-kids-crepes" style={{ display: activeSection === 'kidsCrepes' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Kids Crepes
@@ -590,7 +590,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Kids Crepes
@@ -607,7 +607,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Kids Crepes
@@ -624,7 +624,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Kids Crepes
@@ -641,7 +641,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Kids Crepes
@@ -658,7 +658,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Kids Crepes
@@ -679,7 +679,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-sweet-paris-waffles" style={{ display: activeSection === 'sweetParisWaffles' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Paris Waffles
@@ -696,7 +696,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Paris Waffles
@@ -713,7 +713,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Paris Waffles
@@ -730,7 +730,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Sweet Paris Waffles
@@ -751,7 +751,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-breakfast-crepes-and-eggs" style={{ display: activeSection === 'breakfastCrepesAndEggs' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -768,7 +768,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -785,7 +785,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -802,7 +802,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -819,7 +819,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -836,7 +836,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -853,7 +853,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -870,7 +870,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -887,7 +887,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Breakfast Crepes and Eggs
@@ -908,7 +908,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-soups-salads-and-paninis" style={{ display: activeSection === 'soupsSaladsAndPaninis' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Soups, Salads and Paninis
@@ -925,7 +925,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Soups, Salads and Paninis
@@ -942,7 +942,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Soups, Salads and Paninis
@@ -959,7 +959,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Soups, Salads and Paninis
@@ -976,7 +976,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Soups, Salads and Paninis
@@ -997,7 +997,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-le-bar" style={{ display: activeSection === 'leBar' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1014,7 +1014,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1031,7 +1031,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1048,7 +1048,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1065,7 +1065,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1082,7 +1082,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1099,7 +1099,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Le Bar
@@ -1120,7 +1120,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-hot-drinks-and-milkshakes" style={{ display: activeSection === 'hotDrinksAndMilkshakes' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1137,7 +1137,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1154,7 +1154,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1171,7 +1171,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1188,7 +1188,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1205,7 +1205,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1222,7 +1222,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1239,7 +1239,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1256,7 +1256,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1273,7 +1273,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1290,7 +1290,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1307,7 +1307,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Hot Drinks and Milkshakes
@@ -1328,7 +1328,7 @@ const OrderNow = () =>
                     <div className="menu-body-category-container" id="menu-body-beverages" style={{ display: activeSection === 'waterAndBeverages' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
@@ -1345,7 +1345,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
@@ -1362,7 +1362,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
@@ -1379,7 +1379,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
@@ -1396,7 +1396,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
@@ -1413,7 +1413,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
@@ -1430,7 +1430,7 @@ const OrderNow = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                        <img src="sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
                         <div className="menu-body-entry-description-container">
                             <div className="menu-body-entry-title">
                             Water and Beverages
