@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavOptions from '../utility/navOptions';
-import { useRef, useEffect } from 'react';
 import { useRef, useEffect, useState } from 'react';
 import './Menu.css'
 import { library } from '@fortawesome/fontawesome-svg-core';

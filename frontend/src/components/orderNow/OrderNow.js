@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavOptions from '../utility/navOptions';
-import { useEffect } from 'react';
 import { useEffect, useState, useRef } from 'react';
 import './OrderNow.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+// import '@fortawesome/fontawesome-svg-core/styles.css';
 library.add(fas,fab); 
 
 /* order now functionality still not working */
