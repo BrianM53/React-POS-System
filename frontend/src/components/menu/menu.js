@@ -152,7 +152,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-sweet-crepes">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                        <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -164,7 +164,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -176,7 +176,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -188,7 +188,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -200,7 +200,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -212,7 +212,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -224,7 +224,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -236,7 +236,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -248,7 +248,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Crepes
@@ -263,7 +263,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-savory-crepes">
 
                         <div className="menu-body-entry-container">
-                                <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                                
                                 <div className="menu-body-entry-description-container">
                                     <div className="menu-body-entry-title">
                                     Savory Crepes
@@ -275,7 +275,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -287,7 +287,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -299,7 +299,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -311,7 +311,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -323,7 +323,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -335,7 +335,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -347,7 +347,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -359,7 +359,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -371,7 +371,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -383,7 +383,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Savory Crepes
@@ -398,7 +398,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-kids-crepes">
                         
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Kids Crepes
@@ -410,7 +410,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Kids Crepes
@@ -422,7 +422,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Kids Crepes
@@ -434,7 +434,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Kids Crepes
@@ -446,7 +446,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Kids Crepes
@@ -458,7 +458,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Kids Crepes
@@ -473,7 +473,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-sweet-paris-waffles">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Paris Waffles
@@ -485,7 +485,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Paris Waffles
@@ -497,7 +497,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Paris Waffles
@@ -509,7 +509,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Sweet Paris Waffles
@@ -524,7 +524,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-breakfast-crepes-and-waffles">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -536,7 +536,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -548,7 +548,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -560,7 +560,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -572,7 +572,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -584,7 +584,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -596,7 +596,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -608,7 +608,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -620,7 +620,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Breakfast Crepeps & Eggs
@@ -636,7 +636,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-soups-salads-and-paninis">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Soups Salads And Paninis
@@ -648,7 +648,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Soups Salads And Paninis
@@ -660,7 +660,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Soups Salads And Paninis
@@ -672,7 +672,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Soups Salads And Paninis
@@ -684,7 +684,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Soups Salads And Paninis
@@ -701,7 +701,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-le-bar">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -713,7 +713,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -725,7 +725,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -737,7 +737,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -749,7 +749,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -761,7 +761,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -773,7 +773,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Le Bar
@@ -788,7 +788,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-hot-drinks-and-milkshakes">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -800,7 +800,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -812,7 +812,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -824,7 +824,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -836,7 +836,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -848,7 +848,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -860,7 +860,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -872,7 +872,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -884,7 +884,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -896,7 +896,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -908,7 +908,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -920,7 +920,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -932,7 +932,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -944,7 +944,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -956,7 +956,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -968,7 +968,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Hot Drinks and Milkshakes
@@ -984,7 +984,7 @@ const Menu = () =>
                     <div class="menu-body-category-container" id="menu-body-beverages">
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
@@ -996,7 +996,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
@@ -1008,7 +1008,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
@@ -1020,7 +1020,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
@@ -1032,7 +1032,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
@@ -1044,7 +1044,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
@@ -1056,7 +1056,7 @@ const Menu = () =>
                         </div>
 
                         <div className="menu-body-entry-container">
-                            <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            
                             <div className="menu-body-entry-description-container">
                                 <div className="menu-body-entry-title">
                                 Beverages
