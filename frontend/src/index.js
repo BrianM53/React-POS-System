@@ -70,13 +70,14 @@ function Routing() {
           />
         }
       />
+      <Route path="/app" element={<App />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/contactus" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/order-now" element={<OrderNow />} />
-      <Route path="/order-now-settings" element={<OrderNowSettings />} />
+      <Route path="/orderNow" element={<OrderNow />} />
+      <Route path="/orderNowSettings" element={<OrderNowSettings />} />
 
     </Routes>
   );

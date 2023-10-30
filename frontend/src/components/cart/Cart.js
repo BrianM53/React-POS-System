@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Cart.css';
 
 const Cart = () => {
   
@@ -11,10 +12,10 @@ const Cart = () => {
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <div className="order-now-nav-left">
-          <Link to="ordernow.html">
+          <Link to="/ordernow">
             <i className="fa-solid fa-arrow-left fa-2xl"></i>
           </Link>
-          <Link to="ordernowsettings.html">
+          <Link to="/ordernowsettings">
             <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
           </Link>
         </div>

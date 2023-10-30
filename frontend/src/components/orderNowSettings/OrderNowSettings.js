@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './OrderNowSettings.css';
 
 const OrderNowSettings = () => {
   useEffect(() => {
@@ -44,7 +45,7 @@ const OrderNowSettings = () => {
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
-        <Link to="ordernow.html">
+        <Link to="/ordernow">
           <i className="fa-solid fa-arrow-left fa-2xl" id="ordernowsettings-arrow"></i>
         </Link>
       </nav>
