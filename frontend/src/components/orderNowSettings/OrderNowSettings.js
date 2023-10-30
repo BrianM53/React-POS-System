@@ -1,5 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './OrderNowSettings.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+library.add(fas,fab); 
 
 const OrderNowSettings = () => {
   useEffect(() => {
@@ -44,8 +51,11 @@ const OrderNowSettings = () => {
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
-        <Link to="ordernow.html">
-          <i className="fa-solid fa-arrow-left fa-2xl" id="ordernowsettings-arrow"></i>
+        <Link to="/ordernow">
+          <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
+        </Link>
+        <Link to="/login">
+            <button className="menu-nav-admin-login">Admin Login</button>
         </Link>
       </nav>
       <main className="menu-main-settings">
@@ -73,17 +83,6 @@ const OrderNowSettings = () => {
           </div>
         </div>
       </main>
-      <footer className="menu-footer">
-        <div className="menu-footer-message">
-          Get in touch with us! Follow us on:
-        </div>
-        <div className="menu-footer-container">
-          <i className="fa-brands fa-square-instagram fa-2xl menu-footer-smlink" id="menu-footer-instagram"></i>
-          <i className="fa-brands fa-twitter fa-2xl menu-footer-smlink" id="menu-footer-twitter"></i>
-          <i className="fa-brands fa-facebook fa-2xl menu-footer-smlink" id="menu-footer-facebook"></i>
-          <i className="fa-brands fa-tiktok fa-2xl menu-footer-smlink" id="menu-footer-tiktok"></i>
-        </div>
-      </footer>
     </div>
   );
 };

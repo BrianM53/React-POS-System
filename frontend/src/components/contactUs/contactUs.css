@@ -92,6 +92,11 @@
     padding: .25em;
 }
 
+#menu-main-contactus-entry-1
+{
+    color: var(--white);
+}
+
 .menu-main-contactus-container
 {
     display: flex;
@@ -109,6 +114,7 @@
 {
     font-size: 2rem;
     text-align: center;
+    color: var(--white);
 }
 
 .menu-footer 

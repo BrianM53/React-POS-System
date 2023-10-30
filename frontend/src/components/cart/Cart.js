@@ -1,21 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Cart.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+library.add(fas,fab); 
 
 const Cart = () => {
-  
-  /*work on this js, ordernow.js should cover it I think but 
-  maybe not*/
   
   return (
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <div className="order-now-nav-left">
-          <Link to="ordernow.html">
-            <i className="fa-solid fa-arrow-left fa-2xl"></i>
+          <Link to="/ordernow">
+            <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
           </Link>
-          <Link to="ordernowsettings.html">
-            <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+          <Link to="/ordernowsettings">
+            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
           </Link>
         </div>
       </nav>
