@@ -1,92 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './Menu.css'
 
 const Menu = () => 
 {
-    // const sweetCrepes = useRef(null);
-    // const savoryCrepes = useRef(null);
-    // const kidsCrepes = useRef(null);
-    // const sweetParisWaffles = useRef(null);
-    // const breakfastCrepesAndWaffles = useRef(null);
-    // const soupsSaladsAndPaninis = useRef(null);
-    // const leBar = useRef(null);
-    // const hotDrinksAndMilkshakes = useRef(null);
-    // const beverages = useRef(null);
-  
-    // let activeSection = sweetCrepes.current;
-  
-    // useEffect(() => 
-    // {
-    //   const sweetCrepesCategory = sweetCrepes.current;
-    //   const savoryCrepesCategory = savoryCrepes.current;
-    //   const kidsCrepesCategory = kidsCrepes.current;
-    //   const sweetParisWafflesCategory = sweetParisWaffles.current;
-    //   const breakfastCrepesAndEggsCategory = breakfastCrepesAndWaffles.current;
-    //   const soupsSaladsAndPaninisCategory = soupsSaladsAndPaninis.current;
-    //   const leBarCategory = leBar.current;
-    //   const hotDrinksAndMilkshakesCategory = hotDrinksAndMilkshakes.current;
-    //   const waterAndBeveragesCategory = beverages.current;
-  
-    //   sweetCrepesCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     sweetCrepes.current.style.display = "flex";
-    //     activeSection = sweetCrepes.current;
-    //   });
-  
-    //   savoryCrepesCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     savoryCrepes.current.style.display = "flex";
-    //     activeSection = savoryCrepes.current;
-    //   });
-  
-    //   kidsCrepesCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     kidsCrepes.current.style.display = "flex";
-    //     activeSection = kidsCrepes.current;
-    //   });
-  
-    //   sweetParisWafflesCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     sweetParisWaffles.current.style.display = "flex";
-    //     activeSection = sweetParisWaffles.current;
-    //   });
-  
-    //   breakfastCrepesAndEggsCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     breakfastCrepesAndWaffles.current.style.display = "flex";
-    //     activeSection = breakfastCrepesAndWaffles.current;
-    //   });
-  
-    //   soupsSaladsAndPaninisCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     soupsSaladsAndPaninis.current.style.display = "flex";
-    //     activeSection = soupsSaladsAndPaninis.current;
-    //   });
-  
-    //   leBarCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     leBar.current.style.display = "flex";
-    //     activeSection = leBar.current;
-    //   });
-  
-    //   hotDrinksAndMilkshakesCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     hotDrinksAndMilkshakes.current.style.display = "flex";
-    //     activeSection = hotDrinksAndMilkshakes.current;
-    //   });
-  
-    //   waterAndBeveragesCategory.addEventListener("click", () => {
-    //     activeSection.style.display = "none";
-    //     beverages.current.style.display = "flex";
-    //     activeSection = beverages.current;
-    //   });
-    // }, []);
+    const [activeSection, setActiveSection] = useState('sweetCrepes');
+
+    const refs = 
+    {
+        sweetCrepes: useRef(null),
+        savoryCrepes: useRef(null),
+        kidsCrepes: useRef(null),
+        sweetParisWaffles: useRef(null),
+        breakfastCrepesAndEggs: useRef(null),
+        soupsSaladsAndPaninis: useRef(null),
+        leBar: useRef(null),
+        hotDrinksAndMilkshakes: useRef(null),
+        waterAndBeverages: useRef(null),
+    }
+
+    const handleCategoryClick = (section) => {
+        setActiveSection(section);
+    }
 
     return (
         <div className="menu-body">
+
             <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+
             <nav className="menu-nav">
             <Link to="/settings">
                 <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
@@ -112,45 +54,45 @@ const Menu = () =>
                     <button className="menu-nav-admin-login">Admin Login</button>
                 </Link>
             </div>
-            
             </nav>
-            <main class="menu-main-menu">
-                <div class="menu-main-menu-header">
+
+            <main className="menu-main-menu">
+                <div className="menu-main-menu-header">
                 Menu
                 </div>
-                <div class="menu-main-menu-categories">
-                    <div class="menu-main-menu-category" id="menu-main-menu-sweet-crepes">
+                <div className="menu-main-menu-categories">
+                    <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes"  onClick={() => handleCategoryClick('sweetCrepes')}>
                         Sweet Crepes
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-savory-crepes">
+                    <div className="menu-main-menu-category" id="menu-main-menu-savory-crepes"  onClick={() => handleCategoryClick('savoryCrepes')}    >
                         Savory Crepes
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-kids-crepes">
+                    <div className="menu-main-menu-category" id="menu-main-menu-kids-crepes"  onClick={() => handleCategoryClick('kidsCrepes')}       >
                         Kids Crepes
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles">
+                    <div className="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles" onClick={() => handleCategoryClick('sweetParisWaffles')}        >
                         Sweet Paris Waffles
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs">
+                    <div className="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs"  onClick={() => handleCategoryClick('breakfastCrepesAndEggs')}    >
                         Breakfast Crepes & Eggs
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis">
+                    <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('soupsSaladsAndPaninis')}      >
                         Soups, Salads & Paninis
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-le-bar">
+                    <div className="menu-main-menu-category" id="menu-main-menu-le-bar" onClick={() => handleCategoryClick('leBar')}    >
                         Le Bar
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes">
+                    <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('hotDrinksAndMilkshakes')}      >
                         Hot Drinks & Milkshakes
                     </div>
-                    <div class="menu-main-menu-category" id="menu-main-menu-water-and-beverages">
+                    <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('waterAndBeverages')}     >
                         Water & Beverages
                     </div>
                 </div>
 
-                <div class="menu-main-menu-body">
+                <div className="menu-main-menu-body">
 
-                    <div class="menu-body-category-container" id="menu-body-sweet-crepes">
+                    <div className="menu-body-category-container" id="menu-body-sweet-crepes" style={{ display: activeSection === 'sweetCrepes' ? 'flex' : 'none' }} >
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -261,7 +203,7 @@ const Menu = () =>
                         </div>
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-savory-crepes">
+                    <div className="menu-body-category-container" id="menu-body-savory-crepes" style={{ display: activeSection === 'savoryCrepes' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                                 <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -396,7 +338,7 @@ const Menu = () =>
                         </div>
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-kids-crepes">
+                    <div className="menu-body-category-container" id="menu-body-kids-crepes" style={{ display: activeSection === 'kidsCrepes' ? 'flex' : 'none' }}>
                         
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -471,7 +413,7 @@ const Menu = () =>
                         </div>
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-sweet-paris-waffles">
+                    <div className="menu-body-category-container" id="menu-body-sweet-paris-waffles" style={{ display: activeSection === 'sweetParisWaffles' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -522,7 +464,7 @@ const Menu = () =>
                         </div>
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-breakfast-crepes-and-waffles">
+                    <div className="menu-body-category-container" id="menu-body-breakfast-crepes-and-eggs" style={{ display: activeSection === 'breakfastCrepesAndEggs' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -634,7 +576,7 @@ const Menu = () =>
 
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-soups-salads-and-paninis">
+                    <div className="menu-body-category-container" id="menu-body-soups-salads-and-paninis" style={{ display: activeSection === 'soupsSaladsAndPaninis' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -699,7 +641,7 @@ const Menu = () =>
 
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-le-bar">
+                    <div className="menu-body-category-container" id="menu-body-le-bar" style={{ display: activeSection === 'leBar' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -786,7 +728,7 @@ const Menu = () =>
                         </div>
                     </div>
                     
-                    <div class="menu-body-category-container" id="menu-body-hot-drinks-and-milkshakes">
+                    <div className="menu-body-category-container" id="menu-body-hot-drinks-and-milkshakes" style={{ display: activeSection === 'hotDrinksAndMilkshakes' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
@@ -982,7 +924,7 @@ const Menu = () =>
 
                     </div>
 
-                    <div class="menu-body-category-container" id="menu-body-beverages">
+                    <div className="menu-body-category-container" id="menu-body-beverages" style={{ display: activeSection === 'waterAndBeverages' ? 'flex' : 'none' }}>
 
                         <div className="menu-body-entry-container">
                             <img src="\sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
