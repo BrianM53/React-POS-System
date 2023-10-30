@@ -24,8 +24,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    display: flex;
-    flex-direction: row;
     padding: 1em;
     gap: 5em;
     padding-left: 3em;
@@ -33,6 +31,13 @@
 }
 
 .order-now-nav-left
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.order-now-nav-right
 {
     display: flex;
     flex-direction: row;

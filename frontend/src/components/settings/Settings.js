@@ -1,56 +1,67 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+library.add(fas,fab); 
 
 const Settings = () => 
 {
+  const [displayContrast, setDisplayContrast] = useState(50);
+  const [fontSize, setFontSize] = useState(16);
+  const [mouseSensitivity, setMouseSensitivity] = useState(5);
+
   useEffect(() => {
-    const updateValue = (element, valueElement) => {
-      valueElement.textContent = element.value;
-      localStorage.setItem(element.id, element.value);
+    if (localStorage.getItem('display-contrast')) 
+    {
+      setDisplayContrast(Number(localStorage.getItem('display-contrast')));
+    }
+
+    if (localStorage.getItem('font-size')) 
+    {
+      setFontSize(Number(localStorage.getItem('font-size')));
+    }
+
+    if (localStorage.getItem('mouse-sensitivity')) 
+    {
+      setMouseSensitivity(Number(localStorage.getItem('mouse-sensitivity')));
+    }
+    }, []);
+    const updateValue = (id, value) => 
+    {
+      localStorage.setItem(id, value);
     };
 
-    const displayContrast = document.querySelector('#display-contrast');
-    const fontSize = document.querySelector('#font-size');
-    const mouseSensitivity = document.querySelector('#mouse-sensitivity');
+    const handleDisplayContrastChange = (e) => 
+    {
+      setDisplayContrast(Number(e.target.value));
+      updateValue('display-contrast', e.target.value);
+    };
 
-    displayContrast.addEventListener('input', () => {
-      updateValue(displayContrast, document.getElementById('display-contrast-value'));
-    });
+    const handleFontSizeChange = (e) => 
+    {
+      setFontSize(Number(e.target.value));
+      updateValue('font-size', e.target.value);
+    };
 
-    fontSize.addEventListener('input', () => {
-      updateValue(fontSize, document.getElementById('font-size-value'));
-    });
-
-    mouseSensitivity.addEventListener('input', () => {
-      updateValue(mouseSensitivity, document.getElementById('mouse-sensitivity-value'));
-    });
-
-    if (localStorage.getItem('display-contrast')) {
-      displayContrast.value = localStorage.getItem('display-contrast');
-      updateValue(displayContrast, document.getElementById('display-contrast-value'));
-    }
-
-    if (localStorage.getItem('font-size')) {
-      fontSize.value = localStorage.getItem('font-size');
-      updateValue(fontSize, document.getElementById('font-size-value'));
-    }
-
-    if (localStorage.getItem('mouse-sensitivity')) {
-      mouseSensitivity.value = localStorage.getItem('mouse-sensitivity');
-      updateValue(mouseSensitivity, document.getElementById('mouse-sensitivity-value'));
-    }
-  }, []);
+    const handleMouseSensitivityChange = (e) => 
+    {
+      setMouseSensitivity(Number(e.target.value));
+      updateValue('mouse-sensitivity', e.target.value);
+    };
   
   return (
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <Link to="/settings">
-          <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
         </Link>
-        <Link to="/index">
-          <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
+        <Link to="/app">
+            <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
         <div className="menu-nav-container">
@@ -67,7 +78,9 @@ const Settings = () =>
             <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
           </Link>
         </div>
-        <button className="menu-nav-admin-login">Admin Login</button>
+        <Link to="/login">
+          <button className="menu-nav-admin-login">Admin Login</button>
+        </Link>
       </nav>
       <main className="menu-main-settings">
         <div className="menu-main-settings-header">
@@ -99,10 +112,10 @@ const Settings = () =>
           Get in touch with us! Follow us on:
         </div>
         <div className="menu-footer-container">
-          <i className="fa-brands fa-square-instagram fa-2xl menu-footer-smlink" id="menu-footer-instagram"></i>
-          <i className="fa-brands fa-twitter fa-2xl menu-footer-smlink" id="menu-footer-twitter"></i>
-          <i className="fa-brands fa-facebook fa-2xl menu-footer-smlink" id="menu-footer-facebook"></i>
-          <i className="fa-brands fa-tiktok fa-2xl menu-footer-smlink" id="menu-footer-tiktok"></i>
+          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x" id="menu-footer-instagram" />
+          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x" id="menu-footer-twitter" />
+          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x" id="menu-footer-facebook" />
+          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x" id="menu-footer-tiktok" />
         </div>
       </footer>
     </div>

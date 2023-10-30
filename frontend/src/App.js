@@ -1,12 +1,24 @@
 import React from 'react';
 import NavOptions from './components/utility/navOptions';
 import './App.css'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+library.add(fas,fab); 
 
 const App = () => {
   return (
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
+        <Link to="/settings">
+          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+        </Link>
+        <Link to="/app">
+          <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
+        </Link>
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
         <NavOptions />
       </nav>
@@ -40,6 +52,10 @@ const App = () => {
           Get in touch with us! Follow us on:
         </div>
         <div className="menu-footer-container">
+          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x" id="menu-footer-instagram" />
+          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x" id="menu-footer-twitter" />
+          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x" id="menu-footer-facebook" />
+          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x" id="menu-footer-tiktok" />
         </div>
       </footer>
     </div>

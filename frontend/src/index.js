@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './components/utility/reportWebVitals';
 import ErrorMessage from './components/utility/errorMessage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/react-fontawesome';
 
 // controls user state
 import { UserProvider, useUser, getUserRole } from './components/utility/userControl'
@@ -72,8 +76,8 @@ function Routing() {
       />
       <Route path="/app" element={<App />} />
       <Route path="/menu" element={<Menu />} />
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/contact-us" element={<ContactUs />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/contactus" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/order-now" element={<OrderNow />} />

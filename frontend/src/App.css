@@ -120,8 +120,8 @@
 {
   background-color: var(--accent);
   color: var(--white);
-  min-width: 700px;
-  font-size: 1.5rem;
+  min-width: 800px;
+  font-size: 1rem;
   padding: .5em;
   text-align: center;
   
