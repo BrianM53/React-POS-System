@@ -85,8 +85,8 @@ const Menu = () =>
                     <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('hotDrinksAndMilkshakes')}      >
                         Hot Drinks & Milkshakes
                     </div>
-                    <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('waterAndBeverages')}     >
-                        Water & Beverages
+                    <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('waterAndBeverages')}>
+                    Water & Beverages
                     </div>
                 </div>
 
@@ -125,7 +125,7 @@ const Menu = () =>
                                 Sweet Crepes
                                 </div>
                                 <div className="menu-body-entry-description">
-                                Description description Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                Description description Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
                                 </div>
                             </div>
                         </div>
