@@ -184,6 +184,9 @@ const OrderNow = () =>
                     <Link to="/ordernowsettings">
                         <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
                     </Link>
+                    <Link to="/login">
+                        <button className="menu-nav-admin-login">Admin Login</button>
+                    </Link>
                 </div>
                 <div className="order-now-nav-right">
                     <Link to="/cart">

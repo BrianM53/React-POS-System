@@ -14,10 +14,10 @@ const ContactUs = () => {
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <Link to="/settings">
-          <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
         </Link>
         <Link to="/app">
-          <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
+            <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
         <div className="menu-nav-container">
@@ -44,12 +44,17 @@ const ContactUs = () => {
         </div>
         <div className="menu-main-contactus-container">
           <div className="menu-main-contactus-entry" id="menu-main-contactus-entry-1">
-            <p>Love the restaurant?</p>
-            <p>Feel free to shout us out on social media!</p>
-            <p>Instagram: @SweetParisCrepery</p>
-            <p>Twitter: @SweetParisCollegeStation</p>
-            <p>Facebook: SweetParisCrepery - College Station</p>
-            <p>TikTok: sweet_paris_college_station</p>
+            Love the restaurant?
+            <br />
+            Feel free to shout us out on social media!
+            <br />
+            Instagram: @SweetParisCrepery
+            <br />
+            Twitter: @SweetParisCollegeStation
+            <br />
+            Facebook: SweetParisCrepery - College Station
+            <br />
+            TikTok: sweet_paris_college_station
           </div>
         </div>
       </main>

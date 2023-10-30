@@ -15,12 +15,12 @@ const Cart = () => {
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <div className="order-now-nav-left">
-        <Link to="/ordernow">
-          <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
-        </Link>
-        <Link to="/ordernowsettings">
-          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
-        </Link>
+          <Link to="/ordernow">
+            <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
+          </Link>
+          <Link to="/ordernowsettings">
+            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+          </Link>
         </div>
       </nav>
       <main className="main-cart-container">
