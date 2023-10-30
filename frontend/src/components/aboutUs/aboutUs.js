@@ -1,53 +1,38 @@
 import './AboutUs.css';
+import { Link } from 'react-router-dom';
 
-function About() {
-    return (
-        <div className="about-section">
-            <h1>About Us Page</h1>
-            <p>Some text about who we are and what we do.</p>
-            <p>Resize the browser window to see that this page is responsive by the way.</p>
-            
-            <h2 style={{textAlign: 'center'}}>Our Team</h2>
-            <div className="row">
-                <div className="column">
-                    <div className="card">
-                        <img src="/images/defaultProfile.png" alt="John" style={{width: '100%'}} />
-                        <div className="container">
-                            <h2>John Doe</h2>
-                            <p className="title">Role</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p>john@example.com</p>
-                            <p><button className="button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div className="column">
-                    <div className="card">
-                        <img src="/images/defaultProfile.png" alt="John" style={{width: '100%'}} />
-                        <div className="container">
-                            <h2>John Doe</h2>
-                            <p className="title">Role</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p>john@example.com</p>
-                            <p><button className="button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div className="column">
-                    <div className="card">
-                        <img src="/images/defaultProfile.png" alt="John" style={{width: '100%'}} />
-                        <div className="container">
-                            <h2>John Doe</h2>
-                            <p className="title">Role</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p>john@example.com</p>
-                            <p><button className="button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+const AboutUs = () => {
+  return (
+    <div className="menu-body">
+      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <nav className="menu-nav">
+        <Link to="/settings">
+          <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+        </Link>
+        <Link to="/app">
+          <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
+        </Link>
+        <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
+        <div className="menu-nav-container">
+          <Link to="/ordernow">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
+          </Link>
+          <Link to="/menu">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
+          </Link>
+          <Link to="/aboutus">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
+          </Link>
+          <Link to="/contactus">
+            <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
+          </Link>
+          <Link to="/login">
+            <button className="menu-nav-admin-login">Admin Login</button>
+          </Link>
         </div>
-    );
+      </nav>
+    </div>
+  );
 }
 
-export default About;
+export default AboutUs;

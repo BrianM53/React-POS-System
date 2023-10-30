@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './App.css'
 
-const Menu = () => {
+const App = () => {
   return (
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
         <div className="menu-nav-container">
-          <Link to="/order-now"><button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button></Link>
+          <Link to="/ordernow"><button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button></Link>
           <Link to="/menu"><button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button></Link>
-          <Link to="/about-us"><button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button></Link>
-          <Link to="/contact-us"><button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button></Link>
+          <Link to="/aboutus"><button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button></Link>
+          <Link to="/contactus"><button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button></Link>
           <Link to="/login"><button className="menu-nav-admin-login">Admin Login</button></Link>
         </div>
       </nav>
@@ -40,7 +41,7 @@ const Menu = () => {
           <p className="menu-section-2-p">Once you sign in, you will have the ability to order any of the mouthwatering dishes! Click that button to the right or the sign-in button in the navigation bar above to build and submit your order!</p>
         </div>
         <div className="menu-section-2-right">
-          <Link to="/order-now"><button className="menu-nav-ordernow">Click to Order Now!</button></Link>
+          <Link to="/ordernow"><button className="menu-nav-ordernow">Click to Order Now!</button></Link>
         </div>
       </section>
       <footer className="menu-footer">
@@ -54,4 +55,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default App;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
+import './Menu.css'
 
 const Menu = () => 
 {
@@ -87,64 +88,64 @@ const Menu = () =>
         <div className="menu-body">
             <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
             <nav className="menu-nav">
-            <Link to="settings.html">
+            <Link to="/settings">
                 <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
             </Link>
-            <Link to="index.html">
+            <Link to="/app">
                 <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
             </Link>
             <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
             <div className="menu-nav-container">
-                <Link to="/order-now">
+                <Link to="/ordernow">
                     <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
                 </Link>
                 <Link to="/menu">
                     <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
                 </Link>
-                <Link to="/about-us">
+                <Link to="/aboutus">
                     <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
                 </Link>
-                <Link to="/contact-us">
+                <Link to="/contactus">
                     <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
                 </Link>
                 <Link to="/login">
                     <button className="menu-nav-admin-login">Admin Login</button>
                 </Link>
             </div>
-            {/* <button className="menu-nav-admin-login">Admin Login</button> */}
+            
             </nav>
-            <main className="menu-main-menu">
-
-                <div className="menu-main-menu-header">Menu</div>
-
-                <div className="menu-main-menu-categories">
-                    <div className="menu-main-menu-category">
-                    <Link to="sweet-crepes">Sweet Crepes</Link>
+            <main class="menu-main-menu">
+                <div class="menu-main-menu-header">
+                Menu
+                </div>
+                <div class="menu-main-menu-categories">
+                    <div class="menu-main-menu-category" id="menu-main-menu-sweet-crepes">
+                        Sweet Crepes
                     </div>
-                    <div className="menu-main-menu-category">
-                    <Link to="savory-crepes">Savory Crepes</Link>
+                    <div class="menu-main-menu-category" id="menu-main-menu-savory-crepes">
+                        Savory Crepes
                     </div>
-                    <Link to="kids-crepes" className="menu-main-menu-category">
+                    <div class="menu-main-menu-category" id="menu-main-menu-kids-crepes">
                         Kids Crepes
-                    </Link>
-                    <Link to="sweet-paris-waffles" className="menu-main-menu-category">
+                    </div>
+                    <div class="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles">
                         Sweet Paris Waffles
-                    </Link>
-                    <Link to="breakfast-crepes-and-eggs" className="menu-main-menu-category">
+                    </div>
+                    <div class="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs">
                         Breakfast Crepes & Eggs
-                    </Link>
-                    <Link to="soups-salads-and-paninis" className="menu-main-menu-category">
+                    </div>
+                    <div class="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis">
                         Soups, Salads & Paninis
-                    </Link>
-                    <Link to="le-bar" className="menu-main-menu-category">
+                    </div>
+                    <div class="menu-main-menu-category" id="menu-main-menu-le-bar">
                         Le Bar
-                    </Link>
-                    <Link to="hot-drinks-and-milkshakes" className="menu-main-menu-category">
+                    </div>
+                    <div class="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes">
                         Hot Drinks & Milkshakes
-                    </Link>
-                    <Link to="water-and-beverages" className="menu-main-menu-category">
+                    </div>
+                    <div class="menu-main-menu-category" id="menu-main-menu-water-and-beverages">
                         Water & Beverages
-                    </Link>
+                    </div>
                 </div>
 
                 <div class="menu-main-menu-body">
