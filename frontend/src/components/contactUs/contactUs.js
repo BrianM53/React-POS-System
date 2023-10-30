@@ -1,7 +1,7 @@
 import React from 'react';
 import NavOptions from '../utility/navOptions';
 import { Link } from 'react-router-dom';
-import './ContactUs.css';
+import './contactUs.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';

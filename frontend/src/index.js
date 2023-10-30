@@ -16,7 +16,7 @@ import Login from './components/login/Login'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
 import Menu from './components/menu/menu'
-import AboutUs from './components/about/About'
+import AboutUs from './components/about/aboutUs'
 import ContactUs from './components/contactUs/contactUs'
 import Settings from './components/settings/Settings'
 import Cart from './components/cart/Cart'
@@ -76,8 +76,8 @@ function Routing() {
       />
       <Route path="/app" element={<App />} />
       <Route path="/menu" element={<Menu />} />
-      <Route path="/aboutus" element={<AboutUs />} />
-      <Route path="/contactus" element={<ContactUs />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/order-now" element={<OrderNow />} />
