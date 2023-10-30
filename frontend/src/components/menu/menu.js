@@ -113,7 +113,7 @@ const Menu = () =>
                                 Sweet Crepes
                                 </div>
                                 <div className="menu-body-entry-description">
-                                Description description Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                Description description Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
                                 </div>
                             </div>
                         </div>
