@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './App.css'
 
-const Menu = () => {
+const App = () => {
   return (
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
@@ -55,4 +55,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default App;
