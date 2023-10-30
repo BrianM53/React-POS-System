@@ -1,4 +1,5 @@
 import React from 'react';
+import NavOptions from '../utility/navOptions';
 import { Link } from 'react-router-dom';
 import './ContactUs.css';
 
@@ -14,21 +15,7 @@ const ContactUs = () => {
           <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
         </Link>
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
-        <div className="menu-nav-container">
-          <Link to="/ordernow">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
-          </Link>
-          <Link to="/menu">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
-          </Link>
-          <Link to="/aboutus">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
-          </Link>
-          <Link to="/contactus">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
-          </Link>
-        </div>
-        <button className="menu-nav-admin-login">Admin Login</button>
+        <NavOptions />
       </nav>
       <main className="menu-main-contactus">
         <div className="menu-main-contactus-header">

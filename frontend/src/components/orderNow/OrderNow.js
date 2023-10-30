@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavOptions from '../utility/navOptions';
 import { useEffect } from 'react';
 import './OrderNow.css';
 
@@ -159,6 +160,8 @@ const OrderNow = () =>
                         <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
                     </Link>
                 </div>
+                <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
+                <NavOptions />
                 <div className="order-now-nav-right">
                     <Link to="/cart">
                         <i className="fa-solid fa-cart-shopping fa-2xl" id="menu-nav-settings-icon"></i>

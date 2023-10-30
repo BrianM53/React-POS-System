@@ -76,8 +76,8 @@ function Routing() {
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/orderNow" element={<OrderNow />} />
-      <Route path="/orderNowSettings" element={<OrderNowSettings />} />
+      <Route path="/order-now" element={<OrderNow />} />
+      <Route path="/order-now-settings" element={<OrderNowSettings />} />
 
     </Routes>
   );
