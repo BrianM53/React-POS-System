@@ -1,5 +1,6 @@
 import './Manager.css';
 import LogoutButton from '../utility/logoutButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Manager() {
   return (

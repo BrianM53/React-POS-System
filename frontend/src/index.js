@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './components/utility/reportWebVitals';
 import ErrorMessage from './components/utility/errorMessage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/react-fontawesome';
 
 // controls user state
 import { UserProvider, useUser, getUserRole } from './components/utility/userControl'

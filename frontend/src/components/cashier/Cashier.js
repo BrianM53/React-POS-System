@@ -1,5 +1,6 @@
 import LogoutButton from '../utility/logoutButton';
 import './Cashier.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Cashier() {
   return (

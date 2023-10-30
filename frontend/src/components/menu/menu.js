@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import './Menu.css'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+library.add(fas,fab); 
 
 const Menu = () => 
 {
@@ -31,10 +37,10 @@ const Menu = () =>
 
             <nav className="menu-nav">
             <Link to="/settings">
-                <i className="fa-solid fa-gear fa-2xl" id="menu-nav-settings-icon"></i>
+                <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
             </Link>
             <Link to="/app">
-                <i className="fa-solid fa-home fa-2xl" id="menu-nav-home-icon"></i>
+                <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
             </Link>
             <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
             <div className="menu-nav-container">
@@ -50,10 +56,10 @@ const Menu = () =>
                 <Link to="/contactus">
                     <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
                 </Link>
-                <Link to="/login">
-                    <button className="menu-nav-admin-login">Admin Login</button>
-                </Link>
             </div>
+            <Link to="/login">
+                    <button className="menu-nav-admin-login">Admin Login</button>
+            </Link>
             </nav>
 
             <main className="menu-main-menu">
@@ -1020,10 +1026,10 @@ const Menu = () =>
                     Get in touch with us! Follow us on:
                 </div>
                 <div className="menu-footer-container">
-                    <i className="fa-brands fa-square-instagram fa-2xl menu-footer-smlink" id="menu-footer-instagram"></i>
-                    <i className="fa-brands fa-twitter fa-2xl menu-footer-smlink" id="menu-footer-twitter"></i>
-                    <i className="fa-brands fa-facebook fa-2xl menu-footer-smlink" id="menu-footer-facebook"></i>
-                    <i className="fa-brands fa-tiktok fa-2xl menu-footer-smlink" id="menu-footer-tiktok"></i>
+                    <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x" id="menu-footer-instagram" />
+                    <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x" id="menu-footer-twitter" />
+                    <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x" id="menu-footer-facebook" />
+                    <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x" id="menu-footer-tiktok" />
                 </div>
             </footer>
         </div>

@@ -39,6 +39,13 @@
     gap: 2em;
 }
 
+.order-now-nav-right
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
 .fa-arrow-left
 {
     color: white;
