@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import LogoutButton from '../utility/logoutButton'; // Import the LogoutButton component
 import './Cashier.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Cashier() {
   // State to track the products and their quantities
+  const BACKEND_URL =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
   const [products, setProducts] = useState([]);
+  const [orderedProducts, setOrderedProducts] = useState([]); // Track ordered products separately
   const [productName, setProductName] = useState('');
   const [quantity, setQuantity] = useState('');
 
@@ -14,38 +16,48 @@ function Cashier() {
 
   // Function to add a product to the order
   const addProduct = () => {
-    if (productName && quantity) {
-      const newProduct = { name: productName, quantity: quantity };
-      setProducts([...products, newProduct]);
-      setProductName('');
-      setQuantity('');
+    if (productName.trim() && quantity.trim()) {
+      fetch(`${BACKEND_URL}/products/${productName}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data && data.product_name) {
+            const newProduct = {
+              name: data.product_name,
+              quantity: parseInt(quantity),
+            };
+  
+            // Update the state based on the previous state
+            setOrderedProducts((prevOrderedProducts) => [...prevOrderedProducts, newProduct]);
+  
+            // Clear the input fields
+            setProductName('');
+            setQuantity('');
+          } else {
+            console.error(`Product '${productName}' not found in the database.`);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching product details:", error);
+        });
+    } else {
+      console.error("Please enter a valid product name and quantity.");
     }
   };
+  
+  
 
   // Function to submit the order to the database
   const submitOrder = () => {
     // Implement database submission logic here
-    // You'll typically make an API call to send the order data to your server
+    // You'll typically make an API call to send the orderedProducts data to your server
   };
 
-  // Function to create empty slots for the table
-  const createEmptySlots = (count) => {
-    const emptySlots = [];
-    for (let i = 0; i < count; i++) {
-      emptySlots.push(
-        <tr key={`empty-${i}`}>
-          <td className="empty-slot"></td>
-          <td className="empty-slot"></td>
-        </tr>
-      );
-    }
-    return emptySlots;
-  };
-
-  // Define the number of empty slots you want in the table
-  const emptySlotCount = 5; // Change this value as needed
-
-  const productRows = products.map((product, index) => (
+  const productRows = orderedProducts.map((product, index) => (
     <tr key={index}>
       <td>{product.name}</td>
       <td>{product.quantity}</td>
@@ -97,7 +109,6 @@ function Cashier() {
           </thead>
           <tbody>
             {productRows}
-            {createEmptySlots(emptySlotCount)}
           </tbody>
         </table>
 

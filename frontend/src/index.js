@@ -15,7 +15,7 @@ import App from './App';
 import Login from './components/login/Login'
 import Manager from './components/manager/Manager'
 import Cashier from './components/cashier/Cashier'
-import Menu from './components/menu/Menu'
+import Menu from './components/menu/menu'
 import AboutUs from './components/aboutUs/aboutUs'
 import ContactUs from './components/contactUs/contactUs'
 import Settings from './components/settings/Settings'
