@@ -5,33 +5,44 @@
     --normal: #A7C8C5;
   }
   
-.Manager {
-    text-align: center;
-}
-
-.Manager-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-.Manager-header {
+  .Manager {
+    display: flex;
     background-color: var(--background);
-    min-height: 100vh;
+  }
+  
+  .button-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-}
-
-/* Add styles for buttons */
-.button {
+    background-color: var(--bright);
+    padding: 20px;
+    border-right: 2px solid #000; /* Border on the right side */
+    min-width: 200px; /* Adjust the width as needed */
+    position: fixed; /* Fixed position for the button column */
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+  }
+  
+  .Manager-content {
+    flex: 1;
+    padding: 20px;
+    background-color: white; /* Change to your desired content background color */
+    overflow-y: scroll; /* Enable scrolling in the content area */
+  }
+  
+  .button {
     background-color: rgb(34, 164, 162);
     color: white;
+    margin-bottom: 10px; /* Add some spacing between buttons */
+    padding: 10px 20px; /* Increase button padding for better hover effect */
+    transition: transform 0.2s; /* Add a smooth hover effect */
+  
+    /* Grow slightly when hovered over */
+    &:hover {
+      transform: scale(1.05);
+    }
   }
-
-p {
+  
+  p {
     color: var(--normal);
-}
-  
-  
+  }
