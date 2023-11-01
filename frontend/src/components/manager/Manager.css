@@ -24,6 +24,12 @@
     font-size: calc(10px + 2vmin);
 }
 
+/* Add styles for buttons */
+.button {
+    background-color: rgb(34, 164, 162);
+    color: white;
+  }
+
 p {
     color: var(--normal);
 }
