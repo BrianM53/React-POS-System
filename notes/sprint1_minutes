@@ -1,0 +1,5 @@
+Deric: I am working on the the Login page. Currently I have access controls implemented so that only authorized users can access their specified pages for their role (customer, manager, employee (cashier)). I have also implemented Google sign-in that uses OAuth server to generate a JWT token and validate that in the backend.
+Lex: I have created a skeleton for our frontend including the menu, order page, contact, about, and settings. 
+Ore: I made the products class type so that we can easily communicate with the backend to get information such as product category and description. I used this to populate the menu board with our menu items.
+Brian: I am working on the cashier page. Currently, I have made a frontend skeleton with some backend communication.
+James: I have made a frontend skeleton for the manager interface.
