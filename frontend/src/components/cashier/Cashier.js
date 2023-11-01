@@ -14,10 +14,12 @@ function Cashier() {
   const [employeeID, setEmployeeID] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
 
+
   // Function to add a product to the order
   const addProduct = () => {
+    console.log(productName);
     if (productName.trim() && quantity.trim()) {
-      fetch(`${BACKEND_URL}/products/${productName}`)
+      fetch(`${BACKEND_URL}/products/name/${productName}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -25,14 +27,18 @@ function Cashier() {
           return response.json();
         })
         .then((data) => {
+          console.log(data);
           if (data && data.product_name) {
+            console.log("Received product data:", data);
             const newProduct = {
               name: data.product_name,
               quantity: parseInt(quantity),
             };
   
-            // Update the state based on the previous state
-            setOrderedProducts((prevOrderedProducts) => [...prevOrderedProducts, newProduct]);
+            // Log the state before and after the update
+            console.log("Before state update:", orderedProducts);
+            setOrderedProducts([...orderedProducts, newProduct]);
+            console.log("After state update:", orderedProducts);
   
             // Clear the input fields
             setProductName('');
@@ -48,6 +54,7 @@ function Cashier() {
       console.error("Please enter a valid product name and quantity.");
     }
   };
+  
   
   
 
