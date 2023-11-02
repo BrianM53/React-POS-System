@@ -1,6 +1,6 @@
 import './aboutUs.css';
 
-function About() {
+function AboutUs() {
     return (
         <><div className="about-section">
         <h1>About Us Page</h1>
@@ -78,4 +78,4 @@ function About() {
   );
 };
 
-export default About;
+export default AboutUs;
