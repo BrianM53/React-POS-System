@@ -17,7 +17,6 @@ function Cashier() {
 
   // Function to add a product to the order
   const addProduct = () => {
-    console.log(productName);
     if (productName.trim() && quantity.trim()) {
       fetch(`${BACKEND_URL}/products/name/${productName}`)
         .then((response) => {
@@ -27,18 +26,24 @@ function Cashier() {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           if (data && data.product_name) {
-            console.log("Received product data:", data);
-            const newProduct = {
-              name: data.product_name,
-              quantity: parseInt(quantity),
-            };
+            const existingProductIndex = orderedProducts.findIndex(
+              (product) => product.name === data.product_name
+            );
   
-            // Log the state before and after the update
-            console.log("Before state update:", orderedProducts);
-            setOrderedProducts([...orderedProducts, newProduct]);
-            console.log("After state update:", orderedProducts);
+            if (existingProductIndex !== -1) {
+              // If the product already exists, update its quantity
+              const updatedProducts = [...orderedProducts];
+              updatedProducts[existingProductIndex].quantity += parseInt(quantity);
+              setOrderedProducts(updatedProducts);
+            } else {
+              // If the product is not in the order, add a new row
+              const newProduct = {
+                name: data.product_name,
+                quantity: parseInt(quantity),
+              };
+              setOrderedProducts([...orderedProducts, newProduct]);
+            }
   
             // Clear the input fields
             setProductName('');
