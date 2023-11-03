@@ -16,19 +16,6 @@ const Menu = () => {
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
   const [products, setProducts] = useState([]);
 
-  // const refs =
-  // {
-  //     sweetCrepes: useRef(null),
-  //     savoryCrepes: useRef(null),
-  //     kidsCrepes: useRef(null),
-  //     sweetParisWaffles: useRef(null),
-  //     breakfastCrepesAndEggs: useRef(null),
-  //     soupsSaladsAndPaninis: useRef(null),
-  //     leBar: useRef(null),
-  //     hotDrinksAndMilkshakes: useRef(null),
-  //     waterAndBeverages: useRef(null),
-  // }
-
   useEffect(() => {
     if (activeSection) {
       fetch(`${BACKEND_URL}/products/${activeSection}`)
@@ -43,16 +30,30 @@ const Menu = () => {
   }, [activeSection]);
 
   const renderProducts = () => {
-    return products.map((product) => (
-      <div key={product.product_id} className="menu-body-entry-container">
-        <div className="menu-body-entry-description-container">
-          <div className="menu-body-entry-title">{product.product_name}</div>
-          <div className="menu-body-entry-description">
-            {product.product_description}
+    return products.map((product) => {
+      const imageName = product.product_name
+        .toLowerCase()
+        .replace(/\s+/g, "-") // Replace spaces with hyphens
+        .replace(/[,]/g, "") // Remove commas
+        .replace(/[&]/g, "and");
+
+      const imagePath = require(`../../images/${imageName}.jpg`);
+      return (
+        <div key={product.product_id} className="menu-body-entry-container">
+          <img
+            src={imagePath}
+            alt={product.product_name}
+            className="menu-body-entry-photo"
+          />
+          <div className="menu-body-entry-description-container">
+            <div className="menu-body-entry-title">{product.product_name}</div>
+            <div className="menu-body-entry-description">
+              {product.product_description}
+            </div>
           </div>
         </div>
-      </div>
-    ));
+      );
+    });
   };
 
   const handleCategoryClick = (section) => {
