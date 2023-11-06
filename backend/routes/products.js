@@ -18,6 +18,18 @@ router.get("/:category", (req, res) => {
   });
 });
 
+router.get("/name/:productName", (req, res) => {
+  const productName = req.params.productName;
+
+  Product.getByName(productName, (error, product) => {
+    if (error) {
+      res.status(500).json({ error: "Error fetching product by name" });
+    } else {
+      res.json(product);
+    }
+  });
+});
+
 router.get("/id/:productId", (req, res) => {
   const productId = req.params.productId;
   Product.getById(productId, (error, product) => {

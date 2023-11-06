@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavOptions from "../utility/navOptions";
 import { useRef, useEffect, useState } from "react";
-import "./Menu.css";
+import "./menu.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";

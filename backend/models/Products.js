@@ -87,6 +87,19 @@ class Product {
       }
     );
   }
+
+  static getByName(productName, callback) {
+    connection.query(
+      "SELECT * FROM products WHERE product_name = $1",
+      [productName],
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows[0]);
+      }
+    );
+  }  
 }
 
 module.exports = Product;
