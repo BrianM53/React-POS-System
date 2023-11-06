@@ -13,9 +13,9 @@ function generateReport(reportType) {
       // Generate Restock Report
       console.log('Generating Restock Report');
 
-    } else if (reportType == 'Sells Together') {
-      // Generate Sells Together Report
-      console.log('Generating Sells Together Report');
+    } else if (reportType == 'What Sells Together') {
+      // Generate What Sells Together Report
+      console.log('Generating What Sells Together Report');
 
     } else if (reportType == 'Usage Chart') {
       // Generate Usage Chart

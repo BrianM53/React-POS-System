@@ -5,11 +5,6 @@
   --normal: #A7C8C5;
 }
 
-.logout-placement {
-  margin-right: auto;
-  margin-bottom: auto;
-}
-
 .Manager {
   display: flex;
   flex-direction: column;
@@ -20,6 +15,10 @@
 }
 
 /* ================ BUTTON NAVIAGATION ================ */
+/* .button-nav {
+  background: red;
+} */
+
 .button-nav ul {
   list-style-type: none;
   display: flex;
@@ -28,7 +27,30 @@
 
 /* spacing between links */
 .button-nav ul li {
-  margin-right: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.button-nav a.active-report {
+  /* font: 20px Garamond, serif; */
+  font-size: larger;
+  text-decoration: none;
+  font-weight: 700;
+  color: #db0a0a;
+}
+
+.button-nav a.passive-report {
+  /* font: 20px Garamond, serif; */
+  font-size: larger;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout-btn ul {
+  list-style-type: none;
+  display: flex;
+  margin-top: 30px;
+  margin-right: 50px;
 }
 
 /* CONTENT CONTAINER */
@@ -36,7 +58,38 @@
   width: 1200px;
   height: 700px;
   background: var(--normal);
-  border: 1px solid var(--bright);
+  border: 5px solid var(--background);
 }
 
 /* ================== REPORT LABELS ============= */
+/* .report-label {
+  background: red;
+} */
+
+.active-label {
+  display: block;
+}
+
+.passive-label {
+  display: none;
+}
+
+.report-label ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+/* spacing between links */
+.report-label ul li {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.report-label a.label {
+  /* font: 20px Garamond, serif; */
+  font-size: larger;
+  text-decoration: none;
+  color: #fff;
+}

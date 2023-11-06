@@ -1,49 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import './Manager.css';
+
+import GenerateReport from './generateReport';
+import ReportButtons from './reportButtons';
+import ReportLabels from './reportLabels';
 import LogoutButton from '../utility/logoutButton';
-import generateReport from './generateReport';
+
 
 function Manager() {
-  // Replace this with the actual code to generate tables or charts
+  const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
+
+  useEffect(() => {
+    // Check if there's an active report in local storage and set it
+    localStorage.setItem('activeReport', activeReport);
+  }, [activeReport]);
+
+  function handleReport(e, reportType) {
+    e.preventDefault();
+
+    localStorage.setItem('activeReport', reportType);
+    setActiveReport(reportType);
+
+    GenerateReport('Sales Report');
+  }
 
   return (
     <div>
       <div className='Manager'>
-        <div className='report-labels'>
-
-        </div>
+        <ReportLabels activeReport={activeReport} />
         <div className="main-content">
-          <p>lol</p>
+          <p>HEY</p>
         </div>
-        <nav className='button-nav'>
-          <ul>
-            <li><a onClick={(e) => { e.preventDefault(); generateReport('Sales Report'); }}>Sales Report</a></li>
-            <li><a onClick={(e) => { e.preventDefault(); generateReport('Excess Report'); }}>Excess Report</a></li>
-            <li><a onClick={(e) => { e.preventDefault(); generateReport('Restock Report'); }}>Restock Report</a></li>
-            <li><a onClick={(e) => { e.preventDefault(); generateReport('Sells Together'); }}>Sells Together</a></li>
-            <li><a onClick={(e) => { e.preventDefault(); generateReport('Usage Chart'); }}>Usage Chart</a></li>
-            <li><a onClick={(e) => { e.preventDefault(); generateReport('Add Employee'); }}>Add Employee</a></li>
-          </ul>
-        </nav>
-        <nav className='button-nav'>
+        <ReportButtons activeReport={activeReport} handleReport={handleReport} />
+
+        <nav className='logout-btn'>
           <ul>
             <li><LogoutButton /></li>
           </ul>
         </nav>
+
       </div>
     </div>
   );
 }
 
 export default Manager;
-
-
-
-
-
-
-
-
-
-
-
