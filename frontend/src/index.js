@@ -1,38 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './components/utility/reportWebVitals';
-import ErrorMessage from './components/utility/errorMessage';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import '@fortawesome/free-solid-svg-icons';
-import '@fortawesome/react-fontawesome';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./components/utility/reportWebVitals";
+import ErrorMessage from "./components/utility/errorMessage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/react-fontawesome";
 
 // controls user state
-import { UserProvider, useUser, getUserRole } from './components/utility/userControl'
+import {
+  UserProvider,
+  useUser,
+  getUserRole,
+} from "./components/utility/userControl";
 
 // the page components
-import App from './App';
-import Login from './components/login/Login'
-import Manager from './components/manager/Manager'
-import Cashier from './components/cashier/Cashier'
-import Menu from './components/menu/menu'
-import AboutUs from './components/aboutUs/aboutUs'
-import ContactUs from './components/contactUs/contactUs'
-import Settings from './components/settings/Settings'
-import Cart from './components/cart/Cart'
-import OrderNow from './components/orderNow/OrderNow'
-import OrderNowSettings from './components/orderNowSettings/OrderNowSettings'
+import App from "./App";
+import Login from "./components/login/Login";
+import Manager from "./components/manager/Manager";
+import Cashier from "./components/cashier/Cashier";
+import Menu from "./components/menu/Menu";
+import AboutUs from "./components/aboutUs/aboutUs";
+import ContactUs from "./components/contactUs/contactUs";
+import Settings from "./components/settings/Settings";
+import Cart from "./components/cart/Cart";
+import OrderNow from "./components/orderNow/OrderNow";
+import OrderNowSettings from "./components/orderNowSettings/OrderNowSettings";
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
 // import thunk from "redux-thunk"
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
-import { GoogleOAuthProvider } from '@react-oauth/google'
-const clientID = "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+const clientID =
+  "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
-function PrivateRoute({ element, requiredRole, fallbackPath }) 
-{
+function PrivateRoute({ element, requiredRole, fallbackPath }) {
   const { userRole } = useUser();
   console.log("User role:", userRole);
   if (userRole === requiredRole) {
@@ -82,12 +86,11 @@ function Routing() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/order-now" element={<OrderNow />} />
       <Route path="/order-now-settings" element={<OrderNowSettings />} />
-
     </Routes>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 const { userRole } = getUserRole();
 root.render(
   <React.StrictMode>
