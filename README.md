@@ -15,6 +15,11 @@
 ---
 - client id: 646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com
 
+### Scrum
+---
+-10/23/2023 0805 Start of class 
+-10/25/2023 0805 Start of class 
+-10/27/2023 0805 Start of class 
 
 
 
