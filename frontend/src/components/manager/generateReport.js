@@ -4,43 +4,29 @@ function generateReport(reportType) {
     if (reportType == 'Sales Report') {
       // Generate Sales Report
       console.log('Generating Sales Report');
-      // Replace this with actual code to generate the Sales Report
-
 
     } else if (reportType == 'Excess Report') {
       // Generate Excess Report
       console.log('Generating Excess Report');
-      // Replace this with actual code to generate the Excess Report
-
 
     } else if (reportType == 'Restock Report') {
       // Generate Restock Report
       console.log('Generating Restock Report');
-      // Replace this with actual code to generate the Restock Report
-
 
     } else if (reportType == 'Sells Together') {
       // Generate Sells Together Report
       console.log('Generating Sells Together Report');
-      // Replace this with actual code to generate the Sells Together Report
-
 
     } else if (reportType == 'Usage Chart') {
       // Generate Usage Chart
       console.log('Generating Usage Chart');
-      // Replace this with actual code to generate the Usage Chart
-
 
     } else if (reportType == 'Add Employee') {
       // Add Employee (You may need a different function for this)
       console.log('Adding Employee');
-      // Replace this with actual code to add an employee
-
 
     } else {
       console.log('Unknown report type: ' + reportType);
-
-      
     }
   }
   

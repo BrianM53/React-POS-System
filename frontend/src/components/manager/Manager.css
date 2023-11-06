@@ -1,48 +1,42 @@
 /* color controller */
 :root {
-    --background: #000000;
-    --bright: #3da399;
-    --normal: #A7C8C5;
-  }
-  
-  .Manager {
-    display: flex;
-    background-color: var(--background);
-  }
-  
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bright);
-    padding: 20px;
-    border-right: 2px solid #000; /* Border on the right side */
-    min-width: 200px; /* Adjust the width as needed */
-    position: fixed; /* Fixed position for the button column */
-    top: 0;
-    bottom: 0;
-    overflow-y: scroll;
-  }
-  
-  .Manager-content {
-    flex: 1;
-    padding: 20px;
-    background-color: white; /* Change to your desired content background color */
-    overflow-y: scroll; /* Enable scrolling in the content area */
-  }
-  
-  .button {
-    background-color: rgb(34, 164, 162);
-    color: white;
-    margin-bottom: 10px; /* Add some spacing between buttons */
-    padding: 10px 20px; /* Increase button padding for better hover effect */
-    transition: transform 0.2s; /* Add a smooth hover effect */
-  
-    /* Grow slightly when hovered over */
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-  
-  p {
-    color: var(--normal);
-  }
+  --background: #000000;
+  --bright: #3da399;
+  --normal: #A7C8C5;
+}
+
+.logout-placement {
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.Manager {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bright);
+}
+
+/* ================ BUTTON NAVIAGATION ================ */
+.button-nav ul {
+  list-style-type: none;
+  display: flex;
+  margin-top: 30px;
+}
+
+/* spacing between links */
+.button-nav ul li {
+  margin-right: 20px;
+}
+
+/* CONTENT CONTAINER */
+.main-content {
+  width: 1200px;
+  height: 700px;
+  background: var(--normal);
+  border: 1px solid var(--bright);
+}
+
+/* ================== REPORT LABELS ============= */

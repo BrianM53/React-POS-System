@@ -7,24 +7,41 @@ function Manager() {
   // Replace this with the actual code to generate tables or charts
 
   return (
-    <div className="Manager">
-      <div className="button-container">
-        <button onClick={() => generateReport('Sales Report')}>Sales Report</button>
-        <button onClick={() => generateReport('Excess Report')}>Excess Report</button>
-        <button onClick={() => generateReport('Restock Report')}>Restock Report</button>
-        <button onClick={() => generateReport('Sells Together')}>Sells Together</button>
-        <button onClick={() => generateReport('Usage Chart')}>Usage Chart</button>
-        <button onClick={() => generateReport('Add Employee')}>Add Employee</button>
+    <div>
+      <div className='Manager'>
+        <div className='report-labels'>
+
+        </div>
+        <div className="main-content">
+          <p>lol</p>
+        </div>
+        <nav className='button-nav'>
+          <ul>
+            <li><a onClick={(e) => { e.preventDefault(); generateReport('Sales Report'); }}>Sales Report</a></li>
+            <li><a onClick={(e) => { e.preventDefault(); generateReport('Excess Report'); }}>Excess Report</a></li>
+            <li><a onClick={(e) => { e.preventDefault(); generateReport('Restock Report'); }}>Restock Report</a></li>
+            <li><a onClick={(e) => { e.preventDefault(); generateReport('Sells Together'); }}>Sells Together</a></li>
+            <li><a onClick={(e) => { e.preventDefault(); generateReport('Usage Chart'); }}>Usage Chart</a></li>
+            <li><a onClick={(e) => { e.preventDefault(); generateReport('Add Employee'); }}>Add Employee</a></li>
+          </ul>
+        </nav>
+        <nav className='button-nav'>
+          <ul>
+            <li><LogoutButton /></li>
+          </ul>
+        </nav>
       </div>
-      <div className="Manager-content">
-        {/* Your tables and charts go here */}
-      </div>
-      <LogoutButton />
     </div>
   );
 }
 
 export default Manager;
+
+
+
+
+
+
 
 
 
