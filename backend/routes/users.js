@@ -45,18 +45,20 @@ async function verifyToken(client_id, jwtToken) {
       idToken: jwtToken,
       audience: client_id,
   });
+
+  console.log("Token has been validated.");
   const payload = ticket.getPayload();
-  return payload.email;
+  return payload;
 }
 
 router.post('/auth/google-login', async (req, res) => {
   var jwtToken = Object.keys(req.body)[0];
   try {
     // wait for token verification to finish
-    const email = await verifyToken(clientID, jwtToken); 
-
-    if (email) {
-      console.log("Email:", email);
+    const payload = await verifyToken(clientID, jwtToken); 
+    if (payload) {
+      console.log("Name:", payload.name);
+      console.log("Email:", payload.email);
       res.json({ success: true, email });
     } else {
       console.log("Verification failed");
