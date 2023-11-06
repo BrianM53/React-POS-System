@@ -3,7 +3,7 @@ import React from 'react';
 function ReportButtons({ activeReport, handleReport }) {
   return (
     <div>
-        <nav className='button-nav'>
+        <nav className='report-btn'>
           <ul>
             <li><a href='' 
               className={activeReport === "Sales Report" ? 'active-report' : 'passive-report'} 

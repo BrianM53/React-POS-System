@@ -8,30 +8,29 @@
 .Manager {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: var(--bright);
 }
 
 /* ================ BUTTON NAVIAGATION ================ */
-/* .button-nav {
+/* .report-btn {
   background: red;
 } */
 
-.button-nav ul {
+.report-btn ul {
   list-style-type: none;
   display: flex;
   margin-top: 30px;
 }
 
 /* spacing between links */
-.button-nav ul li {
+.report-btn ul li {
   margin-left: 15px;
   margin-right: 15px;
 }
 
-.button-nav a.active-report {
+.report-btn a.active-report {
   /* font: 20px Garamond, serif; */
   font-size: larger;
   text-decoration: none;
@@ -39,18 +38,26 @@
   color: #db0a0a;
 }
 
-.button-nav a.passive-report {
+.report-btn a.passive-report {
   /* font: 20px Garamond, serif; */
   font-size: larger;
   text-decoration: none;
   color: #fff;
 }
 
-.logout-btn ul {
+.utility-btn {
   list-style-type: none;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* why does this not work? */
   margin-top: 30px;
   margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+/* spacing between btns */
+.utility-btn > * {
+  margin-bottom: 10px;
 }
 
 /* CONTENT CONTAINER */
