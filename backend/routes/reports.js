@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const Report = require("../models/Report");
 
-router.get("/", (req, res) => {
+router.get("/", (res) => {
     res.send("reports route working");
 });
 
