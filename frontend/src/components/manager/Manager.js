@@ -46,8 +46,8 @@ function Manager() {
         <ReportButtons activeReport={activeReport} handleReport={handleReport} />
 
         <div className='date-btn'>
-          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm'/>
+          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm' />
         </div>
           
         <div className='utility-btn'>
