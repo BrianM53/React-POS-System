@@ -60,6 +60,13 @@
   margin-bottom: 10px;
 }
 
+.date-btn {
+  list-style-type: none;
+  display: flex;
+  margin-top: 30px;
+  margin-right: 50px;
+}
+
 /* CONTENT CONTAINER */
 .main-content {
   width: 1200px;

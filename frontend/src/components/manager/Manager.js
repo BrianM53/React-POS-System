@@ -15,6 +15,8 @@ function Manager() {
   const navigate = useNavigate();
 
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
   const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
 
   useEffect(() => {
@@ -28,7 +30,9 @@ function Manager() {
     localStorage.setItem('activeReport', reportType);
     setActiveReport(reportType);
 
-    generateReport(activeReport);
+    console.log(reportType, "\nStart date:", startDate, "\nEnd date:", endDate);
+
+    generateReport(reportType);
   }
 
   return (
@@ -41,8 +45,12 @@ function Manager() {
 
         <ReportButtons activeReport={activeReport} handleReport={handleReport} />
 
-        <div className='utility-btn'>
+        <div className='date-btn'>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+        </div>
+          
+        <div className='utility-btn'>
           <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
           <LogoutButton />
         </div>
