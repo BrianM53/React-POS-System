@@ -39,14 +39,14 @@ function ReportLabels({ activeReport }) {
           </nav>
         </div>
 
-        <div className={activeReport === "What Sells Together" ? 'active-label' : 'passive-label'}>
+        <div className={activeReport === "Sells Together" ? 'active-label' : 'passive-label'}>
           <nav className='report-label'>
             <ul>
-              <li><a className='label'>WST 1</a></li>
-              <li><a className='label'>WST 2</a></li>
-              <li><a className='label'>WST 3</a></li>
-              <li><a className='label'>WST 4</a></li>
-              <li><a className='label'>WST 5</a></li>
+              <li><a className='label'>ST 1</a></li>
+              <li><a className='label'>ST 2</a></li>
+              <li><a className='label'>ST 3</a></li>
+              <li><a className='label'>ST 4</a></li>
+              <li><a className='label'>ST 5</a></li>
             </ul>
           </nav>
         </div>

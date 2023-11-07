@@ -37,7 +37,7 @@ function Manager() {
     localStorage.setItem('activeReport', reportType);
     setActiveReport(reportType);
 
-    console.log(reportType, "\nStart date:", generateTimestamp(startDate));
+    // console.log(reportType, "\nStart date:", generateTimestamp(startDate));
 
 
     // testing for only sales report,
@@ -45,13 +45,16 @@ function Manager() {
     // modify BACKEND_URL + '/reports/...' to take the actual report type
     // instead of just sales-report using the reportType var
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+
+    let reportRoute = reportType.replace(" ", "-").toLowerCase();
+    
     axios
-      .post(BACKEND_URL + '/reports/sales-report', {
+      .post(BACKEND_URL + '/reports/' + reportRoute, {
         startDate: generateTimestamp(startDate),
         endDate: generateTimestamp(endDate),
       })
       .then(response => {
-        console.log("Sales report data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
+        console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
         // generateReport(response.data);
       })
       .catch(error => {
@@ -75,7 +78,7 @@ function Manager() {
 
         <div className='date-btn'>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm'/>
-          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect />
+          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm'/>
         </div>
           
         <div className='utility-btn'>
