@@ -58,6 +58,8 @@ function Manager() {
         console.error('axios error:', error);
       });
 
+      
+
     generateReport(reportType);
   }
 
