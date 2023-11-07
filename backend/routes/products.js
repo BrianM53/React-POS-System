@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:category", (req, res) => {
-  const category = req.params.category;
+  const category = req.params.category; 
 
   Product.getByCategory(category, (error, products) => {
     if (error) {

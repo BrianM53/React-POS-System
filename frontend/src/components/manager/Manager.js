@@ -24,13 +24,19 @@ function Manager() {
     localStorage.setItem('activeReport', activeReport);
   }, [activeReport]);
 
+  function generateTimestamp(date) {
+    const date_val = date.toISOString().slice(0, 10).replace("T", " ");
+    const time_val = date.toLocaleTimeString([], { hour12: false }).slice(0, 8);
+    return date_val + " " + time_val;
+  }
+
   function handleReport(e, reportType) {
     e.preventDefault();
 
     localStorage.setItem('activeReport', reportType);
     setActiveReport(reportType);
 
-    console.log(reportType, "\nStart date:", startDate, "\nEnd date:", endDate);
+    console.log(reportType, "\nStart date:", generateTimestamp(startDate));
 
     generateReport(reportType);
   }
@@ -47,7 +53,7 @@ function Manager() {
 
         <div className='date-btn'>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm'/>
-          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm' />
+          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect />
         </div>
           
         <div className='utility-btn'>
