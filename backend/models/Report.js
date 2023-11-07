@@ -16,7 +16,7 @@ class Report {
                 "INNER JOIN orders " +
                 "ON order_details.order_id = orders.order_id " +
                 "WHERE orders.date_time BETWEEN $1::timestamp AND $2::timestamp " +
-                "GROUP BY products.product_id, products.product_name, products.price"
+                "GROUP BY products.product_id, products.product_name, products.price",
             [startDate, endDate],
             (error, results) => {
             if (error) {
