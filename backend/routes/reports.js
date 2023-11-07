@@ -22,7 +22,7 @@ router.post("/sales-report", (req, res) => {
     });
 });
 
-router.get("/excess-report", (req, res) => { //REQ NOT BEING READ
+router.post("/excess-report", (req, res) => { //REQ NOT BEING READ
     // Assuming you have a generateExcessReport function in your Report module
     const startDate = req.body.startDate;
     const endDate = req.body.endDate;
@@ -36,7 +36,7 @@ router.get("/excess-report", (req, res) => { //REQ NOT BEING READ
     });
 });
 
-router.get("/restock-report", (res) => {//REQ NOT BEING READ
+router.post("/restock-report", (res) => {//REQ NOT BEING READ
     // Assuming you have a generateExcessReport function in your Report module
     Report.generateRestockReport((error, restockReportData) => {
         if (error) {
