@@ -28,22 +28,22 @@ class Report {
     }
 
     static generateRestockReport(callback) {
-        connection.query(
-            "SELECT products.product_name, inventory.inventory_item, inventory.stock_level, inventory.restock_level, inventory.measurement_type \r\n" + //
-                    "FROM inventory\r\n" + //
-                    "INNER JOIN product_ingredients\r\n" + //
-                    "ON inventory.inventory_id = product_ingredients.inventory_id\r\n" + //
-                    "INNER JOIN products\r\n" + //
-                    "ON product_ingredients.product_id = products.product_id\r\n" + //
-                    "WHERE stock_level < restock_level;\r\n", //
+        // connection.query(
+        //     "SELECT products.product_name, inventory.inventory_item, inventory.stock_level, inventory.restock_level, inventory.measurement_type \r\n" + //
+        //             "FROM inventory\r\n" + //
+        //             "INNER JOIN product_ingredients\r\n" + //
+        //             "ON inventory.inventory_id = product_ingredients.inventory_id\r\n" + //
+        //             "INNER JOIN products\r\n" + //
+        //             "ON product_ingredients.product_id = products.product_id\r\n" + //
+        //             "WHERE stock_level < restock_level;\r\n", //
                     
-            (error, results) => {
-            if (error) {
-                return callback(error);
-            }
-            callback(null, results.rows);
-            }
-        );
+        //     (error, results) => {
+        //     if (error) {
+        //         return callback(error);
+        //     }
+        //     callback(null, results.rows);
+        //     }
+        // );
     }
 
     static generateExcessReport(startDate, endDate, callback) {
@@ -57,7 +57,7 @@ class Report {
                     "    INNER JOIN product_ingredients ON inventory.inventory_id = product_ingredients.inventory_id\r\n" + //
                     "    INNER JOIN order_details ON product_ingredients.product_id = order_details.product_id\r\n" + //
                     "    INNER JOIN orders ON order_details.order_id = orders.order_id\r\n" + //
-                    "    WHERE orders.date_time >= ?\r\n" + //
+                    "    WHERE orders.date_time >= $3::timestamp\r\n" + //
                     "    GROUP BY inventory.inventory_id, inventory.inventory_item\r\n" + //
                     "),\r\n" + //
                     "\r\n" + //
@@ -86,7 +86,8 @@ class Report {
             }
         );
     }
-    static generateSellsTogether(callback) {
+
+    static generateSellsTogether(startDate, endDate, callback) {
         connection.query(
             "SELECT product1.product_id AS productID1, product2.product_id AS productID2, productsJoin1.product_name, productsJoin2.product_name, COUNT(*) AS frequency " +
                 "FROM orders " +

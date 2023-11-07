@@ -48,10 +48,10 @@ router.post("/restock-report", (res) => {//REQ NOT BEING READ
 });
 
 router.post("/sells-together", (req, res) => {
-    // const startDate = '2022-10-06 06:22:00';
-    // const endDate = '2022-10-06 08:25:00';
-    const startDate = req.body.startDate;
-    const endDate = req.body.endDate;
+    const startDate = '2022-10-06 06:22:00';
+    const endDate = '2022-10-06 08:25:00';
+    // const startDate = req.body.startDate;
+    // const endDate = req.body.endDate;
 
     Report.generateSellsTogether(startDate, endDate, (error, sellsTogetherData) => {
         if (error) {
