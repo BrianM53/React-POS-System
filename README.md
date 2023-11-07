@@ -14,7 +14,7 @@
 ### Deployed Servers
 ---
 - Frontend: https://jbold-frontend.onrender.com/
-- Backend: https://jbold-backend.onrender.com/
+- Backend: https://jbold-backend.onrender.com/ --> Note that this may take a while to load since Render will allocate little resources to no/low traffic sites
 
 ### Misc.
 ---
