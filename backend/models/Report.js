@@ -52,7 +52,7 @@ class Report {
                     "    SELECT\r\n" + //
                     "        inventory.inventory_id,\r\n" + //
                     "        inventory.inventory_item,\r\n" + //
-                    "        SUM(CASE WHEN orders.date_time >= ? AND orders.date_time <= ? THEN order_details.quantity * product_ingredients.quantity ELSE 0 END) AS total_used_between_timestamps\r\n" + //
+                    "        SUM(CASE WHERE orders.date_time BETWEEN $1::timestamp AND $2::timestamp THEN order_details.quantity * product_ingredients.quantity ELSE 0 END) AS total_used_between_timestamps\r\n" + //
                     "    FROM inventory\r\n" + //
                     "    INNER JOIN product_ingredients ON inventory.inventory_id = product_ingredients.inventory_id\r\n" + //
                     "    INNER JOIN order_details ON product_ingredients.product_id = order_details.product_id\r\n" + //
@@ -78,6 +78,26 @@ class Report {
                     "INNER JOIN currentStock AS C ON I.inventory_id = C.inventory_id\r\n" + //
                     "WHERE ((I.total_used_between_timestamps * 1.0) / (I.total_used_between_timestamps + C.current_stock)) * 100 < 10;\r\n",
             [startDate, endDate, startDate],
+            (error, results) => {
+            if (error) {
+                return callback(error);
+            }
+            callback(null, results.rows);
+            }
+        );
+    }
+    static generateSellsTogether(callback) {
+        connection.query(
+            "SELECT product1.product_id AS productID1, product2.product_id AS productID2, productsJoin1.product_name, productsJoin2.product_name, COUNT(*) AS frequency " +
+                "FROM orders " +
+                "INNER JOIN order_details AS product1 ON orders.order_id = product1.order_id " +
+                "INNER JOIN order_details AS product2 ON orders.order_id = product2.order_id " +
+                "INNER JOIN products AS productsJoin1 ON productsJoin1.product_id = product1.product_id " +
+                "INNER JOIN products AS productsJoin2 ON productsJoin2.product_id = product2.product_id " +
+                "WHERE orders.date_time BETWEEN $1::timestamp AND $2::timestamp AND product1.product_id <> product2.product_id " +
+                "GROUP BY product1.product_id, product2.product_id, productsJoin1.product_name, productsJoin2.product_name " +
+                "ORDER BY frequency DESC;", //
+            [startDate, endDate],        
             (error, results) => {
             if (error) {
                 return callback(error);

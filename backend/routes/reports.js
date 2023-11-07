@@ -23,7 +23,14 @@ router.post("/sales-report", (req, res) => {
 });
 
 router.get("/excess-report", (req, res) => {
-    res.send("excess report data");
+    // Assuming you have a generateExcessReport function in your Report module
+    Report.generateExcessReport((error, excessReportData) => {
+        if (error) {
+            res.status(500).json({ error: "Error generating excess report" });
+        } else {
+            res.json(excessReportData);
+        }
+    });
 });
 
 module.exports = router;
