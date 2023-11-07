@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import './Manager.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -37,6 +38,25 @@ function Manager() {
     setActiveReport(reportType);
 
     console.log(reportType, "\nStart date:", generateTimestamp(startDate));
+
+
+    // testing for only sales report,
+    // should send to /reports route
+    // modify BACKEND_URL + '/reports/...' to take the actual report type
+    // instead of just sales-report using the reportType var
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+    axios
+      .post(BACKEND_URL + '/reports/sales-report', {
+        startDate: generateTimestamp(startDate),
+        endDate: generateTimestamp(endDate),
+      })
+      .then(response => {
+        console.log("Sales report data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
+        // generateReport(response.data);
+      })
+      .catch(error => {
+        console.error('axios error:', error);
+      });
 
     generateReport(reportType);
   }
