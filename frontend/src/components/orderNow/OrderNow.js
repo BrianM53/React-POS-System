@@ -7,6 +7,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useCart } from "../cart/CartContext";
 // import '@fortawesome/fontawesome-svg-core/styles.css';
 library.add(fas, fab);
 
@@ -17,6 +18,7 @@ const OrderNow = () => {
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
   const [products, setProducts] = useState([]);
+  const { addToCart, decrementQuantity } = useCart();
 
   const handleCategoryClick = (section) => {
     setActiveSection(section);
@@ -26,19 +28,26 @@ const OrderNow = () => {
     fetch(`${BACKEND_URL}/products/${activeSection}`)
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data);
+        const productsWithCorrectPrice = data.map((product) => ({
+          ...product,
+          price: parseFloat(product.price), // Convert price to a float here
+        }));
+        setProducts(productsWithCorrectPrice);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
   }, [activeSection]);
 
-  const increment = (productId) => {
+  const increment = (product) => {
     // Logic to increment product quantity
+    console.log("Adding to cart", product);
+    addToCart(product);
   };
 
   const decrement = (productId) => {
     // Logic to decrement product quantity
+    decrementQuantity(productId);
   };
 
   const renderProducts = () => {
@@ -75,7 +84,7 @@ const OrderNow = () => {
             {/* Ensure the quantity is initialized */}
             <div
               className="increment-button"
-              onClick={() => increment(product.product_id)}
+              onClick={() => increment(product)}
             >
               +
             </div>
