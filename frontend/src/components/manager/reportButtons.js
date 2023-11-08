@@ -24,9 +24,9 @@ function ReportButtons({ activeReport, handleReport }) {
               </a>
             </li>
             <li><a href='' 
-              className={activeReport === "What Sells Together" ? 'active-report' : 'passive-report'} 
-              onClick={(e) => {handleReport(e, "What Sells Together") }}>
-                What Sells Together
+              className={activeReport === "Sells Together" ? 'active-report' : 'passive-report'} 
+              onClick={(e) => {handleReport(e, "Sells Together") }}>
+                Sells Together
               </a>
             </li>
             <li><a href='' 
