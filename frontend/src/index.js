@@ -19,7 +19,6 @@ import App from "./App";
 import Login from "./components/login/Login";
 import Manager from "./components/manager/Manager";
 import Cashier from "./components/cashier/Cashier";
-import Menu from "./components/menu/Menu";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Settings from "./components/settings/Settings";
@@ -80,7 +79,6 @@ function Routing() {
         }
       />
       <Route path="/app" element={<App />} />
-      <Route path="/menu" element={<Menu />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
