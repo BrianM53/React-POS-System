@@ -62,6 +62,19 @@ router.post("/sells-together", (req, res) => {
     });
 });
 
+router.post("/usage-chart", (req, res) => {
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+
+    Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+        if (error) {
+            res.status(500).json({ error: "Error generating usage chart" });
+        } else {
+            res.json({ data: usageChartData });
+        }
+    });
+});
+
 
 
 module.exports = router;
