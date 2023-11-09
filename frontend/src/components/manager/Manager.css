@@ -13,6 +13,14 @@
   background-color: var(--bright);
 }
 
+.main-content {
+  width: 1200px;
+  height: 700px;
+  background: var(--normal);
+  border: 5px solid var(--background);
+  overflow: auto;
+}
+
 /* ================ BUTTON NAVIAGATION ================ */
 /* .report-btn {
   background: red;
@@ -65,14 +73,6 @@
   display: flex;
   margin-top: 30px;
   margin-right: 50px;
-}
-
-/* CONTENT CONTAINER */
-.main-content {
-  width: 1200px;
-  height: 700px;
-  background: var(--normal);
-  border: 5px solid var(--background);
 }
 
 /* ================== REPORT LABELS ============= */

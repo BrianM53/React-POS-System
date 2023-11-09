@@ -62,6 +62,18 @@ function ReportLabels({ activeReport }) {
             </ul>
           </nav>
         </div>
+
+        <div className={activeReport === "Add Employee" ? 'active-label' : 'passive-label'}>
+          <nav className='report-label'>
+            <ul>
+              <li><a className='label'></a></li>
+              <li><a className='label'></a></li>
+              <li><a className='label'></a></li>
+              <li><a className='label'></a></li>
+              <li><a className='label'></a></li>
+            </ul>
+          </nav>
+        </div>
     </div>
   );
 }

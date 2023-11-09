@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from "react-datepicker";
 import axios from 'axios';
 
 import './Manager.css';
@@ -10,15 +11,14 @@ import generateReport from './generateReport';
 import ReportButtons from './reportButtons';
 import ReportLabels from './reportLabels';
 import LogoutButton from '../utility/logoutButton';
-import DatePicker from "react-datepicker";
+import ReportContent from './reportContent'
 
 function Manager() {
   const navigate = useNavigate();
-
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
   const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
+  const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
     // Check if there's an active report in local storage and set it
@@ -37,13 +37,6 @@ function Manager() {
     localStorage.setItem('activeReport', reportType);
     setActiveReport(reportType);
 
-    // console.log(reportType, "\nStart date:", generateTimestamp(startDate));
-
-
-    // testing for only sales report,
-    // should send to /reports route
-    // modify BACKEND_URL + '/reports/...' to take the actual report type
-    // instead of just sales-report using the reportType var
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
@@ -54,14 +47,12 @@ function Manager() {
         endDate: generateTimestamp(endDate),
       })
       .then(response => {
-        console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
-        // generateReport(response.data);
+        // console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
+        generateReport(reportType, response.data.data, setTableData);
       })
       .catch(error => {
         console.error('axios error:', error);
       });
-
-    generateReport(reportType);
   }
 
   return (
@@ -70,6 +61,20 @@ function Manager() {
         <ReportLabels activeReport={activeReport} />
 
         <div className="main-content">
+          <table>
+            <thead className='content-head'> 
+            </thead>
+            <tbody>
+              {tableData.map((element, index) => (
+                <tr key={index}>
+                  <td>{element.product_name}</td>
+                  <td>{element.price}</td>
+                  <td>{element.numsold}</td>
+                  <td>{element.totalsales}</td>
+                </tr>
+              ))} 
+            </tbody>
+          </table>
         </div>
 
         <ReportButtons activeReport={activeReport} handleReport={handleReport} />
