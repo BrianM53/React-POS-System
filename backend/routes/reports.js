@@ -17,47 +17,47 @@ router.post("/sales-report", (req, res) => {
         if (error) {
             res.status(500).json({ error: "Error generating sales report" });
         } else {
-            res.json(salesReportData);
+            res.json({data: salesReportData});
         }
     });
 });
 
-router.post("/excess-report", (req, res) => { //REQ NOT BEING READ
-    // Assuming you have a generateExcessReport function in your Report module
+router.post("/excess-report", (req, res) => { 
     const startDate = req.body.startDate;
     const endDate = req.body.endDate;
 
-    Report.generateExcessReport((error, excessReportData) => {
+    Report.generateExcessReport(startDate, endDate, (error, excessReportData) => {
         if (error) {
             res.status(500).json({ error: "Error generating excess report" });
         } else {
-            res.json(excessReportData);
+            res.json({data: excessReportData});
         }
     });
 });
 
-router.post("/restock-report", (res) => {//REQ NOT BEING READ
+router.post("/restock-report", (req, res) => { // Fix the parameter list
     // Assuming you have a generateExcessReport function in your Report module
     Report.generateRestockReport((error, restockReportData) => {
         if (error) {
             res.status(500).json({ error: "Error generating restock report" });
         } else {
-            res.json(restockReportData);
+            res.json({ data: restockReportData });
         }
     });
 });
 
+
 router.post("/sells-together", (req, res) => {
-    const startDate = '2022-10-06 06:22:00';
-    const endDate = '2022-10-06 08:25:00';
-    // const startDate = req.body.startDate;
-    // const endDate = req.body.endDate;
+    // const startDate = '2022-10-06 06:22:00';
+    // const endDate = '2022-10-06 08:25:00';
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
 
     Report.generateSellsTogether(startDate, endDate, (error, sellsTogetherData) => {
         if (error) {
             res.status(500).json({ error: "Error generating sells together report" });
         } else {
-            res.json(sellsTogetherData);
+            res.json({data: sellsTogetherData});
         }
     });
 });
