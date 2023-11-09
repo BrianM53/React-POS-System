@@ -16,25 +16,12 @@ const Menu = () => {
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
   const [products, setProducts] = useState([]);
 
-  // const refs =
-  // {
-  //     sweetCrepes: useRef(null),
-  //     savoryCrepes: useRef(null),
-  //     kidsCrepes: useRef(null),
-  //     sweetParisWaffles: useRef(null),
-  //     breakfastCrepesAndEggs: useRef(null),
-  //     soupsSaladsAndPaninis: useRef(null),
-  //     leBar: useRef(null),
-  //     hotDrinksAndMilkshakes: useRef(null),
-  //     waterAndBeverages: useRef(null),
-  // }
-
   useEffect(() => {
     if (activeSection) {
       fetch(`${BACKEND_URL}/products/${activeSection}`)
         .then((response) => response.json())
         .then((data) => {
-          setProducts(data);
+          setProducts(data.map((product) => ({ ...product, quantity: 0 })));
         })
         .catch((error) => {
           console.error("Error fetching products:", error);
@@ -45,19 +32,52 @@ const Menu = () => {
   const renderProducts = () => {
     return products.map((product) => (
       <div key={product.product_id} className="menu-body-entry-container">
+        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
         <div className="menu-body-entry-description-container">
           <div className="menu-body-entry-title">{product.product_name}</div>
           <div className="menu-body-entry-description">
             {product.product_description}
           </div>
         </div>
+        <div className="menu-body-entry-amount-container">
+          <div className="decrement-button" onClick={() => decrementQuantity(product)}>
+            -
+          </div>
+          <div className="amount-counter">{product.quantity}</div>
+          <div className="increment-button" onClick={() => incrementQuantity(product)}>
+            +
+          </div>
+        </div>
       </div>
     ));
+  };
+
+  const incrementQuantity = (product) => {
+    setProducts((prevProducts) => {
+      return prevProducts.map((p) => {
+        if (p.product_id === product.product_id) {
+          return { ...p, quantity: p.quantity + 1 };
+        }
+        return p;
+      });
+    });
+  };
+
+  const decrementQuantity = (product) => {
+    setProducts((prevProducts) => {
+      return prevProducts.map((p) => {
+        if (p.product_id === product.product_id && p.quantity > 0) {
+          return { ...p, quantity: p.quantity - 1 };
+        }
+        return p;
+      });
+    });
   };
 
   const handleCategoryClick = (section) => {
     setActiveSection(section);
   };
+
 
   return (
     <div className="menu-body">
