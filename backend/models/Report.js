@@ -107,6 +107,58 @@ class Report {
             }
         );
     }
+
+    static generateUsageChart() {
+        var xAxis = new CategoryAxis();
+        xAxis.label = "Inventory Item";
+    
+        var yAxis = new NumberAxis();
+        yAxis.label = "Amount";
+    
+        console.log("creating barchart");
+        var usageChart = new BarChart(xAxis, yAxis);
+    
+        var data = new XYChart.Series();
+        var startDate = startDatePicker.getValue();
+        var endDate = endDatePicker.getValue();
+        data.name = "Inventory items used from " + startDate + " to " + endDate;
+    
+        console.log("Adding data");
+    
+        // Gather the data within the time interval
+        var usageQuery = "SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')'), SUM(pi.quantity) " +
+                        "FROM orders o " +
+                        "JOIN order_details od ON o.order_id = od.order_id " +
+                        "JOIN product_ingredients pi ON od.product_id = pi.product_id " +
+                        "JOIN inventory i ON pi.inventory_id = i.inventory_id " +
+                        "WHERE o.date_time >= $1 AND o.date_time <= $2 " +
+                        "GROUP BY i.inventory_item, i.measurement_type";
+    
+        common.connectToJDBC(function(err, conn) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+    
+            conn.query(usageQuery, [startDate, endDate], function(err, resultSet) {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+    
+                resultSet.rows.forEach(function(row) {
+                    var inventoryItem = row[0];
+                    var amountUsed = row[1];
+                    data.data.push({ x: inventoryItem, y: amountUsed });
+                });
+    
+                conn.close();
+            });
+        });
+    
+        usageChart.data.push(data);
+        chartContainer.setCenter(usageChart);
+    }
 }
 
 module.exports = Report;
