@@ -51,7 +51,7 @@ const OrderNowSettings = () => {
     <div className="menu-body">
       <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
-        <Link to="/ordernow">
+        <Link to="/order-now">
           <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
         </Link>
         <Link to="/login">
