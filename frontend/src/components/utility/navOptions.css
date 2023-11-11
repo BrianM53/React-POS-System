@@ -1,0 +1,53 @@
+:root {
+    --white: white;
+    --accent: skyblue;
+    --accent2: navy;
+  }
+
+.menu-nav
+{
+  background-color: var(--accent) !important;
+  color: var(--white) !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  gap: 2em;
+  font-size: 2rem;
+}
+
+.menu-nav-container
+{   
+    display: flex;
+    flex-direction: row;
+    gap: 8em !important;
+}   
+
+.menu-nav-container-left
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2em !important;
+    background-color: var(--accent);
+}
+
+.menu-nav-container-button
+{
+    font-size: 2.0rem !important;
+    padding: .5em;
+    min-width: 200px;
+    border-radius: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.menu-nav-admin-login
+{
+    font-size: 2.0rem !important;
+    padding: .5em;
+    min-width: 200px;
+    border-radius: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}

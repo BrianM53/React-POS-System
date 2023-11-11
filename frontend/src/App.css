@@ -6,7 +6,7 @@
 
 *
 {
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .menu-body
@@ -18,9 +18,9 @@
 
 .menu-header 
 {
-  background-color: var(--white);
-  color: var(--accent);
-  min-height: 100px;
+  background-color: var(--white) !important;
+  color: var(--accent) !important;
+  min-height: 200px !important;
   font-size: 10rem;
   padding: .25em; /*********/
   display: flex;
@@ -29,61 +29,10 @@
   align-items: center;
 }
 
-.menu-nav
-{
-  background-color: var(--accent);
-  color: var(--white);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  padding: 1em;
-  gap: 2em;
-}
-
-#menu-nav-settings-icon
-{
-  color: white;
-}
-
-#menu-nav-home-icon 
-{
-  color: white;
-}
-
 .menu-nav-title
 {
-  font-size: 2rem;
-  color: var(--white);
-}
-
-.menu-nav-container
-{
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-}
-
-.menu-nav-container-button
-{
-  border-radius: 15px;
-  background-color: var(--white);
-  color: var(--accent);
-  font-size: 1.5rem;
-  border-color: var(--white);
-  border-width: 2px;
-}
-
-.menu-nav-admin-login
-{
-  border-radius: 15px;
-  background-color: var(--white);
-  color: var(--accent);
-  font-size: 1.5rem;
-  border-color: var(--white);
-  border-width: 2px;
+  font-size: 3.4rem !important;
+  font-weight: bolder;
 }
 
 .menu-main-aside
@@ -158,18 +107,6 @@
   flex-direction: column;
 }
 
-.menu-nav-ordernow
-{
-  border-radius: 15px;
-  background-color: var(--white);
-  color: var(--accent);
-  font-size: 1.5rem;
-  border-color: var(--white);
-  border-width: 2px;
-  width: 400px;
-  height: 100px;
-  font-size: 2.5rem;
-}
 
 
 .menu-section-2-h3
@@ -201,11 +138,13 @@
   justify-content: space-evenly;
   align-items: center;
   padding: .75em;
+  margin-bottom: 0em !important;
+  height: 200px;
 }
 
 .menu-footer-message
 {
-  font-size: 2rem;
+  font-size: 3.5rem !important;
 }
 
 .menu-footer-container
@@ -215,8 +154,3 @@
   gap: 5em;
 }   
 
-.menu-footer-smlink-icon
-{
-  height: 50px;
-  width: 50px;
-}

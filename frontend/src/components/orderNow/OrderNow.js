@@ -188,9 +188,6 @@ const OrderNow = () =>
                     <Link to="/order-now-settings">
                         <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
                     </Link>
-                    <Link to="/login">
-                        <button className="menu-nav-admin-login">Admin Login</button>
-                    </Link>
                 </div>
                 <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
                 <NavOptions />

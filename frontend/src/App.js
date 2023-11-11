@@ -13,7 +13,7 @@ library.add(fas,fab);
 const App = () => {
   return (
     <div className="menu-body">
-      <SpecialFontText as="header" className="menu-header" /*********/ fontSize="5rem">
+      <SpecialFontText as="header" className="menu-header" fontSize="5rem">
         Welcome to the Sweet Paris Cafe!
       </SpecialFontText>
       <nav className="menu-nav">
@@ -23,32 +23,23 @@ const App = () => {
         <Link to="/app">
           <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
-        <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
+        <SpecialFontText as="div" className="menu-nav-title">
+        Sweet Paris: Crepes and Cafe
+        </SpecialFontText>
         <NavOptions />
       </nav>
       <main className="menu-main">
-        <section className="menu-main-section-1">
-          <h1 className="menu-main-section-1-h1">
-            Let Them Eat Crepes!
-          </h1>
-          <p className="menu-main-section-1-p">
-            Order Now
-          </p> 
-        </section>
-        <aside className="menu-main-aside">
-          <img src="/sweetParisLocation.jpeg" alt="Sweet Crepes Logo" className="menu-main-aside-images" />
-          {}
-        </aside>
+        
       </main>
       <footer className="menu-footer">
         <div className="menu-footer-message">
           Get in touch with us! Follow us on:
         </div>
         <div className="menu-footer-container">
-          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x" id="menu-footer-instagram" />
-          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x" id="menu-footer-twitter" />
-          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x" id="menu-footer-facebook" />
-          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x" id="menu-footer-tiktok" />
+          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
+          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
+          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
+          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
         </div>
       </footer>
     </div>

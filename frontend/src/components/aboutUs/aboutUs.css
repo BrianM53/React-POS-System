@@ -178,6 +178,6 @@
 
 .menu-footer-smlink-icon
 {
-  height: 50px;
-  width: 50px;
+  height: 75px !important;
+  width: 75px !important;
 }
