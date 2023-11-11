@@ -1,6 +1,7 @@
 import React from 'react';
 import NavOptions from './components/utility/navOptions';
 import './App.css'
+import SpecialFontText from "./SpecialFontText";
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +13,9 @@ library.add(fas,fab);
 const App = () => {
   return (
     <div className="menu-body">
-      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <SpecialFontText as="header" className="menu-header" fontSize="10rem">
+        Welcome to the Sweet Paris Cafe!
+      </SpecialFontText>
       <nav className="menu-nav">
         <Link to="/settings">
           <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />

@@ -89,18 +89,18 @@ const Settings = () =>
         <div className="menu-main-settings-container">
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-1">
             Display Contrast:
-            <input type="range" min="0" max="100" value="50" className="range-slider" id="display-contrast" />
-            <span id="display-contrast-value">50</span>
+            <input type="range" min="0" max="100" value={displayContrast} className="range-slider" id="display-contrast" onChange={handleDisplayContrastChange} />
+            <span id="display-contrast-value">{displayContrast}</span>
           </div>
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-2">
             Font Size:
-            <input type="range" min="10" max="50" value="16" className="range-slider" id="font-size" />
-            <span id="font-size-value">16</span>
+            <input type="range" min="10" max="50" value={fontSize} className="range-slider" id="font-size" onChange={handleFontSizeChange} />
+            <span id="font-size-value">{fontSize}</span>
           </div>
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-3">
             Mouse Sensitivity:
-            <input type="range" min="1" max="10" value="5" className="range-slider" id="mouse-sensitivity" />
-            <span id="mouse-sensitivity-value">5</span>
+            <input type="range" min="1" max="10" value={mouseSensitivity} className="range-slider" id="mouse-sensitivity" onChange={handleMouseSensitivityChange} />
+            <span id="mouse-sensitivity-value">{mouseSensitivity}</span>
           </div>
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-4">
             Google Translate API

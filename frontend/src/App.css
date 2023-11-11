@@ -21,7 +21,7 @@
   background-color: var(--white);
   color: var(--accent);
   min-height: 100px;
-  font-size: 3rem;
+  font-size: 10rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
