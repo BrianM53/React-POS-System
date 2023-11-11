@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
+import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -55,7 +56,9 @@ const Settings = () =>
   
   return (
     <div className="menu-body">
-      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <SpecialFontText as="header" className="menu-header" >
+          Welcome to the Sweet Paris Cafe!
+      </SpecialFontText>
       <nav className="menu-nav">
         <Link to="/settings">
             <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />

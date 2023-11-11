@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Cart.css';
+import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -12,7 +13,9 @@ const Cart = () => {
   
   return (
     <div className="menu-body">
-      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <SpecialFontText as="header" className="menu-header" >
+          Welcome to the Sweet Paris Cafe!
+      </SpecialFontText>
       <nav className="menu-nav">
         <div className="order-now-nav-left">
           <Link to="/order-now">

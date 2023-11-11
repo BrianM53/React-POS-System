@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NavOptions from "../utility/navOptions";
 import { useRef, useEffect, useState } from "react";
 import "./menu.css";
+import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -81,7 +82,9 @@ const Menu = () => {
 
   return (
     <div className="menu-body">
-      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
+      <SpecialFontText as="header" className="menu-header" >
+        Welcome to the Sweet Paris Cafe!
+      </SpecialFontText>
 
       <nav className="menu-nav">
         <Link to="/settings">
