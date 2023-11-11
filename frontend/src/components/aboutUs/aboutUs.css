@@ -109,6 +109,12 @@
 .menu-main-aboutus-entry
 {
   font-size: 1.5rem;
+  color: var(--white);
+}
+
+.menu-main-aboutus-entry p 
+{
+  color: var(--white);
 }
 
 .menu-footer 
