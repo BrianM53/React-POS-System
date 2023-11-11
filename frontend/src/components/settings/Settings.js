@@ -73,9 +73,9 @@ const Settings = () =>
         <NavOptions />
       </nav>
       <main className="menu-main-settings">
-        <div className="menu-main-settings-header">
+        <SpecialFontText as="div" className="menu-main-settings-header" fontSize="3.5rem">
           Accessibility Settings
-        </div>
+        </SpecialFontText>
         <div className="menu-main-settings-container">
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-1">
             Display Contrast:

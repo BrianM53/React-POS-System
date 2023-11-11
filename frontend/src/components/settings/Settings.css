@@ -2,6 +2,7 @@
 :root {
     --white: white;
     --accent: skyblue;
+    --font-size: 16px;
   }
 
 .menu-header 
@@ -79,7 +80,7 @@
     justify-content: center;
     align-items: center;
     padding: 2em;
-    gap: 4em;
+    gap: 2em;
 }
 
 .menu-main-settings-header

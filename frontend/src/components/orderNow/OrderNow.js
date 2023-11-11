@@ -194,9 +194,10 @@ const OrderNow = () =>
             </nav>
 
             <main className="menu-main-menu">
-                <div className="menu-main-menu-header">
+                <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
                     Order Now
-                </div>
+                </SpecialFontText>
+
                 <div className="menu-main-menu-categories">
                 <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes"  onClick={() => handleCategoryClick('sweetCrepes')}>
                         Sweet Crepes

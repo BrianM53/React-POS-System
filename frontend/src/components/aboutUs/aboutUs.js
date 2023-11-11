@@ -29,9 +29,10 @@ function AboutUs() {
           <NavOptions />
         </nav>
         <main className="menu-main-aboutus">
-          <div className="menu-main-aboutus-header">
-            About Us
-          </div>
+
+            <SpecialFontText as="div" className="menu-main-aboutus-header" fontSize="3.5rem">
+              About Us
+            </SpecialFontText>
             <div className="menu-main-aboutus-entry" id="menu-main-aboutus-entry-1">
               <div className="menu-main-aboutus-top-container">
                 <p>

@@ -29,9 +29,10 @@ const ContactUs = () => {
         <NavOptions />
       </nav>
       <main className="menu-main-contactus">
-        <div className="menu-main-contactus-header">
+
+        <SpecialFontText as="div" className="menu-main-contactus-header" fontSize="3.5rem">
           Contact Us
-        </div>
+        </SpecialFontText>
         <div className="menu-main-contactus-container">
           <div className="menu-main-contactus-entry" id="menu-main-contactus-entry-1">
             Love the restaurant?

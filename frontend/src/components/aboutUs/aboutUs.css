@@ -2,6 +2,7 @@
 :root {
   --white: white;
   --accent: skyblue;
+  --font-size: 16px;
 }
 
 .menu-header 
@@ -81,12 +82,11 @@
   justify-content: center;
   align-items: center;
   padding: 2em;
-  gap: 4em;
+  gap: 3em;
 }
 
 .menu-main-aboutus-header
 {
-  font-size: 3.5rem;
   background-color: var(--accent);
   color: var(--white);
   padding: .25em;
@@ -114,20 +114,24 @@
 {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 2em;
   background-color: var(--accent);
   padding: 1em;
   margin-left: 10%;
+  font-size: 1.75rem;
 }
 
 .menu-main-aboutus-bottom-container
 {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 2em;
   background-color: var(--accent);
   padding: 1em;
   margin-right: 10%;
+  font-size: 1.75rem;
 }
 
 .menu-main-aboutus-entry p 
