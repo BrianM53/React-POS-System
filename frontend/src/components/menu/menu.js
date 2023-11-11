@@ -101,7 +101,9 @@ const Menu = () => {
             id="menu-nav-home-icon"
           />
         </Link>
-        <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
+        <SpecialFontText as="div" className="menu-nav-title">
+          Sweet Paris: Crepes and Cafe
+        </SpecialFontText>
         <NavOptions />
       </nav>
 
@@ -194,27 +196,11 @@ const Menu = () => {
           Get in touch with us! Follow us on:
         </div>
         <div className="menu-footer-container">
-          <FontAwesomeIcon
-            icon={["fab", "instagram"]}
-            className="fa-2x"
-            id="menu-footer-instagram"
-          />
-          <FontAwesomeIcon
-            icon={["fab", "twitter"]}
-            className="fa-2x"
-            id="menu-footer-twitter"
-          />
-          <FontAwesomeIcon
-            icon={["fab", "facebook"]}
-            className="fa-2x"
-            id="menu-footer-facebook"
-          />
-          <FontAwesomeIcon
-            icon={["fab", "tiktok"]}
-            className="fa-2x"
-            id="menu-footer-tiktok"
-          />
-        </div>
+          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
+          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
+          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
+          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
+         </div>
       </footer>
     </div>
   );

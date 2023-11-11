@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
+import NavOptions from '../utility/navOptions';
 import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -61,29 +62,15 @@ const Settings = () =>
       </SpecialFontText>
       <nav className="menu-nav">
         <Link to="/settings">
-            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
         </Link>
         <Link to="/app">
-            <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
+          <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
-        <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
-        <div className="menu-nav-container">
-          <Link to="/order-now">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
-          </Link>
-          <Link to="/menu">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
-          </Link>
-          <Link to="/about-us">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
-          </Link>
-          <Link to="/contact-us">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
-          </Link>
-        </div>
-        <Link to="/login">
-          <button className="menu-nav-admin-login">Admin Login</button>
-        </Link>
+        <SpecialFontText as="div" className="menu-nav-title">
+          Sweet Paris: Crepes and Cafe
+        </SpecialFontText>
+        <NavOptions />
       </nav>
       <main className="menu-main-settings">
         <div className="menu-main-settings-header">
@@ -115,10 +102,10 @@ const Settings = () =>
           Get in touch with us! Follow us on:
         </div>
         <div className="menu-footer-container">
-          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x" id="menu-footer-instagram" />
-          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x" id="menu-footer-twitter" />
-          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x" id="menu-footer-facebook" />
-          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x" id="menu-footer-tiktok" />
+          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
+          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
+          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
+          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
         </div>
       </footer>
     </div>

@@ -16,21 +16,28 @@
     align-items: center;
 }
 
-.menu-nav
+.menu-nav-order-settings
 {
     background-color: var(--accent);
     color: var(--white);
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 1em;
-    gap: 2em;
+    padding-left: 4em;
+    padding-right: 4em;
 }
 
 #menu-nav-settings-icon
 {
     color: white;
+    font-size: 2rem;
+}
+
+.menu-nav-back-arrow
+{
+    font-size: 4rem;
 }
 
 #menu-nav-home-icon 

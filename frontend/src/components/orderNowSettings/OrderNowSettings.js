@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './OrderNowSettings.css';
+import NavOptions from '../utility/navOptions';
 import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -10,43 +11,48 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 library.add(fas,fab); 
 
 const OrderNowSettings = () => {
+  const [displayContrast, setDisplayContrast] = useState(50);
+  const [fontSize, setFontSize] = useState(16);
+  const [mouseSensitivity, setMouseSensitivity] = useState(5);
+
   useEffect(() => {
-    const updateValue = (element, valueElement) => {
-      valueElement.textContent = element.value;
-      localStorage.setItem(element.id, element.value);
+    if (localStorage.getItem('display-contrast')) 
+    {
+      setDisplayContrast(Number(localStorage.getItem('display-contrast')));
+    }
+
+    if (localStorage.getItem('font-size')) 
+    {
+      setFontSize(Number(localStorage.getItem('font-size')));
+    }
+
+    if (localStorage.getItem('mouse-sensitivity')) 
+    {
+      setMouseSensitivity(Number(localStorage.getItem('mouse-sensitivity')));
+    }
+    }, []);
+    const updateValue = (id, value) => 
+    {
+      localStorage.setItem(id, value);
     };
 
-    const displayContrast = document.querySelector('#display-contrast');
-    const fontSize = document.querySelector('#font-size');
-    const mouseSensitivity = document.querySelector('#mouse-sensitivity');
+    const handleDisplayContrastChange = (e) => 
+    {
+      setDisplayContrast(Number(e.target.value));
+      updateValue('display-contrast', e.target.value);
+    };
 
-    displayContrast.addEventListener('input', () => {
-      updateValue(displayContrast, document.getElementById('display-contrast-value'));
-    });
+    const handleFontSizeChange = (e) => 
+    {
+      setFontSize(Number(e.target.value));
+      updateValue('font-size', e.target.value);
+    };
 
-    fontSize.addEventListener('input', () => {
-      updateValue(fontSize, document.getElementById('font-size-value'));
-    });
-
-    mouseSensitivity.addEventListener('input', () => {
-      updateValue(mouseSensitivity, document.getElementById('mouse-sensitivity-value'));
-    });
-
-    if (localStorage.getItem('display-contrast')) {
-      displayContrast.value = localStorage.getItem('display-contrast');
-      updateValue(displayContrast, document.getElementById('display-contrast-value'));
-    }
-
-    if (localStorage.getItem('font-size')) {
-      fontSize.value = localStorage.getItem('font-size');
-      updateValue(fontSize, document.getElementById('font-size-value'));
-    }
-
-    if (localStorage.getItem('mouse-sensitivity')) {
-      mouseSensitivity.value = localStorage.getItem('mouse-sensitivity');
-      updateValue(mouseSensitivity, document.getElementById('mouse-sensitivity-value'));
-    }
-  }, []);
+    const handleMouseSensitivityChange = (e) => 
+    {
+      setMouseSensitivity(Number(e.target.value));
+      updateValue('mouse-sensitivity', e.target.value);
+    };
 
   return (
     <div className="menu-body">
@@ -54,12 +60,16 @@ const OrderNowSettings = () => {
           Welcome to the Sweet Paris Cafe!
       </SpecialFontText>
       <nav className="menu-nav">
-        <Link to="/order-now">
-          <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
+        <Link to="/settings">
+          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
         </Link>
-        <Link to="/login">
-            <button className="menu-nav-admin-login">Admin Login</button>
+        <Link to="/app">
+          <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
+        <SpecialFontText as="div" className="menu-nav-title">
+          Sweet Paris: Crepes and Cafe
+        </SpecialFontText>
+        <NavOptions />
       </nav>
       <main className="menu-main-settings">
         <div className="menu-main-settings-header">
@@ -68,24 +78,30 @@ const OrderNowSettings = () => {
         <div className="menu-main-settings-container">
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-1">
             Display Contrast:
-            <input type="range" min="0" max="100" value="50" className="range-slider" id="display-contrast" />
-            <span id="display-contrast-value">50</span>
+            <input type="range" min="0" max="100" value={displayContrast} className="range-slider" id="display-contrast" onChange={handleDisplayContrastChange} />
+            <span id="display-contrast-value">{displayContrast}</span>
           </div>
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-2">
             Font Size:
-            <input type="range" min="10" max="50" value="16" className="range-slider" id="font-size" />
-            <span id="font-size-value">16</span>
+            <input type="range" min="10" max="50" value={fontSize} className="range-slider" id="font-size" onChange={handleFontSizeChange} />
+            <span id="font-size-value">{fontSize}</span>
           </div>
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-3">
             Mouse Sensitivity:
-            <input type="range" min="1" max="10" value="5" className="range-slider" id="mouse-sensitivity" />
-            <span id="mouse-sensitivity-value">5</span>
+            <input type="range" min="1" max="10" value={mouseSensitivity} className="range-slider" id="mouse-sensitivity" onChange={handleMouseSensitivityChange} />
+            <span id="mouse-sensitivity-value">{mouseSensitivity}</span>
           </div>
           <div className="menu-main-settings-entry" id="menu-main-settings-entry-4">
             Google Translate API
           </div>
         </div>
       </main>
+      <div className="menu-footer-container">
+          <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
+          <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
+          <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
+          <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
+      </div>
     </div>
   );
 };

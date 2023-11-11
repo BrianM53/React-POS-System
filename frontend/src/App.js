@@ -24,7 +24,7 @@ const App = () => {
           <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
         <SpecialFontText as="div" className="menu-nav-title">
-        Sweet Paris: Crepes and Cafe
+          Sweet Paris: Crepes and Cafe
         </SpecialFontText>
         <NavOptions />
       </nav>

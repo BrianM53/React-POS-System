@@ -21,7 +21,7 @@
   background-color: var(--white) !important;
   color: var(--accent) !important;
   min-height: 200px !important;
-  font-size: 10rem;
+  font-size: 7rem !important;
   padding: .25em; /*********/
   display: flex;
   flex-direction: row;
@@ -139,7 +139,7 @@
   align-items: center;
   padding: .75em;
   margin-bottom: 0em !important;
-  height: 200px;
+  height: 150px !important;
 }
 
 .menu-footer-message
