@@ -92,29 +92,63 @@
   padding: .25em;
 }
 
-.menu-main-aboutus-container
+.menu-main-aboutus-entry
 {
+  position: relative;
+  font-size: 1.5rem;
+  color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4em;
-  max-width: 1200px;
-  background-color: var(--accent);
+  gap: 2em;
+  background-color: var(--white);
   color: var(--white);
-  padding: 2em;
+  margin-top: -1em;
   text-align: center;
+  margin-bottom: 2em;
+  max-width: 2000px;
 }
 
-.menu-main-aboutus-entry
+.menu-main-aboutus-top-container
 {
-  font-size: 1.5rem;
-  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  background-color: var(--accent);
+  padding: 1em;
+  margin-left: 10%;
+}
+
+.menu-main-aboutus-bottom-container
+{
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  background-color: var(--accent);
+  padding: 1em;
+  margin-right: 10%;
 }
 
 .menu-main-aboutus-entry p 
 {
   color: var(--white);
+  padding: .5em;
+  text-align: center;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.menu-main-aboutus-image1
+{
+  width: 500px;
+  height: 300px;
+}
+
+.menu-main-aboutus-image2
+{
+  width: 400px;
+  height: 300px;
 }
 
 .menu-footer 

@@ -27,18 +27,23 @@ function AboutUs() {
           <div className="menu-main-aboutus-header">
             About Us
           </div>
-          <div className="menu-main-aboutus-container">
             <div className="menu-main-aboutus-entry" id="menu-main-aboutus-entry-1">
-              <p>
-                Sweet Paris was first opened in Rice Village in 2012. Within 10 years, Sweet Paris has turned into one of the best fast casual hotspots in various parts of Houston, Austin, San Antonio, College Station, Miami, Woodbury, and international resort destinations.
-              </p>
-              <p>
-                Every day - and every bite - is an opportunity to savor all that's good in the world. Although crepes are known for being French, we have introduced hints of other cultures into this versatile dish that can be enjoyed any time of the day!
-              </p>
-              <p>
-                Now, after reading that last paragraph, you're probably pretty hungry. How can you get a taste of this celebrated cuisine? If you know what to order, click on either the Order Now! button on the home page, or click on the Order Now! button in the Menu after surveying the menu for a bit. Your choice!
-              </p>
-            </div>
+              <div className="menu-main-aboutus-top-container">
+                <p>
+                  Sweet Paris was first opened in Rice Village in 2012. Within 10 years, Sweet Paris has turned into one of the best fast casual hotspots in various parts of Houston, Austin, San Antonio, College Station, Miami, Woodbury, and international resort destinations.
+                  <br />
+                  Every day - and every bite - is an opportunity to savor all that's good in the world. Although crepes are known for being French, we have introduced hints of other cultures into this versatile dish that can be enjoyed any time of the day!
+                </p>
+                <img src="/employees.jpeg" alt="Employees standing around outside of restaurant" className="menu-main-aboutus-image1" />
+              </div>
+              <div className="menu-main-aboutus-bottom-container">
+                <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image2"/>
+                <p>
+                  Sweet Paris was first opened in Rice Village in 2012. Within 10 years, Sweet Paris has turned into one of the best fast casual hotspots in various parts of Houston, Austin, San Antonio, College Station, Miami, Woodbury, and international resort destinations.
+                  <br />
+                  Every day - and every bite - is an opportunity to savor all that's good in the world. Although crepes are known for being French, we have introduced hints of other cultures into this versatile dish that can be enjoyed any time of the day!
+                </p>
+              </div>
           </div>
         </main>
         <footer className="menu-footer">

@@ -30,7 +30,7 @@ const App = () => {
           </h1>
           <p className="menu-main-section-1-p">
             Order Now
-          </p>
+          </p> 
         </section>
         <aside className="menu-main-aside">
           <img src="/sweetParisLocation.jpeg" alt="Sweet Crepes Logo" className="menu-main-aside-images" />
