@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import NavOptions from './components/utility/navOptions';
 import './App.css'
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
@@ -17,6 +17,32 @@ const App = () => {
 
   const clearInput = () => {
     setEmail('');
+  };
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollContainerRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    const container = scrollContainerRef.current;
+
+    if (container) {
+      const scrollAmount = direction === 'right' ? 200 : -200;
+      container.scrollLeft += scrollAmount;
+      setScrollPosition(container.scrollLeft);
+    }
+  };
+
+  const [scrollPosition2, setScrollPosition2] = useState(0);
+  const scrollContainerRef2 = useRef(null);
+
+  const handleScroll2 = (direction) => {
+    const container = scrollContainerRef2.current;
+
+    if (container) {
+      const scrollAmount = direction === 'right' ? 200 : -200;
+      container.scrollLeft += scrollAmount;
+      setScrollPosition2(container.scrollLeft);
+    }
   };
 
   return (
@@ -47,10 +73,10 @@ const App = () => {
             Can't decide on what to order? Here's some fan favorites!
           </div>
           <div className="menu-main-app-square-container-top">
-            <div className="arrow-circle">
+            <div className="arrow-circle" onClick={() => handleScroll('left')}>
               <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" id="back-arrow-id" />
             </div>
-            <div className="menu-main-app-square-container">
+            <div className="menu-main-app-square-container" ref={scrollContainerRef}>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
@@ -82,7 +108,7 @@ const App = () => {
 
             </div>
             
-            <div className="back-arrow-circle">
+            <div className="back-arrow-circle" onClick={() => handleScroll('right')}>
               <FontAwesomeIcon icon={['fas', 'arrow-right']} className="fa-2x" id="forward-arrow-id" />
             </div>
 
@@ -157,10 +183,10 @@ const App = () => {
             Still stumped? Order one of these and we'll donate a meal!
           </div>
           <div className="menu-main-app-square-container-top">
-            <div className="arrow-circle">
-              <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" id="back-arrow-id" />
+            <div className="arrow-circle" onClick={() => handleScroll2('left')}>
+              <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" id="back-arrow-id"  />
             </div>
-            <div className="menu-main-app-square-container">
+            <div className="menu-main-app-square-container" ref={scrollContainerRef2}>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
@@ -192,8 +218,8 @@ const App = () => {
 
             </div>
             
-            <div className="back-arrow-circle">
-              <FontAwesomeIcon icon={['fas', 'arrow-right']} className="fa-2x" id="back-arrow-id" />
+            <div className="back-arrow-circle" onClick={() => handleScroll2('right')}>
+              <FontAwesomeIcon icon={['fas', 'arrow-right']} className="fa-2x" id="forward-arrow-id"  />
             </div>
 
           </div>
