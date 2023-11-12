@@ -7,9 +7,6 @@ const NavOptions = () => {
       <Link to="/order-now">
         <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
       </Link>
-      <Link to="/menu">
-        <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
-      </Link>
       <Link to="/about-us">
         <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
       </Link>

@@ -6,6 +6,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import NavOptions from '../utility/navOptions';
 library.add(fas,fab); 
 
 const Settings = () => 
@@ -65,22 +66,8 @@ const Settings = () =>
         </Link>
         <div className="menu-nav-title">Sweet Paris: Crepes and Cafe</div>
         <div className="menu-nav-container">
-          <Link to="/ordernow">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
-          </Link>
-          <Link to="/menu">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-menu">Menu</button>
-          </Link>
-          <Link to="/aboutus">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-aboutus">About Us</button>
-          </Link>
-          <Link to="/contactus">
-            <button className="menu-nav-container-button" id="menu-nav-container-button-contactus">Contact Us</button>
-          </Link>
+          <NavOptions />
         </div>
-        <Link to="/login">
-          <button className="menu-nav-admin-login">Admin Login</button>
-        </Link>
       </nav>
       <main className="menu-main-settings">
         <div className="menu-main-settings-header">
