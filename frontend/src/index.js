@@ -24,7 +24,6 @@ import Menu from "./components/menu/menu";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Settings from "./components/settings/Settings";
-import Cart from "./components/cart/Cart";
 import OrderNow from "./components/orderNow/OrderNow";
 import OrderNowSettings from "./components/orderNowSettings/OrderNowSettings";
 
@@ -84,7 +83,6 @@ function Routing() {
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
-      <Route path="/cart" element={<Cart />} />
       <Route path="/order-now" element={<OrderNow />} />
       <Route path="/order-now-settings" element={<OrderNowSettings />} />
     </Routes>

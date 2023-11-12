@@ -114,6 +114,88 @@
     padding: .25em;
 }
 
+.menu-main-menu-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10em;
+}
+
+.menu-main-menu-ticket-container
+{
+    background-color: var(--accent);
+    width: 750px;
+    height: 753px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    padding: 1em;
+}
+
+.ticket-container-title
+{
+    color: var(--white);
+    text-align: center;
+    border-bottom: 5px solid var(--white);
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.ticket-item-container
+{
+    height: 425px;
+    overflow-y: scroll;
+    border: 5px solid var(--white);
+    margin: 1em;
+}
+
+.ticket-item
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-left: 5px solid var(--white);
+    font-size: 2.5rem;
+    margin: 1em;
+}
+
+.ticket-item-quantity
+{
+    display: flex;
+    flex-direction: row;
+    gap: .75em;
+}
+
+.ticket-total-and-order-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75em;
+}
+
+.ticket-total-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2.5rem;
+    gap: 2em;
+    margin-top: -.25em;
+}
+
+.ticket-order-container
+{
+    border: 5px solid var(--white);
+    padding: .5em;
+    font-size: 2rem;
+    border-radius: 500px;
+    cursor: pointer;
+}
+
 .menu-main-menu-categories 
 {
     display: flex;
@@ -161,7 +243,7 @@
 
 .menu-main-menu-body 
 {
-    height: 450px;
+    height: 750px;
     overflow-y: auto;
 
 }
