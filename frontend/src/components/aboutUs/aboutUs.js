@@ -45,9 +45,9 @@ function AboutUs() {
               <div className="menu-main-aboutus-bottom-container">
                 <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image2"/>
                 <p>
-                  Sweet Paris was first opened in Rice Village in 2012. Within 10 years, Sweet Paris has turned into one of the best fast casual hotspots in various parts of Houston, Austin, San Antonio, College Station, Miami, Woodbury, and international resort destinations.
+                  We've donated over 11,000 additional meals recently to the Houston Food Bank through our "Eat Here, Feed There" program, totaling over 359,000 meals since it started the program in 2018. For each crepe sold with the food bank logo on the menu, we brand donates a meal to fight hunger.
                   <br />
-                  Every day - and every bite - is an opportunity to savor all that's good in the world. Although crepes are known for being French, we have introduced hints of other cultures into this versatile dish that can be enjoyed any time of the day!
+                  From the initial conception of Sweet Paris, we were inspired by fellow entrepreneurs who built social causes into their successful businesses. We decided to help fight hunger with hunger by donating a meal every time the Allison's Parfait, Truffled Caprese, and Lemon Sugar are ordered, targeting programs that support children.
                 </p>
               </div>
           </div>
