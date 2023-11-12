@@ -28,8 +28,58 @@ const App = () => {
         </SpecialFontText>
         <NavOptions />
       </nav>
-      <main className="menu-main">
-        
+      <main className="menu-main-app">
+        <div className="menu-main-app-square">
+
+          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
+            Popular Picks
+          </SpecialFontText>
+
+          <div className="menu-main-app-square-description">
+            Can't decide on what to order? Here's some fan favorites!
+          </div>
+          <div className="menu-main-app-square-container">
+
+            <div className="square-container-item">
+              <div className="square-container-item-title">
+                Smore's Crepe
+              </div>
+              <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+            </div>
+
+            <div className="square-container-item">
+              <div className="square-container-item-title">
+                Smore's Crepe
+              </div>
+              <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+            </div>
+
+            <div className="square-container-item">
+              <div className="square-container-item-title">
+                Smore's Crepe
+              </div>
+              <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+            </div>
+
+          </div>
+        </div>
+
+        <div className="menu-main-app-square-no"></div>
+        <div className="menu-main-app-square">
+          Item 3
+        </div>
+        <div className="menu-main-app-square-no"></div>
+        <div className="menu-main-app-square">
+          Item 5
+        </div>
+        <div className="menu-main-app-square-no"></div>
+        <div className="menu-main-app-square">
+          Item 7
+        </div>
+        <div className="menu-main-app-square-no"></div>
+        <div className="menu-main-app-square">
+          Item 9
+        </div>
       </main>
       <footer className="menu-footer">
         <SpecialFontText as="div" className="menu-footer-message">
