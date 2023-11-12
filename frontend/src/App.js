@@ -63,7 +63,7 @@ const App = () => {
         <NavOptions />
       </nav>
       <main className="menu-main-app">
-        <div className="menu-main-app-square">
+        <div className="menu-main-app-square-1">
 
           <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
             Popular Picks
@@ -129,7 +129,7 @@ const App = () => {
 
         <div className="menu-main-app-square-6"></div>
 
-        <div className="menu-main-app-square">
+        <div className="menu-main-app-square-7">
 
           <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
               Rewards Program
@@ -173,7 +173,7 @@ const App = () => {
 
         <div className="menu-main-app-square-8"></div>
 
-        <div className="menu-main-app-square">
+        <div className="menu-main-app-square-9">
 
           <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
             Buy One, We Donate One!
