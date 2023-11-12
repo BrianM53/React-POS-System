@@ -188,7 +188,7 @@
   font-size: 3.5rem;
 }
 
-#front-arrow-id
+#forward-arrow-id
 {
   font-size: 3.5rem;
 }
@@ -212,6 +212,81 @@
 {
   width: 200px;
   height: 200px;
+}
+
+.rewards-container
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2em;
+}
+
+.rewards-step
+{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.rewards-step-title
+{
+  font-size: 2rem;
+  border-bottom: 5px solid white;
+  margin: 0 auto;
+}
+
+.rewards-step-description
+{
+  font-size: 1.25rem;
+  margin-top: 0em;
+}
+
+.rewards-step-description::before {
+  content: '\2022';
+  display: inline-block;
+  width: 1em; 
+  margin-right: 0.125em; 
+}
+
+.rewards-explanation
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5em;
+}
+
+.rewards-submit-container
+{
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  position: relative;
+}
+
+.rewards-label
+{
+  font-size: 1.75rem;
+}
+
+.rewards-input
+{
+  width: 350px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.rewards-submit-button
+{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 10%;
+    background-color: var(--accent);
 }
 
 .menu-footer

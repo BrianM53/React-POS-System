@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import NavOptions from './components/utility/navOptions';
 import './App.css'
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
@@ -11,6 +12,13 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 library.add(fas,fab); 
 
 const App = () => {
+
+  const [email, setEmail] = useState('');
+
+  const clearInput = () => {
+    setEmail('');
+  };
+
   return (
     <div className="menu-body">
       <SpecialFontText as="header" className="menu-header" fontSize="5rem">
@@ -75,26 +83,70 @@ const App = () => {
             </div>
             
             <div className="back-arrow-circle">
-              <FontAwesomeIcon icon={['fas', 'arrow-right']} className="fa-2x" id="back-arrow-id" />
+              <FontAwesomeIcon icon={['fas', 'arrow-right']} className="fa-2x" id="forward-arrow-id" />
             </div>
 
           </div>
         </div>
-        <div className="menu-main-app-square-2">
-          
-        </div>
+
+        <div className="menu-main-app-square-2"> </div>
+
         <div className="menu-main-app-square-3">
           Weather API
         </div>
-        <div className="menu-main-app-square-no"></div>
+
+        <div className="menu-main-app-square-4"></div>
+
         <div className="menu-main-app-square-5">
           Order Now!
         </div>
-        <div className="menu-main-app-square-no"></div>
+
+        <div className="menu-main-app-square-6"></div>
+
         <div className="menu-main-app-square">
-          Item 7
+
+          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
+              Rewards Program
+          </SpecialFontText>
+
+          <div className="menu-main-app-square-description">
+            If you love Sweet Paris, don't leave free points on the table!
+          </div>
+
+          <div className="rewards-container">
+            <div className="rewards-step">
+
+              <SpecialFontText as="div" className="rewards-step-title" fontSize="2rem">
+                Collect Points for Purchase!
+              </SpecialFontText>
+              <div className="rewards-step-description">
+                 Collect 1 point for every $10 spent and get a $10 reward once you reach 10 points.
+              </div>
+            </div>
+            <div className="rewards-step">
+              <SpecialFontText as="div" className="rewards-step-title" fontSize="2rem">
+                Get the Inside Scoop!
+              </SpecialFontText>
+              <div className="rewards-step-description">
+                 Keep up with our exclusive deals, monthly promotions, and special free birthday prizes!
+              </div>
+            </div>
+          </div>
+
+          <div className="rewards-explanation">
+            <label for="email" class="rewards-label">Join The Program Today!</label>
+            <div className="rewards-submit-container">
+               <input type="email" id="email" class="rewards-input" placeholder="someperson@gmail.com"></input>
+               <button type="submit" class="rewards-submit-button" onClick={clearInput}>
+                  &#10003;
+               </button>
+            </div>
+          </div>
+
         </div>
-        <div className="menu-main-app-square-no"></div>
+
+        <div className="menu-main-app-square-8"></div>
+
         <div className="menu-main-app-square">
 
           <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">

@@ -191,7 +191,14 @@
     margin-top: -.25em;
 }
 
-.ticket-order-container
+.ticket-submit-container
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.ticket-submit-button
 {
     border: 5px solid var(--white);
     padding: .5em;

@@ -1568,8 +1568,11 @@ const OrderNow = () =>
                                     $958.24
                                 </div>
                             </div>
-                            <div className="ticket-order-container">
-                                Submit Order!
+                            <div className="ticket-submit-container">
+                                
+                                <div className="ticket-submit-button">
+                                    Submit Order!
+                                </div>
                             </div>
                         </div>
                     </div>
