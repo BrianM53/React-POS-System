@@ -88,18 +88,29 @@ class Report {
     
 
     static generateSellsTogether(startDate, endDate, callback) {
-        connection.query(
-            "SELECT product1.product_id AS productID1, product2.product_id AS productID2, productsJoin1.product_name, productsJoin2.product_name, COUNT(*) AS frequency " +
-                "FROM orders " +
-                "INNER JOIN order_details AS product1 ON orders.order_id = product1.order_id " +
-                "INNER JOIN order_details AS product2 ON orders.order_id = product2.order_id " +
-                "INNER JOIN products AS productsJoin1 ON productsJoin1.product_id = product1.product_id " +
-                "INNER JOIN products AS productsJoin2 ON productsJoin2.product_id = product2.product_id " +
-                "WHERE orders.date_time BETWEEN $1::timestamp AND $2::timestamp AND product1.product_id <> product2.product_id " +
-                "GROUP BY product1.product_id, product2.product_id, productsJoin1.product_name, productsJoin2.product_name " +
-                "ORDER BY frequency DESC;", //
-            [startDate, endDate],        
-            (error, results) => {
+        const query = `
+        SELECT 
+            product1.product_id AS lol1, 
+            product2.product_id AS lol2, 
+            productsJoin1.product_name AS product_name1, 
+            productsJoin2.product_name AS product_name2, 
+            COUNT(*) AS frequency
+        FROM 
+            orders
+            INNER JOIN order_details AS product1 ON orders.order_id = product1.order_id
+            INNER JOIN order_details AS product2 ON orders.order_id = product2.order_id
+            INNER JOIN products AS productsJoin1 ON productsJoin1.product_id = product1.product_id
+            INNER JOIN products AS productsJoin2 ON productsJoin2.product_id = product2.product_id
+        WHERE 
+            orders.date_time BETWEEN $1::timestamp AND $2::timestamp 
+            AND product1.product_id <> product2.product_id
+        GROUP BY 
+            product1.product_id, product2.product_id, productsJoin1.product_name, productsJoin2.product_name
+        ORDER BY 
+            frequency DESC;
+        `;
+
+        connection.query(query, [startDate, endDate], (error, results) => {
             if (error) {
                 return callback(error);
             }

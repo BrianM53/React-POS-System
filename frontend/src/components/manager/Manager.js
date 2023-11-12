@@ -11,13 +11,17 @@ import generateReport from './generateReport';
 import ReportButtons from './reportButtons';
 import ReportLabels from './reportLabels';
 import LogoutButton from '../utility/logoutButton';
-import ReportContent from './reportContent'
 
 function Manager() {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  
+  // default variables are for Sales Report
   const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
+  const [columns, setColumns] = useState(['product_name', 'price', 'numsold', 'totalsales']);
+
+  // the report data that will show up in the main content box
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -47,8 +51,8 @@ function Manager() {
         endDate: generateTimestamp(endDate),
       })
       .then(response => {
-        // console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
-        generateReport(reportType, response.data.data, setTableData);
+        console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data); 
+        generateReport(reportType, response.data.data, setColumns, setTableData);
       })
       .catch(error => {
         console.error('axios error:', error);
@@ -67,10 +71,9 @@ function Manager() {
             <tbody>
               {tableData.map((element, index) => (
                 <tr key={index}>
-                  <td>{element.product_name}</td>
-                  <td>{element.price}</td>
-                  <td>{element.numsold}</td>
-                  <td>{element.totalsales}</td>
+                  {columns.map((column, columnIndex) => (
+                    <td key={columnIndex}>{element[column]}</td>
+                  ))}
                 </tr>
               ))} 
             </tbody>
