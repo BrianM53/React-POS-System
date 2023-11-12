@@ -41,6 +41,8 @@
     min-width: 200px;
     border-radius: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3 ease;
 }
 
 .menu-nav-admin-login
@@ -50,4 +52,11 @@
     min-width: 200px;
     border-radius: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
+
+.menu-nav-container-button:hover
+{
+    transform: scale(1.25);
+}
+
