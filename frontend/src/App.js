@@ -137,7 +137,7 @@ const App = () => {
             <label for="email" class="rewards-label">Join The Program Today!</label>
             <div className="rewards-submit-container">
                <input type="email" id="email" class="rewards-input" placeholder="someperson@gmail.com"></input>
-               <button type="submit" class="rewards-submit-button" onClick={clearInput}>
+               <button type="button" class="rewards-submit-button" onClick={clearInput}>
                   &#10003;
                </button>
             </div>
