@@ -15,7 +15,6 @@ import App from "./App";
 import Login from "./components/login/Login";
 import Manager from "./components/manager/Manager";
 import Cashier from "./components/cashier/Cashier";
-import Menu from "./components/menu/menu";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Settings from "./components/settings/Settings";
@@ -29,6 +28,7 @@ import OrderNowSettings from "./components/orderNowSettings/OrderNowSettings";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CartProvider } from "./components/cart/CartContext";
 const clientID =
   "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
@@ -76,7 +76,6 @@ function Routing() {
         }
       />
       <Route path="/app" element={<App />} />
-      <Route path="/menu" element={<Menu />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
@@ -91,9 +90,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <Routing />
-      </UserProvider>
+      <CartProvider>
+        <UserProvider>
+          <Routing />
+        </UserProvider>
+      </CartProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
