@@ -3,10 +3,6 @@
     --accent: skyblue;
 }
 
-body {
-    background-color: skyblue;
-}
-
 .Cashier {
     background-color: var(--white);
     display: flex;
@@ -78,6 +74,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: var(--accent);
 }
 
 .order-container,

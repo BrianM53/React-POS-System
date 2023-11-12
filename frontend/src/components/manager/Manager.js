@@ -1,32 +1,97 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import axios from 'axios';
+
 import './Manager.css';
-import LogoutButton from '../utility/logoutButton';
+import "react-datepicker/dist/react-datepicker.css";
+
 import generateReport from './generateReport';
+import ReportButtons from './reportButtons';
+import ReportLabels from './reportLabels';
+import LogoutButton from '../utility/logoutButton';
+import ReportContent from './reportContent'
 
 function Manager() {
-  // Replace this with the actual code to generate tables or charts
+  const navigate = useNavigate();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    // Check if there's an active report in local storage and set it
+    localStorage.setItem('activeReport', activeReport);
+  }, [activeReport]);
+
+  function generateTimestamp(date) {
+    const date_val = date.toISOString().slice(0, 10).replace("T", " ");
+    const time_val = date.toLocaleTimeString([], { hour12: false }).slice(0, 8);
+    return date_val + " " + time_val;
+  }
+
+  function handleReport(e, reportType) {
+    e.preventDefault();
+
+    localStorage.setItem('activeReport', reportType);
+    setActiveReport(reportType);
+
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+
+    let reportRoute = reportType.replace(" ", "-").toLowerCase();
+    
+    axios
+      .post(BACKEND_URL + '/reports/' + reportRoute, {
+        startDate: generateTimestamp(startDate),
+        endDate: generateTimestamp(endDate),
+      })
+      .then(response => {
+        // console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), response.data); 
+        generateReport(reportType, response.data.data, setTableData);
+      })
+      .catch(error => {
+        console.error('axios error:', error);
+      });
+  }
 
   return (
-    <div className="Manager">
-      <div className="button-container">
-        <button onClick={() => generateReport('Sales Report')}>Sales Report</button>
-        <button onClick={() => generateReport('Excess Report')}>Excess Report</button>
-        <button onClick={() => generateReport('Restock Report')}>Restock Report</button>
-        <button onClick={() => generateReport('Sells Together')}>Sells Together</button>
-        <button onClick={() => generateReport('Usage Chart')}>Usage Chart</button>
-        <button onClick={() => generateReport('Add Employee')}>Add Employee</button>
+    <div>
+      <div className='Manager'>
+        <ReportLabels activeReport={activeReport} />
+
+        <div className="main-content">
+          <table>
+            <thead className='content-head'> 
+            </thead>
+            <tbody>
+              {tableData.map((element, index) => (
+                <tr key={index}>
+                  <td>{element.product_name}</td>
+                  <td>{element.price}</td>
+                  <td>{element.numsold}</td>
+                  <td>{element.totalsales}</td>
+                </tr>
+              ))} 
+            </tbody>
+          </table>
+        </div>
+
+        <ReportButtons activeReport={activeReport} handleReport={handleReport} />
+
+        <div className='date-btn'>
+          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm'/>
+          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm'/>
+        </div>
+          
+        <div className='utility-btn'>
+          <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
+          <LogoutButton />
+        </div>
+
       </div>
-      <div className="Manager-content">
-        {/* Your tables and charts go here */}
-      </div>
-      <LogoutButton />
     </div>
   );
 }
 
 export default Manager;
-
-
-
-
-

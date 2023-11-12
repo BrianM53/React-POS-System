@@ -10,7 +10,7 @@ class Order {
     paymentMethod,
     paymentStatus,
     callback
-  ) {
+  ) { 
     connection.query(
       "INSERT INTO orders (date_time, employee_id, customer_id, total_cost, payment_method, payment_status) VALUES (NOW(), $1, $2, $3, $4, $5) RETURNING order_id",
       [employeeId, customerId, totalCost, paymentMethod, paymentStatus],
