@@ -91,9 +91,9 @@ const ContactUs = () => {
           </div> 
           <div className="contactus-right-container">
             <div className="contact-form-container">
-              <div className="contact-form-title">
+              <SpecialFontText as="div" className="contact-form-title" fontSize="2.25rem">
                 Can we cater your next gathering?
-              </div>
+              </SpecialFontText>
               <form onSubmit={handleSubmit} className="form-container">
                 <label htmlFor="Name">Name:</label>
                     <input
