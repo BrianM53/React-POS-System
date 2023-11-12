@@ -231,1231 +231,1231 @@ const OrderNow = () =>
                 <div className="menu-main-menu-container">
                     <div className="menu-main-menu-body">
 
-<div className="menu-body-category-container" id="menu-body-sweet-crepes" style={{ display: activeSection === 'sweetCrepes' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-savory-crepes" style={{ display: activeSection === 'savoryCrepes' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Savory Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-kids-crepes" style={{ display: activeSection === 'kidsCrepes' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Kids Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Kids Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Kids Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Kids Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Kids Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Kids Crepes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-sweet-paris-waffles" style={{ display: activeSection === 'sweetParisWaffles' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Paris Waffles
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Paris Waffles
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Paris Waffles
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Sweet Paris Waffles
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-breakfast-crepes-and-eggs" style={{ display: activeSection === 'breakfastCrepesAndEggs' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Breakfast Crepes and Eggs
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-soups-salads-and-paninis" style={{ display: activeSection === 'soupsSaladsAndPaninis' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Soups, Salads and Paninis
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Soups, Salads and Paninis
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Soups, Salads and Paninis
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Soups, Salads and Paninis
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Soups, Salads and Paninis
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-le-bar" style={{ display: activeSection === 'leBar' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Le Bar
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-hot-drinks-and-milkshakes" style={{ display: activeSection === 'hotDrinksAndMilkshakes' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Hot Drinks and Milkshakes
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
-
-<div className="menu-body-category-container" id="menu-body-beverages" style={{ display: activeSection === 'waterAndBeverages' ? 'flex' : 'none' }}>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-    <div className="menu-body-entry-container">
-    <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-    <div className="menu-body-entry-description-container">
-        <div className="menu-body-entry-title">
-        Water and Beverages
-        </div>
-        <div className="menu-body-entry-description">
-        Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
-        </div>
-    </div>
-    <div className="menu-body-entry-amount-container">
-        <div className="decrement-button">-</div>
-        <div className="amount-counter">0</div>
-        <div className="increment-button">+</div>
-    </div>
-    </div>
-
-</div>
+                        <div className="menu-body-category-container" id="menu-body-sweet-crepes" style={{ display: activeSection === 'sweetCrepes' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo" />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-savory-crepes" style={{ display: activeSection === 'savoryCrepes' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Savory Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-kids-crepes" style={{ display: activeSection === 'kidsCrepes' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Kids Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Kids Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Kids Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Kids Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Kids Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Kids Crepes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-sweet-paris-waffles" style={{ display: activeSection === 'sweetParisWaffles' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Paris Waffles
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Paris Waffles
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Paris Waffles
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Sweet Paris Waffles
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-breakfast-crepes-and-eggs" style={{ display: activeSection === 'breakfastCrepesAndEggs' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Breakfast Crepes and Eggs
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-soups-salads-and-paninis" style={{ display: activeSection === 'soupsSaladsAndPaninis' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Soups, Salads and Paninis
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Soups, Salads and Paninis
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Soups, Salads and Paninis
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Soups, Salads and Paninis
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Soups, Salads and Paninis
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-le-bar" style={{ display: activeSection === 'leBar' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Le Bar
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-hot-drinks-and-milkshakes" style={{ display: activeSection === 'hotDrinksAndMilkshakes' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Hot Drinks and Milkshakes
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div className="menu-body-category-container" id="menu-body-beverages" style={{ display: activeSection === 'waterAndBeverages' ? 'flex' : 'none' }}>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                            <div className="menu-body-entry-container">
+                            <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
+                            <div className="menu-body-entry-description-container">
+                                <div className="menu-body-entry-title">
+                                Water and Beverages
+                                </div>
+                                <div className="menu-body-entry-description">
+                                Description descirption Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus?
+                                </div>
+                            </div>
+                            <div className="menu-body-entry-amount-container">
+                                <div className="decrement-button">-</div>
+                                <div className="amount-counter">0</div>
+                                <div className="increment-button">+</div>
+                            </div>
+                            </div>
+
+                        </div>
 
                     </div>
                     <div className="menu-main-menu-ticket-container">
@@ -1577,9 +1577,9 @@ const OrderNow = () =>
 
             </main>
             <footer className="menu-footer">
-                <div className="menu-footer-message">
-                Get in touch with us! Follow us on:
-                </div>
+                <SpecialFontText as="div" className="menu-footer-message">
+                    Get in touch with us! Follow us on:
+                </SpecialFontText>
                 <div className="menu-footer-container">
                     <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
                     <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
