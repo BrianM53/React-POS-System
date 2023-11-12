@@ -7,7 +7,7 @@
 
 *
 {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   box-sizing: border-box;
 }
 
@@ -64,15 +64,15 @@
 {
   background-color: var(--white);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.33fr 1fr;
   margin: 3em;
+  color: var(--white);
 }
 
 .menu-main-app-square
 {
   background-color: var(--accent);
-  border: 5px solid purple;
   font-size: 1.125rem;
   display: flex;
   flex-direction: column;
@@ -83,6 +83,44 @@
   text-align: center;
 }
 
+.menu-main-app-square-2
+{
+  
+}
+
+.menu-main-app-square-8
+{
+  
+}
+
+.menu-main-app-square-3
+{
+  background-color: var(--accent);
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 500px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  gap: 1em;
+  text-align: center;
+}
+
+.menu-main-app-square-5
+{
+  background-color: var(--accent);
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 500px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 500px;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .menu-main-app-square-no
 {
   background-color: var(--white);
@@ -91,30 +129,89 @@
 .menu-main-app-square-title
 {
   font-size: 3rem;
+  border-bottom: 5px solid white;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .menu-main-app-square-description
 {
   font-size: 2rem;
-  margin-top: -.5em;
+  margin-top: -.25em;
+}
+
+.menu-main-app-square-container-top
+{
+  display: flex;
+  flex-direction: row;
 }
 
 .menu-main-app-square-container
 {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 2em;
+  width: 700px;
+  overflow-x: scroll;
+  margin: 0 auto;
+  margin-top: -1em;
+}
+
+.menu-main-app-square-container::-webkit-scrollbar-track 
+{
+  background-color: var(--white);
+}
+
+.arrow-circle
+{
+  border: 5px solid white;
+  border-radius: 500px;
+  margin-top: 5em;
+  margin-left: 3em;
+  padding: 1em;
+  height: 6rem;
+}
+
+.back-arrow-circle
+{
+  border: 5px solid white;
+  border-radius: 500px;
+  margin-top: 5em;
+  margin-right: 3em;
+  padding: 1em;
+  height: 6rem;
+}
+
+#back-arrow-id
+{
+  font-size: 3.5rem;
+}
+
+#front-arrow-id
+{
+  font-size: 3.5rem;
 }
 
 .square-container-item
 {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+}
+
+.square-container-item-title
+{
+  font-size: 1.75em;
+  width: 330px;
 }
 
 .popular-picks-photo
 {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 .menu-footer
