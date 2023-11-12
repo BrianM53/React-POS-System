@@ -129,7 +129,36 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
+.title-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
 
+.big-title
+{
+    font-size: 3.5rem;
+}
+
+.small-title
+{
+    font-size: 2.5rem;
+    border-bottom: 5px solid white;
+    padding-bottom: 1em;
+}
+
+.rest-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.rest
+{
+    font-size: 2rem;
+}   
 
 .menu-main-contactus-entry
 {

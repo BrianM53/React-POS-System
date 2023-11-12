@@ -64,23 +64,28 @@ const ContactUs = () => {
         <img src="/catering3.jpeg" alt="happy customers" className="contactus-image"/>
           <div className="contactus-left-container">
             <div className="menu-main-contactus-entry" id="menu-main-contactus-entry-1">
-              <div>
-                Love the restaurant?
+              <div className="title-container">
+
+                <SpecialFontText as="div" className="big-title" fontSize="3.5rem">
+                  Love the restaurant?
+                </SpecialFontText>
+                <div className="small-title">
+                  Feel free to shout us out on social media!
+                </div>
               </div>
-              <div>
-                Feel free to shout us out on social media!
-              </div>
-              <div>
-                Instagram: @SweetParisCrepery
-              </div>
-              <div>
-                Twitter: @SweetParisCollegeStation
-              </div>
-              <div>
-                Facebook: SweetParisCrepery - College Station
-              </div>
-              <div>
-                TikTok: sweet_paris_college_station
+              <div className="rest-container">
+                <div className="rest">
+                  Instagram: @SweetParisCrepery
+                </div>
+                <div className="rest">
+                  Twitter: @SweetParisCollegeStation
+                </div>
+                <div className="rest">
+                  Facebook: SweetParisCrepery - College Station
+                </div>
+                <div className="rest">
+                  TikTok: sweet_paris_college_station
+                </div>
               </div>
             </div>
           </div> 
