@@ -51,7 +51,7 @@ const App = () => {
       <SpecialFontText as="header" className="menu-header" fontSize="5rem">
         Welcome to the Sweet Paris Cafe!
       </SpecialFontText>
-      <Weather />
+
       <nav className="menu-nav">
         <Link to="/settings">
           <FontAwesomeIcon
@@ -128,7 +128,16 @@ const App = () => {
         <div className="menu-main-app-square-2"> </div>
 
         <div className="menu-main-app-square-3">
-          Weather API
+          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
+            Rain Check
+          </SpecialFontText>
+
+          <div className="menu-main-app-square-description">
+            Planning on sitting outside today? Double check the weather!
+          </div>
+
+          < Weather />
+
         </div>
 
         <div className="menu-main-app-square-4"></div>

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import SpecialFontText from "../specialFontText/SpecialFontText";
+import './Weather.css';
+
 const Weather = () => {
   const [weather, setWeather] = useState(null);
 
@@ -20,16 +23,63 @@ const Weather = () => {
   }, []);
 
   if (!weather) {
-    return <div>Loading weather data...</div>;
+    return (
+      <div>Loading weather data...</div>
+    )
   }
 
+  const capitalizeFirstLetters = (str) => {
+    return str.replace(/\b\w/g, (match) => match.toUpperCase());
+  };
+
+  const currentDate = new Date();
+  const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = currentDate.toLocaleDateString(undefined, options);
+
+  const { name, main, weather: weatherConditions, wind, clouds } = weather;
+
   return (
-    <div>
-      <h2>
-        Weather in {weather.name} {weather.main.temp} °F
-      </h2>
+    <div className="weather-container">
+
+      <img src="/clouds.png" alt="restaurant front" className="weather-picture"/>
+
+      <div className="weather-data-container">
+
+        <div className="weather-type-container">
+          <div className="weather-degrees">
+            {main.temp}&deg;
+          </div>
+
+          |
+
+          <div className="weather-type">
+            {capitalizeFirstLetters(weatherConditions[0].description)}
+          </div>
+        </div>
+
+        <div className="weather-date">
+          {formattedDate}
+        </div>
+
+        <div className="weather-location">
+          Bryan-College Station, TX
+        </div>
+
+      </div>
     </div>
-  );
+  )
+
 };
 
 export default Weather;
+
+
+
+//       Weather Information for {name}
+//       Temperature: {main.temp} °F
+//       Pressure: {main.pressure} hPa
+//       Humidity: {main.humidity}%
+//       Weather Condition: {weatherConditions[0].description}
+//       Wind Speed: {wind.speed} mph
+//       Wind Direction: {wind.deg}°
+//       Cloud Coverage: {clouds.all}% 

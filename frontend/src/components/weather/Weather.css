@@ -1,0 +1,68 @@
+/* color controller */
+:root 
+{
+    --white: white;
+    --accent: skyblue;
+    --font-size: 16px;
+}
+
+.menu-main-app-square-3-inside
+{
+  grid-row: 1;
+  grid-column: 3;
+  background-color: var(--accent);
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 500px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  gap: 1em;
+  text-align: center;
+}
+
+.menu-main-app-square-title
+{
+  font-size: 3rem;
+  border-bottom: 5px solid white;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.menu-main-app-square-description
+{
+  font-size: 2rem;
+  margin-top: -.25em;
+}
+
+.weather-picture
+{
+    height: 190px;
+    width: 190px;
+    border-radius: 500px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+
+}
+
+.weather-container 
+{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+}
+
+.weather-data-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    align-items: center;
+}
+
+.weather-type-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}

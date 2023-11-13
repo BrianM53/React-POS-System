@@ -234,6 +234,12 @@
   margin-top: -.25em;
 }
 
+.menu-main-app-square-description-3
+{
+  font-size: 2rem;
+  margin-top: -.65em;
+}
+
 .menu-main-app-square-container-top
 {
   display: flex;
@@ -265,6 +271,7 @@
   margin-left: 3em;
   padding: 1em;
   height: 6rem;
+  cursor: pointer;
 }
 
 .back-arrow-circle
@@ -275,16 +282,29 @@
   margin-right: 3em;
   padding: 1em;
   height: 6rem;
+  cursor: pointer;
 }
 
 #back-arrow-id
 {
   font-size: 3.5rem;
+  cursor: pointer;
+}
+
+#back-arrow-id:hover
+{
+  transform: scale(1.25);
 }
 
 #forward-arrow-id
 {
   font-size: 3.5rem;
+  cursor: pointer;
+}
+
+#forward-arrow-id:hover
+{
+  transform: scale(1.25);
 }
 
 .square-container-item
