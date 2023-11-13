@@ -6,15 +6,25 @@
 - Project Manager: James Guandolo
 - Members: Deric Le, Oreoluwa Ogunleye-Olawuyi, Lex Unwin, Brian McKeown
 
-### Usage
+### Local Usage
 ---
-- Run react server: ~/project-3/frontend> npm start
-- Run express server: ~/project-3/backend> npm start
+- Run react server: ~/project-3/frontend> npm start --> localhost:3000
+- Run express server: ~/project-3/backend> npm start --> localhost:3001
+
+### Deployed Servers
+---
+- Frontend: https://jbold-frontend.onrender.com/
+- Backend: https://jbold-backend.onrender.com/ --> Note that this may take a while to load since Render will allocate little resources to no/low traffic sites
 
 ### Misc.
 ---
 - client id: 646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com
 
+### Scrum
+---
+- 10/23/2023 0805: Start of class 
+- 10/25/2023 0805: Start of class 
+- 10/27/2023 0805: Start of class 
 
 
 
