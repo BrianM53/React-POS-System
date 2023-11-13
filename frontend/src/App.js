@@ -124,7 +124,18 @@ const App = () => {
         <div className="menu-main-app-square-4"></div>
 
         <div className="menu-main-app-square-5">
-          Order Now!
+          <div className="square-5-top">
+            <SpecialFontText as="div" className="square-5-title" fontSize="5.4rem">
+              Let Them Eat Crepes
+            </SpecialFontText>
+            <div className="square-5-description">
+              Ready to order?
+            </div>
+            <div className="square-5-order-now-button">
+              Order Now!
+            </div>
+            <img src="/sweetParisLocation.jpeg" alt="restaurant front" className="square-5-photo"/>
+          </div>
         </div>
 
         <div className="menu-main-app-square-6"></div>
