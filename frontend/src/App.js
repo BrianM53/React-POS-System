@@ -131,9 +131,10 @@ const App = () => {
             <div className="square-5-description">
               Ready to order?
             </div>
-            <div className="square-5-order-now-button">
-              Order Now!
-            </div>
+
+            <Link to="/order-now">
+              <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
+            </Link>
             <img src="/sweetParisLocation.jpeg" alt="restaurant front" className="square-5-photo"/>
           </div>
         </div>

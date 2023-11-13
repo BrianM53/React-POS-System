@@ -101,9 +101,6 @@ const Settings = () =>
 
           <div className="menu-main-settings-right-container">
 
-            <div className="menu-main-settings-entry" id="menu-main-settings-entry-4">
-              I'll design all of this later once I get an idea of what toggling the API looks like in the webpage
-            </div>
             <div className="menu-main-settings-entry" id="menu-main-settings-entry-5">
               Google Translate API
             </div>
