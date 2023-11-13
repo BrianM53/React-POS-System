@@ -99,6 +99,8 @@ root.render(
   </React.StrictMode>
 );
 
+document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, initial-scale=0.8");
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint.

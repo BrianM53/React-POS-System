@@ -99,7 +99,7 @@ const OrderNow = () => {
     <div className="menu-body">
         
         <SpecialFontText as="header" className="menu-header" >
-            Welcome to the Sweet Paris Cafe!
+          Welcome to the Sweet Paris Cafe!
         </SpecialFontText>
         
         <nav className="menu-nav">
@@ -119,227 +119,189 @@ const OrderNow = () => {
             <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
                 Order Now
             </SpecialFontText>
-              <div className="menu-main-menu-categories">
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-sweet-crepes"
-                    onClick={() => handleCategoryClick("Sweet Crepes")}
-                >
+
+            <div className="menu-main-menu-categories">
+                <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes"  onClick={() => handleCategoryClick('sweetCrepes')}>
                     Sweet Crepes
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-kids-crepes"
-                    onClick={() => handleCategoryClick("Savory Crepes")}
-                >
+                <div className="menu-main-menu-category" id="menu-main-menu-savory-crepes"  onClick={() => handleCategoryClick('savoryCrepes')}    >
                     Savory Crepes
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-kids-crepes"
-                    onClick={() => handleCategoryClick("Kids Crepes")}
-                >
+                <div className="menu-main-menu-category" id="menu-main-menu-kids-crepes"  onClick={() => handleCategoryClick('kidsCrepes')}       >
                     Kids Crepes
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-sweet-paris-waffles"
-                    onClick={() => handleCategoryClick("Waffles")}
-                >
+                <div className="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles" onClick={() => handleCategoryClick('sweetParisWaffles')}        >
                     Sweet Paris Waffles
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-breakfast-crepes-and-eggs"
-                    onClick={() => handleCategoryClick("Breakfast Crepes")}
-                >
+                <div className="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs"  onClick={() => handleCategoryClick('breakfastCrepesAndEggs')}    >
                     Breakfast Crepes & Eggs
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-salads"
-                    onClick={() => handleCategoryClick("Salads")}
-                >
-                    Salads
+                <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('soupsSaladsAndPaninis')}      >
+                    Soups, Salads & Paninis
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-paninis"
-                    onClick={() => handleCategoryClick("Paninis")}
-                >
-                    Paninis
+                <div className="menu-main-menu-category" id="menu-main-menu-le-bar" onClick={() => handleCategoryClick('leBar')}    >
+                    Le Bar
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-hot-drinks"
-                    onClick={() => handleCategoryClick("Hot Drinks")}
-                >
-                    Hot Drinks
+                <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('hotDrinksAndMilkshakes')}      >
+                    Hot Drinks & Milkshakes
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-milkshakes"
-                    onClick={() => handleCategoryClick("Milkshakes")}
-                >
-                    Milkshakes
+                <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('waterAndBeverages')}     >
+                    Water & Beverages
                 </div>
-                <div
-                    className="menu-main-menu-category"
-                    id="menu-main-menu-beverages"
-                    onClick={() => handleCategoryClick("Beverages")}
-                >
-                    Beverages
-                </div>
-                </div>
+            </div>
+
+            <div className="menu-main-menu-container">
                 <div className="menu-main-menu-body">
-                <div
-                    className="menu-body-category-container"
-                    id={`menu-body-${activeSection}`}
-                    style={{ display: "flex" }}
-                >
-                    {renderProducts()}
-                </div>
-              </div>
-              <div className="menu-main-menu-ticket-container">
-                <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
-                    Your Cart
-                </SpecialFontText>
-                <div className="ticket-item-container">
-                    <div className="ticket-item">
-                        <div className="ticket-item-quantity">
-                            <div className="ticket-item-decrement">
-                                -
-                            </div>
-                            <div className="ticket-item-current-quantity">
-                                5
-                            </div>
-                            <div className="ticket-item-increment">
-                                +
-                            </div>
-                        </div>
-                        <div className="ticket-item-name">
-                            Smore's Crepe
-                        </div>
-                        <div className="ticket-item-price">
-                            54.23
-                        </div>
-                    </div>
-                    <div className="ticket-item">
-                        <div className="ticket-item-quantity">
-                            <div className="ticket-item-decrement">
-                                -
-                            </div>
-                            <div className="ticket-item-current-quantity">
-                                5
-                            </div>
-                            <div className="ticket-item-increment">
-                                +
-                            </div>
-                        </div>
-                        <div className="ticket-item-name">
-                            Smore's Crepe
-                        </div>
-                        <div className="ticket-item-price">
-                            54.23
-                        </div>
-                    </div>
-                    <div className="ticket-item">
-                        <div className="ticket-item-quantity">
-                            <div className="ticket-item-decrement">
-                                -
-                            </div>
-                            <div className="ticket-item-current-quantity">
-                                5
-                            </div>
-                            <div className="ticket-item-increment">
-                                +
-                            </div>
-                        </div>
-                        <div className="ticket-item-name">
-                            Smore's Crepe
-                        </div>
-                        <div className="ticket-item-price">
-                            54.23
-                        </div>
-                    </div>
-                    <div className="ticket-item">
-                        <div className="ticket-item-quantity">
-                            <div className="ticket-item-decrement">
-                                -
-                            </div>
-                            <div className="ticket-item-current-quantity">
-                                5
-                            </div>
-                            <div className="ticket-item-increment">
-                                +
-                            </div>
-                        </div>
-                        <div className="ticket-item-name">
-                            Smore's Crepe
-                        </div>
-                        <div className="ticket-item-price">
-                            54.23
-                        </div>
-                    </div>
-                    <div className="ticket-item">
-                        <div className="ticket-item-quantity">
-                            <div className="ticket-item-decrement">
-                                -
-                            </div>
-                            <div className="ticket-item-current-quantity">
-                                5
-                            </div>
-                            <div className="ticket-item-increment">
-                                +
-                            </div>
-                        </div>
-                        <div className="ticket-item-name">
-                            Smore's Crepe
-                        </div>
-                        <div className="ticket-item-price">
-                            54.23
-                        </div>
+                    <div
+                        className="menu-body-category-container"
+                        id={`menu-body-${activeSection}`}
+                        style={{ display: "flex" }}
+                    >
+                        {renderProducts()}
                     </div>
                 </div>
-                <div className="ticket-total-and-order-container">
-                    <div className="ticket-total-container">
-                        <div className="ticket-total-title">
-                            Your Total:
+                <div className="menu-main-menu-ticket-container">
+                    <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
+                        Your Cart
+                    </SpecialFontText>
+                    <div className="ticket-item-container">
+                        <div className="ticket-item">
+                            <div className="ticket-item-quantity">
+                                <div className="ticket-item-decrement">
+                                    -
+                                </div>
+                                <div className="ticket-item-current-quantity">
+                                    5
+                                </div>
+                                <div className="ticket-item-increment">
+                                    +
+                                </div>
+                            </div>
+                            <div className="ticket-item-name">
+                                Smore's Crepe
+                            </div>
+                            <div className="ticket-item-price">
+                                54.23
+                            </div>
                         </div>
-                        <div className="ticket-total-title">
-                            $958.24
+                        <div className="ticket-item">
+                            <div className="ticket-item-quantity">
+                                <div className="ticket-item-decrement">
+                                    -
+                                </div>
+                                <div className="ticket-item-current-quantity">
+                                    5
+                                </div>
+                                <div className="ticket-item-increment">
+                                    +
+                                </div>
+                            </div>
+                            <div className="ticket-item-name">
+                                Smore's Crepe
+                            </div>
+                            <div className="ticket-item-price">
+                                54.23
+                            </div>
+                        </div>
+                        <div className="ticket-item">
+                            <div className="ticket-item-quantity">
+                                <div className="ticket-item-decrement">
+                                    -
+                                </div>
+                                <div className="ticket-item-current-quantity">
+                                    5
+                                </div>
+                                <div className="ticket-item-increment">
+                                    +
+                                </div>
+                            </div>
+                            <div className="ticket-item-name">
+                                Smore's Crepe
+                            </div>
+                            <div className="ticket-item-price">
+                                54.23
+                            </div>
+                        </div>
+                        <div className="ticket-item">
+                            <div className="ticket-item-quantity">
+                                <div className="ticket-item-decrement">
+                                    -
+                                </div>
+                                <div className="ticket-item-current-quantity">
+                                    5
+                                </div>
+                                <div className="ticket-item-increment">
+                                    +
+                                </div>
+                            </div>
+                            <div className="ticket-item-name">
+                                Smore's Crepe
+                            </div>
+                            <div className="ticket-item-price">
+                                54.23
+                            </div>
+                        </div>
+                        <div className="ticket-item">
+                            <div className="ticket-item-quantity">
+                                <div className="ticket-item-decrement">
+                                    -
+                                </div>
+                                <div className="ticket-item-current-quantity">
+                                    5
+                                </div>
+                                <div className="ticket-item-increment">
+                                    +
+                                </div>
+                            </div>
+                            <div className="ticket-item-name">
+                                Smore's Crepe
+                            </div>
+                            <div className="ticket-item-price">
+                                54.23
+                            </div>
                         </div>
                     </div>
-                    <div className="ticket-submit-container">
-                        
-                        <div className="ticket-submit-button">
-                            Submit Order!
+                    <div className="ticket-total-and-order-container">
+                        <div className="ticket-total-container">
+                            <div className="ticket-total-title">
+                                Your Total:
+                            </div>
+                            <div className="ticket-total-title">
+                                $958.24
+                            </div>
+                        </div>
+                        <div className="ticket-submit-container">
+                            
+                            <div className="ticket-submit-button">
+                                Submit Order!
+                            </div>
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
+
         </main>
         <footer className="menu-footer">
-          <SpecialFontText as="div" className="menu-footer-message">
-            Get in touch with us! Follow us on:
-          </SpecialFontText>
-          <div className="menu-footer-container">
-              <Link to="/contact-us">
+            <SpecialFontText as="div" className="menu-footer-message">
+                Get in touch with us! Follow us on:
+            </SpecialFontText>
+            <div className="menu-footer-container">
+                <Link to="/contact-us">
                 <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
-              </Link>
-              <Link to="/contact-us">
+                </Link>
+                <Link to="/contact-us">
                 <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
-              </Link>
-              <Link to="/contact-us">
+                </Link>
+                <Link to="/contact-us">
                 <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
-              </Link>
-              <Link to="/contact-us">
+                </Link>
+                <Link to="/contact-us">
                 <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
-              </Link>
-          </div>
+                </Link>
+            </div>
         </footer>
     </div>
-  );
+);
 };
 
 export default OrderNow;

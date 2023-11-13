@@ -171,10 +171,10 @@ const App = () => {
           </div>
 
           <div className="rewards-explanation">
-            <label for="email" class="rewards-label">Join The Program Today!</label>
+            <label htmlFor="email" className="rewards-label">Join The Program Today!</label>
             <div className="rewards-submit-container">
-               <input type="email" id="email" class="rewards-input" placeholder="someperson@gmail.com"></input>
-               <button type="button" class="rewards-submit-button" onClick={clearInput}>
+               <input type="email" id="email" className="rewards-input" placeholder="someperson@gmail.com"></input>
+               <button type="button" className="rewards-submit-button" onClick={clearInput}>
                   &#10003;
                </button>
             </div>
