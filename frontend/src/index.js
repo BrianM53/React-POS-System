@@ -9,18 +9,13 @@ import "@fortawesome/react-fontawesome";
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
 
 // controls user state
-import {
-  UserProvider,
-  useUser,
-  getUserRole,
-} from "./components/utility/userControl";
+import {UserProvider, useUser} from "./components/utility/userControl";
 
 // the page components
 import App from "./App";
 import Login from "./components/login/Login";
 import Manager from "./components/manager/Manager";
 import Cashier from "./components/cashier/Cashier";
-import Menu from "./components/menu/menu";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Settings from "./components/settings/Settings";
@@ -32,13 +27,18 @@ import OrderNow from "./components/orderNow/OrderNow";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CartProvider } from "./components/cart/CartContext";
+
 const clientID =
   "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
-function PrivateRoute({ element, requiredRole, fallbackPath }) {
+function PrivateRoute({ element, requiredRole }) {
   const { userRole } = useUser();
   console.log("User role:", userRole);
-  if (userRole === requiredRole) {
+  if (userRole === "manager") {
+    return element;
+  }
+  else if (userRole === requiredRole) {
     return element;
   } else {
     return <ErrorMessage userRole={userRole} requiredRole={requiredRole} />;
@@ -63,7 +63,6 @@ function Routing() {
           <PrivateRoute
             element={<Manager />}
             requiredRole="manager"
-            fallbackPath="/"
           />
         }
       />
@@ -73,12 +72,10 @@ function Routing() {
           <PrivateRoute
             element={<Cashier />}
             requiredRole="cashier"
-            fallbackPath="/"
           />
         }
       />
       <Route path="/app" element={<App />} />
-      <Route path="/menu" element={<Menu />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
@@ -88,13 +85,14 @@ function Routing() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const { userRole } = getUserRole();
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <Routing />
-      </UserProvider>
+      <CartProvider>
+        <UserProvider>
+          <Routing />
+        </UserProvider>
+      </CartProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
