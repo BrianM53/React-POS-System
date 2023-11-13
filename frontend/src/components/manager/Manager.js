@@ -19,7 +19,7 @@ function Manager() {
   
   // default variables are for Sales Report
   const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
-  const [columns, setColumns] = useState(['product_name', 'price', 'numsold', 'totalsales']);
+  const [columns, setColumns] = useState(['product_name1', 'product_name2', 'price', 'numsold', 'totalsales']);
 
   // the report data that will show up in the main content box
   const [tableData, setTableData] = useState([]);
