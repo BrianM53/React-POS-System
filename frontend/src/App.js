@@ -50,12 +50,21 @@ const App = () => {
       <SpecialFontText as="header" className="menu-header" fontSize="5rem">
         Welcome to the Sweet Paris Cafe!
       </SpecialFontText>
+      <Weather />
       <nav className="menu-nav">
         <Link to="/settings">
-          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+          <FontAwesomeIcon
+            icon={["fas", "gear"]}
+            className="fa-2x"
+            id="menu-nav-settings-icon"
+          />
         </Link>
         <Link to="/app">
-          <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
+          <FontAwesomeIcon
+            icon={["fas", "home"]}
+            className="fa-2x"
+            id="menu-nav-home-icon"
+          />
         </Link>
         <SpecialFontText as="div" className="menu-nav-title">
           Sweet Paris: Crepes and Cafe
