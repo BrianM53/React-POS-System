@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const Report = require("../models/Report");
 
+
 router.get("/", (res) => {
     res.send("reports route working");
 });
@@ -21,6 +22,7 @@ router.post("/sales-report", (req, res) => {
         }
     });
 });
+
 
 router.post("/excess-report", (req, res) => { 
     const startDate = req.body.startDate;
@@ -74,7 +76,5 @@ router.post("/usage-chart", (req, res) => {
         }
     });
 });
-
-
 
 module.exports = router;

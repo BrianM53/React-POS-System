@@ -69,6 +69,7 @@ function Manager() {
             <thead className='content-head'> 
             </thead>
             <tbody>
+              <canvas id="usageChart"></canvas> {/*not sure abt this one need to display chart*/}
               {tableData.map((element, index) => (
                 <tr key={index}>
                   {columns.map((column, columnIndex) => (

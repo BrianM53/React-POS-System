@@ -27,21 +27,22 @@ class Report {
         );
     }
 
+    
     static generateRestockReport(callback) {
         connection.query(
             "SELECT products.product_name, inventory.inventory_item, inventory.stock_level, inventory.restock_level, inventory.measurement_type \r\n" + //
-                    "FROM inventory\r\n" + //
-                    "INNER JOIN product_ingredients\r\n" + //
-                    "ON inventory.inventory_id = product_ingredients.inventory_id\r\n" + //
-                    "INNER JOIN products\r\n" + //
-                    "ON product_ingredients.product_id = products.product_id\r\n" + //
-                    "WHERE stock_level < restock_level;\r\n", //
-                    
+            "FROM inventory\r\n" + //
+            "INNER JOIN product_ingredients\r\n" + //
+            "ON inventory.inventory_id = product_ingredients.inventory_id\r\n" + //
+            "INNER JOIN products\r\n" + //
+            "ON product_ingredients.product_id = products.product_id\r\n" + //
+            "WHERE stock_level < restock_level;\r\n", //
+            
             (error, results) => {
-            if (error) {
-                return callback(error);
-            }
-            callback(null, results.rows);
+                if (error) {
+                    return callback(error);
+                }
+                callback(null, results.rows);
             }
         );
     }
@@ -85,91 +86,168 @@ class Report {
             }
         );
     }
-    
 
     static generateSellsTogether(startDate, endDate, callback) {
-        const query = `
-        SELECT 
-            product1.product_id AS lol1, 
-            product2.product_id AS lol2, 
-            productsJoin1.product_name AS product_name1, 
-            productsJoin2.product_name AS product_name2, 
-            COUNT(*) AS frequency
-        FROM 
-            orders
-            INNER JOIN order_details AS product1 ON orders.order_id = product1.order_id
-            INNER JOIN order_details AS product2 ON orders.order_id = product2.order_id
-            INNER JOIN products AS productsJoin1 ON productsJoin1.product_id = product1.product_id
-            INNER JOIN products AS productsJoin2 ON productsJoin2.product_id = product2.product_id
-        WHERE 
-            orders.date_time BETWEEN $1::timestamp AND $2::timestamp 
-            AND product1.product_id <> product2.product_id
-        GROUP BY 
-            product1.product_id, product2.product_id, productsJoin1.product_name, productsJoin2.product_name
-        ORDER BY 
-            frequency DESC;
-        `;
-
-        connection.query(query, [startDate, endDate], (error, results) => {
-            if (error) {
-                return callback(error);
-            }
-            callback(null, results.rows);
+        connection.query ( 
+            `SELECT 
+                product1.product_id AS lol1, 
+                product2.product_id AS lol2, 
+                productsJoin1.product_name AS product_name1, 
+                productsJoin2.product_name AS product_name2, 
+                COUNT(*) AS frequency
+                FROM 
+                orders
+                INNER JOIN order_details AS product1 ON orders.order_id = product1.order_id
+                INNER JOIN order_details AS product2 ON orders.order_id = product2.order_id
+                INNER JOIN products AS productsJoin1 ON productsJoin1.product_id = product1.product_id
+                INNER JOIN products AS productsJoin2 ON productsJoin2.product_id = product2.product_id
+            WHERE 
+                orders.date_time BETWEEN $1::timestamp AND $2::timestamp 
+                AND product1.product_id <> product2.product_id
+            GROUP BY 
+                product1.product_id, product2.product_id, productsJoin1.product_name, productsJoin2.product_name
+            ORDER BY 
+                frequency DESC;
+            `,
+            [startDate, endDate], 
+            (error, results) => {
+                if (error) {
+                    return callback(error);
+                }
+                callback(null, results.rows);
             }
         );
     }
+    
+    // static async generateUsageChart() {
+    //     // Assuming you have startDatePicker and endDatePicker as references to your date pickers
+    //     const startDate = startDatePicker.value;
+    //     const endDate = endDatePicker.value;
+      
+    //     const usageQuery =
+    //       "SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, SUM(pi.quantity) as amountUsed " +
+    //       "FROM orders o " +
+    //       "JOIN order_details od ON o.order_id = od.order_id " +
+    //       "JOIN product_ingredients pi ON od.product_id = pi.product_id " +
+    //       "JOIN inventory i ON pi.inventory_id = i.inventory_id " +
+    //       "WHERE o.date_time >= ? AND o.date_time <= ? " +
+    //       "GROUP BY i.inventory_item, i.measurement_type";
+      
+    //     try {
+    //       const response = await axios.post('/your-backend-endpoint', {
+    //         startDate: startDate.toISOString().slice(0, 10),
+    //         endDate: endDate.toISOString().slice(0, 10),
+    //         query: usageQuery,
+    //       });
+      
+    //       const data = response.data;
+      
+    //       const labels = data.map((item) => item.inventoryItem);
+    //       const amounts = data.map((item) => item.amountUsed);
+      
+    //       const ctx = document.getElementById('usageChart').getContext('2d');
+      
+    //       new Chart(ctx, {
+    //         type: 'bar',
+    //         data: {
+    //           labels: labels,
+    //           datasets: [
+    //             {
+    //               label: `Inventory items used from ${startDate} to ${endDate}`,
+    //               data: amounts,
+    //               backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    //               borderColor: 'rgba(75, 192, 192, 1)',
+    //               borderWidth: 1,
+    //             },
+    //           ],
+    //         },
+    //         options: {
+    //           scales: {
+    //             x: {
+    //               type: 'category',
+    //               title: {
+    //                 display: true,
+    //                 text: 'Inventory Item',
+    //               },
+    //             },
+    //             y: {
+    //               type: 'linear',
+    //               position: 'left',
+    //               title: {
+    //                 display: true,
+    //                 text: 'Amount',
+    //               },
+    //             },
+    //           },
+    //         },
+    //       });
+    //     } catch (error) {
+    //       console.error('Error fetching data:', error);
+    //     }
+    // }
+    
+    static async generateUsageChart(startDate, endDate, callback) {      
+        const usageQuery =
+          "SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, SUM(pi.quantity) as amountUsed " +
+          "FROM orders o " +
+          "JOIN order_details od ON o.order_id = od.order_id " +
+          "JOIN product_ingredients pi ON od.product_id = pi.product_id " +
+          "JOIN inventory i ON pi.inventory_id = i.inventory_id " +
+          "WHERE o.date_time >= ? AND o.date_time <= ? " +
+          "GROUP BY i.inventory_item, i.measurement_type";
+        
+        try {
+          const response = await axios.post("/reports/usage-chart", {
+            startDate: startDate.toISOString().slice(0, 10),
+            endDate: endDate.toISOString().slice(0, 10),
+          });
+    
+          const data = response.data.data;
+    
+          const labels = data.map((item) => item.inventoryItem);
+          const amounts = data.map((item) => item.amountUsed);
+    
+          const ctx = document.getElementById("usageChart").getContext("2d");
+    
+          new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: `Inventory items used from ${startDate} to ${endDate}`,
+                  data: amounts,
+                  backgroundColor: "rgba(75, 192, 192, 0.2)",
+                  borderColor: "rgba(75, 192, 192, 1)",
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                x: {
+                  type: "category",
+                  title: {
+                    display: true,
+                    text: "Inventory Item",
+                  },
+                },
+                y: {
+                  type: "linear",
+                  position: "left",
+                  title: {
+                    display: true,
+                    text: "Amount",
+                  },
+                },
+              },
+            },
+          });
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
 
-    static generateUsageChart() {
-        var xAxis = new CategoryAxis();
-        xAxis.label = "Inventory Item";
-    
-        var yAxis = new NumberAxis();
-        yAxis.label = "Amount";
-    
-        console.log("creating barchart");
-        var usageChart = new BarChart(xAxis, yAxis);
-    
-        var data = new XYChart.Series();
-        var startDate = startDatePicker.getValue();
-        var endDate = endDatePicker.getValue();
-        data.name = "Inventory items used from " + startDate + " to " + endDate;
-    
-        console.log("Adding data");
-    
-        // Gather the data within the time interval
-        var usageQuery = "SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')'), SUM(pi.quantity) " +
-                        "FROM orders o " +
-                        "JOIN order_details od ON o.order_id = od.order_id " +
-                        "JOIN product_ingredients pi ON od.product_id = pi.product_id " +
-                        "JOIN inventory i ON pi.inventory_id = i.inventory_id " +
-                        "WHERE o.date_time >= $1 AND o.date_time <= $2 " +
-                        "GROUP BY i.inventory_item, i.measurement_type";
-    
-        common.connectToJDBC(function(err, conn) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-    
-            conn.query(usageQuery, [startDate, endDate], function(err, resultSet) {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-    
-                resultSet.rows.forEach(function(row) {
-                    var inventoryItem = row[0];
-                    var amountUsed = row[1];
-                    data.data.push({ x: inventoryItem, y: amountUsed });
-                });
-    
-                conn.close();
-            });
-        });
-    
-        usageChart.data.push(data);
-        chartContainer.setCenter(usageChart);
-    }
 }
 
 module.exports = Report;
