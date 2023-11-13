@@ -75,7 +75,7 @@ const Weather = () => {
   return (
     <div className="weather-container">
 
-      <img src={weatherImageMap} alt="restaurant front" className="weather-picture"/>
+      <img src={weatherImageMap[capitalizeFirstLetters(weatherConditions[0].description)]} alt="weather type for the day" className="weather-picture"/>
 
       <div className="weather-data-container">
 
