@@ -154,9 +154,10 @@
 {
   width: 550px;
   height: 400px;
+  margin-top: .5em;
   border: 5px solid var(--white);
   border-radius: 25px;
-  margin-top: .5em;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
 }
 
 .square-5-order-now-button
@@ -272,6 +273,8 @@
   padding: 1em;
   height: 6rem;
   cursor: pointer;
+  border: 5px solid var(--white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .back-arrow-circle
@@ -283,6 +286,8 @@
   padding: 1em;
   height: 6rem;
   cursor: pointer;
+  border: 5px solid var(--white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 #back-arrow-id
@@ -326,6 +331,9 @@
 {
   width: 200px;
   height: 200px;
+  border: 5px solid var(--white);
+  border-radius: 25px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
 }
 
 .rewards-container
@@ -391,6 +399,8 @@
   text-align: center;
   font-size: 1.5rem;
   color: var(--accent);
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
 }
 
 .rewards-submit-button
@@ -401,6 +411,7 @@
     height: 100%;
     width: 10%;
     background-color: var(--accent);
+    border-radius: 10px;
 }
 
 .menu-footer

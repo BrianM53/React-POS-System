@@ -32,6 +32,40 @@ const Weather = () => {
     return str.replace(/\b\w/g, (match) => match.toUpperCase());
   };
 
+  const weatherImageMap = 
+  {
+    "Clear Sky": "/clearsky.png",
+    "Few Clouds": "/clouds.png",
+    "Scattered Clouds": "/clouds.png", 
+    "Broken Clouds": "/clouds.png",
+    "Overcast Clouds": "/clouds.png", 
+    "Rain": "/rain.png",
+    "Light Rain": "/rain.png",
+    "Moderate Rain": "/rain.png", 
+    "Heavy Rain": "/rain.png",
+    "Snow": "/snow.png",
+    "Light Snow": "/snow.png", 
+    "Moderate Snow": "/snow.png", 
+    "Heavy Snow": "/snow.png", 
+    "Thunderstorm": "/thunderstorm.png",
+    "Mist": "/mist.png",
+    "Fog": "/fog.png",
+    "Haze": "/fog.png",
+    "Drizzle": "/drizzle.png",
+    "Thunderstorm with Light Rain": "/thunderstorm.png",
+    "Thunderstorm with Rain": "/thunderstorm.png",
+    "Thunderstorm with Heavy Rain": "/thunderstorm.png",
+    "Thunderstorm with Light Snow": "/thunderstorm.png",
+    "Thunderstorm with Snow": "/thunderstorm.png",
+    "Thunderstorm with Heavy Snow": "/thunderstorm.png",
+    "Smoke": "/fog.png",
+    "Sand": "/fog.png",
+    "Dust": "/fog.png",
+    "Ash": "/fog.png",
+    "Squalls": "/fog.png",
+    "Tornado": "/thunderstorm.png",
+  }
+
   const currentDate = new Date();
   const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
@@ -41,7 +75,7 @@ const Weather = () => {
   return (
     <div className="weather-container">
 
-      <img src="/clouds.png" alt="restaurant front" className="weather-picture"/>
+      <img src={weatherImageMap} alt="restaurant front" className="weather-picture"/>
 
       <div className="weather-data-container">
 
@@ -72,14 +106,3 @@ const Weather = () => {
 };
 
 export default Weather;
-
-
-
-//       Weather Information for {name}
-//       Temperature: {main.temp} °F
-//       Pressure: {main.pressure} hPa
-//       Humidity: {main.humidity}%
-//       Weather Condition: {weatherConditions[0].description}
-//       Wind Speed: {wind.speed} mph
-//       Wind Direction: {wind.deg}°
-//       Cloud Coverage: {clouds.all}% 
