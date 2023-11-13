@@ -15,6 +15,7 @@ import {UserProvider, useUser} from "./components/utility/userControl";
 import App from "./App";
 import Login from "./components/login/Login";
 import Manager from "./components/manager/Manager";
+import Menu from "./components/menu/menu.js"
 import Cashier from "./components/cashier/Cashier";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
@@ -76,6 +77,7 @@ function Routing() {
         }
       />
       <Route path="/app" element={<App />} />
+      <Route path="/menu" element={<Menu />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
