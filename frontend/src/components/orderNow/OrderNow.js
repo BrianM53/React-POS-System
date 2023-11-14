@@ -181,17 +181,13 @@ const OrderNow = () => {
           Welcome to the Sweet Paris Cafe!
         </SpecialFontText>
         
-        <nav className="menu-nav">
-            <Link to="/settings">
-            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
-            </Link>
+        <nav className="menu-nav-order-now">
             <Link to="/app">
-            <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
+              <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
             </Link>
-            <SpecialFontText as="div" className="menu-nav-title">
-            Sweet Paris: Crepes and Cafe
-            </SpecialFontText>
-            <NavOptions />
+            <Link to="/order-now-settings">
+              <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+            </Link>
         </nav>
 
         <main className="menu-main-menu">
