@@ -52,10 +52,6 @@ const App = () => {
 
   return (
     <div className="menu-body">
-      <SpecialFontText as="header" className="menu-header" fontSize="5rem">
-        Welcome to the Sweet Paris Cafe!
-      </SpecialFontText>
-
       <nav className="menu-nav">
         <Link to="/settings">
           <FontAwesomeIcon

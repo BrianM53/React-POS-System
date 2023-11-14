@@ -79,13 +79,8 @@ const Menu = () => {
     setActiveSection(section);
   };
 
-
   return (
     <div className="menu-body">
-      <SpecialFontText as="header" className="menu-header" >
-        Welcome to the Sweet Paris Cafe!
-      </SpecialFontText>
-
       <nav className="menu-nav">
         <Link to="/settings">
           <FontAwesomeIcon

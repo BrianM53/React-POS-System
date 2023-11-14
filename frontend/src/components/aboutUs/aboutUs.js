@@ -13,9 +13,6 @@ library.add(fas,fab);
 function AboutUs() {
     return (
       <div className="menu-body">
-        <SpecialFontText as="header" className="menu-header" >
-          Welcome to the Sweet Paris Cafe!
-        </SpecialFontText>
         <nav className="menu-nav">
           <Link to="/settings">
               <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
