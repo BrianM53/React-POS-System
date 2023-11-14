@@ -8,6 +8,7 @@ import SpecialFontText from "./components/specialFontText/SpecialFontText";
 import NavOptions from './components/utility/navOptions';
 import Weather from './components/weather/Weather';
 import PopularItems from './popularItems';
+import Header from './components/utility/header';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -55,26 +56,9 @@ const App = () => {
 
   return (
     <div className="menu-body">
-      <nav className="menu-nav">
-        <Link to="/settings">
-          <FontAwesomeIcon
-            icon={["fas", "gear"]}
-            className="fa-2x"
-            id="menu-nav-settings-icon"
-          />
-        </Link>
-        <Link to="/app">
-          <FontAwesomeIcon
-            icon={["fas", "home"]}
-            className="fa-2x"
-            id="menu-nav-home-icon"
-          />
-        </Link>
-        <SpecialFontText as="div" className="menu-nav-title">
-          Sweet Paris: Crepes and Cafe
-        </SpecialFontText>
-        <NavOptions />
-      </nav>
+      
+      <Header />
+
       <main className="menu-main-app">
 
 

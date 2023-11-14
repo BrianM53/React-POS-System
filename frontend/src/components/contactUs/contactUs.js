@@ -9,6 +9,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Header from '../utility/header';
 library.add(fas,fab); 
 
 const ContactUs = () => {
@@ -41,18 +42,9 @@ const ContactUs = () => {
 
   return (
     <div className="menu-body">
-      <nav className="menu-nav">
-        <Link to="/settings">
-            <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
-        </Link>
-        <Link to="/app">
-            <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
-        </Link>
-        <SpecialFontText as="div" className="menu-nav-title">
-          Sweet Paris: Crepes and Cafe
-        </SpecialFontText>
-        <NavOptions />
-      </nav>
+
+      <Header />
+
       <main className="menu-main-contactus">
         <SpecialFontText as="div" className="menu-main-contactus-header" fontSize="3.5rem">
           Contact Us

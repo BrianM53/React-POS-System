@@ -8,6 +8,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCart } from "../cart/CartContext";
+import Header from "../utility/header";
 library.add(fas, fab);
 
 const OrderNow = () => {
@@ -176,26 +177,8 @@ const OrderNow = () => {
 
   return (
     <div className="menu-body">
-      <nav className="menu-nav">
-        <Link to="/settings">
-          <FontAwesomeIcon
-            icon={['fas', 'gear']}
-            className="fa-2x"
-            id="menu-nav-settings-icon"
-          />
-        </Link>
-        <Link to="/app">
-          <FontAwesomeIcon
-            icon={['fas', 'home']}
-            className="fa-2x"
-            id="menu-nav-home-icon"
-          />
-        </Link>
-        <SpecialFontText as="div" className="menu-nav-title">
-          Sweet Paris: Crepes and Cafe
-        </SpecialFontText>
-        <NavOptions />
-      </nav>
+
+      <Header />
 
       <main className="menu-main-menu">
         <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
