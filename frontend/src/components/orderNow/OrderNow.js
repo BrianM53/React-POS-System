@@ -331,7 +331,7 @@ const OrderNow = () => {
         </div>
       </footer>
     </div>
-  );
+);
 };
 
 export default OrderNow;

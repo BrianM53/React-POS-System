@@ -8,6 +8,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
+    // convert product price from string to int
     setCartItems((prevItems) => {
       // increment quantity if item exists
       const existingItem = prevItems.find(

@@ -95,7 +95,7 @@ const ContactUs = () => {
                 Can we cater your next gathering?
               </SpecialFontText>
               <form onSubmit={handleSubmit} className="form-container">
-                <label htmlFor="Name">Name:</label>
+                    <label htmlFor="Name">Name:</label>
                     <input
                       type="text"
                       id="name"

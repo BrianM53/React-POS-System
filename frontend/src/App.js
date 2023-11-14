@@ -9,6 +9,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Weather from './components/weather/Weather';
 library.add(fas,fab); 
 
 const App = () => {
@@ -50,12 +51,21 @@ const App = () => {
       <SpecialFontText as="header" className="menu-header" fontSize="5rem">
         Welcome to the Sweet Paris Cafe!
       </SpecialFontText>
+
       <nav className="menu-nav">
         <Link to="/settings">
-          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+          <FontAwesomeIcon
+            icon={["fas", "gear"]}
+            className="fa-2x"
+            id="menu-nav-settings-icon"
+          />
         </Link>
         <Link to="/app">
-          <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
+          <FontAwesomeIcon
+            icon={["fas", "home"]}
+            className="fa-2x"
+            id="menu-nav-home-icon"
+          />
         </Link>
         <SpecialFontText as="div" className="menu-nav-title">
           Sweet Paris: Crepes and Cafe
@@ -118,7 +128,16 @@ const App = () => {
         <div className="menu-main-app-square-2"> </div>
 
         <div className="menu-main-app-square-3">
-          Weather API
+          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
+            Rain Check
+          </SpecialFontText>
+
+          <div className="menu-main-app-square-description">
+            Planning on sitting outside today? Double check the weather!
+          </div>
+
+          < Weather />
+
         </div>
 
         <div className="menu-main-app-square-4"></div>
@@ -131,9 +150,10 @@ const App = () => {
             <div className="square-5-description">
               Ready to order?
             </div>
-            <div className="square-5-order-now-button">
-              Order Now!
-            </div>
+
+            <Link to="/order-now">
+              <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
+            </Link>
             <img src="/sweetParisLocation.jpeg" alt="restaurant front" className="square-5-photo"/>
           </div>
         </div>
@@ -171,10 +191,10 @@ const App = () => {
           </div>
 
           <div className="rewards-explanation">
-            <label for="email" class="rewards-label">Join The Program Today!</label>
+            <label htmlFor="email" className="rewards-label">Join The Program Today!</label>
             <div className="rewards-submit-container">
-               <input type="email" id="email" class="rewards-input" placeholder="someperson@gmail.com"></input>
-               <button type="button" class="rewards-submit-button" onClick={clearInput}>
+               <input type="email" id="email" className="rewards-input" placeholder="someperson@gmail.com"></input>
+               <button type="button" className="rewards-submit-button" onClick={clearInput}>
                   &#10003;
                </button>
             </div>
