@@ -16,7 +16,23 @@
   flex-direction: row;
   padding: 1em;
   gap: 2em;
-  font-size: 2rem;
+}
+
+.menu-nav-title
+{
+  font-size: 12px;
+  /* background: red; */
+  font-weight: bolder;
+}
+
+#menu-nav-settings-icon:hover
+{
+  transform: scale(1.25) !important;
+}
+
+#menu-nav-home-icon:hover
+{
+  transform: scale(1.25) !important;
 }
 
 .menu-nav-container
@@ -47,7 +63,7 @@
 
 .menu-nav-admin-login
 {
-    font-size: 2.0rem !important;
+    font-size: 2.0rem;
     padding: .5em;
     min-width: 200px;
     border-radius: 500px;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './navOptions.css';
-// import SpecialFontText from './components/specialFontText/SpecialFontText';
+import SpecialFontText from '../specialFontText/SpecialFontText';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -30,9 +30,9 @@ function Header() {
             id="menu-nav-home-icon"
             />
         </Link>
-        {/* <SpecialFontText as="div" className="menu-nav-title"> */}
+        <SpecialFontText as="div" className="menu-nav-title">
             Sweet Paris: Crepes and Cafe
-        {/* </SpecialFontText> */}
+        </SpecialFontText>
         <NavOptions />
         </nav>
     );
