@@ -1,19 +1,22 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import NavOptions from './components/utility/navOptions';
+import { Link } from 'react-router-dom';
+
 import './App.css';
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
-import { Link } from 'react-router-dom';
+
+import NavOptions from './components/utility/navOptions';
+import Weather from './components/weather/Weather';
+import PopularItems from './popularItems';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import Weather from './components/weather/Weather';
 library.add(fas,fab); 
 
 const App = () => {
-
   useEffect(() => {
     document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, initial-scale=0.5");
   }, []);
@@ -73,57 +76,9 @@ const App = () => {
         <NavOptions />
       </nav>
       <main className="menu-main-app">
-        <div className="menu-main-app-square-1">
 
-          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
-            Popular Picks
-          </SpecialFontText>
-
-          <div className="menu-main-app-square-description">
-            Can't decide on what to order? Here's some fan favorites!
-          </div>
-          <div className="menu-main-app-square-container-top">
-            <div className="arrow-circle" onClick={() => handleScroll('left')}>
-              <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" id="back-arrow-id" />
-            </div>
-            <div className="menu-main-app-square-container" ref={scrollContainerRef}>
-
-              <div className="square-container-item">
-                <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
-                </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
-              </div>
-
-              <div className="square-container-item">
-                <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
-                </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
-              </div>
-
-              <div className="square-container-item">
-                <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
-                </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
-              </div>
-
-              <div className="square-container-item">
-                <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
-                </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
-              </div>
-
-            </div>
-            
-            <div className="back-arrow-circle" onClick={() => handleScroll('right')}>
-              <FontAwesomeIcon icon={['fas', 'arrow-right']} className="fa-2x" id="forward-arrow-id" />
-            </div>
-
-          </div>
-        </div>
+        <PopularItems />
+        
 
         <div className="menu-main-app-square-2"> </div>
 
