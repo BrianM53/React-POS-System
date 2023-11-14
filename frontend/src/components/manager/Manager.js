@@ -24,8 +24,9 @@ function Manager() {
 
   // the report data that will show up in the main content box
 
-  const [tableData, setTableData] = useState([]); //TODO: SET TABLE DATA!!!
-
+  const [tableData, setTableData] = useState([]); 
+  const [showChart, setShowChart] = useState(false);
+  const [chartData, setChartData] = useState([])
   useEffect(() => {
     // Check if there's an active report in local storage and set it
     localStorage.setItem('activeReport', activeReport);
@@ -88,9 +89,18 @@ function Manager() {
       })
       .then(response => {
         console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data);
-        generateReport(reportType);
-        setTableData(response.data.data);
         
+        if (reportType == "Usage Chart"){
+          setShowChart(true);
+          setChartData(response.data.data);
+
+          console.log("chartData:", chartData);//TODO Check data sent to chart
+        }
+        else{
+          setShowChart(false);
+          generateReport(reportType);
+          setTableData(response.data.data);
+        }
       })
       .catch(error => {
         console.error('axios error:', error);
@@ -107,7 +117,6 @@ function Manager() {
             <thead className='content-head'>
             </thead>
             <tbody>
-              {/* <canvas id="usageChart"></canvas> not sure abt this one need to display chart */}
               {tableData.map((element, index) => (
                 <tr key={index}>
                   {columns.map((column, columnIndex) => (
@@ -118,49 +127,49 @@ function Manager() {
             </tbody>
           </table>
         </div>
-
-        <CChart
-          type="bar"
-          data={{
-            labels: tableData,
-            datasets: [
-              {
-                label: "Usage Chart",
-                backgroundColor: "#ff0000",
-                data: columns,
-              }
-            ]
-          }}
-          labels="Inventory Items"
-          options={{
-            plugins: {
-              legend: {
-                labels: {
-                  color: "#00ffff",
+        {showChart &&(
+          <CChart
+            type="bar"
+            data={{
+              labels: chartData,
+              datasets: [
+                {
+                  label: "Usage Chart",
+                  backgroundColor: "#ff0000",
+                  data: chartData,
                 }
-              }
-            },
-            scales: {
-              x: {
-                grid: {
-                  color: "#00ff00",
+              ]
+            }}
+            labels="Inventory Items"
+            options={{
+              plugins: {
+                legend: {
+                  labels: {
+                    color: "#00ffff",
+                  }
+                }
+              },
+              scales: {
+                x: {
+                  grid: {
+                    color: "#00ff00",
+                  },
+                  ticks: {
+                    color: "#0000ff",
+                  },
                 },
-                ticks: {
-                  color: "#0000ff",
+                y: {
+                  grid: {
+                    color: "#ffcccc",
+                  },
+                  ticks: {
+                    color: "#000000",
+                  },
                 },
               },
-              y: {
-                grid: {
-                  color: "#ffcccc",
-                },
-                ticks: {
-                  color: "#000000",
-                },
-              },
-            },
-          }}
-        /> 
-
+            }}
+          /> 
+        )}
 
         <ReportButtons activeReport={activeReport} handleReport={handleReport} />
 
