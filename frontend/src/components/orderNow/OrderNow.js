@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavOptions from "../utility/navOptions";
-import { useEffect, useState, useRef } from "react";
 import "./OrderNow.css";
 import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -9,16 +8,14 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCart } from "../cart/CartContext";
-// import '@fortawesome/fontawesome-svg-core/styles.css';
 library.add(fas, fab);
-
-/* order now functionality still not working */
 
 const OrderNow = () => {
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
-  const [products, setProducts] = useState([]);
+  const [productData, setProductData] = useState({}); // Initialize product data as an empty object
+  const [cart, setCart] = useState([]); // New state for the cart
   const { addToCart, decrementQuantity } = useCart();
 
   const handleCategoryClick = (section) => {
@@ -26,33 +23,102 @@ const OrderNow = () => {
   };
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/products/${activeSection}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const productsWithCorrectPrice = data.map((product) => ({
-          ...product,
-          price: parseFloat(product.price), // Convert price to a float here
-        }));
-        setProducts(productsWithCorrectPrice);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
-  }, [activeSection]);
+    // Check if product data for the active category is already fetched
+    if (!productData[activeSection]) {
+      fetch(`${BACKEND_URL}/products/${activeSection}`)
+        .then((response) => response.json())
+        .then((data) => {
+          const productsWithQuantity = data.map((product) => ({
+            ...product,
+            quantity: 0, // Initialize quantity to 0
+          }));
+
+          // Update product data for the active category
+          setProductData((prevData) => ({
+            ...prevData,
+            [activeSection]: productsWithQuantity,
+          }));
+        })
+        .catch((error) => {
+          console.error("Error fetching products:", error);
+        });
+    }
+  }, [activeSection, productData]);
 
   const increment = (product) => {
-    // Logic to increment product quantity
-    console.log("Adding to cart", product);
+    const categoryData = productData[activeSection];
+    const updatedCategoryData = categoryData.map((p) =>
+      p.product_id === product.product_id
+        ? { ...p, quantity: p.quantity + 1 }
+        : p
+    );
+  
+    // Update the category data
+    setProductData((prevData) => ({
+      ...prevData,
+      [activeSection]: updatedCategoryData,
+    }));
+  
+    // Check if the product is already in the cart
+    const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
+  
+    if (cartItemIndex !== -1) {
+      // If the product is already in the cart, update its quantity
+      const updatedCart = [...cart];
+      updatedCart[cartItemIndex].quantity += 1;
+      setCart(updatedCart); // Update the cart
+    } else {
+      // If the product is not in the cart, add it to the cart
+      setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+    }
+  
     addToCart(product);
   };
+  
 
   const decrement = (productId) => {
-    // Logic to decrement product quantity
+    // Find the product in the active section's data
+    const categoryData = productData[activeSection];
+    const productIndex = categoryData.findIndex((p) => p.product_id === productId);
+  
+    if (productIndex !== -1) {
+      // Update the quantity of the product in the active section
+      const updatedCategoryData = [...categoryData];
+      if (updatedCategoryData[productIndex].quantity > 0) {
+        updatedCategoryData[productIndex].quantity -= 1;
+      }
+      setProductData((prevData) => ({
+        ...prevData,
+        [activeSection]: updatedCategoryData,
+      }));
+    }
+  
+    // Update the cart
+    const cartItemIndex = cart.findIndex((item) => item.product_id === productId);
+    if (cartItemIndex !== -1) {
+      const updatedCart = [...cart];
+      if (updatedCart[cartItemIndex].quantity > 1) {
+        updatedCart[cartItemIndex].quantity -= 1;
+      } else {
+        // Remove the item from the cart if quantity is 1 or less
+        updatedCart.splice(cartItemIndex, 1);
+      }
+      setCart(updatedCart);
+    }
+  
+    // Call the decrementQuantity method from your CartContext, if needed
     decrementQuantity(productId);
   };
+  
 
   const renderProducts = () => {
-    return products.map((product) => {
+    const categoryData = productData[activeSection];
+
+    if (!categoryData) {
+      return null; // Handle the case where data is still being fetched
+    }
+
+    return categoryData.map((product) => {
       const imageName = product.product_name
         .toLowerCase()
         .replace(/\s+/g, "-") // Replace spaces with hyphens
@@ -60,9 +126,9 @@ const OrderNow = () => {
         .replace(/[&]/g, "and");
 
       const imagePath = require(`../../images/${imageName}.jpg`);
+
       return (
         <div key={product.product_id} className="menu-body-entry-container">
-          {/* Placeholder image; you will need to replace '/sweetParisLocation.jpeg' with the actual image path */}
           <img
             src={imagePath}
             alt={product.product_name}
@@ -81,8 +147,7 @@ const OrderNow = () => {
             >
               -
             </div>
-            <div className="amount-counter">{product.quantity || 0}</div>{" "}
-            {/* Ensure the quantity is initialized */}
+            <div className="amount-counter">{product.quantity || 0}</div>
             <div
               className="increment-button"
               onClick={() => increment(product)}
@@ -93,6 +158,20 @@ const OrderNow = () => {
         </div>
       );
     });
+  };
+
+  const renderCartItems = () => {
+    return cart.map((item) => (
+      <div key={item.product_id} className="ticket-item">
+        <div className="ticket-item-quantity">
+          <div className="ticket-item-decrement">-</div>
+          <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
+          <div className="ticket-item-increment">+</div>
+        </div>
+        <div className="ticket-item-name">{item.product_name}</div>
+        <div className="ticket-item-price">{item.price}</div>
+      </div>
+    ));
   };
 
   return (
@@ -165,101 +244,7 @@ const OrderNow = () => {
                         Your Cart
                     </SpecialFontText>
                     <div className="ticket-item-container">
-                        <div className="ticket-item">
-                            <div className="ticket-item-quantity">
-                                <div className="ticket-item-decrement">
-                                    -
-                                </div>
-                                <div className="ticket-item-current-quantity">
-                                    5
-                                </div>
-                                <div className="ticket-item-increment">
-                                    +
-                                </div>
-                            </div>
-                            <div className="ticket-item-name">
-                                Smore's Crepe
-                            </div>
-                            <div className="ticket-item-price">
-                                54.23
-                            </div>
-                        </div>
-                        <div className="ticket-item">
-                            <div className="ticket-item-quantity">
-                                <div className="ticket-item-decrement">
-                                    -
-                                </div>
-                                <div className="ticket-item-current-quantity">
-                                    5
-                                </div>
-                                <div className="ticket-item-increment">
-                                    +
-                                </div>
-                            </div>
-                            <div className="ticket-item-name">
-                                Smore's Crepe
-                            </div>
-                            <div className="ticket-item-price">
-                                54.23
-                            </div>
-                        </div>
-                        <div className="ticket-item">
-                            <div className="ticket-item-quantity">
-                                <div className="ticket-item-decrement">
-                                    -
-                                </div>
-                                <div className="ticket-item-current-quantity">
-                                    5
-                                </div>
-                                <div className="ticket-item-increment">
-                                    +
-                                </div>
-                            </div>
-                            <div className="ticket-item-name">
-                                Smore's Crepe
-                            </div>
-                            <div className="ticket-item-price">
-                                54.23
-                            </div>
-                        </div>
-                        <div className="ticket-item">
-                            <div className="ticket-item-quantity">
-                                <div className="ticket-item-decrement">
-                                    -
-                                </div>
-                                <div className="ticket-item-current-quantity">
-                                    5
-                                </div>
-                                <div className="ticket-item-increment">
-                                    +
-                                </div>
-                            </div>
-                            <div className="ticket-item-name">
-                                Smore's Crepe
-                            </div>
-                            <div className="ticket-item-price">
-                                54.23
-                            </div>
-                        </div>
-                        <div className="ticket-item">
-                            <div className="ticket-item-quantity">
-                                <div className="ticket-item-decrement">
-                                    -
-                                </div>
-                                <div className="ticket-item-current-quantity">
-                                    5
-                                </div>
-                                <div className="ticket-item-increment">
-                                    +
-                                </div>
-                            </div>
-                            <div className="ticket-item-name">
-                                Smore's Crepe
-                            </div>
-                            <div className="ticket-item-price">
-                                54.23
-                            </div>
-                        </div>
+                      {renderCartItems()}
                     </div>
                     <div className="ticket-total-and-order-container">
                         <div className="ticket-total-container">
@@ -271,7 +256,6 @@ const OrderNow = () => {
                             </div>
                         </div>
                         <div className="ticket-submit-container">
-                            
                             <div className="ticket-submit-button">
                                 Submit Order!
                             </div>
