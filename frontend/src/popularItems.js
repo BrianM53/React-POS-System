@@ -3,7 +3,7 @@ import SpecialFontText from "./components/specialFontText/SpecialFontText";
 
 function PopularItems() {
     return (
-        <div className="menu-main-app-square-9">
+        <div className="menu-main-app-square-3">
 
           <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
             Popular Picks

@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import './App.css';
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
 
-import NavOptions from './components/utility/navOptions';
-import Weather from './components/weather/Weather';
 import PopularItems from './popularItems';
 import Header from './components/utility/header';
 
@@ -15,6 +13,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import MainContent from './mainContent';
+import RainCheck from './rainCheck';
 library.add(fas,fab); 
 
 const App = () => {
@@ -56,40 +56,14 @@ const App = () => {
 
   return (
     <div className="menu-body">
-      
+
       <Header />
 
       <main className="menu-main-app">
 
+        <MainContent />
 
-        <div className="menu-main-app-square-3">
-          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
-            Rain Check
-          </SpecialFontText>
-
-          <div className="menu-main-app-square-description">
-            Planning on sitting outside today? Double check the weather!
-          </div>
-
-          < Weather />
-
-        </div>
-
-        <div className="menu-main-app-square-5">
-          <div className="square-5-top">
-            <SpecialFontText as="div" className="square-5-title" fontSize="5.4rem">
-              Let Them Eat Crepes
-            </SpecialFontText>
-            <div className="square-5-description">
-              Ready to order?
-            </div>
-
-            <Link to="/order-now">
-              <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
-            </Link>
-            <img src="/sweetParisLocation.jpeg" alt="restaurant front" className="square-5-photo"/>
-          </div>
-        </div>
+        <RainCheck />
 
         <PopularItems />
         
