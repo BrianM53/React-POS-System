@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import NavOptions from './components/utility/navOptions';
-import './App.css'
+import './App.css';
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,6 +13,10 @@ import Weather from './components/weather/Weather';
 library.add(fas,fab); 
 
 const App = () => {
+
+  useEffect(() => {
+    document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, initial-scale=0.5");
+  }, []);
 
   const [email, setEmail] = useState('');
 

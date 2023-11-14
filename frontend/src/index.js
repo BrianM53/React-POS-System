@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./components/utility/reportWebVitals";
 import ErrorMessage from "./components/utility/errorMessage";
@@ -98,8 +98,6 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, initial-scale=1.0");
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

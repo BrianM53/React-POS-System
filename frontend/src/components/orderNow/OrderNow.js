@@ -277,21 +277,19 @@ const OrderNow = () => {
             Beverages
           </div>
         </div>
-        <div className="menu-main-menu-body">
-          <div
-            className="menu-body-category-container"
-            id={`menu-body-${activeSection}`}
-            style={{ display: "flex" }}
-          >
-            {renderProducts()}
+        <div className="menu-main-menu-container">
+          <div className="menu-main-menu-body">
+            <div className="menu-body-category-container" id={`menu-body-${activeSection}`} style={{ display: "flex" }}>
+              {renderProducts()}
+            </div>
           </div>
-        </div>
-        <div className="menu-main-menu-ticket-container">
-          <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
-            Your Cart
-          </SpecialFontText>
-          <div className="ticket-item-container">
-            {renderCartItems()}
+          <div className="menu-main-menu-ticket-container">
+            <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
+              Your Cart
+            </SpecialFontText>
+            <div className="ticket-item-container">
+              {renderCartItems()}
+            </div>
           </div>
         </div>
       </main>
