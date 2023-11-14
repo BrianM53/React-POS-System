@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import NavOptions from './components/utility/navOptions';
 import './App.css'
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
@@ -45,6 +45,10 @@ const App = () => {
       setScrollPosition2(container.scrollLeft);
     }
   };
+
+  useEffect(() => {
+    document.body.style.zoom = "60%";
+  }, []);
 
   return (
     <div className="menu-body">
