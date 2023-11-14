@@ -64,7 +64,7 @@ const Settings = () =>
         <Link to="/settings">
           <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
         </Link>
-        <Link to="/app">
+        <Link to="/">
           <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
         </Link>
         <SpecialFontText as="div" className="menu-nav-title">
