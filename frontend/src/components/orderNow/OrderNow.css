@@ -5,6 +5,7 @@
     --font-size: 16px;
   }
 
+
 .menu-header 
 {
     background-color: var(--white);
@@ -17,7 +18,7 @@
     align-items: center;
 }
 
-.menu-nav-order-now
+.menu-nav
 {
     background-color: var(--accent);
     color: var(--white);
@@ -68,11 +69,21 @@
     color: var(--white);
 }
 
-.menu-nav-container
+.menu-nav-container-order-now
 {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.menu-nav-container-left-order-now
+{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
 }
 
 .menu-nav-container-button

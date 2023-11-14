@@ -94,31 +94,38 @@ const App = () => {
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  Allison's Parfait
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+                <img src="/allison's-parfait.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
               </div>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  Le Mexicain
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+                <img src="/le-mexicain.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
               </div>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  Lemon Sugar Crepe
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+                <img src="/lemon-and-sugar.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+              </div> 
+
+              <div className="square-container-item">
+                <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
+                  Philly Cheesesteak
+                </SpecialFontText>
+                <img src="/philly-cheesesteak.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
               </div>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  S'mores Crepe
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
-              </div>
+                <img src="/s'mores.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+              </div> 
 
             </div>
             
@@ -171,7 +178,7 @@ const App = () => {
           </SpecialFontText>
 
           <div className="menu-main-app-square-description">
-            If you love Sweet Paris, don't leave free points on the table!
+            Leaving free points on the table? Try joining our rewards program!
           </div>
 
           <div className="rewards-container">
@@ -194,7 +201,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="rewards-explanation">
+          {/* <div className="rewards-explanation">
             <label htmlFor="email" className="rewards-label">Join The Program Today!</label>
             <div className="rewards-submit-container">
                <input type="email" id="email" className="rewards-input" placeholder="someperson@gmail.com"></input>
@@ -202,7 +209,7 @@ const App = () => {
                   &#10003;
                </button>
             </div>
-          </div>
+          </div> */}
 
         </div>
 
@@ -225,30 +232,23 @@ const App = () => {
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  Truffled Caprese
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+                <img src="/truffled-caprese.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
               </div>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  Lemon and Sugar
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+                <img src="/lemon-and-sugar.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
               </div>
 
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
+                  Allison's Parfait
                 </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
-              </div>
-
-              <div className="square-container-item">
-                <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
-                  Smore's Crepeeeeeeeee
-                </SpecialFontText>
-                <img src="/sweetParisLocation.jpeg" alt="popular pick menu item 1" className="popular-picks-photo"  />
+                <img src="/allison's-parfait.jpg" alt="popular pick menu item 1" className="popular-picks-photo"  />
               </div>
 
             </div>
