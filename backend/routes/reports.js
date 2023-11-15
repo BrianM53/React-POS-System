@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const Report = require("../models/Report");
 
+const connection = require('../connection')
 
 router.get("/", (res) => {
     res.send("reports route working");
@@ -48,7 +49,6 @@ router.post("/restock-report", (req, res) => { // Fix the parameter list
     });
 });
 
-
 router.post("/sells-together", (req, res) => {
     // const startDate = '2022-10-06 06:22:00';
     // const endDate = '2022-10-06 08:25:00';
@@ -65,14 +65,31 @@ router.post("/sells-together", (req, res) => {
 });
 
 router.post("/usage-chart", (req, res) => {
-    const startDate = req.body.startDate;
-    const endDate = req.body.endDate;
+    const startDate = '2022-10-06 06:22:00';
+    const endDate = '2022-10-06 08:25:00';
+    // const startDate = req.body.startDate;
+    // const endDate = req.body.endDate;
+    console.log("usage");
+    res.send("usage");
+    
+    // Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+        //     if (error) {
+            //         res.status(500).json({ error: "Error generating usage chart" });
+    //     } else {
+    //         res.json({ data: usageChartData });
+    //     }
+    // });
+});
 
-    Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+router.post("/add-employee", (req, res) => {
+    console.log("in add employee");
+    res.send("usage");
+
+    Report.addEmployee((error, employees) => {
         if (error) {
-            res.status(500).json({ error: "Error generating usage chart" });
+            res.status(500).json({ error: "Error generating sells together report" });
         } else {
-            res.json({ data: usageChartData });
+            console.log(employees);
         }
     });
 });

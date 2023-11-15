@@ -7,10 +7,11 @@ import axios from 'axios';
 import './Manager.css';
 import "react-datepicker/dist/react-datepicker.css";
 
-import generateReport from './generateReport';
+// import generateReport from './generateReport';
 import ReportButtons from './reportButtons';
 import ReportLabels from './reportLabels';
 import LogoutButton from '../utility/logoutButton';
+import AddEmployee from './addEmployee';
 // import { CChart } from '@coreui/react-chartjs';
 
 function Manager() {
@@ -41,33 +42,31 @@ function Manager() {
     console.log(reportType)
     if (reportType === 'Sales Report') {
       setColumns(['product_name', 'price', 'numsold', 'totalsales']);
-
+      setTableData(data)
     } 
     else if (reportType === 'Excess Report') {
       for (let i = 0; i < data.length; i++) {
         data[i].total_consumed = Math.round(data[i].total_consumed * 100) / 100;
         data[i].percent_sold = Math.round(data[i].percent_sold * 100) / 100;
       }
-
       setColumns(['inventory_item', 'total_consumed', 'current_stock', 'past_stock', 'percent_sold']);
+      setTableData(data)
     } 
     else if (reportType === 'Restock Report') {
       setColumns(['product_name', 'inventory_item', 'stock_level', 'restock_level', 'measurement_type']);
-
+      setTableData(data)
     } 
     else if (reportType === 'Sells Together') {
       setColumns(['product_name1', 'product_name2', 'frequency']);
-
+      setTableData(data)
     } 
     else if (reportType === 'Usage Chart') {
-      setColumns(['product_name1', 'frequency']);
-
+      setColumns([]);
     } 
     else if (reportType === 'Add Employee') {
-
+      setColumns([]);
+      
     }
-
-    setTableData(data)
   }
 
   function handleReport(e, reportType) {
@@ -113,7 +112,8 @@ function Manager() {
         </div>
 
         <div className="main-content">
-          <table>
+
+          <table className='main-content-table'>
             <thead className='content-head'>
             </thead>
             <tbody>
@@ -126,6 +126,8 @@ function Manager() {
               ))}
             </tbody>
           </table>
+          <AddEmployee />
+
         </div>
         {/* {showChart &&(
           <CChart
