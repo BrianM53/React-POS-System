@@ -1,11 +1,17 @@
 /* color controller */
 :root {
-  --background: #000000;
-  --bright: #3da399;
+  --bright: #BDE3DF;
   --normal: #A7C8C5;
+  --dark: #262e28;
 }
 
 .Manager {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url("../../images/bird-tree.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--dark);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +22,8 @@
 .main-content {
   width: 1200px;
   height: 700px;
-  background: var(--normal);
-  border: 5px solid var(--background);
+  background: var(--dark);
+  border: 3px solid var(--bright);
   overflow: auto;
 }
 
@@ -43,14 +49,14 @@
   font-size: larger;
   text-decoration: none;
   font-weight: 700;
-  color: #db0a0a;
+  color: var(--normal);
 }
 
 .report-btn a.passive-report {
   /* font: 20px Garamond, serif; */
   font-size: larger;
   text-decoration: none;
-  color: #fff;
+  color: white;
 }
 
 .utility-btn {
@@ -80,6 +86,11 @@
   background: red;
 } */
 
+.label-container {
+  width: 1200px;
+  width: 100%;
+}
+
 .active-label {
   display: block;
 }
@@ -89,6 +100,7 @@
 }
 
 .report-label ul {
+  color: var(--normal);
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -101,9 +113,65 @@
   margin-right: 60px;
 }
 
-.report-label a.label {
+.report-label a.label-item {
   /* font: 20px Garamond, serif; */
-  font-size: larger;
+  font-size: x-large;
+
   text-decoration: none;
-  color: #fff;
+  color: var(--bright);
+}
+
+/* ================== DATA TABLE ============= */
+
+.main-content-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: fixed;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 25%;
+  color: var(--normal);
+}
+
+/* ================== FOOTER BUTTONS ==================*/
+
+.date-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.utility-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* ================= add employee styling =============== */
+.add-employee-content {
+  /* background-color: red; */
+  display: flex;
+  min-height: 60vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-msg {
+  color:red;
 }
