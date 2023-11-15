@@ -17,6 +17,8 @@ const Settings = () =>
   const [mouseSensitivity, setMouseSensitivity] = useState(5);
 
   useEffect(() => {
+    document.body.style.zoom = "100%";
+    
     if (localStorage.getItem('display-contrast')) 
     {
       setDisplayContrast(Number(localStorage.getItem('display-contrast')));

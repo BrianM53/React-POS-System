@@ -48,20 +48,20 @@ function PrivateRoute({ element, requiredRole }) {
 }
 
 function Routing() {
-  const [path, setPath] = useState("");
+  // const [path, setPath] = useState("");
 
-  useEffect(() => {
-    const currentPath = window.location.pathname;
-    if (currentPath === "/") {
-      document.body.style.zoom = "60%";
-    } 
-    else if (currentPath === "/order-now" || currentPath === "/contact-us" || currentPath === "/about-us") {
-      document.body.style.zoom = "80%";
-    }
-    else {
-      document.body.style.zoom = "100%";
-    }
-  }, [path]);
+  // useEffect(() => {
+  //   const currentPath = window.location.pathname;
+  //   if (currentPath === "/") {
+  //     document.body.style.zoom = "60%";
+  //   } 
+  //   else if (currentPath === "/order-now" || currentPath === "/contact-us" || currentPath === "/about-us") {
+  //     document.body.style.zoom = "80%";
+  //   }
+  //   else {
+  //     document.body.style.zoom = "100%";
+  //   }
+  // }, [path]);
 
   return (
     <Routes>

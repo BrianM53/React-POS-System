@@ -28,9 +28,12 @@ function Manager() {
   const [tableData, setTableData] = useState([]); 
   // const [chartData, setChartData] = useState([])
   useEffect(() => {
-    // Check if there's an active report in local storage and set it
     localStorage.setItem('activeReport', activeReport);
   }, [activeReport]);
+
+  useEffect(() => {
+    document.body.style.zoom = "100%";
+  }, []);
 
   function generateTimestamp(date) {
     const date_val = date.toISOString().slice(0, 10).replace("T", " ");

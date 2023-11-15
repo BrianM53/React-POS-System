@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavOptions from '../utility/navOptions';
 import { Link } from 'react-router-dom';
 import './contactUs.css';
@@ -20,6 +20,10 @@ const ContactUs = () => {
     phoneNumber: '',
     message: ''
   });
+
+  useEffect(() => {
+    document.body.style.zoom = "80%";
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prevFormData) => ({

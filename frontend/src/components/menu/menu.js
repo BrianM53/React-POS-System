@@ -19,6 +19,10 @@ const Menu = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    document.body.style.zoom = "100%";
+  }, []);
+
+  useEffect(() => {
     if (activeSection) {
       fetch(`${BACKEND_URL}/products/${activeSection}`)
         .then((response) => response.json())

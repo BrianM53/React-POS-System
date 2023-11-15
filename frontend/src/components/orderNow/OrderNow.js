@@ -24,6 +24,10 @@ const OrderNow = () => {
   };
 
   useEffect(() => {
+    document.body.style.zoom = "80%";
+  }, []);
+
+  useEffect(() => {
     // Check if product data for the active category is already fetched
     if (!productData[activeSection]) {
       fetch(`${BACKEND_URL}/products/${activeSection}`)
@@ -110,7 +114,6 @@ const OrderNow = () => {
     // Call the decrementQuantity method from your CartContext, if needed
     decrementQuantity(productId);
   };
-  
 
   const renderProducts = () => {
     const categoryData = productData[activeSection];

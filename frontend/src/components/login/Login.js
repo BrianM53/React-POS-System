@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +18,10 @@ function Login() {
     email: '',
     password: '',
   });
+
+  useEffect(() => {
+    document.body.style.zoom = "100%";
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

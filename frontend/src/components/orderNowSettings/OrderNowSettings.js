@@ -11,6 +11,8 @@ library.add(fas,fab);
 
 const OrderNowSettings = () => {
   useEffect(() => {
+    document.body.style.zoom = "100%";
+
     const updateValue = (element, valueElement) => {
       valueElement.textContent = element.value;
       localStorage.setItem(element.id, element.value);

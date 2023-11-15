@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LogoutButton from '../utility/logoutButton'; // Import the LogoutButton component
 import './Cashier.css';
 
@@ -14,6 +14,9 @@ function Cashier() {
   const [employeeID, setEmployeeID] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
 
+  useEffect(() => {
+    document.body.style.zoom = "100%";
+  }, []);
 
   // Function to add a product to the order
   const addProduct = () => {
