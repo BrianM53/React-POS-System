@@ -79,29 +79,33 @@ function Manager() {
 
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
 
-    axios
-      .post(BACKEND_URL + '/reports/' + reportRoute, {
-        startDate: generateTimestamp(startDate),
-        endDate: generateTimestamp(endDate),
-      })
-      .then(response => {
-        console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data);
-        generateReport(reportType, response.data.data);
-        // if (reportType == "Usage Chart"){
-        //   setShowChart(true);
-        //   setChartData(response.data.data);
-
-        //   console.log("chartData:", chartData);//TODO Check data sent to chart
-        // }
-        // else{
-        //   setShowChart(false);
-        //   generateReport(reportType);
-        //   setTableData(response.data.data);
-        // }
-      })
-      .catch(error => {
-        console.error('axios error:', error);
-      });
+    if (reportRoute != "add-employee") {
+      axios
+        .post(BACKEND_URL + '/reports/' + reportRoute, {
+          startDate: generateTimestamp(startDate),
+          endDate: generateTimestamp(endDate),
+        })
+        .then(response => {
+          console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data);
+          generateReport(reportType, response.data.data);
+          // if (reportType == "Usage Chart"){
+          //   setShowChart(true);
+          //   setChartData(response.data.data);
+  
+          //   console.log("chartData:", chartData);//TODO Check data sent to chart
+          // }
+          // else{
+          //   setShowChart(false);
+          //   generateReport(reportType);
+          //   setTableData(response.data.data);
+          // }
+        })
+        .catch(error => {
+          console.error('axios error:', error);
+        });
+    } else {
+      setColumns([]);
+    }
   }
 
   return (

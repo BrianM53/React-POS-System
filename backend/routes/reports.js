@@ -82,14 +82,11 @@ router.post("/usage-chart", (req, res) => {
 });
 
 router.post("/add-employee", (req, res) => {
-    console.log("in add employee");
-    res.send("usage");
-
     Report.addEmployee((error, employees) => {
         if (error) {
             res.status(500).json({ error: "Error generating sells together report" });
         } else {
-            console.log(employees);
+            res.json({data: employees});
         }
     });
 });

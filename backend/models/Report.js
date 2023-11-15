@@ -249,6 +249,7 @@ class Report {
     // }
 
     static addEmployee(callback) {
+        console.log("selecting from employees");
         connection.query(
             "SELECT * from employees",
             (error, results) => {
