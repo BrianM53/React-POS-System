@@ -22,8 +22,10 @@ const OrderNow = () => {
   const handleCategoryClick = (section) => {
     setActiveSection(section);
   };
+  
 
   useEffect(() => {
+    document.body.style.zoom = "80%";
     // Check if product data for the active category is already fetched
     if (!productData[activeSection]) {
       fetch(`${BACKEND_URL}/products/${activeSection}`)
@@ -278,7 +280,7 @@ const OrderNow = () => {
             </div>
           </div>
         </div>
-
+        <div className="order-now-filler-block" />
       </main>
     </div>
   );
