@@ -86,15 +86,19 @@
   grid-row: 1;
   grid-column: 3;
   z-index: 1;
-
+  
+  /* height: fit-content; */
+  height: 506px;
   background-color: var(--normal);
   font-size: 2rem;
+  
   display: flex;
   flex-direction: column;
   border-radius: 500px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
   padding: 1em;
-  gap: .5em;
+  gap: 1em;
+  
   text-align: center;
 }
 
@@ -212,9 +216,13 @@
   flex-direction: column;
   border-radius: 500px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
-  /* padding: 1em; */
+  justify-content: center;
+  text-align: center;
+
+  padding: 1em;
   gap: 1em;
   text-align: center;
+  height: fit-content;
 }
 
 .menu-main-app-square-no
@@ -255,7 +263,7 @@
   gap: 2em;
   width: 700px;
   max-width: 100%;
-  overflow-x: scroll;
+  overflow-x: hidden;
   margin: 0 auto;
   margin-top: -1em;
 }
