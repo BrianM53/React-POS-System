@@ -116,36 +116,6 @@
   color: var(--white);
 }
 
-.menu-main-app-square-2
-{
-  grid-row: 1;
-  grid-column: 2;
-  background-color: var(--accent);
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 500px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  gap: 1em;
-  text-align: center;
-}
-
-.menu-main-app-square-3
-{
-  grid-row: 2;
-  grid-column: 2;
-  background-color: var(--accent);
-  font-size: 1.125rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 500px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  gap: 1em;
-  text-align: center;
-}
-
 .square-1-top
 {
   display: flex;

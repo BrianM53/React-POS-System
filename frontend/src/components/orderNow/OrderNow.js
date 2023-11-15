@@ -177,31 +177,8 @@ const OrderNow = () => {
 
   return (
     <div className="menu-body">
-
-      <Header />
-
-      <main className="menu-main-menu">
-        <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
-          Order Now
-        </SpecialFontText>
         
-        <nav className="menu-nav">
-            <div className="menu-nav-container-order-now">
-              <div className="menu-nav-container-left-order-now">
-                <Link to="/app">
-                  <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
-                </Link>
-                <Link to="/order-now-settings">
-                  <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
-                </Link>
-              </div>
-              <div className="menu-nav-container-right">
-                <Link to="/login">
-                  <button className="menu-nav-admin-login">Admin Login</button>
-                </Link>
-              </div>
-            </div>
-        </nav>
+        <Header />
 
         <main className="menu-main-menu">
             <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
@@ -274,51 +251,6 @@ const OrderNow = () => {
             </div>
 
         </main>
-        <footer className="menu-footer">
-            <SpecialFontText as="div" className="menu-footer-message">
-                Get in touch with us! Follow us on:
-            </SpecialFontText>
-            <div className="ticket-item-container">
-              {renderCartItems()}
-            </div>
-          </div>
-        </div>
-      </main>
-      <footer className="menu-footer">
-        <SpecialFontText as="div" className="menu-footer-message">
-          Get in touch with us! Follow us on:
-        </SpecialFontText>
-        <div className="menu-footer-container">
-          <Link to="/contact-us">
-            <FontAwesomeIcon
-              icon={['fab', 'instagram']}
-              className="fa-2x menu-footer-smlink-icon"
-              id="menu-footer-instagram"
-            />
-          </Link>
-          <Link to="/contact-us">
-            <FontAwesomeIcon
-              icon={['fab', 'twitter']}
-              className="fa-2x menu-footer-smlink-icon"
-              id="menu-footer-twitter"
-            />
-          </Link>
-          <Link to="/contact-us">
-            <FontAwesomeIcon
-              icon={['fab', 'facebook']}
-              className="fa-2x menu-footer-smlink-icon"
-              id="menu-footer-facebook"
-            />
-          </Link>
-          <Link to="/contact-us">
-            <FontAwesomeIcon
-              icon={['fab', 'tiktok']}
-              className="fa-2x menu-footer-smlink-icon"
-              id="menu-footer-tiktok"
-            />
-          </Link>
-        </div>
-      </footer>
     </div>
 );
 };

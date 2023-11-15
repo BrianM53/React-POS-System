@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./components/utility/reportWebVitals";
 import ErrorMessage from "./components/utility/errorMessage";
@@ -48,6 +48,21 @@ function PrivateRoute({ element, requiredRole }) {
 }
 
 function Routing() {
+  const [path, setPath] = useState("");
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    if (currentPath === "/") {
+      document.body.style.zoom = "60%";
+    } 
+    else if (currentPath === "/order-now" || currentPath === "/contact-us" || currentPath === "/about-us") {
+      document.body.style.zoom = "80%";
+    }
+    else {
+      document.body.style.zoom = "100%";
+    }
+  }, [path]);
+
   return (
     <Routes>
       <Route path="/" element={<App />} />
@@ -88,8 +103,6 @@ function Routing() {
     </Routes>
   );
 }
-
-document.body.style.zoom = '60%';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

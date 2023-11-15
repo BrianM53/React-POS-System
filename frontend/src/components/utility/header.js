@@ -23,7 +23,7 @@ function Header() {
             id="menu-nav-settings-icon"
             />
         </Link>
-        <Link to="/app">
+        <Link to="/">
             <FontAwesomeIcon
             icon={["fas", "home"]}
             className="fa-2x"

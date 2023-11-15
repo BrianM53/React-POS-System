@@ -4,26 +4,15 @@ import NavOptions from './components/utility/navOptions';
 import './App.css'
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
 import { Link } from 'react-router-dom';
-
-import './App.css';
-import SpecialFontText from "./components/specialFontText/SpecialFontText";
-
-import PopularItems from './popularItems';
-import Header from './components/utility/header';
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import MainContent from './mainContent';
-import RainCheck from './rainCheck';
+import Weather from './components/weather/Weather';
 library.add(fas,fab); 
 
 const App = () => {
-  useEffect(() => {
-    document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, initial-scale=0.5");
-  }, []);
 
   const [email, setEmail] = useState('');
 
@@ -64,15 +53,42 @@ const App = () => {
   return (
     <div className="menu-body">
 
-      <Header />
-
+      <nav className="menu-nav">
+        <Link to="/settings">
+          <FontAwesomeIcon
+            icon={["fas", "gear"]}
+            className="fa-2x"
+            id="menu-nav-settings-icon"
+          />
+        </Link>
+        <Link to="/">
+          <FontAwesomeIcon
+            icon={["fas", "home"]}
+            className="fa-2x"
+            id="menu-nav-home-icon"
+          />
+        </Link>
+        <SpecialFontText as="div" className="menu-nav-title">
+          Sweet Paris: Crepes and Cafe
+        </SpecialFontText>
+        <NavOptions />
+      </nav>
       <main className="menu-main-app">
+        <div className="menu-main-app-square-1">
 
-        <MainContent />
+          <SpecialFontText as="div" className="menu-main-app-square-title" fontSize="3rem">
+            Popular Picks
+          </SpecialFontText>
 
-        <RainCheck />
+          <div className="menu-main-app-square-description">
+            Can't decide on what to order? Here's some fan favorites!
+          </div>
+          <div className="menu-main-app-square-container-top">
+            <div className="arrow-circle" onClick={() => handleScroll('left')}>
+              <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" id="back-arrow-id" />
+            </div>
+            <div className="menu-main-app-square-container" ref={scrollContainerRef}>
 
-        <div>
               <div className="square-container-item">
                 <SpecialFontText as="div" className="square-container-item-title" fontSize="2.5rem">
                   Allison's Parfait
