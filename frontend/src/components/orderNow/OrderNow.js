@@ -295,7 +295,7 @@ const OrderNow = () => {
                     </div>
                 </div>
             </div>
-
+            <div className="order-now-filler-block" />
         </main>
     </div>
 );

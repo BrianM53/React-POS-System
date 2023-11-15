@@ -163,6 +163,9 @@ const Menu = () => {
             {renderProducts()}
           </div>
         </div>
+
+        <div className="menu-filler-block" />
+
       </main>
     </div>
   );
