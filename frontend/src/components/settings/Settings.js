@@ -8,6 +8,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Header from '../utility/header';
 library.add(fas,fab); 
 
 const Settings = () => 
@@ -18,7 +19,7 @@ const Settings = () =>
 
   useEffect(() => {
     document.body.style.zoom = "100%";
-    
+
     if (localStorage.getItem('display-contrast')) 
     {
       setDisplayContrast(Number(localStorage.getItem('display-contrast')));
@@ -59,18 +60,7 @@ const Settings = () =>
   
   return (
     <div className="menu-body">
-      <nav className="menu-nav">
-        <Link to="/settings">
-          <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
-        </Link>
-        <Link to="/">
-          <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
-        </Link>
-        <SpecialFontText as="div" className="menu-nav-title">
-          Sweet Paris: Crepes and Cafe
-        </SpecialFontText>
-        <NavOptions />
-      </nav>
+      <Header />
       <main className="menu-main-settings">
         <SpecialFontText as="div" className="menu-main-settings-header" fontSize="3.5rem">
           Accessibility Settings
@@ -107,25 +97,6 @@ const Settings = () =>
           </div>
         </div>
       </main>
-      <footer className="menu-footer">
-        <SpecialFontText as="div" className="menu-footer-message">
-          Get in touch with us! Follow us on:
-        </SpecialFontText>
-        <div className="menu-footer-container">
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
-            </Link>
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
-            </Link>
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
-            </Link>
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
-            </Link>
-          </div>
-      </footer>
     </div>
   );
 };
