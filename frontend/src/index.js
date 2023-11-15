@@ -21,6 +21,7 @@ import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Settings from "./components/settings/Settings";
 import OrderNow from "./components/orderNow/OrderNow";
+import OrderNowSettings from "./components/orderNowSettings/OrderNowSettings";
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
@@ -82,9 +83,13 @@ function Routing() {
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
+      <Route path="/order-now" element={<OrderNow />} />
+      <Route path="/order-now-settings" element={<OrderNowSettings />} />
     </Routes>
   );
 }
+
+document.body.style.zoom = '60%';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
