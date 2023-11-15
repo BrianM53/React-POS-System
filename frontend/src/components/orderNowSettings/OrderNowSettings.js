@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './OrderNowSettings.css';
+import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -49,7 +50,6 @@ const OrderNowSettings = () => {
 
   return (
     <div className="menu-body">
-      <header className="menu-header">Welcome to the Sweet Paris Cafe!</header>
       <nav className="menu-nav">
         <Link to="/order-now">
           <FontAwesomeIcon icon={['fas', 'arrow-left']} className="fa-2x" />
@@ -80,6 +80,25 @@ const OrderNowSettings = () => {
           </div>
         </div>
       </main>
+      <footer className="menu-footer">
+          <SpecialFontText as="div" className="menu-footer-message">
+              Get in touch with us! Follow us on:
+          </SpecialFontText>
+          <div className="menu-footer-container">
+              <Link to="/contact-us">
+              <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
+              </Link>
+              <Link to="/contact-us">
+              <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
+              </Link>
+              <Link to="/contact-us">
+              <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
+              </Link>
+              <Link to="/contact-us">
+              <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
+              </Link>
+          </div>
+        </footer>
     </div>
   );
 };

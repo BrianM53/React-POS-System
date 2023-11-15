@@ -5,6 +5,7 @@
     --font-size: 16px;
   }
 
+
 .menu-header 
 {
     background-color: var(--white);
@@ -59,6 +60,7 @@
 #menu-nav-home-icon 
 {
     color: white;
+    font-size: 4rem !important;
 }
 
 .menu-nav-title
@@ -67,11 +69,21 @@
     color: var(--white);
 }
 
-.menu-nav-container
+.menu-nav-container-order-now
 {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.menu-nav-container-left-order-now
+{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
 }
 
 .menu-nav-container-button
@@ -292,7 +304,7 @@
     display: flex;
     flex-direction: row;
     gap: .5em;
-    border: 2px solid var(--white);
+    border: 5px solid var(--white);
     padding: .5em;
     padding-top: .25em;
     padding-bottom: .25em;
@@ -401,4 +413,14 @@
 .menu-footer-smlink-icon:hover
 {
   transform: scale(1.25);
+}
+
+.decrement-button
+{
+    cursor: pointer;
+}
+
+.increment-button
+{
+    cursor: pointer;
 }

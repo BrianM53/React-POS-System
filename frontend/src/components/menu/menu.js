@@ -31,48 +31,36 @@ const Menu = () => {
     }
   }, [activeSection]);
 
-  const renderProducts = () => {
-    return products.map((product) => (
-      <div key={product.product_id} className="menu-body-entry-container">
-        <img src="/sweetParisLocation.jpeg" alt="menu item" className="menu-body-entry-photo"  />
-        <div className="menu-body-entry-description-container">
-          <div className="menu-body-entry-title">{product.product_name}</div>
-          <div className="menu-body-entry-description">
-            {product.product_description}
+  const renderProducts = () => 
+  {
+    if (!products) {
+      return null; // Handle the case where data is still being fetched
+    }
+    
+    return products.map((product) => 
+    {
+      const imageName = product.product_name
+        .toLowerCase()
+        .replace(/\s+/g, "-") // Replace spaces with hyphens
+        .replace(/[,]/g, "") // Remove commas
+        .replace(/[&]/g, "and");
+
+      const imagePath = require(`../../images/${imageName}.jpg`);
+      return (
+        <div key={product.product_id} className="menu-body-entry-container">
+          <img
+            src={imagePath}
+            alt={product.product_name}
+            className="menu-body-entry-photo"
+          />
+          <div className="menu-body-entry-description-container">
+            <div className="menu-body-entry-title">{product.product_name}</div>
+            <div className="menu-body-entry-description">
+              {product.product_description}
+            </div>
           </div>
         </div>
-        <div className="menu-body-entry-amount-container">
-          <div className="decrement-button" onClick={() => decrementQuantity(product)}>
-            -
-          </div>
-          <div className="amount-counter">{product.quantity}</div>
-          <div className="increment-button" onClick={() => incrementQuantity(product)}>
-            +
-          </div>
-        </div>
-      </div>
-    ));
-  };
-
-  const incrementQuantity = (product) => {
-    setProducts((prevProducts) => {
-      return prevProducts.map((p) => {
-        if (p.product_id === product.product_id) {
-          return { ...p, quantity: p.quantity + 1 };
-        }
-        return p;
-      });
-    });
-  };
-
-  const decrementQuantity = (product) => {
-    setProducts((prevProducts) => {
-      return prevProducts.map((p) => {
-        if (p.product_id === product.product_id && p.quantity > 0) {
-          return { ...p, quantity: p.quantity - 1 };
-        }
-        return p;
-      });
+      )
     });
   };
 
@@ -172,25 +160,6 @@ const Menu = () => {
           </div>
         </div>
       </main>
-      <footer className="menu-footer">
-        <SpecialFontText as="div" className="menu-footer-message">
-          Get in touch with us! Follow us on:
-        </SpecialFontText>
-        <div className="menu-footer-container">
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'instagram']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-instagram" />
-            </Link>
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'twitter']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-twitter" />
-            </Link>
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'facebook']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-facebook" />
-            </Link>
-            <Link to="/contact-us">
-              <FontAwesomeIcon icon={['fab', 'tiktok']} className="fa-2x menu-footer-smlink-icon" id="menu-footer-tiktok" />
-            </Link>
-          </div>
-      </footer>
     </div>
   );
 };
