@@ -39,6 +39,7 @@
 
 .menu-main-settings-header
 {
+    border: 3px solid white;
     font-size: 3.5rem;
     background-color: var(--normal) !important;
     color: var(--white);
@@ -49,6 +50,7 @@
 
 .menu-main-settings-container
 {
+    border: 3px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
