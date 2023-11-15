@@ -19,7 +19,7 @@ const Menu = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    document.body.style.zoom = "100%";
+    document.body.style.zoom = "80%";
   }, []);
 
   useEffect(() => {
