@@ -157,6 +157,10 @@ th, td {
 }
 
 /* ================= add employee styling =============== */
+.add-employee-container {
+  display: none;
+}
+
 .add-employee-content {
   /* background-color: red; */
   display: flex;

@@ -130,7 +130,7 @@ function Manager() {
               ))}
             </tbody>
           </table>
-          <AddEmployee />
+          {activeReport === 'Add Employee' && <AddEmployee />}
 
         </div>
         {/* {showChart &&(
