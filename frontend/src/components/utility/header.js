@@ -31,7 +31,7 @@ function Header() {
             />
         </Link>
         <SpecialFontText as="div" className="menu-nav-title">
-            Sweet Paris: Crepes and Cafe
+            {/* Sweet Paris: Crepes and Cafe */}
         </SpecialFontText>
         <NavOptions />
         </nav>

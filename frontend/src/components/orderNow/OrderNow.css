@@ -3,13 +3,18 @@
     --white: white;
     --accent: skyblue;
     --font-size: 16px;
+
+    --bright: #BDE3DF;
+    --normal: #A7C8C5;
+    --dark: #262e28;
+    
   }
 
 
 .menu-header 
 {
-    background-color: var(--white);
-    color: var(--accent);
+    background-color: var(--dark);
+    color: var(--normal);
     min-height: 100px;
     font-size: 3rem;
     display: flex;
@@ -20,8 +25,8 @@
 
 .menu-nav
 {
-    background-color: var(--accent);
-    color: var(--white);
+    background-color: var(--dark);
+    color: var(--dark);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -63,12 +68,6 @@
     font-size: 4rem !important;
 }
 
-.menu-nav-title
-{
-    font-size: 2rem;
-    color: var(--white);
-}
-
 .menu-nav-container-order-now
 {
     display: flex;
@@ -90,7 +89,7 @@
 {
     border-radius: 15px;
     background-color: var(--white);
-    color: var(--accent);
+    color: var(--normal);
     font-size: 1.5rem;
     border-color: var(--white);
     border-width: 2px;
@@ -100,7 +99,7 @@
 {
     border-radius: 15px;
     background-color: var(--white);
-    color: var(--accent);
+    color: var(--normal);
     font-size: 1.5rem;
     border-color: var(--white);
     border-width: 2px;
@@ -109,7 +108,7 @@
 
 .menu-main-menu
 {
-    background-color: var(--white);
+    background-color: var(--dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,7 +120,7 @@
 .menu-main-menu-header
 {
     font-size: 3.5rem;
-    background-color: var(--accent);
+    background-color: var(--normal);
     color: var(--white);
     padding: .25em;
     border-radius: 25px;
@@ -137,7 +136,7 @@
 
 .menu-main-menu-ticket-container
 {
-    background-color: var(--accent);
+    background-color: var(--normal);
     width: 750px;
     height: 753px;
     color: var(--white);
@@ -218,7 +217,7 @@
     font-size: 2rem;
     border-radius: 500px;
 
-    color: var(--accent);
+    color: var(--normal);
     border-color: var(--white);
     background-color: var(--white);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -229,7 +228,7 @@
 {
     display: flex;
     justify-content: space-between;
-    background-color: var(--accent);
+    background-color: var(--normal);
     color: var(--white);
     font-size: 1.5rem;
     align-items: center;
@@ -290,7 +289,7 @@
 {
     display: flex;
     flex-direction: row;
-    background-color: var(--accent);
+    background-color: var(--normal);
     justify-content: center;
     align-items: center;
     border-radius: 25px;
@@ -377,42 +376,6 @@
 #menu-body-beverages
 {
     display: none; 
-}
-
-.menu-footer 
-{
-    background-color: var(--accent);
-    color: var(--white);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    padding: .75em;
-}
-
-.menu-footer-message
-{
-    font-size: 2rem;
-}
-
-.menu-footer-container
-{
-    display: flex;
-    flex-direction: row;
-    gap: 5em;
-}   
-
-.menu-footer a 
-{
-  color: inherit;
-  text-decoration: none;
-}
-
-.menu-footer-smlink-icon:hover
-{
-  transform: scale(1.25);
 }
 
 .decrement-button

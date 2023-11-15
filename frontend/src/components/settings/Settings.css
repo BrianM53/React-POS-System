@@ -3,12 +3,16 @@
     --white: white;
     --accent: skyblue;
     --font-size: 16px;
+
+    --bright: #BDE3DF;
+  --normal: #A7C8C5;
+  --dark: #262e28;
   }
 
 .menu-header 
 {
-    background-color: var(--white);
-    color: var(--accent);
+    background-color: var(--dark) !important;
+    color: var(--normal);
     min-height: 100px;
     font-size: 3rem;
     display: flex;
@@ -19,7 +23,7 @@
 
 .menu-nav
 {
-    background-color: var(--accent);
+    background-color: var(--normal);
     color: var(--white);
     display: flex;
     flex-direction: row;
@@ -56,7 +60,7 @@
 {
     border-radius: 15px;
     background-color: var(--white);
-    color: var(--accent);
+    color: var(--normal);
     font-size: 1.5rem;
     border-color: var(--white);
     border-width: 2px;
@@ -66,7 +70,7 @@
 {
     border-radius: 15px;
     background-color: var(--white);
-    color: var(--accent);
+    color: var(--normal);
     font-size: 1.5rem;
     border-color: var(--white);
     border-width: 2px;
@@ -76,7 +80,7 @@
 
 .menu-main-settings
 {
-    background-color: var(--white);
+    background-color: var(--dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +92,7 @@
 .menu-main-settings-header
 {
     font-size: 3.5rem;
-    background-color: var(--accent);
+    background-color: var(--normal);
     color: var(--white);
     padding: .25em;
     border-radius: 25px;
@@ -102,7 +106,7 @@
     justify-content: center;
     align-items: center;
     gap: 4em;
-    background-color: var(--accent);
+    background-color: var(--normal);
     color: var(--white);
     padding: 10em;
     border-radius: 25px;
@@ -116,7 +120,7 @@
 
 .menu-footer 
 {
-    background-color: var(--accent);
+    background-color: var(--dark);
     color: var(--white);
     display: flex;
     flex-direction: row;

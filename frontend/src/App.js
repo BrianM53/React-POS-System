@@ -10,6 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Weather from './components/weather/Weather';
+import Header from './components/utility/header';
 library.add(fas,fab); 
 
 const App = () => {
@@ -53,26 +54,7 @@ const App = () => {
   return (
     <div className="menu-body">
 
-      <nav className="menu-nav">
-        <Link to="/settings">
-          <FontAwesomeIcon
-            icon={["fas", "gear"]}
-            className="fa-2x"
-            id="menu-nav-settings-icon"
-          />
-        </Link>
-        <Link to="/">
-          <FontAwesomeIcon
-            icon={["fas", "home"]}
-            className="fa-2x"
-            id="menu-nav-home-icon"
-          />
-        </Link>
-        <SpecialFontText as="div" className="menu-nav-title">
-          Sweet Paris: Crepes and Cafe
-        </SpecialFontText>
-        <NavOptions />
-      </nav>
+      <Header />
       <main className="menu-main-app">
         <div className="menu-main-app-square-1">
 
@@ -162,7 +144,7 @@ const App = () => {
             <Link to="/order-now">
               <button className="menu-nav-container-button" id="menu-nav-container-button-ordernow">Order Now</button>
             </Link>
-            <img src="/sweetParisLocation.jpeg" alt="restaurant front" className="square-5-photo"/>
+
           </div>
         </div>
 
