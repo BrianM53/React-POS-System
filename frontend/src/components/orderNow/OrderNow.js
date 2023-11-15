@@ -23,7 +23,6 @@ const OrderNow = () => {
     setActiveSection(section);
   };
   
-
   useEffect(() => {
     document.body.style.zoom = "80%";
     // Check if product data for the active category is already fetched
@@ -219,32 +218,35 @@ const OrderNow = () => {
         </SpecialFontText>
 
         <div className="menu-main-menu-categories">
-          <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes" onClick={() => handleCategoryClick('sweetCrepes')}>
+          <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes" onClick={() => handleCategoryClick('Sweet Crepes')}>
             Sweet Crepes
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-savory-crepes" onClick={() => handleCategoryClick('savoryCrepes')}    >
+          <div className="menu-main-menu-category" id="menu-main-menu-savory-crepes" onClick={() => handleCategoryClick('Savory Crepes')}    >
             Savory Crepes
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-kids-crepes" onClick={() => handleCategoryClick('kidsCrepes')}       >
+          <div className="menu-main-menu-category" id="menu-main-menu-kids-crepes" onClick={() => handleCategoryClick('Kids Crepes')}       >
             Kids Crepes
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles" onClick={() => handleCategoryClick('sweetParisWaffles')}        >
-            Sweet Paris Waffles
+          <div className="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles" onClick={() => handleCategoryClick('Waffles')}        >
+            Waffles
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs" onClick={() => handleCategoryClick('breakfastCrepesAndEggs')}    >
-            Breakfast Crepes & Eggs
+          <div className="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs" onClick={() => handleCategoryClick('Breakfast Crepes')}    >
+            Breakfast Crepes
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('soupsSaladsAndPaninis')}      >
-            Soups, Salads & Paninis
+          <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('Salads')}      >
+            Salads
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-le-bar" onClick={() => handleCategoryClick('leBar')}    >
-            Le Bar
+          <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('Paninis')}      >
+            Paninis
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('hotDrinksAndMilkshakes')}      >
-            Hot Drinks & Milkshakes
+          <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('Hot Drinks')}      >
+            Hot Drinks
           </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('waterAndBeverages')}     >
-            Water & Beverages
+          <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('Milkshakes')}      >
+            Milkshakes
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('Beverages')}     >
+            Beverages
           </div>
         </div>
 
