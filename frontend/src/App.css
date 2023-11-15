@@ -88,7 +88,7 @@
   z-index: 1;
   
   /* height: fit-content; */
-  height: 506px;
+  height: 530px;
   background-color: var(--normal);
   font-size: 2rem;
   
@@ -263,7 +263,7 @@
   gap: 2em;
   width: 700px;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x:auto;
   margin: 0 auto;
   margin-top: -1em;
 }
