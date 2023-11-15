@@ -8,7 +8,6 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCart } from "../cart/CartContext";
-import Header from "../utility/header";
 library.add(fas, fab);
 
 const OrderNow = () => {
@@ -22,10 +21,6 @@ const OrderNow = () => {
   const handleCategoryClick = (section) => {
     setActiveSection(section);
   };
-
-  useEffect(() => {
-    document.body.style.zoom = "80%";
-  }, []);
 
   useEffect(() => {
     // Check if product data for the active category is already fetched
@@ -57,16 +52,16 @@ const OrderNow = () => {
         ? { ...p, quantity: p.quantity + 1 }
         : p
     );
-  
+
     // Update the category data
     setProductData((prevData) => ({
       ...prevData,
       [activeSection]: updatedCategoryData,
     }));
-  
+
     // Check if the product is already in the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
-  
+
     if (cartItemIndex !== -1) {
       // If the product is already in the cart, update its quantity
       const updatedCart = [...cart];
@@ -76,16 +71,16 @@ const OrderNow = () => {
       // If the product is not in the cart, add it to the cart
       setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
     }
-  
+
     addToCart(product);
   };
-  
+
 
   const decrement = (productId) => {
     // Find the product in the active section's data
     const categoryData = productData[activeSection];
     const productIndex = categoryData.findIndex((p) => p.product_id === productId);
-  
+
     if (productIndex !== -1) {
       // Update the quantity of the product in the active section
       const updatedCategoryData = [...categoryData];
@@ -97,7 +92,7 @@ const OrderNow = () => {
         [activeSection]: updatedCategoryData,
       }));
     }
-  
+
     // Update the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === productId);
     if (cartItemIndex !== -1) {
@@ -110,9 +105,41 @@ const OrderNow = () => {
       }
       setCart(updatedCart);
     }
-  
+
     // Call the decrementQuantity method from your CartContext, if needed
     decrementQuantity(productId);
+  };
+
+  const submitOrder = () => {
+    // Send a request to your backend API to create a new order
+    console.log("Submitting order...");
+    fetch(`${BACKEND_URL}/orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        employeeId: "yourEmployeeId", // Replace with the actual employeeId
+        customerId: "yourCustomerId", // Replace with the actual customerId
+        totalCost: calculateTotalCost(), // Implement this function to calculate the total cost
+        paymentMethod: "card", // Replace with the actual payment method
+        paymentStatus: "yourPaymentStatus", // Replace with the actual payment status
+        products: cart, // Send the cart items as part of the request
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Order submitted successfully:", data);
+        // Optionally, you can clear the cart or perform any other actions after submitting the order
+      })
+      .catch((error) => {
+        console.error("Error submitting order:", error);
+      });
+  };
+
+  const calculateTotalCost = () => {
+    // Implement this function to calculate the total cost based on items in the cart
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const renderProducts = () => {
@@ -180,125 +207,100 @@ const OrderNow = () => {
 
   return (
     <div className="menu-body">
-        
-        <Header />
 
-        <main className="menu-main-menu">
-            <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
-                Order Now
-            </SpecialFontText>
+      <SpecialFontText as="header" className="menu-header" >
+        Welcome to the Sweet Paris Cafe!
+      </SpecialFontText>
 
-            <div className="menu-main-menu-categories">
+      <nav className="menu-nav">
+        <div className="menu-nav-container-order-now">
+          <div className="menu-nav-container-left-order-now">
+            <Link to="/app">
+              <FontAwesomeIcon icon={['fas', 'home']} className="fa-2x" id="menu-nav-home-icon" />
+            </Link>
+            <Link to="/order-now-settings">
+              <FontAwesomeIcon icon={['fas', 'gear']} className="fa-2x" id="menu-nav-settings-icon" />
+            </Link>
+          </div>
+          <div className="menu-nav-container-right">
+            <Link to="/login">
+              <button className="menu-nav-admin-login">Admin Login</button>
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <main className="menu-main-menu">
+        <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
+          Order Now
+        </SpecialFontText>
+
+        <div className="menu-main-menu-categories">
+          <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes" onClick={() => handleCategoryClick('sweetCrepes')}>
+            Sweet Crepes
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-savory-crepes" onClick={() => handleCategoryClick('savoryCrepes')}    >
+            Savory Crepes
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-kids-crepes" onClick={() => handleCategoryClick('kidsCrepes')}       >
+            Kids Crepes
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles" onClick={() => handleCategoryClick('sweetParisWaffles')}        >
+            Sweet Paris Waffles
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs" onClick={() => handleCategoryClick('breakfastCrepesAndEggs')}    >
+            Breakfast Crepes & Eggs
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('soupsSaladsAndPaninis')}      >
+            Soups, Salads & Paninis
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-le-bar" onClick={() => handleCategoryClick('leBar')}    >
+            Le Bar
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('hotDrinksAndMilkshakes')}      >
+            Hot Drinks & Milkshakes
+          </div>
+          <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('waterAndBeverages')}     >
+            Water & Beverages
+          </div>
+        </div>
+
+        <div className="menu-main-menu-container">
+          <div className="menu-main-menu-body">
             <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-sweet-crepes"
-                onClick={() => handleCategoryClick("Sweet Crepes")}
-              >
-                Sweet Crepes
+              className="menu-body-category-container"
+              id={`menu-body-${activeSection}`}
+              style={{ display: "flex" }}
+            >
+              {renderProducts()}
+            </div>
+          </div>
+          <div className="menu-main-menu-ticket-container">
+            <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
+              Your Cart
+            </SpecialFontText>
+            <div className="ticket-item-container">
+              {renderCartItems()}
+            </div>
+            <div className="ticket-total-and-order-container">
+              <div className="ticket-total-container">
+                <div className="ticket-total-title">Your Total:</div>
+                <div className="ticket-total-title">
+                  ${calculateTotalCost().toFixed(2)}
+                </div>
               </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-kids-crepes"
-                onClick={() => handleCategoryClick("Savory Crepes")}
-              >
-                Savory Crepes
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-kids-crepes"
-                onClick={() => handleCategoryClick("Kids Crepes")}
-              >
-                Kids Crepes
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-sweet-paris-waffles"
-                onClick={() => handleCategoryClick("Waffles")}
-              >
-                Sweet Paris Waffles
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-breakfast-crepes-and-eggs"
-                onClick={() => handleCategoryClick("Breakfast Crepes")}
-              >
-                Breakfast Crepes & Eggs
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-salads"
-                onClick={() => handleCategoryClick("Salads")}
-              >
-                Salads
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-paninis"
-                onClick={() => handleCategoryClick("Paninis")}
-              >
-                Paninis
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-hot-drinks"
-                onClick={() => handleCategoryClick("Hot Drinks")}
-              >
-                Hot Drinks
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-milkshakes"
-                onClick={() => handleCategoryClick("Milkshakes")}
-              >
-                Milkshakes
-              </div>
-              <div
-                className="menu-main-menu-category"
-                id="menu-main-menu-beverages"
-                onClick={() => handleCategoryClick("Beverages")}
-              >
-                Beverages
+              <div className="ticket-submit-container">
+                <div className="ticket-submit-button" onClick={submitOrder}>
+                  Submit Order!
+                </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div className="menu-main-menu-container">
-                <div className="menu-main-menu-body">
-                    <div
-                        className="menu-body-category-container"
-                        id={`menu-body-${activeSection}`}
-                        style={{ display: "flex" }}
-                    >
-                        {renderProducts()}
-                    </div>
-                </div>
-                <div className="menu-main-menu-ticket-container">
-                    <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
-                        Your Cart
-                    </SpecialFontText>
-                    <div className="ticket-item-container">
-                      {renderCartItems()}
-                    </div>
-                    <div className="ticket-total-and-order-container">
-                        <div className="ticket-total-container">
-                            <div className="ticket-total-title">
-                                Your Total:
-                            </div>
-                            <div className="ticket-total-title">
-                                $958.24
-                            </div>
-                        </div>
-                        <div className="ticket-submit-container">
-                            <div className="ticket-submit-button">
-                                Submit Order!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="order-now-filler-block" />
-        </main>
+      </main>
     </div>
-);
+  );
 };
 
 export default OrderNow;
