@@ -48,7 +48,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    document.body.style.zoom = "60%";
+    document.body.style.zoom = "65%";
   }, []);
 
   return (

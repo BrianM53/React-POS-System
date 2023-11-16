@@ -9,75 +9,6 @@
   --dark: #262e28;
 }
 
-.menu-header 
-{
-  background-color: var(--dark);
-  color: var(--normal);
-  min-height: 100px;
-  font-size: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu-nav
-{
-  background-color: var(--dark);
-  color: var(--white);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  padding: 1em;
-  gap: 2em;
-}
-
-#menu-nav-settings-icon
-{
-  color: white;
-}
-
-#menu-nav-home-icon 
-{
-  color: white;
-}
-
-.menu-nav-title
-{
-  font-size: 2rem;
-  color: var(--white);
-}
-
-.menu-nav-container
-{
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-}
-
-.menu-nav-container-button
-{
-  border-radius: 15px;
-  background-color: var(--white);
-  color: var(--normal);
-  font-size: 1.5rem;
-  border-color: var(--white);
-  border-width: 2px;
-}
-
-.menu-nav-admin-login
-{
-  border-radius: 15px;
-  background-color: var(--white);
-  color: var(--normal);
-  font-size: 1.5rem;
-  border-color: var(--white);
-  border-width: 2px;
-}
-
 .menu-main-aboutus
 {
   background-color: var(--dark);
@@ -91,6 +22,7 @@
 
 .menu-main-aboutus-header
 {
+  border: 3px solid white;
   background-color: var(--normal);
   color: var(--white);
   padding: .25em;
@@ -100,6 +32,7 @@
 
 .menu-main-aboutus-entry
 {
+  
   position: relative;
   font-size: 1.5rem;
   color: var(--white);
@@ -108,7 +41,7 @@
   justify-content: center;
   align-items: center;
   gap: 2em;
-  background-color: var(--white);
+  background-color: var(--dark);
   color: var(--white);
   margin-top: -1em;
   text-align: center;
@@ -126,6 +59,7 @@
 
 .actual-bottom-container
 {
+  
   display: flex;
   flex-direction: row;
   gap: 2em;
@@ -133,6 +67,7 @@
 
 .menu-main-aboutus-top-container
 {
+  border: 3px solid white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -149,6 +84,7 @@
 
 .menu-main-aboutus-bottom-container
 {
+  border: 3px solid white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -174,6 +110,7 @@
 
 .menu-main-aboutus-image
 {
+  border: 3px solid white;
   width: 500px;
   height: 400px;
   border-radius: 500px;

@@ -17,7 +17,7 @@ const Settings = () => {
   const [mouseSensitivity, setMouseSensitivity] = useState(5);
 
   useEffect(() => {
-    document.body.style.zoom = "100%";
+    document.body.style.zoom = "80%";
 
     if (localStorage.getItem("display-contrast")) {
       setDisplayContrast(Number(localStorage.getItem("display-contrast")));
@@ -67,7 +67,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="menu-body">
+    <div className="settings-body">
       <Header />
       <main className="menu-main-settings">
         <SpecialFontText
@@ -140,6 +140,8 @@ const Settings = () => {
             </div>
           </div>
         </div>
+
+        <div className="filler-block" />
       </main>
     </div>
   );

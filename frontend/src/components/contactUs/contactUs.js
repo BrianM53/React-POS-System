@@ -54,7 +54,6 @@ const ContactUs = () => {
           Contact Us
         </SpecialFontText>
         <div className="menu-main-contactus-container">
-        <img src="/catering3.jpeg" alt="happy customers" className="contactus-image"/>
           <div className="contactus-left-container">
             <div className="menu-main-contactus-entry" id="menu-main-contactus-entry-1">
               <div className="title-container">
@@ -130,8 +129,9 @@ const ContactUs = () => {
               </form>
             </div>
           </div>
-          <img src="/catering1.jpeg" alt="spread of catering" className="contactus-image"/>
         </div>
+
+        <div className='contact-us-filler-block' />
       </main>
     </div>
   );

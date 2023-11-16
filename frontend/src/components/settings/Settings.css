@@ -5,14 +5,17 @@
     --font-size: 16px;
 
     --bright: #BDE3DF;
-  --normal: #A7C8C5;
-  --dark: #262e28;
+    --normal: #A7C8C5;
+    --dark: #262e28;
   }
+
+.settings-body {
+    background-color: var(--dark) !important;
+}
 
 .menu-header 
 {
     background-color: var(--dark) !important;
-    color: var(--normal);
     min-height: 100px;
     font-size: 3rem;
     display: flex;
@@ -21,78 +24,24 @@
     align-items: center;
 }
 
-.menu-nav
-{
-    background-color: var(--normal);
-    color: var(--white);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1em;
-    gap: 2em;
-}
-
-#menu-nav-settings-icon
-{
-    color: white;
-}
-
-#menu-nav-home-icon 
-{
-    color: white;
-}
-
-.menu-nav-title
-{
-    font-size: 2rem;
-    color: var(--white);
-}
-
-.menu-nav-container
-{
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-}
-
-.menu-nav-container-button
-{
-    border-radius: 15px;
-    background-color: var(--white);
-    color: var(--normal);
-    font-size: 1.5rem;
-    border-color: var(--white);
-    border-width: 2px;
-}
-
-.menu-nav-admin-login
-{
-    border-radius: 15px;
-    background-color: var(--white);
-    color: var(--normal);
-    font-size: 1.5rem;
-    border-color: var(--white);
-    border-width: 2px;
-}
-
 /**********************************************/
 
 .menu-main-settings
 {
-    background-color: var(--dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2em;
     gap: 2em;
+    background-color: var(--dark) !important;
 }
 
 .menu-main-settings-header
 {
+    border: 3px solid white;
     font-size: 3.5rem;
-    background-color: var(--normal);
+    background-color: var(--normal) !important;
     color: var(--white);
     padding: .25em;
     border-radius: 25px;
@@ -101,12 +50,13 @@
 
 .menu-main-settings-container
 {
+    border: 3px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 4em;
-    background-color: var(--normal);
+    background-color: var(--normal) !important;
     color: var(--white);
     padding: 10em;
     border-radius: 25px;
@@ -118,44 +68,6 @@
     font-size: 2rem;
 }
 
-.menu-footer 
-{
-    background-color: var(--dark);
-    color: var(--white);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    padding: .75em;
-}
-
-.menu-footer-message
-{
-    font-size: 2rem;
-}
-
-.menu-footer-container
-{
-    display: flex;
-    flex-direction: row;
-    gap: 5em;
-}   
-
-.menu-footer-smlink-icon
-{
-    height: 50px;
-    width: 50px;
-}
-
-.menu-footer a 
-{
-  color: inherit;
-  text-decoration: none;
-}
-
-.menu-footer-smlink-icon:hover
-{
-  transform: scale(1.25);
+.filler-block {
+    height: 275px;
 }
