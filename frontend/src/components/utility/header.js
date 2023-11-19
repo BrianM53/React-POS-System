@@ -11,29 +11,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import NavOptions from './navOptions';
+import Weather from '../weather/Weather';
 library.add(fas,fab); 
 
 function Header() {
     return (
         <nav className="menu-nav">
-        <Link to="/settings">
-            <FontAwesomeIcon
-            icon={["fas", "gear"]}
-            className="fa-2x"
-            id="menu-nav-settings-icon"
-            />
-        </Link>
-        <Link to="/">
-            <FontAwesomeIcon
-            icon={["fas", "home"]}
-            className="fa-2x"
-            id="menu-nav-home-icon"
-            />
-        </Link>
-        <SpecialFontText as="div" className="menu-nav-title">
-            {/* Sweet Paris: Crepes and Cafe */}
-        </SpecialFontText>
-        <NavOptions />
+            <Link to="/settings">
+                <FontAwesomeIcon
+                icon={["fas", "gear"]}
+                className="fa-2x"
+                id="menu-nav-settings-icon"
+                />
+            </Link>
+            <Link to="/">
+                <FontAwesomeIcon
+                icon={["fas", "home"]}
+                className="fa-2x"
+                id="menu-nav-home-icon"
+                />
+            </Link>
+            
+            <Weather />
+            <SpecialFontText as="div" className="menu-nav-title">
+                {/* Sweet Paris: Crepes and Cafe */}
+            </SpecialFontText>
+
+            <NavOptions />
         </nav>
     );
 }

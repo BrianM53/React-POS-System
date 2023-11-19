@@ -1,6 +1,6 @@
 import React from 'react';
-import SpecialFontText from "./components/specialFontText/SpecialFontText";
-import Weather from './components/weather/Weather';
+import SpecialFontText from "../specialFontText/SpecialFontText";
+import Weather from './Weather';
 
 function RainCheck() {
     return (

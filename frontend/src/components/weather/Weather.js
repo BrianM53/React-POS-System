@@ -95,10 +95,6 @@ const Weather = () => {
           {formattedDate}
         </div>
 
-        <div className="weather-location">
-          Bryan-College Station, TX
-        </div>
-
       </div>
     </div>
   )
