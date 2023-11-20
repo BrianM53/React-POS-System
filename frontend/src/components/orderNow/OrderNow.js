@@ -77,7 +77,6 @@ const OrderNow = () => {
     addToCart(product);
   };
 
-
   const decrement = (productId) => {
     // Find the product in the active section's data
     const categoryData = productData[activeSection];
