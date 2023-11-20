@@ -31,21 +31,28 @@ const Settings = () => {
       setMouseSensitivity(Number(localStorage.getItem("mouse-sensitivity")));
     }
 
-    window.googleTranslateElementInit = function () {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        },
-        "google_translate_element"
-      );
-    };
+    if (!window.googleTranslateElementInit) {
+      window.googleTranslateElementInit = function () {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      };
+    }
 
-    const googleTranslateScript = document.createElement("script");
-    googleTranslateScript.type = "text/javascript";
-    googleTranslateScript.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    document.body.appendChild(googleTranslateScript);
+    const existingScript = document.getElementById("googleTranslateScript");
+    if (!existingScript) {
+      const googleTranslateScript = document.createElement("script");
+      googleTranslateScript.type = "text/javascript";
+      googleTranslateScript.src =
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      googleTranslateScript.id = "googleTranslateScript";
+      document.body.appendChild(googleTranslateScript);
+    }
   }, []);
   const updateValue = (id, value) => {
     localStorage.setItem(id, value);
