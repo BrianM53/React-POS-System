@@ -1,5 +1,5 @@
 import React from 'react';
-import SpecialFontText from "./components/specialFontText/SpecialFontText";
+import SpecialFontText from "../specialFontText/SpecialFontText";
 
 function PopularItems() {
     return (

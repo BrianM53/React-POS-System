@@ -92,7 +92,7 @@ const Weather = () => {
         </div>
 
         <div className="weather-date">
-          {formattedDate}
+          {/* {formattedDate} */}
         </div>
 
       </div>

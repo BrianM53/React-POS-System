@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import NavOptions from '../utility/navOptions';
 import { Link } from 'react-router-dom';
 import './contactUs.css';
 import SpecialFontText from "../specialFontText/SpecialFontText";
@@ -9,7 +8,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import Header from '../utility/header';
+import Header from '../app/header';
 library.add(fas,fab); 
 
 const ContactUs = () => {
@@ -21,9 +20,9 @@ const ContactUs = () => {
     message: ''
   });
 
-  useEffect(() => {
-    document.body.style.zoom = "80%";
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.zoom = "80%";
+  // }, []);
 
   const handleChange = (e) => {
     setFormData((prevFormData) => ({

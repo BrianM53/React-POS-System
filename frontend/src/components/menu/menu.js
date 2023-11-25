@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavOptions from "../utility/navOptions";
 import { useRef, useEffect, useState } from "react";
 import "./menu.css";
 import SpecialFontText from "../specialFontText/SpecialFontText";
@@ -9,7 +8,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Header from "../utility/header";
+import Header from "../app/header";
 library.add(fas, fab);
 
 const Menu = () => {
@@ -18,9 +17,9 @@ const Menu = () => {
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    document.body.style.zoom = "80%";
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.zoom = "80%";
+  // }, []);
 
   useEffect(() => {
     if (activeSection) {

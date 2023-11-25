@@ -2,12 +2,24 @@
 :root {
   --white: white;
   --accent: skyblue;
-  --font-size: 16px;
-
+  --root-font-size: 16px;
+  --shade1: #89b3ae;
   --bright: #BDE3DF;
   --normal: #A7C8C5;
   --dark: #262e28;
 }
+
+/* ================== scrollbar styling for about us containers =================== */
+.menu-main-aboutus-entry p::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--dark);
+  margin-top: 15px;
+}
+
+.menu-main-aboutus-entry p::-webkit-scrollbar-thumb {
+  background: var(--shade1); 
+  border-radius: 6px;
+} 
 
 .menu-main-aboutus
 {
@@ -16,8 +28,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2em;
-  gap: 3em;
+  padding: 2rem;
+  gap: 3rem;
 }
 
 .menu-main-aboutus-header
@@ -25,14 +37,13 @@
   border: 3px solid white;
   background-color: var(--normal);
   color: var(--white);
-  padding: .25em;
+  padding: .25rem;
   border-radius: 25px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .menu-main-aboutus-entry
 {
-  
   position: relative;
   font-size: 1.5rem;
   color: var(--white);
@@ -40,42 +51,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2em;
-  background-color: var(--dark);
-  color: var(--white);
-  margin-top: -1em;
-  text-align: center;
-  margin-bottom: 2em;
-  max-width: 2500px;
+  gap: 2rem;
+  margin-top: -1rem;
+  /* text-align: center; */
+  margin-bottom: 2rem;
+  /* max-width: 2500px; */
 }
 
 .actual-top-container
 {
-  
   display: flex;
   flex-direction: row;
-  gap: 2em;
+  /* gap: 2rem; */
 }
 
 .actual-bottom-container
 {
-  
   display: flex;
   flex-direction: row;
-  gap: 2em;
+  /* gap: 2rem; */
 }
 
-.menu-main-aboutus-top-container
+.menu-main-aboutus-top-container  
 {
   border: 3px solid white;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
   background-color: var(--normal);
-  padding: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-left: 10%;
   font-size: 2rem;
   border-radius: 500px;
@@ -88,11 +95,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
   background-color: var(--normal);
-  padding: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-right: 10%;
   font-size: 2rem;
   border-radius: 500px;
@@ -104,7 +111,7 @@
   color: var(--white);
   padding: .5em;
   text-align: center;
-  max-height: 300px;
+  max-height: 250px;
   overflow-y: auto;
 }
 

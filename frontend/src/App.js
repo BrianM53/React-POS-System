@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import NavOptions from './components/utility/navOptions';
 import './App.css'
 import SpecialFontText from "./components/specialFontText/SpecialFontText";
 import { Link } from 'react-router-dom';
@@ -10,48 +9,15 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
-import Header from './components/utility/header';
-import Donate from './donateContainer';
-import PopularItems from './popularItemsContainer';
-import MainContent from './mainContainer';
-import Footer from './footerContainer';
+import Header from './components/app/header';
+import Donate from './components/app/donate';
+import PopularItems from './components/app/popular';
+import MainContent from './components/app/main';
+import Footer from './components/app/footer';
 
 const App = () => {
-
-  const [email, setEmail] = useState('');
-
-  const clearInput = () => {
-    setEmail('');
-  };
-
-  useEffect(() => {
-    document.body.style.zoom = "65%";
-  }, []);
-
   return (
-    <div className="menu-body">
-
-      <Header />
-      <main className="menu-main-app">
-        <div className="popular-items-container">            
-          <PopularItems />
-        </div>
-
-        <div className="menu-main-app-square-5">
-          <MainContent />
-        </div>
-
-        <div className="menu-main-app-square-9">
-          <Donate />
-        </div>
-
-      </main>
-
-
-      <footer className="menu-footer">
-        <Footer />
-      </footer>
-    </div>
+    <Header />
   );
 };
 

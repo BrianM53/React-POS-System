@@ -1,4 +1,4 @@
-import SpecialFontText from "./components/specialFontText/SpecialFontText";
+import SpecialFontText from "../specialFontText/SpecialFontText";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

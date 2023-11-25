@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
-import NavOptions from '../utility/navOptions';
 import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import Header from '../utility/header';
+import Header from '../app/header';
 library.add(fas,fab); 
 
 const Settings = () => 
@@ -18,7 +17,7 @@ const Settings = () =>
   const [mouseSensitivity, setMouseSensitivity] = useState(5);
 
   useEffect(() => {
-    document.body.style.zoom = "80%";
+    // document.body.style.zoom = "80%";
 
     if (localStorage.getItem('display-contrast')) 
     {

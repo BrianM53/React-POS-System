@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import NavOptions from '../utility/navOptions';
 import { Link } from 'react-router-dom';
 import './aboutUs.css';
 import SpecialFontText from "../specialFontText/SpecialFontText";
@@ -8,13 +7,13 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import Header from '../utility/header';
+import Header from '../app/header';
 library.add(fas,fab); 
 
 function AboutUs() {
-  useEffect(() => {
-    document.body.style.zoom = "80%";
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.zoom = "80%";
+  // }, []);
 
   return (
     <div className="menu-body">
@@ -26,6 +25,7 @@ function AboutUs() {
           About Us
         </SpecialFontText>
         <div className="menu-main-aboutus-entry" id="menu-main-aboutus-entry-1">
+          
           <div className="actual-top-container">
             <div className="menu-main-aboutus-top-container">
               <p>
@@ -35,6 +35,7 @@ function AboutUs() {
             </div>
             <img src="/employees.jpeg" alt="Employees standing around outside of restaurant" className="menu-main-aboutus-image" />
           </div>
+
           <div className="actual-bottom-container">
               <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image"/>
             <div className="menu-main-aboutus-bottom-container">
@@ -44,6 +45,7 @@ function AboutUs() {
               </p>
             </div>
           </div>
+
         </div>
       </main>
     </div>
