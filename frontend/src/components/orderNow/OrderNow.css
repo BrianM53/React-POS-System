@@ -199,15 +199,15 @@
 
 .ticket-submit-button
 {
-    border: 5px solid var(--white);
+    /* border: 5px solid var(--white); */
     padding: .5em;
     font-size: 2rem;
     border-radius: 500px;
 
-    color: var(--normal);
-    border-color: var(--white);
-    background-color: var(--white);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    color: white;
+    /* border-color: var(--shade1); */
+    background-color: var(--shade2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 
     scale: 80%;
