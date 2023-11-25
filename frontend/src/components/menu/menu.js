@@ -81,7 +81,7 @@ const Menu = () => {
         <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
           Menu
         </SpecialFontText>
-        <div className="menu-main-menu-categories">
+        <div className="menu-categories">
           <div
             className="menu-main-menu-category"
             id="menu-main-menu-sweet-crepes"
@@ -115,7 +115,7 @@ const Menu = () => {
             id="menu-main-menu-breakfast-crepes-and-eggs"
             onClick={() => handleCategoryClick("Breakfast Crepes")}
           >
-            Breakfast Crepes & Eggs
+            Breakfast Crepes
           </div>
           <div
             className="menu-main-menu-category"

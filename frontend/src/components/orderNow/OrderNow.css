@@ -96,6 +96,7 @@
     font-size: 3.5rem;
     background-color: var(--normal);
     padding: .25em;
+    scale: 85%;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
 }
@@ -223,6 +224,7 @@
     line-height: 1.5em;
     text-align: center;
     border-radius: 25px;
+    margin-top: -1rem;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
 }
 
