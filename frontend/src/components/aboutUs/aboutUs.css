@@ -2,12 +2,25 @@
 :root {
   --white: white;
   --accent: skyblue;
-  --font-size: 16px;
-
+  --root-font-size: 16px;
+  --shade1: #89b3ae;
   --bright: #BDE3DF;
   --normal: #A7C8C5;
   --dark: #262e28;
 }
+
+/* ================== scrollbar styling for about us containers =================== */
+.menu-main-aboutus-entry p::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--dark);
+  margin-top: 15px;
+  border-radius: 6px;
+}
+
+.menu-main-aboutus-entry p::-webkit-scrollbar-thumb {
+  background: var(--shade1); 
+  border-radius: 6px;
+} 
 
 .menu-main-aboutus
 {
@@ -16,8 +29,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2em;
-  gap: 3em;
+  padding: 2rem;
+  gap: 3rem;
 }
 
 .menu-main-aboutus-header
@@ -25,78 +38,72 @@
   border: 3px solid white;
   background-color: var(--normal);
   color: var(--white);
-  padding: .25em;
+  padding: .25rem;
   border-radius: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-main-aboutus-entry
 {
-  
-  position: relative;
   font-size: 1.5rem;
   color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2em;
-  background-color: var(--dark);
-  color: var(--white);
-  margin-top: -1em;
-  text-align: center;
-  margin-bottom: 2em;
-  max-width: 2500px;
+  margin-top: -3rem;
+  /* text-align: center; */
+  margin-bottom: 2rem;
+  /* max-width: 2500px; */
 }
 
 .actual-top-container
 {
-  
   display: flex;
   flex-direction: row;
-  gap: 2em;
+  /* gap: 2rem; */
 }
 
 .actual-bottom-container
 {
-  
   display: flex;
   flex-direction: row;
-  gap: 2em;
+  /* gap: 2rem; */
 }
 
-.menu-main-aboutus-top-container
+.menu-main-aboutus-top-container  
 {
   border: 3px solid white;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
   background-color: var(--normal);
-  padding: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
-  margin-left: 10%;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   font-size: 2rem;
-  border-radius: 500px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+  scale: 80%;
 }
 
 .menu-main-aboutus-bottom-container
 {
+  scale: 80%;
   border: 3px solid white;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
+  margin-top: -3rem;
   background-color: var(--normal);
-  padding: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
-  margin-right: 10%;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   font-size: 2rem;
-  border-radius: 500px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-main-aboutus-entry p 
@@ -104,17 +111,31 @@
   color: var(--white);
   padding: .5em;
   text-align: center;
-  max-height: 300px;
+  max-height: 250px;
   overflow-y: auto;
 }
 
-.menu-main-aboutus-image
+.menu-main-aboutus-image-bottom
 {
+  margin-top: -3rem;
+  scale: 79%;
+  margin-right: -10rem;
   border: 3px solid white;
   width: 500px;
   height: 400px;
   border-radius: 500px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+}
+.menu-main-aboutus-image-top
+{
+  margin-top: -3rem;
+  scale: 79%;
+  margin-left: -10rem;
+  border: 3px solid white;
+  width: 500px;
+  height: 400px;
+  border-radius: 500px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-footer 

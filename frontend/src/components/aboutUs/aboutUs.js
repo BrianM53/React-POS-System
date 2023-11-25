@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import NavOptions from '../utility/navOptions';
 import { Link } from 'react-router-dom';
 import './aboutUs.css';
 import SpecialFontText from "../specialFontText/SpecialFontText";
@@ -8,16 +7,16 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import Header from '../utility/header';
+import Header from '../app/header';
 library.add(fas,fab); 
 
 function AboutUs() {
-  useEffect(() => {
-    document.body.style.zoom = "80%";
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.zoom = "80%";
+  // }, []);
 
   return (
-    <div className="menu-body">
+    <div className="about-us-body">
 
       <Header />
       
@@ -26,6 +25,7 @@ function AboutUs() {
           About Us
         </SpecialFontText>
         <div className="menu-main-aboutus-entry" id="menu-main-aboutus-entry-1">
+          
           <div className="actual-top-container">
             <div className="menu-main-aboutus-top-container">
               <p>
@@ -33,10 +33,11 @@ function AboutUs() {
                 Every day - and every bite - is an opportunity to savor all that's good in the world. Although crepes are known for being French, we have introduced hints of other cultures into this versatile dish that can be enjoyed any time of the day!
               </p>
             </div>
-            <img src="/employees.jpeg" alt="Employees standing around outside of restaurant" className="menu-main-aboutus-image" />
+            <img src="/employees.jpeg" alt="Employees standing around outside of restaurant" className="menu-main-aboutus-image-top" />
           </div>
+
           <div className="actual-bottom-container">
-              <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image"/>
+              <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image-bottom"/>
             <div className="menu-main-aboutus-bottom-container">
               <p>
                 We've donated over 11,000 additional meals recently to the Houston Food Bank through our "Eat Here, Feed There" program, totaling over 359,000 meals since it started the program in 2018. For each crepe sold with the food bank logo on the menu, we brand donates a meal to fight hunger.
@@ -44,6 +45,7 @@ function AboutUs() {
               </p>
             </div>
           </div>
+
         </div>
       </main>
     </div>

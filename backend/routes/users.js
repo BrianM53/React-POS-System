@@ -59,7 +59,7 @@ router.post('/auth/google-login', async (req, res) => {
     if (payload) {
       console.log("Name:", payload.name);
       console.log("Email:", payload.email);
-      res.json({ success: true, email });
+      res.json({ success: true, email: payload.email });
     } else {
       console.log("Verification failed");
       res.status(401).json({ error: "Google token verification failed" });

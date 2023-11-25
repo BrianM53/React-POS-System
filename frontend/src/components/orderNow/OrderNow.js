@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import NavOptions from "../utility/navOptions";
 import "./OrderNow.css";
 import SpecialFontText from "../specialFontText/SpecialFontText";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -8,7 +7,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCart } from "../cart/CartContext";
-import Header from "../utility/header";
+import Header from "../app/header";
 library.add(fas, fab);
 
 const OrderNow = () => {
@@ -24,7 +23,7 @@ const OrderNow = () => {
   };
   
   useEffect(() => {
-    document.body.style.zoom = "80%";
+    // document.body.style.zoom = "80%";
     // Check if product data for the active category is already fetched
     if (!productData[activeSection]) {
       fetch(`${BACKEND_URL}/products/${activeSection}`)
@@ -76,7 +75,6 @@ const OrderNow = () => {
 
     addToCart(product);
   };
-
 
   const decrement = (productId) => {
     // Find the product in the active section's data
@@ -197,12 +195,10 @@ const OrderNow = () => {
     return cart.map((item) => (
       <div key={item.product_id} className="ticket-item">
         <div className="ticket-item-quantity">
-          <div className="ticket-item-decrement">-</div>
-          <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
-          <div className="ticket-item-increment">+</div>
+          <div className="ticket-item-current-quantity">{item.quantity+"x" || 0}</div>
         </div>
         <div className="ticket-item-name">{item.product_name}</div>
-        <div className="ticket-item-price">{item.price}</div>
+        <div className="ticket-item-price">{"$"+item.price*item.quantity}</div>
       </div>
     ));
   };
@@ -276,13 +272,13 @@ const OrderNow = () => {
               </div>
               <div className="ticket-submit-container">
                 <div className="ticket-submit-button" onClick={submitOrder}>
-                  Submit Order!
+                  Submit Order
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="order-now-filler-block" />
+        {/* <div className="order-now-filler-block" /> */}
       </main>
     </div>
   );

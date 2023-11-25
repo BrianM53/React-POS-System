@@ -1,48 +1,19 @@
 /* color controller */
-:root 
-{
-    --white: white;
-    --accent: skyblue;
-    --font-size: 16px;
-}
-
-.menu-main-app-square-3-inside
-{
-  grid-row: 1;
-  grid-column: 3;
-  background-color: var(--accent);
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 500px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  gap: 1em;
-  text-align: center;
-}
-
-.menu-main-app-square-title
-{
-  font-size: 3rem;
-  border-bottom: 5px solid white;
-  width: 50%;
-  margin: 0 auto;
-}
-
-.menu-main-app-square-description
-{
-  font-size: 2rem;
-  margin-top: -.25em;
+:root {
+  --bright: #BDE3DF;
+  --normal: #A7C8C5;
+  --dark: #262e28;
+  --default-font-size: 16px;
 }
 
 .weather-picture
 {
-    height: 190px;
-    width: 190px;
+    height: 70px;
+    width: 70px;
     border-radius: 500px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
 
-}
+} 
 
 .weather-container 
 {
@@ -57,7 +28,9 @@
     display: flex;
     flex-direction: column;
     gap: .5em;
+    justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .weather-type-container
