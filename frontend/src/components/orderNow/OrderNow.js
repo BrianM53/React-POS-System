@@ -195,12 +195,10 @@ const OrderNow = () => {
     return cart.map((item) => (
       <div key={item.product_id} className="ticket-item">
         <div className="ticket-item-quantity">
-          <div className="ticket-item-decrement">-</div>
-          <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
-          <div className="ticket-item-increment">+</div>
+          <div className="ticket-item-current-quantity">{item.quantity+"x" || 0}</div>
         </div>
         <div className="ticket-item-name">{item.product_name}</div>
-        <div className="ticket-item-price">{item.price}</div>
+        <div className="ticket-item-price">{"$"+item.price*item.quantity}</div>
       </div>
     ));
   };
@@ -274,13 +272,13 @@ const OrderNow = () => {
               </div>
               <div className="ticket-submit-container">
                 <div className="ticket-submit-button" onClick={submitOrder}>
-                  Submit Order!
+                  Submit Order
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="order-now-filler-block" />
+        {/* <div className="order-now-filler-block" /> */}
       </main>
     </div>
   );

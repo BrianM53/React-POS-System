@@ -13,7 +13,7 @@ import Header from './components/app/header';
 import Donate from './components/app/donate';
 import PopularItems from './components/app/popular';
 import MainContent from './components/app/main';
-import Footer from './components/app/footer';
+import Footer from './components/app/socials';
 
 const App = () => {
   return (

@@ -14,6 +14,18 @@
     overflow-x: scroll;
 }
 
+.header-nav::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--dark);
+    margin-top: 15px;
+    /* border-radius: 6px; */
+  }
+  
+  .header-nav::-webkit-scrollbar-thumb {
+    background: var(--shade1); 
+    /* border-radius: 6px; */
+  } 
+
 /* ============================ LEFT half navigation positioning =============================== */
 .header-nav-left {
     margin-top: 10px;

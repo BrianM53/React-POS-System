@@ -16,7 +16,7 @@ function AboutUs() {
   // }, []);
 
   return (
-    <div className="menu-body">
+    <div className="about-us-body">
 
       <Header />
       
@@ -33,11 +33,11 @@ function AboutUs() {
                 Every day - and every bite - is an opportunity to savor all that's good in the world. Although crepes are known for being French, we have introduced hints of other cultures into this versatile dish that can be enjoyed any time of the day!
               </p>
             </div>
-            <img src="/employees.jpeg" alt="Employees standing around outside of restaurant" className="menu-main-aboutus-image" />
+            <img src="/employees.jpeg" alt="Employees standing around outside of restaurant" className="menu-main-aboutus-image-top" />
           </div>
 
           <div className="actual-bottom-container">
-              <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image"/>
+              <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image-bottom"/>
             <div className="menu-main-aboutus-bottom-container">
               <p>
                 We've donated over 11,000 additional meals recently to the Houston Food Bank through our "Eat Here, Feed There" program, totaling over 359,000 meals since it started the program in 2018. For each crepe sold with the food bank logo on the menu, we brand donates a meal to fight hunger.
