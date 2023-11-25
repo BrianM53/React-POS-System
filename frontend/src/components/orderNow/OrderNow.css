@@ -209,6 +209,8 @@
     background-color: var(--white);
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
     cursor: pointer;
+
+    scale: 80%;
 }
 
 .menu-main-menu-categories 
@@ -221,7 +223,7 @@
     font-size: 1.5rem;
     align-items: center;
     padding: .5em 0;
-    line-height: 1.5em;
+    line-height: 1.5em; 
     text-align: center;
     border-radius: 25px;
     margin-top: -1rem;
