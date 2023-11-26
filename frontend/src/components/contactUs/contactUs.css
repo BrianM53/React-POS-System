@@ -9,19 +9,6 @@
     --dark: #262e28;
 }
 
-.menu-header 
-{
-    border: 3px solid white;
-    background-color: var(--dark);
-    color: var(--normal);
-    min-height: 100px;
-    font-size: 3rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 .menu-main-contactus
 {
     background-color: var(--dark);
@@ -42,6 +29,7 @@
     padding: .25em;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    margin-top: -2px;
 }
 
 .menu-main-contactus-container
@@ -205,5 +193,5 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .contact-us-filler-block {
-    height: 44px;
+    height: 46px;
 }
