@@ -9,6 +9,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Header from "../app/header";
+import { Categories } from "../orderNow/categories";
 library.add(fas, fab);
 
 const Menu = () => {
@@ -81,38 +82,9 @@ const Menu = () => {
         <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
           Menu
         </SpecialFontText>
-        <div className="menu-main-menu-categories">
-          <div className="menu-main-menu-category" id="menu-main-menu-sweet-crepes" onClick={() => handleCategoryClick('Sweet Crepes')}>
-            Sweet Crepes
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-savory-crepes" onClick={() => handleCategoryClick('Savory Crepes')}    >
-            Savory Crepes
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-kids-crepes" onClick={() => handleCategoryClick('Kids Crepes')}       >
-            Kids Crepes
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-sweet-paris-waffles" onClick={() => handleCategoryClick('Waffles')}        >
-            Waffles
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-breakfast-crepes-and-eggs" onClick={() => handleCategoryClick('Breakfast Crepes')}    >
-            Breakfast Crepes
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('Salads')}      >
-            Salads
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-soups-salads-and-paninis" onClick={() => handleCategoryClick('Paninis')}      >
-            Paninis
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('Hot Drinks')}      >
-            Hot Drinks
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-hot-drinks-and-milkshakes" onClick={() => handleCategoryClick('Milkshakes')}      >
-            Milkshakes
-          </div>
-          <div className="menu-main-menu-category" id="menu-main-menu-water-and-beverages" onClick={() => handleCategoryClick('Beverages')}     >
-            Beverages
-          </div>
-        </div>
+        
+        <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
+
         <div className="menu-main-menu-body">
           <div
             className="menu-body-category-container"

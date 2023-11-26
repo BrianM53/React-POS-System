@@ -5,6 +5,15 @@
     --shade2: #81a7a2;
     --dark: #262e28;
     --default-font-size: 16px;
+    --text-color: white;
+}
+
+@font-face {
+    font-family: 'cursive-font';
+    src: url('../utility/cursiveFont/cursive2.woff') format('woff'),
+        url('../utility/cursiveFont/cursive2.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .header-nav {
@@ -19,12 +28,28 @@
     background-color: var(--dark);
     margin-top: 15px;
     /* border-radius: 6px; */
-  }
-  
-  .header-nav::-webkit-scrollbar-thumb {
+}
+
+.header-nav::-webkit-scrollbar-thumb {
     background: var(--shade1); 
     /* border-radius: 6px; */
-  } 
+} 
+
+.header-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 3px;
+    padding: 10px;
+    color: var(--text-color);
+    font-size: 3rem;
+    text-wrap: nowrap;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+    letter-spacing: 2px;
+    font-family: 'cursive-font';
+}
 
 /* ============================ LEFT half navigation positioning =============================== */
 .header-nav-left {
@@ -79,14 +104,26 @@
 
 /* ================= Text button styling ===================== */
 .button-nav-passive {
-    color: white;
+    color: var(--text-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.button-nav-passive:hover {
+    background-color: var(--shade1);
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .button-nav-active {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     /* font-weight: bold; */
-    color: white;
-    background-color: var(--shade1);
+    color: var(--text-color);
+    background-color: var(--shade2);
     padding: 10px;
     border-radius: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -94,10 +131,14 @@
 
 .button-nav-login {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: white;
+    color: var(--text-color);
     padding: 10px;
     border-radius: 15px;
     background: var(--shade1);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 2px solid var(--text-color);
     /* font-weight: 600; */
 }
 

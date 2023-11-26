@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SpecialFontText from "../specialFontText/SpecialFontText";
+import SpecialFontText from "../utility/specialFontText/SpecialFontText";
 import './Weather.css';
 
 const Weather = () => {

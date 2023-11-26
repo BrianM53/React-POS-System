@@ -213,37 +213,12 @@
     scale: 80%;
 }
 
-.menu-main-menu-categories 
+.ticket-submit-button:hover
 {
-    border: 3px solid white;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--normal);
-    color: var(--white);
-    font-size: 1.5rem;
-    align-items: center;
-    padding: .5em 0;
-    line-height: 1.5em; 
-    text-align: center;
-    border-radius: 25px;
-    margin-top: -1rem;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    scale: 85%;
 }
 
-.menu-main-menu-category 
-{
-    padding: 0 1em;
-    border-right: 5px solid var(--white); 
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
 
-.menu-main-menu-category:hover
-{
-    font-size: 2rem;
-}
 
 #menu-main-menu-water-and-beverages
 {
@@ -294,6 +269,8 @@
     /* scale: 80%; */
     /* width: auto; */
     gap: 2rem;
+    margin-left: 3rem;
+    /* width: 1100px; */
     height: 10rem;
     flex-direction: row;
     background-color: var(--normal);
@@ -344,43 +321,36 @@
 #menu-body-sweet-crepes
 {
     display: flex;
-    
 }
 
 #menu-body-savory-crepes
 {
     display: none;
-    
 }
 
 #menu-body-kids-crepes
 {
     display: none;
-    
 }
 
 #menu-body-sweet-paris-waffles
 {
     display: none;
-    
 }
 
 #menu-body-breakfast-crepes-and-waffles
 {
     display: none;
-    
 }
 
 #menu-body-soups-salads-and-paninis
 {
     display: none;
-    
 }
 
 #menu-body-hot-drinks-and-milkshakes
 {
     display: none;
-    
 }
 
 #menu-body-beverages

@@ -54,6 +54,10 @@ function Header() {
                 </ul>
             </div>
 
+            <div className='header-title'>
+                Sweet Paris Crêperie & Café
+            </div>
+
             <div className='header-nav-right'>
                 <ul>
                     <li>
@@ -77,7 +81,7 @@ function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/login" className="button-nav-login">
+                        <Link to="/login">
                         <a className="button-nav-login">Admin Login</a>
                         </Link>
                     </li>
