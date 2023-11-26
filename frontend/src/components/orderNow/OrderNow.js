@@ -169,7 +169,7 @@ const OrderNow = () => {
       
       const imagePath = require(`../../images/${imageName}.jpg`);
       
-      const descriptionHasOverflow = product.product_description.length > 15;
+      const descriptionHasOverflow = product.product_description.length > 36;
       // const descriptionHasOverflow = true;
       return (
         <div key={product.product_id} className="menu-body-entry-container">
@@ -208,7 +208,7 @@ const OrderNow = () => {
 
   const renderCartItems = () => {
     return cart.map((item) => {
-      const nameHasOverflow = !(item.product_name.length < 20);
+      const nameHasOverflow = !(item.product_name.length < 22);
   
       return (
         <div key={item.product_id} className="ticket-item">
