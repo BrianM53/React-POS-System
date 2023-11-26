@@ -233,7 +233,10 @@ const OrderNow = () => {
               {item.product_name}
             </div>
           </div>
-          <div className="ticket-item-price">{"$" + item.price * item.quantity}</div>
+          <div className="ticket-item-price">
+            {/* ${calculateTotalCost().toFixed(2)} */}
+            {"$" + (item.price * item.quantity).toFixed(2)}
+          </div>
         </div>
       );
     });
