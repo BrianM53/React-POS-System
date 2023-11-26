@@ -164,3 +164,18 @@
 .weather-icon {
     scale: 90%;
 }
+
+/* ================ settings dropdown =================== */
+.settings-passive {
+    margin-top: 4px;
+    scale: 80%;
+    background: var(--shade1);
+}
+
+.settings-active {
+    scale: 80%;
+    background: var(--shade1);
+    padding: 10px;
+    margin: -10px;
+    border-radius: 15px;   
+}
