@@ -5,14 +5,15 @@
     --root-font-size: 16px;
     --shade1: #89b3ae;
     --shade2: #81a7a2;
+    --border: #81a7a2;
     --bright: #BDE3DF;
     --normal: #A7C8C5;
-    --dark: #262e28;
+    --dark: #1c221d;
 }
 
 .menu-main-menu-categories 
 {
-    border: 3px solid white;
+    border: 3px solid var(--border);
     display: flex;
     justify-content: space-between;
     background-color: var(--normal);
@@ -30,7 +31,7 @@
 .category-item-passive
 {
     padding: 0 1em;
-    border-right: 5px solid var(--white); 
+    /* border-right: 5px solid var(--white);  */
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -45,7 +46,7 @@
 .category-item-active
 {
     padding: 0 1em;
-    border-right: 5px solid var(--white); 
+    border-right: 5px solid var(--border); 
     flex-grow: 1;
     display: flex;
     align-items: center;

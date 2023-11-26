@@ -5,7 +5,8 @@
   --shade1: #89b3ae;
   --bright: #BDE3DF;
   --normal: #A7C8C5;
-  --dark: #262e28;
+  --dark: #1c221d;
+  --border: #81a7a2;
 }
 
 /* ================== scrollbar styling for about us containers =================== */
@@ -34,13 +35,13 @@
 
 .menu-main-aboutus-header
 {
-  border: 3px solid white;
+  border: 3px solid var(--border);
   background-color: var(--normal);
   color: var(--text-color);
   padding: .25rem;
   margin-top: 7px;
   border-radius: 25px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-main-aboutus-entry
@@ -73,7 +74,7 @@
 
 .menu-main-aboutus-top-container  
 {
-  border: 3px solid white;
+  border: 3px solid var(--border);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,14 +85,14 @@
   padding-right: 2rem;
   font-size: 2rem;
   border-radius: 100px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
   scale: 80%;
 }
 
 .menu-main-aboutus-bottom-container
 {
   scale: 80%;
-  border: 3px solid white;
+  border: 3px solid var(--border);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -103,7 +104,7 @@
   padding-right: 2rem;
   font-size: 2rem;
   border-radius: 100px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-main-aboutus-entry p 
@@ -124,7 +125,7 @@
   width: 500px;
   height: 400px;
   border-radius: 500px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 .menu-main-aboutus-image-top
 {
@@ -135,5 +136,5 @@
   width: 500px;
   height: 400px;
   border-radius: 500px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }

@@ -7,7 +7,8 @@
     --shade2: #81a7a2;
     --bright: #BDE3DF;
     --normal: #A7C8C5;
-    --dark: #262e28;
+    --dark: #1c221d;
+    --border: #81a7a2;
 }
 
 .order-now-nav-left
@@ -64,7 +65,7 @@
     background-color: var(--white);
     color: var(--normal);
     font-size: 1.5rem;
-    border-color: var(--white);
+    border-color: var(--border);
     border-width: 2px;
 }
 
@@ -74,7 +75,7 @@
     background-color: var(--white);
     color: var(--normal);
     font-size: 1.5rem;
-    border-color: var(--white);
+    border-color: var(--border);
     border-width: 2px;
 }
 
@@ -92,13 +93,13 @@
 
 .menu-main-menu-header
 {
-    border: 3px solid white;
+    border: 3px solid var(--border);
     font-size: 3.5rem;
     background-color: var(--normal);
     padding: .25em;
     scale: 85%;
     border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-main-menu-container
@@ -108,7 +109,7 @@
 
 .menu-main-menu-ticket-container
 {
-    border: 3px solid white;
+    border: 3px solid var(--border);
     background-color: var(--normal);
     width: 900px;
     height: 600px;
@@ -118,7 +119,7 @@
     border-radius: 25px;
     scale: 85%;
     margin-top:-3rem;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
 .ticket-container-title
@@ -151,7 +152,7 @@
     width: 700px;
     /* background-color: red; */
     justify-content: space-between;
-    border-left: 5px solid var(--white);
+    /* border-left: 5px solid var(--border); */
     font-size: 2.5rem;
     /* margin: 1em; */
 }
@@ -264,7 +265,7 @@
 
 .menu-body-entry-container
 {
-    border: 3px solid white;
+    border: 3px solid var(--border);
     display: flex;
     /* scale: 80%; */
     /* width: auto; */
@@ -277,7 +278,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
 .menu-body-entry-amount-container
