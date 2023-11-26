@@ -207,7 +207,11 @@ const OrderNow = () => {
             +
           </div>
         </div>
-        <div className="ticket-item-name">{item.product_name}</div>
+        <div className="ticket-item-name-container">
+          <div className="ticket-item-name">
+            {item.product_name}
+          </div>
+        </div>
         <div className="ticket-item-price">{"$" + item.price * item.quantity}</div>
       </div>
     ));
