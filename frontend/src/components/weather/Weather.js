@@ -80,7 +80,7 @@ const Weather = () => {
       <div className="weather-data-container">
 
         <div className="weather-type-container">
-          <div className="weather-degrees">
+          <div className="weather-data">
             {main.temp}&deg;F
             <br/>
             {capitalizeFirstLetters(weatherConditions[0].description)}
