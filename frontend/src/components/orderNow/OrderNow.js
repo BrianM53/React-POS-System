@@ -44,34 +44,35 @@ const OrderNow = () => {
   }, [activeSection, productData]);
 
   const increment = (product) => {
-    const categoryData = productData[activeSection];
-    const updatedCategoryData = categoryData.map((p) =>
-      p.product_id === product.product_id
-        ? { ...p, quantity: p.quantity + 1 }
-        : p
-    );
-
-    // Update the category data
-    setProductData((prevData) => ({
-      ...prevData,
-      [activeSection]: updatedCategoryData,
-    }));
-
     // Check if the product is already in the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
-
+  
     if (cartItemIndex !== -1) {
       // If the product is already in the cart, update its quantity
+      console.log("found in cart. adding", product);
       const updatedCart = [...cart];
       updatedCart[cartItemIndex].quantity += 1;
       setCart(updatedCart); // Update the cart
     } else {
       // If the product is not in the cart, add it to the cart
+      console.log("not in cart. adding", product);
       setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
     }
-
+  
+    // Update the category data
+    const categoryData = productData[activeSection];
+    const updatedCategoryData = categoryData.map((p) =>
+      p.product_id === product.product_id ? { ...p, quantity: p.quantity + 1 } : p
+    );
+  
+    setProductData((prevData) => ({
+      ...prevData,
+      [activeSection]: updatedCategoryData,
+    }));
+  
     addToCart(product);
   };
+  
 
   const decrement = (productId) => {
     // Find the product in the active section's data
@@ -192,10 +193,22 @@ const OrderNow = () => {
     return cart.map((item) => (
       <div key={item.product_id} className="ticket-item">
         <div className="ticket-item-quantity">
-          <div className="ticket-item-current-quantity">{item.quantity+"x" || 0}</div>
+          <div
+            className="ticket-item-decrement"
+            onClick={() => decrement(item.product_id)}
+          >
+            -
+          </div>
+          <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
+          <div
+            className="ticket-item-increment"
+            onClick={() => increment(item)}
+          >
+            +
+          </div>
         </div>
         <div className="ticket-item-name">{item.product_name}</div>
-        <div className="ticket-item-price">{"$"+item.price*item.quantity}</div>
+        <div className="ticket-item-price">{"$" + item.price * item.quantity}</div>
       </div>
     ));
   };

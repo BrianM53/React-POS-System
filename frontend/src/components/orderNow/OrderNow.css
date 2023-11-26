@@ -130,8 +130,17 @@
     border: 5px solid var(--white);
     margin: 1em;
 }
+
 .ticket-item-container::-webkit-scrollbar {
-    display: none;
+    width: 8px;
+    background-color: #565a57;
+    margin-top: 15px;
+    /* border-radius: 6px; */
+}
+
+.ticket-item-container::-webkit-scrollbar-thumb {
+    background: var(--shade1); 
+    /* border-radius: 6px; */
 } 
 
 .ticket-item
@@ -152,13 +161,20 @@
     white-space: nowrap;
     overflow: hidden; 
     text-overflow: ellipsis;
+    /* margin-left: auto; */
 }
 
 .ticket-item-quantity
 {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* gap: .75em; */
+    border: 2px solid var(--text-color);
+    /* padding: 10px; */
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 205px;
+
+    display: flex;
+    flex-direction: row;
+    gap: .75em;
     border-radius: 25px;
 }
 
