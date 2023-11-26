@@ -41,6 +41,25 @@ const Menu = () => {
       return null; // Handle the case where data is still being fetched
     }
     
+    // const descriptionHasOverflow = product.product_description.length > 36;
+    //   // const descriptionHasOverflow = true;
+    //   return (
+    //     <div key={product.product_id} className="menu-body-entry-container">
+    //       <img
+    //         src={imagePath}
+    //         alt={product.product_name}
+    //         className="menu-body-entry-photo"
+    //       />
+    //       <div className="menu-body-entry-description-container">
+    //         <div className="menu-body-entry-title">{product.product_name}</div>
+    //         <div
+    //           className={descriptionHasOverflow ? 'menu-body-entry-description' : 'menu-body-entry-description-noscroll'}
+    //         >
+    //           {product.product_description}
+    //         </div>
+    //       </div>
+
+
     return products.map((product) => 
     {
       const imageName = product.product_name
@@ -50,16 +69,20 @@ const Menu = () => {
         .replace(/[&]/g, "and");
 
       const imagePath = require(`../../images/${imageName}.jpg`);
+
+      const descriptionHasOverflow = product.product_description.length > 36;
       return (
-        <div key={product.product_id} className="menu-body-entry-container">
+        <div key={product.product_id} className="menu-entry-container">
           <img
             src={imagePath}
             alt={product.product_name}
-            className="menu-body-entry-photo"
+            className="menu-entry-photo"
           />
-          <div className="menu-body-entry-description-container">
-            <div className="menu-body-entry-title">{product.product_name}</div>
-            <div className="menu-body-entry-description">
+          <div className="entry-description-container">
+            <div className="entry-title">{product.product_name}</div>
+            <div
+              className={descriptionHasOverflow ? 'entry-description' : 'entry-description-noscroll'}
+            >
               {product.product_description}
             </div>
           </div>
