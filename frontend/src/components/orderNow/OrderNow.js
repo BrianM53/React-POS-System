@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./OrderNow.css";
-import SpecialFontText from "../utility/specialFontText/SpecialFontText";
+import SpecialFontText from "../../fonts/specialFontText/SpecialFontText";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -286,7 +286,7 @@ const OrderNow = () => {
             </div>
           </div>
         </div>
-        {/* <div className="order-now-filler-block" /> */}
+        <div className="order-now-filler-block" />
       </main>
     </div>
   );

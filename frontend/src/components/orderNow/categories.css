@@ -46,13 +46,13 @@
 .category-item-active
 {
     padding: 0 1em;
-    border-right: 5px solid var(--border); 
+    /* border-right: 5px solid var(--border);  */
     flex-grow: 1;
     display: flex;
     align-items: center;
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
+    
     background-color: var(--shade2);
     padding: 7px;
     border-radius: 15px;
@@ -60,5 +60,11 @@
 
 .category-item-passive:hover
 {
-    font-size: 1.7rem;
+    /* border-right: 5px solid var(--border);  */
+    padding: 0 1em;
+    background-color: var(--shade1);
+    /* padding: 7px; */
+    border-radius: 15px;
+    /* font-size: 1.6rem; */
+
 }

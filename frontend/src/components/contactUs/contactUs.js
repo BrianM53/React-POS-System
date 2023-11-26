@@ -2,14 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './contactUs.css';
-import SpecialFontText from "../utility/specialFontText/SpecialFontText";
+import SpecialFontText from "../../fonts/specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Header from '../app/header';
-import Socials from '../app/socials';
+import Socials from '../socials/socials';
 library.add(fas,fab); 
 
 const ContactUs = () => {

@@ -1,4 +1,4 @@
-import SpecialFontText from '../utility/specialFontText/SpecialFontText';
+import SpecialFontText from '../../fonts/specialFontText/SpecialFontText';
 
 
 export default function Donate() {
