@@ -70,7 +70,7 @@ const Menu = () => {
 
       const imagePath = require(`../../images/${imageName}.jpg`);
 
-      const descriptionHasOverflow = product.product_description.length > 36;
+      const descriptionHasOverflow = product.product_description.length > 85;
       return (
         <div key={product.product_id} className="menu-entry-container">
           <img
