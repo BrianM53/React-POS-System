@@ -367,7 +367,7 @@
     margin-left: 3rem;
     /* margin-right: auto; */
     /* width: 1100px; */
-    height: 10rem;
+    height: 9rem;
     flex-direction: row;
     background-color: var(--normal);
     justify-content: space-between;
@@ -403,17 +403,12 @@
     justify-content: center;
     padding: 1em;
     gap: .5em;
+    /* background-color: var(--shade); */
+    /* margin-top: 1rem; */
+    /* margin-bottom: ; */
+    scale: 90%;
     max-width: 30rem;
-    /* overflow: auto; */
-    /* margin-right: auto; */
     margin-left: auto;
-    
-    /* background-color: red; */
-    /* border-right: 3px solid var(--shade1);
-    border-bottom: 3px solid var(--shade2);
-    border-left: 3px solid;
-    border-image: linear-gradient(to top, var(--shade2), var(--normal)) 1 100%; */
-
     position: relative;
     border-left: none;
     border-right: none;
