@@ -18,10 +18,6 @@ const OrderNow = () => {
   const [productData, setProductData] = useState({}); // Initialize product data as an empty object
   const [cart, setCart] = useState([]); // New state for the cart
   const { addToCart, decrementQuantity } = useCart();
-
-  const handleCategoryClick = (section) => {
-    setActiveSection(section);
-  };
   
   useEffect(() => {
     // document.body.style.zoom = "80%";
