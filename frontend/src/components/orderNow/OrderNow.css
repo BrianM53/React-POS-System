@@ -112,6 +112,8 @@
     box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
+
+/* ============================================ SHOPPING CART =================================*/
 .ticket-container-title
 {
     color: var(--white);
@@ -124,7 +126,7 @@
     margin: 0 auto;
 }
 
-.ticket-item-container
+.ticket-item-container, .ticket-item-container-noscroll
 {
     height: 425px;
     overflow-y: scroll;
@@ -136,13 +138,17 @@
     width: 8px;
     background-color: #565a57;
     margin-top: 15px;
-    /* border-radius: 6px; */
+    border-radius: 6px;
 }
 
 .ticket-item-container::-webkit-scrollbar-thumb {
     background: var(--shade1); 
-    /* border-radius: 6px; */
+    border-radius: 6px;
 } 
+
+.ticket-item-container-noscroll::-webkit-scrollbar {
+    display: none;
+}
 
 .ticket-item
 {
@@ -151,32 +157,47 @@
     width: 700px;
     /* background-color: red; */
     justify-content: space-between;
+    align-items: center;
     /* border-left: 5px solid var(--border); */
     font-size: 2.5rem;
     /* margin: 1em; */
 }
 
-.ticket-item-name
+.ticket-item-name, .ticket-item-name-noscroll
 {
     width: 400px;
     white-space: nowrap;
     overflow-x: scroll; 
     /* text-overflow: ellipsis; */
-    /* margin-left: auto; */
+    /* margin-left: ; */
     
-    /* padding-right: 10px; */
+    padding-right: 10px;
 }
 .ticket-item-name::-webkit-scrollbar {
+    width: 1px;
+    background-color: #565a57;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.ticket-item-name::-webkit-scrollbar-thumb {
+    background: var(--shade1); 
+    border-radius: 6px;
+} 
+
+.ticket-item-name-noscroll::-webkit-scrollbar {
     display: none;
 }
+
 
 .ticket-item-name-container {
     border-bottom: 3px solid var(--shade2);
     border-right: none;
-
+    margin-left: 3rem;
     position: relative;
     border-left: none;
-    padding-left: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
 .ticket-item-name-container::before {
@@ -200,6 +221,11 @@
     /* z-index: -1; */
 }
 
+.ticket-item-price {
+    margin-left: 3rem;
+    margin-right: auto;
+}
+
 .ticket-item-quantity
 {
     border: 2px solid var(--text-color);
@@ -207,7 +233,7 @@
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 205px;
-
+    margin-top:1rem;
     display: flex;
     flex-direction: row;
     gap: .75em;
@@ -262,6 +288,9 @@
     scale: 85%;
 }
 
+
+
+/* =========================== categories ========================== */
 #menu-main-menu-water-and-beverages
 {
     border-right: none; 
@@ -286,31 +315,37 @@
 
 }
 
-.menu-main-menu-body 
+.menu-main-menu-body, .menu-main-menu-body-noscroll 
 {
     height: 500px;
+    color: var(--text-color);
     overflow-y: scroll;
-}
-
-.menu-body-category-container
-{
-    /* border-right: 3px solid white; */
     display: flex;
     flex-direction: column;
     gap: 2em;
-    
 }
+/* 
+.menu-body-category-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    background-color: red;
+} */
 .menu-main-menu-body::-webkit-scrollbar {
     width: 8px;
     background-color: #565a57;
     margin-top: 15px;
     border-radius: 6px;
-  }
+}
   
 .menu-main-menu-body::-webkit-scrollbar-thumb {
     background: var(--shade2); 
     border-radius: 6px;
 } 
+.menu-main-menu-body-noscroll::-webkit-scrollbar {
+    display: none;
+}
 
 .menu-body-entry-container
 {
@@ -333,9 +368,6 @@
     
     /* text-align: center;
     overflow-x: scroll; */
-}
-.menu-body-entry-container::-webkit-scrollbar {
-    display: none;
 }
 
 .menu-body-entry-amount-container
@@ -405,7 +437,7 @@
     
 }
 
-.menu-body-entry-description
+.menu-body-entry-description, .menu-body-entry-description-noscroll
 {
     overflow-x: scroll;
     white-space: nowrap;
@@ -415,6 +447,17 @@
     /* white-space: nowrap; */
 }
 .menu-body-entry-description::-webkit-scrollbar {
+    width: 8px;
+    background-color: #565a57;
+    /* margin-top: 15px; */
+    /* margin-bottom: -1rem; */
+    border-radius: 6px;
+}
+.menu-body-entry-description::-webkit-scrollbar-thumb {
+    background: var(--shade1); 
+    border-radius: 6px;
+} 
+.menu-body-entry-description-noscroll::-webkit-scrollbar {
     display: none;
 }
 

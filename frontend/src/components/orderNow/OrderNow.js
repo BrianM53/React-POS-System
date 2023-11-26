@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./OrderNow.css";
 import SpecialFontText from "../utility/specialFontText/SpecialFontText";
@@ -6,9 +6,12 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useCart } from "../cart/CartContext";
 import Header from "../app/header";
 import { Categories } from "./categories";
+import useDynamicScrollbar from "../utility/dynamicScrollbar";
+
 library.add(fas, fab);
 
 const OrderNow = () => {
@@ -18,6 +21,16 @@ const OrderNow = () => {
   const [productData, setProductData] = useState({}); // Initialize product data as an empty object
   const [cart, setCart] = useState([]); // New state for the cart
   const { addToCart, decrementQuantity } = useCart();
+
+  // dynamic scrollbar display
+  const scrollRefs = {
+    cartScrollRef: useRef(null),
+    menuScrollRef: useRef(null),
+  };
+  
+  const cartHasOverflow = useDynamicScrollbar(cart, scrollRefs.cartScrollRef);
+  const menuHasOverflow = useDynamicScrollbar(productData[activeSection], scrollRefs.menuScrollRef);
+  // const descriptionHasOverflow = true;
   
   useEffect(() => {
     // document.body.style.zoom = "80%";
@@ -49,13 +62,13 @@ const OrderNow = () => {
   
     if (cartItemIndex !== -1) {
       // If the product is already in the cart, update its quantity
-      console.log("found in cart. adding", product);
+      // console.log("found in cart. adding", product);
       const updatedCart = [...cart];
       updatedCart[cartItemIndex].quantity += 1;
       setCart(updatedCart); // Update the cart
     } else {
       // If the product is not in the cart, add it to the cart
-      console.log("not in cart. adding", product);
+      // console.log("not in cart. adding", product);
       setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
     }
   
@@ -149,13 +162,15 @@ const OrderNow = () => {
 
     return categoryData.map((product) => {
       const imageName = product.product_name
-        .toLowerCase()
-        .replace(/\s+/g, "-") // Replace spaces with hyphens
-        .replace(/[,]/g, "") // Remove commas
-        .replace(/[&]/g, "and");
-
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with hyphens
+      .replace(/[,]/g, "") // Remove commas
+      .replace(/[&]/g, "and");
+      
       const imagePath = require(`../../images/${imageName}.jpg`);
-
+      
+      const descriptionHasOverflow = product.product_description.length > 15;
+      // const descriptionHasOverflow = true;
       return (
         <div key={product.product_id} className="menu-body-entry-container">
           <img
@@ -165,7 +180,9 @@ const OrderNow = () => {
           />
           <div className="menu-body-entry-description-container">
             <div className="menu-body-entry-title">{product.product_name}</div>
-            <div className="menu-body-entry-description">
+            <div
+              className={descriptionHasOverflow ? 'menu-body-entry-description' : 'menu-body-entry-description-noscroll'}
+            >
               {product.product_description}
             </div>
           </div>
@@ -190,32 +207,38 @@ const OrderNow = () => {
   };
 
   const renderCartItems = () => {
-    return cart.map((item) => (
-      <div key={item.product_id} className="ticket-item">
-        <div className="ticket-item-quantity">
-          <div
-            className="ticket-item-decrement"
-            onClick={() => decrement(item.product_id)}
-          >
-            -
+    return cart.map((item) => {
+      const nameHasOverflow = !(item.product_name.length < 20);
+  
+      return (
+        <div key={item.product_id} className="ticket-item">
+          <div className="ticket-item-quantity">
+            <div
+              className="ticket-item-decrement"
+              onClick={() => decrement(item.product_id)}
+            >
+              -
+            </div>
+            <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
+            <div
+              className="ticket-item-increment"
+              onClick={() => increment(item)}
+            >
+              +
+            </div>
           </div>
-          <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
-          <div
-            className="ticket-item-increment"
-            onClick={() => increment(item)}
-          >
-            +
+          <div className="ticket-item-name-container">
+            <div 
+            className={nameHasOverflow ? "ticket-item-name" : "ticket-item-name-noscroll"}>
+              {item.product_name}
+            </div>
           </div>
+          <div className="ticket-item-price">{"$" + item.price * item.quantity}</div>
         </div>
-        <div className="ticket-item-name-container">
-          <div className="ticket-item-name">
-            {item.product_name}
-          </div>
-        </div>
-        <div className="ticket-item-price">{"$" + item.price * item.quantity}</div>
-      </div>
-    ));
+      );
+    });
   };
+  
 
   return (
     <div className="menu-body">
@@ -230,20 +253,19 @@ const OrderNow = () => {
         <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
 
         <div className="menu-main-menu-container">
-          <div className="menu-main-menu-body">
-            <div
-              className="menu-body-category-container"
-              id={`menu-body-${activeSection}`}
-              style={{ display: "flex" }}
-            >
+          <div 
+          ref={scrollRefs.menuScrollRef} 
+          className={menuHasOverflow ? 'menu-main-menu-body' : 'menu-main-menu-body-noscroll'}
+          >
+            {/* <div className='menu-body-category-container'id={`menu-body-${activeSection}`}style={{ display: "flex" }}> */}
               {renderProducts()}
-            </div>
+            {/* </div> */}
           </div>
           <div className="menu-main-menu-ticket-container">
             <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
               Your Cart
             </SpecialFontText>
-            <div className="ticket-item-container">
+            <div ref={scrollRefs.cartScrollRef} className={cartHasOverflow ? 'ticket-item-container' : 'ticket-item-container-noscroll'}>
               {renderCartItems()}
             </div>
             <div className="ticket-total-and-order-container">
