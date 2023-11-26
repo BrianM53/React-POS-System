@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import './App.css'
-import SpecialFontText from "./components/specialFontText/SpecialFontText";
+import SpecialFontText from "./components/utility/specialFontText/SpecialFontText";
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import SpecialFontText from "../specialFontText/SpecialFontText";
+import SpecialFontText from "../utility/specialFontText/SpecialFontText";
 
 function MainContent() {
     return (

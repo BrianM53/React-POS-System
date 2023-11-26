@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './contactUs.css';
-import SpecialFontText from "../specialFontText/SpecialFontText";
+import SpecialFontText from "../utility/specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';

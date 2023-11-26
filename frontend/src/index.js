@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/react-fontawesome";
-import SpecialFontText from "./components/specialFontText/SpecialFontText";
 
 // controls user state
 import {UserProvider, useUser} from "./components/utility/userControl";
@@ -21,7 +20,6 @@ import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Settings from "./components/settings/Settings";
 import OrderNow from "./components/orderNow/OrderNow";
-import OrderNowSettings from "./components/orderNowSettings/OrderNowSettings";
 
 // import { reducers } from './redux/reducers'
 // import { configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
@@ -99,7 +97,6 @@ function Routing() {
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/order-now" element={<OrderNow />} />
-      <Route path="/order-now-settings" element={<OrderNowSettings />} />
     </Routes>
   );
 }
