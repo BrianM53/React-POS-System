@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import './header.css';
@@ -13,6 +13,8 @@ import Weather from '../weather/Weather';
 library.add(fas,fab); 
 
 function Header() {
+    const scrollRef = useRef(null);
+    const [hasOverflow, setHasOverflow] = useState(false);
     const [activePage, setActivePage] = useState(() => localStorage.getItem('activePage') || '""');
 
     const handleActivePage = (page) => {
@@ -21,11 +23,22 @@ function Header() {
     };
 
     useEffect(() => {
-        // handleActivePage("");
+        const container = scrollRef.current;
+        
+        if (container) {
+            const overflow = container.scrollWidth > container.clientWidth;
+            if (overflow) {
+                setHasOverflow(true);
+            } else {
+                setHasOverflow(false);
+            }
+        }
     }, []);
 
     return (
-        <div className="header-nav">
+        <div 
+        ref={scrollRef}
+        className={hasOverflow ? 'header-nav' : 'header-nav-noscroll'}>
             <div className='header-nav-left'>
                 <ul>
                     <li>
@@ -54,8 +67,13 @@ function Header() {
                 </ul>
             </div>
 
-            <div className='header-title'>
-                Sweet Paris Crêperie & Café
+            <div className='header-title-container'>
+                <div className='header-title1'>
+                    Sweet Paris
+                </div>
+                <div className='header-title2'>
+                    Crêperie & Café
+                </div>
             </div>
 
             <div className='header-nav-right'>

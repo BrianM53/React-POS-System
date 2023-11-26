@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import './App.css'
-import SpecialFontText from "./components/utility/specialFontText/SpecialFontText";
+import SpecialFontText from "./fonts/specialFontText/SpecialFontText";
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -12,12 +12,19 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Header from './components/app/header';
 import Donate from './components/app/donate';
 import PopularItems from './components/app/popular';
-import MainContent from './components/app/main';
-import Footer from './components/app/socials';
+import Footer from './components/socials/socials';
 
 const App = () => {
   return (
-    <Header />
+    <div>
+      <Header />
+
+      <div className='main-stage'>
+        <div className=''> 
+          d
+        </div>
+      </div>
+    </div>
   );
 };
 

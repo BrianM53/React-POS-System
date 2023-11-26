@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SpecialFontText from "../utility/specialFontText/SpecialFontText";
+import SpecialFontText from "../../fonts/specialFontText/SpecialFontText";
 import './Weather.css';
 
 const Weather = () => {
@@ -81,7 +81,7 @@ const Weather = () => {
 
         <div className="weather-type-container">
           <div className="weather-data">
-            {main.temp}&deg;F
+            {main.temp}&deg;F / {((main.temp - 32) * (5 / 9)).toFixed(2)}&deg;C
             <br/>
             {capitalizeFirstLetters(weatherConditions[0].description)}
           </div>

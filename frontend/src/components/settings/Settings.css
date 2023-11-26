@@ -8,15 +8,14 @@
     --normal: #A7C8C5;
     --dark: #1c221d;
     --border: #81a7a2;
-  }
+}
 
 .settings-body {
-    background-color: var(--dark) !important;
+    /* background-color: var(--dark) !important; */
 }
 
 .menu-header 
 {
-    background-color: var(--dark) !important;
     min-height: 100px;
     font-size: 3rem;
     display: flex;
@@ -35,7 +34,7 @@
     align-items: center;
     padding: 2em;
     gap: 2em;
-    background-color: var(--dark) !important;
+    background-color: var(--dark);
 }
 
 .menu-main-settings-header
