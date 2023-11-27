@@ -14,7 +14,28 @@
 /* container for entire landing page */
 .main-stage {
   display: flex;
-  background-color: red;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
   height: 50rem;
-  /* color: green; */
+}
+
+.top-content {
+  /* background-color: white; */
+  width: 100%;
+  justify-content: space-between;
+  /* align-items: center; */
+  color: red;
+  display: flex;
+  flex-direction: row;
+}
+
+.bot-content {
+  width: 100%;
+  justify-content: space-between;
+  /* align-items: center; */
+  display: flex;
+  flex-direction: row;
+  color: green;
 }

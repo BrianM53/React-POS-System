@@ -20,8 +20,21 @@ const App = () => {
       <Header />
 
       <div className='main-stage'>
-        <div className=''> 
-          d
+        <div className='top-content'> 
+          <div>
+            toppppppppppppp
+          </div>
+          <div>
+            toppppppppppppp
+          </div>
+        </div>
+        <div className='bot-content'>
+          <div>
+            botttttttttttt
+          </div>
+          <div>
+            botttttttttttt
+          </div>
         </div>
       </div>
     </div>
