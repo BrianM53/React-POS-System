@@ -11,31 +11,46 @@
   --border: #81a7a2;
 }
 
+/*=================================== SKELETON =================================== */
 /* container for entire landing page */
 .main-stage {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* align-items: center; */
   background-color: var(--dark);
   height: 50rem;
+
+  /* overflow: scroll; */
 }
 
-.top-content {
+.left-content {
   /* background-color: white; */
   width: 100%;
   justify-content: space-between;
   /* align-items: center; */
   color: red;
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  flex-direction: column;
+
+  /* margin-top: -1rem; */
 }
 
-.bot-content {
+.right-content {
   width: 100%;
   justify-content: space-between;
   /* align-items: center; */
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  flex-direction: column;
   color: green;
 }
+
+/* =========================== LEFT STUFF   ==============================  */
+.big-plate {
+  margin-top: 5rem;
+  width: 44rem; 
+  height: 39rem; 
+  /* margin-bottom: 7rem; */
+  background-color: brown; 
+}
+
