@@ -1,11 +1,26 @@
-/* color controller */
 :root {
   --bright: #BDE3DF;
   --normal: #A7C8C5;
+  --shade1: #89b3ae;
+  --shade2: #81a7a2;
   --dark: #262e28;
+  --default-font-size: 16px;
+  --text-color: white;
 }
 
-.Manager {
+
+.manager-stage {
+  display: flex;
+}
+
+/* ======================= left side =========================  */
+.left-panel {
+  width: 20%;
+}
+
+/* =============== RIght side ======================= */
+.main-manager {
+  width: 80%;
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
       url("../../images/bird-tree.png");
   background-size: cover;
@@ -32,7 +47,7 @@
   overflow: auto;
 }
 
-/* ================ BUTTON NAVIAGATION ================ */
+/* ================ REPORT BUTTONS ================ */
 /* .report-btn {
   background: red;
 } */
@@ -69,7 +84,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* why does this not work? */
-  margin-top: 30px;
+  margin-top: 13px;
   margin-right: 50px;
   margin-bottom: 20px;
 }
@@ -86,6 +101,7 @@
   margin-right: 50px;
 }
 
+
 /* ================== REPORT LABELS ============= */
 /* .report-label {
   background: red;
@@ -98,42 +114,45 @@
   font-size: x-large;
 
   text-decoration: none;
-  color: var(--bright);
-}
-
-.temp {
-  width: 100%;
-  justify-content: center;
+  color: var(--text-color);
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .label-container {
   /* width: 1200px; */
   width: 90%;
   text-align: center;
-  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  margin-top: 5%;
+  margin-bottom: 15px;
+  
+  overflow: scroll;
+  /* white-space: nowrap; */
+  /* padding: 10px; */
+  /* text-wrap: nowrap; */
+  
+  background-color: var(--normal);
+  /* padding: .25em; */
+  /* scale: 85%; */
 
-.active-label {
-  display: block;
-  width: 100%;
-  justify-content: center;
+  border: 2px solid var(--bright);
+  border-radius: 55px;
+  align-items: center;
+  margin-top: 1rem;
+  height: 3.5rem;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+}
+.label-container::-webkit-scrollbar {
+  display: none;
 }
 
 .passive-label {
   display: none;
   width: 100%;
   justify-content: center;
-}
-
-.report-label {
-  /* font: 20px Garamond, serif; */
-  font-size: x-large;
-
-  text-decoration: none;
-  color: var(--bright);
 }
 
 /* ================== DATA TABLE ============= */
@@ -146,29 +165,16 @@
 }
 
 thead {
-  background-color: #f2f2f2;
+  /* background-color: red; */
 }
 
 th, td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--normal);
   text-align: center;
   width: 25%;
-  color: var(--normal);
-}
-
-/* ================== FOOTER BUTTONS ==================*/
-
-.date-btn {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.utility-btn {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  
+  color: var(--text-color);
 }
 
 /* ================= add employee styling =============== */

@@ -108,11 +108,11 @@ function Manager() {
   }
 
   return (
-    <div>
-      
-      <div className='Manager'>
-
-
+    <div className='manager-stage'>
+      <div className='left-panel'>
+        asdasd
+      </div>
+      <div className='main-manager'>
         {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
         <div className={activeReport === "Sales Report" ? 'label-container' : 'passive-label'}>
             <div className='label-item'>Menu Item</div>
@@ -147,7 +147,7 @@ function Manager() {
         </div>
 
 
-        
+
 
         <div className="main-content">
           <table className='main-content-table'>
