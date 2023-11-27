@@ -11,19 +11,22 @@ import "react-datepicker/dist/react-datepicker.css";
 import ReportButtons from './reportButtons';
 import ReportLabels from './reportLabels';
 import LogoutButton from '../utility/logoutButton';
+import AddEmployee from './addEmployee';
+// import { CChart } from '@coreui/react-chartjs';
 
 function Manager() {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  
+
   // default variables are for Sales Report
   const [activeReport, setActiveReport] = useState(() => localStorage.getItem('activeReport') || 'Sales Report');
-  const [columns, setColumns] = useState(['product_name', 'price', 'numsold', 'totalsales']);
+  const [columns, setColumns] = useState(['product_name1', 'product_name2', 'price', 'numsold', 'totalsales']);
 
   // the report data that will show up in the main content box
-  const [tableData, setTableData] = useState([]);
 
+  const [tableData, setTableData] = useState([]); 
+  // const [chartData, setChartData] = useState([])
   useEffect(() => {
     // Check if there's an active report in local storage and set it
     localStorage.setItem('activeReport', activeReport);
@@ -35,29 +38,34 @@ function Manager() {
     return date_val + " " + time_val;
   }
 
-  function generateReport(reportType, data, setColumns) {
+  function generateReport(reportType, data) {
+    console.log(reportType)
     if (reportType === 'Sales Report') {
       setColumns(['product_name', 'price', 'numsold', 'totalsales']);
-  
-  
-    } else if (reportType === 'Excess Report') {
+      setTableData(data)
+    } 
+    else if (reportType === 'Excess Report') {
+      for (let i = 0; i < data.length; i++) {
+        data[i].total_consumed = Math.round(data[i].total_consumed * 100) / 100;
+        data[i].percent_sold = Math.round(data[i].percent_sold * 100) / 100;
+      }
       setColumns(['inventory_item', 'total_consumed', 'current_stock', 'past_stock', 'percent_sold']);
-  
-  
-    } else if (reportType === 'Restock Report') {
-      setColumns(['inventory_item', 'stock_level', 'restock_level', 'measurement_type']);
-  
-      
-    } else if (reportType === 'Sells Together') {
+      setTableData(data)
+    } 
+    else if (reportType === 'Restock Report') {
+      setColumns(['product_name', 'inventory_item', 'stock_level', 'restock_level', 'measurement_type']);
+      setTableData(data)
+    } 
+    else if (reportType === 'Sells Together') {
       setColumns(['product_name1', 'product_name2', 'frequency']);
-  
-  
-    } else if (reportType === 'Usage Chart') {
-      
-    } else if (reportType === 'Add Employee') {
-      
+      setTableData(data)
+    } 
+    else if (reportType === 'Usage Chart') {
+      setColumns([]);
+    } 
+    else if (reportType === 'Add Employee') {
+      setColumns([]);
     }
-    
   }
 
   function handleReport(e, reportType) {
@@ -69,29 +77,47 @@ function Manager() {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
-    
-    axios
-      .post(BACKEND_URL + '/reports/' + reportRoute, {
-        startDate: generateTimestamp(startDate),
-        endDate: generateTimestamp(endDate),
-      })
-      .then(response => {
-        console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data); 
-        generateReport(reportType, response.data.data, setColumns);
-      })
-      .catch(error => {
-        console.error('axios error:', error);
-      });
+
+    if (reportRoute != "add-employee") {
+      axios
+        .post(BACKEND_URL + '/reports/' + reportRoute, {
+          startDate: generateTimestamp(startDate),
+          endDate: generateTimestamp(endDate),
+        })
+        .then(response => {
+          console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data);
+          generateReport(reportType, response.data.data);
+          // if (reportType == "Usage Chart"){
+          //   setShowChart(true);
+          //   setChartData(response.data.data);
+  
+          //   console.log("chartData:", chartData);//TODO Check data sent to chart
+          // }
+          // else{
+          //   setShowChart(false);
+          //   generateReport(reportType);
+          //   setTableData(response.data.data);
+          // }
+        })
+        .catch(error => {
+          console.error('axios error:', error);
+        });
+    } else {
+      setColumns([]);
+    }
   }
 
   return (
     <div>
       <div className='Manager'>
-        <ReportLabels activeReport={activeReport} />
+        <div>
+          <ReportLabels activeReport={activeReport} />
+        </div>
 
         <div className="main-content">
-          <table>
-            <thead className='content-head'> 
+
+          <table className='main-content-table'>
+            <thead className='content-head'>
             </thead>
             <tbody>
               {tableData.map((element, index) => (
@@ -100,18 +126,67 @@ function Manager() {
                     <td key={columnIndex}>{element[column]}</td>
                   ))}
                 </tr>
-              ))} 
+              ))}
             </tbody>
           </table>
+          <div>
+            {activeReport === "Add Employee" ? (
+              <AddEmployee />
+            ) : null}
+          </div>
+
         </div>
+        {/* {showChart &&(
+          <CChart
+            type="bar"
+            data={{
+              labels: chartData,
+              datasets: [
+                {
+                  label: "Usage Chart",
+                  backgroundColor: "#ff0000",
+                  data: chartData,
+                }
+              ]
+            }}
+            labels="Inventory Items"
+            options={{
+              plugins: {
+                legend: {
+                  labels: {
+                    color: "#00ffff",
+                  }
+                }
+              },
+              scales: {
+                x: {
+                  grid: {
+                    color: "#00ff00",
+                  },
+                  ticks: {
+                    color: "#0000ff",
+                  },
+                },
+                y: {
+                  grid: {
+                    color: "#ffcccc",
+                  },
+                  ticks: {
+                    color: "#000000",
+                  },
+                },
+              },
+            }}
+          /> 
+        )} */}
 
         <ReportButtons activeReport={activeReport} handleReport={handleReport} />
 
         <div className='date-btn'>
-          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm'/>
-          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm'/>
+          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm' />
+          <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm' />
         </div>
-          
+
         <div className='utility-btn'>
           <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
           <LogoutButton />

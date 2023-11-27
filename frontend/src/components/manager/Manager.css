@@ -14,11 +14,10 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: scroll;
   align-items: center;
   height: 100vh;
   background-color: var(--bright);
+  overflow: scroll;
 }
 .Manager::-webkit-scrollbar {
   display: none;
@@ -68,7 +67,7 @@
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* why does this not work? */
   margin-top: 30px;
   margin-right: 50px;
   margin-bottom: 20px;
@@ -162,10 +161,6 @@ th, td {
 }
 
 /* ================= add employee styling =============== */
-.add-employee-container {
-  display: none;
-}
-
 .add-employee-content {
   /* background-color: red; */
   display: flex;
