@@ -17,15 +17,16 @@
   align-items: center;
   height: 100vh;
   background-color: var(--bright);
-  overflow: scroll;
+  overflow-x: scroll;
 }
 .Manager::-webkit-scrollbar {
   display: none;
 }
 
 .main-content {
-  width: 1200px;
-  height: 700px;
+  width: 90%;
+  /* width: 1200px; */
+  height: 80%;
   background: var(--dark);
   border: 3px solid var(--bright);
   overflow: auto;
@@ -90,34 +91,44 @@
   background: red;
 } */
 
-.label-container {
-  width: 1200px;
+.label-item {
   width: 100%;
+  justify-content: center;
+
+  font-size: x-large;
+
+  text-decoration: none;
+  color: var(--bright);
+}
+
+.temp {
+  width: 100%;
+  justify-content: center;
+}
+
+.label-container {
+  /* width: 1200px; */
+  width: 90%;
+  text-align: center;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .active-label {
   display: block;
+  width: 100%;
+  justify-content: center;
 }
 
 .passive-label {
   display: none;
+  width: 100%;
+  justify-content: center;
 }
 
-.report-label ul {
-  color: var(--normal);
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
-}
-
-/* spacing between links */
-.report-label ul li {
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-.report-label a.label-item {
+.report-label {
   /* font: 20px Garamond, serif; */
   font-size: x-large;
 
