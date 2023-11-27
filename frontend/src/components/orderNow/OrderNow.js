@@ -167,7 +167,7 @@ const OrderNow = () => {
       .replace(/[,]/g, "") // Remove commas
       .replace(/[&]/g, "and");
       
-      const imagePath = require(`../../images/${imageName}.jpg`);
+      const imagePath = require(`../../images/menu/${imageName}.jpg`);
       
       const descriptionHasOverflow = product.product_description.length > 36;
       // const descriptionHasOverflow = true;

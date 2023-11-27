@@ -5,6 +5,7 @@
   --root-font-size: 16px;
   --shade1: #89b3ae;
   --shade2: #81a7a2;
+  --shade3: #688581;
   --bright: #BDE3DF;
   --normal: #A7C8C5;
   --dark: #1c221d;
@@ -19,9 +20,9 @@
   /* justify-content: center; */
   /* align-items: center; */
   background-color: var(--dark);
-  height: 50rem;
+  height: 53.3rem;
 
-  /* overflow: scroll; */
+  overflow-x: auto;
 }
 
 .left-content {
@@ -29,10 +30,9 @@
   width: 100%;
   justify-content: space-between;
   /* align-items: center; */
-  color: red;
   /* display: flex; */
   flex-direction: column;
-
+  
   /* margin-top: -1rem; */
 }
 
@@ -42,15 +42,36 @@
   /* align-items: center; */
   /* display: flex; */
   flex-direction: column;
-  color: green;
 }
 
 /* =========================== LEFT STUFF   ==============================  */
-.big-plate {
+.big-plate-container {
   margin-top: 5rem;
   width: 44rem; 
   height: 39rem; 
   /* margin-bottom: 7rem; */
-  background-color: brown; 
+  background-color: var(--shade3); 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.big-plate-img-container {
+  margin-left: 8rem;
+  scale: 80%;
+  
+  /* border: 10px solid red; */
+  border-radius: 50%; 
+  width: 55rem;
+  height: 55rem;
+  box-shadow: 0 10px 57px rgba(0, 0, 0, 1);
+}
+
+.big-plate-img {
+  filter: brightness(88%);
+  margin-left: -3.6rem;
+  margin-top: -4.4rem;
+}
+
 
