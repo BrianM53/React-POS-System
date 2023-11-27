@@ -265,9 +265,9 @@ const OrderNow = () => {
             {/* </div> */}
           </div>
           <div className="menu-main-menu-ticket-container">
-            <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
+            {/* <SpecialFontText as="div" className="ticket-container-title" fontSize="3.5rem">
               Your Cart
-            </SpecialFontText>
+            </SpecialFontText> */}
             <div ref={scrollRefs.cartScrollRef} className={cartHasOverflow ? 'ticket-item-container' : 'ticket-item-container-noscroll'}>
               {renderCartItems()}
             </div>
