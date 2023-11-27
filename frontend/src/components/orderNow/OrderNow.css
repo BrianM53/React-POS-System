@@ -130,8 +130,10 @@
 {
     height: 425px;
     overflow-y: scroll;
-    border: 5px solid var(--white);
     margin: 1em;
+    border-bottom: 5px solid var(--shade2);
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
 }
 
 .ticket-item-container::-webkit-scrollbar {
