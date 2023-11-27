@@ -1,55 +1,56 @@
-var createError = require('http-errors');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors');
+var createError = require("http-errors");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
+var cors = require("cors");
 
-var express = require('express');
+var express = require("express");
 var app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
-var reportsRouter = require('./routes/reports');
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var productsRouter = require("./routes/products");
+var reportsRouter = require("./routes/reports");
+var employeesRouter = require("./routes/employees");
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
 
 // enable communication between different domains
 var corsOptions = {
-  origin: ['http://localhost:3000', 'https://jbold-frontend.onrender.com'],
-  methods: 'GET,POST',
+  origin: ["http://localhost:3000", "https://jbold-frontend.onrender.com"],
+  methods: "GET,POST",
 };
 app.use(cors(corsOptions));
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-// set up api routing 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/products', productsRouter);
-app.use('/reports', reportsRouter);
+// set up api routing
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/products", productsRouter);
+app.use("/reports", reportsRouter);
+app.use("./employees", employeesRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
-
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 // get credential response of Google sign in success
@@ -63,11 +64,11 @@ app.use(function(err, req, res, next) {
 //   res.send('Credential received successfully');
 // });
 
-app.post('/send-message', (req, res) => {
+app.post("/send-message", (req, res) => {
   const message = req.body.message;
-  console.log('Received message from the frontend:', message);
+  console.log("Received message from the frontend:", message);
   // You can now process the message or perform any other actions you need.
-  res.send('Message received successfully');
+  res.send("Message received successfully");
 });
 
 module.exports = app;
