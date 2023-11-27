@@ -81,11 +81,11 @@
     margin-top: 1rem;
 }
 .header-title2 {
-    margin-top: 1rem;
+    margin-top: 0.7rem;
     letter-spacing: 2px;
     font-family: 'cursive-font', sans-serif;
     color: var(--text-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     
 }
 

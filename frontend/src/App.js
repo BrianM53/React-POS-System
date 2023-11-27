@@ -20,9 +20,25 @@ const App = () => {
       <Header />
 
       <div className='main-stage'>
-        <div className=''> 
-          d
+
+        <div className='left-content'> 
+          <div className='big-plate-container'>
+            <div className='big-plate-img-shadow'>
+              <div class="big-plate-img-container">
+                <img class="big-plate-img" src='/images/menu/hd-oreo-crepe.png' alt="Oreo Crepe on a plate" />
+              </div>
+            </div>
+          </div>  
         </div>
+        <div className='right-content'>
+          <div>
+            rightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrighttttttt
+          </div>
+          <div>
+            righttttttt
+          </div>
+        </div>
+
       </div>
     </div>
   );
