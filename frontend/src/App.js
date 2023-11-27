@@ -17,6 +17,7 @@ import Footer from './components/socials/socials';
 const App = () => {
   return (
     <div>
+      
       <Header />
 
       <div className='main-stage'>

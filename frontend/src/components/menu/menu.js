@@ -68,7 +68,7 @@ const Menu = () => {
         .replace(/[,]/g, "") // Remove commas
         .replace(/[&]/g, "and");
 
-      const imagePath = require(`../../images/${imageName}.jpg`);
+      const imagePath = require(`../../images/menu/${imageName}.jpg`);
 
       const descriptionHasOverflow = product.product_description.length > 85;
       return (
