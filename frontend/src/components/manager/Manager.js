@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import axios from 'axios';
+import { useUser } from "../utility/userControl";
 
 import './Manager.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,9 +25,12 @@ function Manager() {
   const [columns, setColumns] = useState(['product_name1', 'product_name2', 'price', 'numsold', 'totalsales']);
 
   // the report data that will show up in the main content box
-
   const [tableData, setTableData] = useState([]); 
   // const [chartData, setChartData] = useState([])
+
+  // user variables
+  const { userRole, setUserRole, userName, setUserName, userEmail, setUserEmail } = useUser();
+
   useEffect(() => {
     // Check if there's an active report in local storage and set it
     localStorage.setItem('activeReport', activeReport);
@@ -111,31 +115,10 @@ function Manager() {
     <div className='manager-stage'>
       <div className='left-panel'>
         <div>
-          asdasd
+          {userName}
         </div>
         <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
-        </div>
-        <div>
-          asdasd
+          {userEmail}
         </div>
 
         <ReportButtons activeReport={activeReport} handleReport={handleReport} />

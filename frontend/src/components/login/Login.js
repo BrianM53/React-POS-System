@@ -19,10 +19,6 @@ function Login() {
     password: '',
   });
 
-  useEffect(() => {
-    document.body.style.zoom = "100%";
-  }, []);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
@@ -65,7 +61,7 @@ function Login() {
         </Form>
 
         <p>or</p>
-        <GoogleLoginButton />
+        <GoogleLoginButton setLoginMsg={setLoginMsg}/>
       </header>
     </div>
   );

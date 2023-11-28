@@ -56,6 +56,7 @@ router.post('/auth/google-login', async (req, res) => {
   try {
     // wait for token verification to finish
     const payload = await verifyToken(clientID, jwtToken); 
+    
     if (payload) {
       // console.log("Name:", payload.name);
       // console.log("Email:", payload.email);
@@ -71,14 +72,16 @@ router.post('/auth/google-login', async (req, res) => {
       conn.release(); 
 
       if (employeeCredentials.rowCount > 0) {
-        res.json({ isManager: false, isCashier: true });
+        console.log("backend good cashier");
+        res.json({ success: true, email: payload.email, name: payload.name, isManager: false, isCashier: true });
       } else if (managerCredentials.rowCount > 0) {
-        res.json({ isManager: true, isCashier: false });
+        console.log("backend good manager");
+        res.json({ success: true, email: payload.email, name: payload.name, isManager: true, isCashier: false });
       } else {
-        res.json({ isCashier: false, isManager: false });
+        console.log("backend else");
+        res.json({ success: false, email: payload.email, name: payload.name, isCashier: false, isManager: false });
       }
 
-      res.json({ success: true, email: payload.email, name: payload.name });
     } else {
       console.log("Verification failed");
       res.status(401).json({ error: "Google token verification failed" });
