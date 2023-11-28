@@ -4,13 +4,18 @@ const UserContext = createContext();
 
 export function UserProvider({ children }) {
   const [userRole, setUserRole] = useState(() => localStorage.getItem('userRole') || 'customer');
+  const [userName, setUserName] = useState(() => localStorage.getItem('userRole') || '');
 
   useEffect(() => {
     localStorage.setItem('userRole', userRole);
   }, [userRole]);
 
+  useEffect(() => {
+    localStorage.setItem('userName', userName);
+  }, [userName]);  
+
   return (
-    <UserContext.Provider value={{ userRole, setUserRole }}>
+    <UserContext.Provider value={{ userRole, setUserRole, userName, setUserName }}>
       {children}
     </UserContext.Provider>
   );
