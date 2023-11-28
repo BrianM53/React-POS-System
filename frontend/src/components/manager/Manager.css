@@ -16,6 +16,13 @@
 /* ======================= left side =========================  */
 .left-panel {
   width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--normal);
+
+  border: 4px solid var(--shade2);
+  box-shadow: -5px 0 5px -5px rgb(255, 255, 255);
 }
 
 /* =============== RIght side ======================= */
@@ -34,7 +41,7 @@
   background-color: var(--bright);
   overflow-x: scroll;
 }
-.main-manager::-webkit-scrollbar {
+.main-manager::-webkit-scrollbar  {
   display: none;
 }
 
@@ -51,45 +58,64 @@
 }
 
 /* ================ REPORT BUTTONS ================ */
-/* .report-btn {
+.report-btn {
   background: red;
-} */
+  /* display: flex; */
+  width: 90%;
+  text-align: center;
+  /* justify-content: center;
+  align-items: center; */
+
+  overflow-x: scroll;
+  text-wrap: nowrap;
+  white-space: nowrap;
+
+  margin-top: 60%;
+}
+.report-btn::-webkit-scrollbar {
+  display: none;
+}
 
 .report-btn ul {
   list-style-type: none;
-  display: flex;
-  margin-top: 30px;
+  /* display: flex;
+  flex-direction: column; */
+  /* margin-top: 30px; */
 }
 
-/* spacing between links */
-.report-btn ul li {
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.report-btn a.active-report {
+.active-report {
   /* font: 20px Garamond, serif; */
   font-size: larger;
   text-decoration: none;
   font-weight: 700;
-  color: var(--normal);
+  color: var(--text-color);
+
+
+  margin-right: 10%;
+  
 }
 
-.report-btn a.passive-report {
+.passive-report {
   /* font: 20px Garamond, serif; */
   font-size: larger;
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
+
+  margin-right: 10%;
 }
+
+
+
+
 
 .utility-btn {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* why does this not work? */
-  margin-top: 13px;
-  margin-right: 50px;
-  margin-bottom: 20px;
+  margin-top: auto;
+
+  width: 70%;
 }
 
 /* spacing between btns */
@@ -120,6 +146,16 @@
   color: var(--text-color);
   font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  overflow: scroll;
+  text-wrap: nowrap;
+  white-space: nowrap;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.label-item::-webkit-scrollbar {
+  display: none;
 }
 
 .label-container {
