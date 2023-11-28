@@ -110,7 +110,40 @@ function Manager() {
   return (
     <div className='manager-stage'>
       <div className='left-panel'>
-        asdasd
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+        <div>
+          asdasd
+        </div>
+
+        <ReportButtons activeReport={activeReport} handleReport={handleReport} />
+
+        <div className='utility-btn'>
+          <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
+          <LogoutButton />
+        </div>
       </div>
       <div className='main-manager'>
         {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
@@ -214,16 +247,9 @@ function Manager() {
           /> 
         )} */}
 
-        <ReportButtons activeReport={activeReport} handleReport={handleReport} />
-
         <div className='date-btn'>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm' />
           <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm' />
-        </div>
-
-        <div className='utility-btn'>
-          <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
-          <LogoutButton />
         </div>
 
       </div>
