@@ -2,8 +2,8 @@ import React from 'react';
 
 function ReportButtons({ activeReport, handleReport }) {
   return (
-    <div>
-        <nav className='report-btn'>
+    <div className='report-btn'>
+        <nav>
           <ul>
             <li><a href='' 
               className={activeReport === "Sales Report" ? 'active-report' : 'passive-report'} 

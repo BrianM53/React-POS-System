@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import axios from 'axios';
+import { useUser } from "../utility/userControl";
 
 import './Manager.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,9 +25,12 @@ function Manager() {
   const [columns, setColumns] = useState(['product_name1', 'product_name2', 'price', 'numsold', 'totalsales']);
 
   // the report data that will show up in the main content box
-
   const [tableData, setTableData] = useState([]); 
   // const [chartData, setChartData] = useState([])
+
+  // user variables
+  const { userRole, setUserRole, userName, setUserName, userEmail, setUserEmail } = useUser();
+
   useEffect(() => {
     // Check if there's an active report in local storage and set it
     localStorage.setItem('activeReport', activeReport);
@@ -110,7 +114,19 @@ function Manager() {
   return (
     <div className='manager-stage'>
       <div className='left-panel'>
-        asdasd
+        <div>
+          {userName}
+        </div>
+        <div>
+          {userEmail}
+        </div>
+
+        <ReportButtons activeReport={activeReport} handleReport={handleReport} />
+
+        <div className='utility-btn'>
+          <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
+          <LogoutButton />
+        </div>
       </div>
       <div className='main-manager'>
         {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
@@ -143,7 +159,7 @@ function Manager() {
             <div className='label-item'>Amount of Ingredients Used</div>
         </div>
         <div className={activeReport === "Add Employee" ? 'label-container' : 'passive-label'}>
-          <div className='label-item'></div>
+          <div className='label-item'>Add an Employee</div>
         </div>
 
 
@@ -214,16 +230,9 @@ function Manager() {
           /> 
         )} */}
 
-        <ReportButtons activeReport={activeReport} handleReport={handleReport} />
-
         <div className='date-btn'>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect timeFormat='HH:mm' />
           <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} showTimeSelect timeFormat='HH:mm' />
-        </div>
-
-        <div className='utility-btn'>
-          <Button onClick={() => navigate('/cashier')}>Cashier Interface</Button>
-          <LogoutButton />
         </div>
 
       </div>
