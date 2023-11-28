@@ -34,7 +34,7 @@
   background-color: var(--bright);
   overflow-x: scroll;
 }
-.Manager::-webkit-scrollbar {
+.main-manager::-webkit-scrollbar {
   display: none;
 }
 
@@ -45,6 +45,9 @@
   background: var(--dark);
   border: 3px solid var(--bright);
   overflow: auto;
+}
+.main-content::-webkit-scrollbar {
+  display: none;
 }
 
 /* ================ REPORT BUTTONS ================ */
@@ -173,7 +176,7 @@ th, td {
   border: 1px solid var(--normal);
   text-align: center;
   width: 25%;
-  
+
   color: var(--text-color);
 }
 
