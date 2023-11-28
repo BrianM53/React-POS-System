@@ -176,7 +176,7 @@ function Manager() {
             <div className='label-item'>Amount of Ingredients Used</div>
         </div>
         <div className={activeReport === "Add Employee" ? 'label-container' : 'passive-label'}>
-          <div className='label-item'></div>
+          <div className='label-item'>Add an Employee</div>
         </div>
 
 

@@ -57,9 +57,28 @@ router.post('/auth/google-login', async (req, res) => {
     // wait for token verification to finish
     const payload = await verifyToken(clientID, jwtToken); 
     if (payload) {
-      console.log("Name:", payload.name);
-      console.log("Email:", payload.email);
-      res.json({ success: true, email: payload.email });
+      // console.log("Name:", payload.name);
+      // console.log("Email:", payload.email);
+
+      const conn = await connection.connect();
+      console.log('created connection');
+
+      const employeeCredentials = await conn.query
+        ('SELECT * FROM employees WHERE email = $1', [payload.email]);
+      const managerCredentials = await conn.query
+        ('SELECT * FROM managers WHERE email = $1', [payload.email]);
+
+      conn.release(); 
+
+      if (employeeCredentials.rowCount > 0) {
+        res.json({ isManager: false, isCashier: true });
+      } else if (managerCredentials.rowCount > 0) {
+        res.json({ isManager: true, isCashier: false });
+      } else {
+        res.json({ isCashier: false, isManager: false });
+      }
+
+      res.json({ success: true, email: payload.email, name: payload.name });
     } else {
       console.log("Verification failed");
       res.status(401).json({ error: "Google token verification failed" });
