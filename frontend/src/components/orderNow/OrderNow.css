@@ -78,10 +78,12 @@
     align-items: center;
     padding: 2em;
     gap: 2em;
+    height: 100vh;
 }
 
 .menu-main-menu-header
 {
+    /* margin-top: -5%; */
     border: 3px solid var(--border);
     font-size: 3.5rem;
     background-color: var(--normal);
@@ -93,16 +95,23 @@
 
 .menu-main-menu-container
 {
+    /* margin-top: 70%; */
     display: flex;
-    /* overflow-x: scroll; */
+    overflow: scroll;
+    /* background-color: red; */
+    /* padding: 50%; */
+    width: 100%;
+}
+.menu-main-menu-container::-webkit-scrollbar {
+    display: none;
 }
 
 .menu-main-menu-ticket-container
 {
     border: 3px solid var(--border);
     background-color: var(--normal);
-    width: 900px;
-    height: 600px;
+    width: 50%;
+    height: 88%;
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -328,12 +337,17 @@
 
 .menu-main-menu-body, .menu-main-menu-body-noscroll 
 {
-    height: 500px;
+    height: 77%;
     color: var(--text-color);
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 2em;
+    width: 70%;
+}
+
+.menu-body {
+    height: 100vh;
 }
 /* 
 .menu-body-category-container
