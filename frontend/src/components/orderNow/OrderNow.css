@@ -194,15 +194,16 @@
     /* margin-left: ; */
 }
 .ticket-item-name::-webkit-scrollbar {
-    width: 1px;
+    /* width: 1px;
     background-color: #565a57;
     margin-top: 15px;
-    border-radius: 6px;
+    border-radius: 6px; */
+    display: none;
 }
 
 .ticket-item-name::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
-    border-radius: 6px;
+    /* background: var(--shade1); 
+    border-radius: 6px; */
 } 
 
 .ticket-item-name-noscroll::-webkit-scrollbar {
@@ -337,6 +338,7 @@
 
 .menu-main-menu-body, .menu-main-menu-body-noscroll 
 {
+    margin-left: 2%;
     height: 77%;
     color: var(--text-color);
     overflow-y: scroll;
@@ -344,6 +346,8 @@
     flex-direction: column;
     gap: 2em;
     width: 70%;
+    /* background-color: red; */
+
 }
 
 .menu-body {
@@ -380,10 +384,11 @@
     /* scale: 80%; */
     /* width: auto; */
     gap: 2rem;
-    margin-left: 3rem;
-    /* margin-right: auto; */
+    /* margin-left: 3rem; */
+    margin-right: auto;
+    width: 100%;
     /* width: 1100px; */
-    height: 9rem;
+    /* height: 9rem; */
     flex-direction: row;
     background-color: var(--normal);
     justify-content: space-between;
@@ -423,8 +428,9 @@
     /* margin-top: 1rem; */
     /* margin-bottom: ; */
     scale: 90%;
-    max-width: 30rem;
-    margin-left: auto;
+    /* max-width: 30rem; */
+    width: 70%;
+    /* margin-left: auto; */
     position: relative;
     border-left: none;
     border-right: none;
@@ -439,7 +445,6 @@
     left: 0px; 
     width:3px;
     background-image: linear-gradient(to top, var(--shade1), var(--normal));
-    /* z-index: -1; */
 }
 .menu-body-entry-description-container::after {
     content: '';
@@ -449,7 +454,6 @@
     right: 0px;
     width:3px; 
     background-image: linear-gradient(to top, var(--shade1), var(--normal));
-    /* z-index: -1; */
 }
 
 .menu-body-entry-title
@@ -462,7 +466,7 @@
 .menu-body-entry-description
 {
     overflow-x: scroll;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     font-size: 1.5rem;
     /* text-overflow: ellipsis; */
     /* overflow-y: scroll; */
@@ -481,10 +485,11 @@
     /* margin-top: 15px; */
     /* margin-bottom: -1rem; */
     border-radius: 6px;
+    display:none;
 }
 .menu-body-entry-description::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
-    border-radius: 6px;
+    /* background: var(--shade1); 
+    border-radius: 6px; */
 } 
 .menu-body-entry-description-noscroll::-webkit-scrollbar {
     display: none;
