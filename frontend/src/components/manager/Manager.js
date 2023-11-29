@@ -114,6 +114,9 @@ function Manager() {
   return (
     <div className='manager-stage'>
       <div className='left-panel'>
+        <div className= 'header'>
+          <h2>Reports</h2>
+        </div>
         <div>
           {userName}
         </div>
