@@ -61,6 +61,7 @@ const ContactUs = () => {
               </SpecialFontText>
               <form onSubmit={handleSubmit} className="form-container">
                   <div className='top-row-form-data'>
+                    <div className='name-container'>
                       <label htmlFor="Name"></label>
                       <input
                         type="text"
@@ -71,7 +72,8 @@ const ContactUs = () => {
                         onChange={handleChange}
                         required
                       />
-
+                    </div>
+                    <div className='email-container'>
                       <label htmlFor="email"></label>
                       <input
                         type="email"
@@ -82,18 +84,20 @@ const ContactUs = () => {
                         onChange={handleChange}
                         required
                       />
-
+                    </div>
                   </div>
 
-                  <label htmlFor="message"></label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder='Message'
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  ></textarea>
+                  <div className='message-container'>
+                    <label htmlFor="message"></label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      placeholder='Message'
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
+                  </div>
 
                   <button className="form-submit-button" type="submit">Submit</button>
               </form>

@@ -19,6 +19,29 @@
     align-items: center;
     padding: 2em;
     gap: 3em;
+    height: 100vh;
+}
+
+.top-row-form-data {
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.name-container {
+    /* margin: ; */
+    width: 100%;
+    /* background-color: yellow; */
+}
+.email-container {
+    width: 100%;
+}
+
+.message-container { 
+    /* background-color: green; */
+    width: 100%;
 }
 
 .menu-main-contactus-header
@@ -30,7 +53,7 @@
     padding: .25em;
     border-radius: 25px;
     box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
-    margin-top: -2px;
+    margin-top: -5%;
 }
 
 .menu-main-contactus-container
@@ -44,23 +67,6 @@
     color: var(--text-color);
     padding: 1em;
     margin-top: -2em;
-}
-
-.contactus-left-container
-{
-    border: 3px solid var(--border);
-    /* background-color: var(--normal); */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: .9em;
-    font-size: 2.5rem;
-    width: 600px;
-    border-radius: 25px;
-    margin-top: -3rem;
-    margin-left: -3rem;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
-    scale: 85%;
 }
 
 .contactus-image
@@ -109,6 +115,7 @@ input
     border-radius: 25px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
     /* color: var(--normal); */
+    /* width: 100%; */
 }
 
 textarea
@@ -117,7 +124,7 @@ textarea
     border: 5px solid var(--text-color);
     border-radius: 25px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
-    width: 785px;
+    width: 100%;
     /* color: var(--normal); */
 }
 textarea::-webkit-scrollbar {
@@ -146,6 +153,7 @@ textarea::-webkit-scrollbar-thumb {
     padding: 1em;
     font-size: 2.2rem;
     border-radius: 25px;
+    width: 100%;
     box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
@@ -154,7 +162,8 @@ textarea::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     text-wrap: wrap;
-    width: 900px;
+    width: 100%;
+    /* height:100%; */
     gap: .25em;
     font-size: 2.1rem;
 }
@@ -180,7 +189,8 @@ textarea::-webkit-scrollbar-thumb {
     /* color: var(--normal); */
     font-size: 2.0rem !important;
     padding: .5em;
-    width: 200px;
+    width: 20%;
+    /* height: 10%; */
     border-radius: 500px;
     color: var(--text-color);
     /* border-color: var(--text-color); */
