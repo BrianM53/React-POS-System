@@ -132,7 +132,9 @@ const OrderNow = () => {
       });
   
       console.log("Order submitted successfully:", response.data);
-      // Optionally, you can clear the cart or perform any other actions after submitting the order
+      const updatedCart = [];
+      // If your cart is stateful, update the state with the empty cart array
+      setCart(updatedCart);
     } catch (error) {
       console.error("Error submitting order:", error);
       // Handle the error here, if needed
@@ -197,9 +199,9 @@ const OrderNow = () => {
     return cart.map((item) => (
       <div key={item.product_id} className="ticket-item">
         <div className="ticket-item-quantity">
-          <div className="ticket-item-decrement">-</div>
+          <div className="ticket-item-decrement"></div>
           <div className="ticket-item-current-quantity">{item.quantity || 0}</div>
-          <div className="ticket-item-increment">+</div>
+          <div className="ticket-item-increment"></div>
         </div>
         <div className="ticket-item-name">{item.product_name}</div>
         <div className="ticket-item-price">{item.price}</div>

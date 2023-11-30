@@ -38,7 +38,6 @@ class Order {
       ]);
       console.log("New Order Result:", newOrderResult.rows[0]);
   
-      return newOrderResult.rows[0].order_id;
     } catch (error) {
       console.error("Error in createOrder:", error);
       throw error;

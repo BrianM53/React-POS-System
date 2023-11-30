@@ -6,8 +6,9 @@ router.post("/create", async (req, res) => {
   const { employeeId, customerId, totalCost, paymentStatus } = req.body;
 
   try {
+    console.log("Trying to create order");
     const orderId = 1; // You might have a function to generate order IDs
-    const newOrderId = await new Promise((resolve, reject) => {
+    const newOrderId = new Promise((resolve, reject) => {
       Order.createOrder(
         orderId,
         employeeId,
@@ -25,7 +26,6 @@ router.post("/create", async (req, res) => {
       );
     });
 
-    console.log("Trying to create order");
     const newOrder = new Order({
       orderId: newOrderId,
       employeeId,
@@ -36,7 +36,7 @@ router.post("/create", async (req, res) => {
     });
 
     console.log(newOrder.toString());
-    res.json({ orderId: newOrderId });
+    res.status(200).json({ message: "Order created successfully", orderId: newOrderId });
   } catch (error) {
     console.error("Error creating order", error);
     res.status(500).json({ error: "Error creating order" });
