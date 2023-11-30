@@ -71,6 +71,7 @@ router.post("/sells-together", (req, res) => {
 });
 
 router.post("/usage-chart", (req, res) => {
+<<<<<<< HEAD
   const startDate = "2022-10-06 06:22:00";
   const endDate = "2022-10-06 08:25:00";
   // const startDate = req.body.startDate;
@@ -85,6 +86,22 @@ router.post("/usage-chart", (req, res) => {
   //         res.json({ data: usageChartData });
   //     }
   // });
+=======
+    const startDate = '2022-08-06 06:22:00';
+    const endDate = '2023-10-06 08:25:00';
+    // const startDate = req.body.startDate;
+    // const endDate = req.body.endDate;
+    console.log("usage");
+    res.send("usage");
+    
+    Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+            if (error) {
+                    res.status(500).json({ error: "Error generating usage chart" });
+        } else {
+            res.json({ data: usageChartData });
+        }
+    });
+>>>>>>> 8f5b791c79a1bfe3b9452d51b53bf5faf58eaa11
 });
 
 router.post("/view-orders", (req, res) => {

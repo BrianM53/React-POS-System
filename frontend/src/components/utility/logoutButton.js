@@ -14,8 +14,18 @@ function LogoutButton() {
   const navigate = useNavigate();
 
   const logout = () => {
-    handleLogout();
+    // Call the handleLogout function from useUser if it needs to perform any cleanup actions
+    if (handleLogout) {
+      handleLogout();
+    }
+
+    // Reset the user state to their default values
     setUserRole("customer");
+    setUserName("John Doe");
+    setUserEmail("john@doe.com");
+    setEmployeeId(null);
+
+    // Navigate to the home page or login page
     navigate("/");
   };
 
