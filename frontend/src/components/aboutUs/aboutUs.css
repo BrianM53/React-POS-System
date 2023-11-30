@@ -22,6 +22,10 @@
   border-radius: 6px;
 } 
 
+.about-us-body {
+  height: 100vh;
+}
+  
 .menu-main-aboutus
 {
   background-color: var(--dark);
@@ -62,6 +66,7 @@
 {
   display: flex;
   flex-direction: row;
+  width: 100%;
   /* gap: 2rem; */
 }
 
@@ -86,12 +91,12 @@
   font-size: 2rem;
   border-radius: 100px;
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
-  scale: 80%;
+  scale: 70%;
 }
 
 .menu-main-aboutus-bottom-container
 {
-  scale: 80%;
+  scale: 70%;
   border: 3px solid var(--border);
   display: flex;
   flex-direction: row;
@@ -112,29 +117,29 @@
   color: var(--text-color);
   padding: .5em;
   text-align: center;
-  max-height: 250px;
+  height: 70%;
   overflow-y: auto;
 }
 
 .menu-main-aboutus-image-bottom
 {
   margin-top: -3rem;
-  scale: 79%;
+  scale: 60%;
   margin-right: -10rem;
   border: 3px solid white;
-  width: 500px;
-  height: 400px;
+  width: 40%;
+  /* height: 15%; */
   border-radius: 500px;
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 .menu-main-aboutus-image-top
 {
-  margin-top: -3rem;
-  scale: 79%;
+  /* margin-top: 1%; */
+  scale: 60%;
   margin-left: -10rem;
   border: 3px solid white;
-  width: 500px;
-  height: 400px;
+  width: 40%;
+  /* height: 1%; */
   border-radius: 500px;
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
