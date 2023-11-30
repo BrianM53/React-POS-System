@@ -1,6 +1,6 @@
 /* color controller */
 :root {
-  --white: white;
+  --text-color: white;
   --accent: skyblue;
   --root-font-size: 16px;
   --shade1: #89b3ae;
@@ -37,11 +37,15 @@
 }
 
 .right-content {
+  color: var(--text-color);
   width: 100%;
-  justify-content: space-between;
-  /* align-items: center; */
-  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+
+  background-color: red;
+  margin-bottom: 5%;
 }
 
 /* =========================== LEFT STUFF   ==============================  */
@@ -72,6 +76,6 @@
   filter: brightness(88%);
   margin-left: -3.6rem;
   margin-top: -4.4rem;
-  }
+}
 
 

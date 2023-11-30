@@ -32,14 +32,26 @@ const App = () => {
           </div>  
         </div>
         <div className='right-content'>
-          <div>
-            rightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrighttttttt
+          <div className='big-plate-info-container'>
+            <div className='big-plate-info-title'>
+              TOPPPPPPPPPP TITLE
+            </div>
+            <div className='big-plate-info-desc'>
+              TOPPPPPPPPPPPP desc
+            </div>
           </div>
-          <div>
-            righttttttt
+          <div className='popular-items-container'>
+            <div className='popular-item-block'>
+              pop item 1
+            </div>
+            <div className='popular-item-block'>
+              pop item 2
+            </div>
+            <div className='popular-item-block'>
+              pop item 3
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   );
