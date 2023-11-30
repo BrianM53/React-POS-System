@@ -14,7 +14,7 @@ var reportsRouter = require("./routes/reports");
 var employeesRouter = require("./routes/employees");
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join("views"));
 app.set("view engine", "jade");
 
 // enable communication between different domains

@@ -2,93 +2,101 @@ var express = require("express");
 var router = express.Router();
 const Report = require("../models/Report");
 
-const connection = require('../connection')
+const connection = require("../connection");
 
 router.get("/", (res) => {
-    res.send("reports route working");
+  res.send("reports route working");
 });
 
-// posting doesn't show anything, change to get to show 
+// posting doesn't show anything, change to get to show
 router.post("/sales-report", (req, res) => {
-    // const startDate = '2022-10-06 06:22:00';
-    // const endDate = '2022-10-06 08:25:00';
-    const startDate = req.body.startDate;
-    const endDate = req.body.endDate;
+  // const startDate = '2022-10-06 06:22:00';
+  // const endDate = '2022-10-06 08:25:00';
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
 
-    Report.generateSalesReport(startDate, endDate, (error, salesReportData) => {
-        if (error) {
-            res.status(500).json({ error: "Error generating sales report" });
-        } else {
-            res.json({data: salesReportData});
-        }
-    });
+  Report.generateSalesReport(startDate, endDate, (error, salesReportData) => {
+    if (error) {
+      res.status(500).json({ error: "Error generating sales report" });
+    } else {
+      res.json({ data: salesReportData });
+    }
+  });
 });
 
+router.post("/excess-report", (req, res) => {
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
 
-router.post("/excess-report", (req, res) => { 
-    const startDate = req.body.startDate;
-    const endDate = req.body.endDate;
-
-    Report.generateExcessReport(startDate, endDate, (error, excessReportData) => {
-        if (error) {
-            res.status(500).json({ error: "Error generating excess report" });
-        } else {
-            res.json({data: excessReportData});
-        }
-    });
+  Report.generateExcessReport(startDate, endDate, (error, excessReportData) => {
+    if (error) {
+      res.status(500).json({ error: "Error generating excess report" });
+    } else {
+      res.json({ data: excessReportData });
+    }
+  });
 });
 
-router.post("/restock-report", (req, res) => { // Fix the parameter list
-    // Assuming you have a generateExcessReport function in your Report module
-    Report.generateRestockReport((error, restockReportData) => {
-        if (error) {
-            res.status(500).json({ error: "Error generating restock report" });
-        } else {
-            res.json({ data: restockReportData });
-        }
-    });
+router.post("/restock-report", (req, res) => {
+  // Fix the parameter list
+  // Assuming you have a generateExcessReport function in your Report module
+  Report.generateRestockReport((error, restockReportData) => {
+    if (error) {
+      res.status(500).json({ error: "Error generating restock report" });
+    } else {
+      res.json({ data: restockReportData });
+    }
+  });
 });
 
 router.post("/sells-together", (req, res) => {
-    // const startDate = '2022-10-06 06:22:00';
-    // const endDate = '2022-10-06 08:25:00';
-    const startDate = req.body.startDate;
-    const endDate = req.body.endDate;
+  // const startDate = '2022-10-06 06:22:00';
+  // const endDate = '2022-10-06 08:25:00';
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
 
-    Report.generateSellsTogether(startDate, endDate, (error, sellsTogetherData) => {
-        if (error) {
-            res.status(500).json({ error: "Error generating sells together report" });
-        } else {
-            res.json({data: sellsTogetherData});
-        }
-    });
+  Report.generateSellsTogether(
+    startDate,
+    endDate,
+    (error, sellsTogetherData) => {
+      if (error) {
+        res
+          .status(500)
+          .json({ error: "Error generating sells together report" });
+      } else {
+        res.json({ data: sellsTogetherData });
+      }
+    }
+  );
 });
 
 router.post("/usage-chart", (req, res) => {
-    const startDate = '2022-10-06 06:22:00';
-    const endDate = '2022-10-06 08:25:00';
-    // const startDate = req.body.startDate;
-    // const endDate = req.body.endDate;
-    console.log("usage");
-    res.send("usage");
-    
-    // Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
-        //     if (error) {
-            //         res.status(500).json({ error: "Error generating usage chart" });
-    //     } else {
-    //         res.json({ data: usageChartData });
-    //     }
-    // });
+  const startDate = "2022-10-06 06:22:00";
+  const endDate = "2022-10-06 08:25:00";
+  // const startDate = req.body.startDate;
+  // const endDate = req.body.endDate;
+  console.log("usage");
+  res.send("usage");
+
+  // Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+  //     if (error) {
+  //         res.status(500).json({ error: "Error generating usage chart" });
+  //     } else {
+  //         res.json({ data: usageChartData });
+  //     }
+  // });
 });
 
-router.post("/add-employee", (req, res) => {
-    Report.addEmployee((error, employees) => {
-        if (error) {
-            res.status(500).json({ error: "Error generating sells together report" });
-        } else {
-            res.json({data: employees});
-        }
-    });
+router.post("/view-orders", (req, res) => {
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+
+  Report.getOrdersInTimeInterval(startDate, endDate, (error, ordersData) => {
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+    res.json({ data: ordersData });
+  });
 });
 
 module.exports = router;

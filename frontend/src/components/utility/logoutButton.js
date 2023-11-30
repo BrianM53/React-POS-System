@@ -1,19 +1,26 @@
-import React from 'react';
-import { useUser } from './userControl';
-import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useUser } from "./userControl";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 function LogoutButton() {
-  const { setUserRole } = useUser();
+  const {
+    setUserRole,
+    setUserName,
+    setUserEmail,
+    setEmployeeId,
+    handleLogout,
+  } = useUser();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    navigate('/');
-    setUserRole('customer'); // Set the user role to 'customer'
+  const logout = () => {
+    handleLogout();
+    setUserRole("customer");
+    navigate("/");
   };
 
   return (
-    <Button variant="danger" onClick={handleLogout}>
+    <Button variant="danger" onClick={logout}>
       Logout
     </Button>
   );

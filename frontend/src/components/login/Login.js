@@ -7,7 +7,7 @@ import GoogleLoginButton from "./googleLoginButton";
 import { useUser } from "../utility/userControl";
 
 import "bootstrap/dist/css/bootstrap.css";
-import './Login.css';
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -15,8 +15,8 @@ function Login() {
 
   const [loginMsg, setLoginMsg] = useState("");
   const [loginData, setLoginData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleInputChange = (e) => {
@@ -24,44 +24,53 @@ function Login() {
     setLoginData({ ...loginData, [name]: value });
   };
 
-  const login = async (event) => { 
-    const { isCashier, isManager } = await handleSubmit(event, loginData); 
+  const login = async (event) => {
+    const { isCashier, isManager } = await handleSubmit(event, loginData);
     console.log("login attempt with role " + userRole);
-    if (isManager) { 
+    if (isManager) {
       setUserRole("manager");
-      navigate('/manager'); 
-    } 
-    else if (isCashier) { 
+      navigate("/manager");
+    } else if (isCashier) {
       setUserRole("cashier");
-      navigate('/cashier'); 
-    } 
-    else {
-      setLoginMsg (
-        <div style={{ color: "red" }}>
-          Invalid email or password.
-        </div>
+      navigate("/cashier");
+    } else {
+      setLoginMsg(
+        <div style={{ color: "red" }}>Invalid email or password.</div>
       );
     }
   };
-  
+
   return (
     <div className="Login">
       <header className="Login-header">
         <div className="Login-msg">{loginMsg}</div>
         <Form className="rounded p-3 p-sm-3" onSubmit={login}>
           <FloatingLabel label="Email address" className="mb-3">
-            <Form.Control autoFocus name="email" type="email" value={loginData.email} placeholder="Email address" onChange={handleInputChange}/>
+            <Form.Control
+              autoFocus
+              name="email"
+              type="email"
+              value={loginData.email}
+              placeholder="Email address"
+              onChange={handleInputChange}
+            />
           </FloatingLabel>
 
           <FloatingLabel label="Password" className="mb-3">
-            <Form.Control name="password" type="password" value={loginData.password} placeholder="Password" onChange={handleInputChange}/>
+            <Form.Control
+              name="password"
+              type="password"
+              value={loginData.password}
+              placeholder="Password"
+              onChange={handleInputChange}
+            />
           </FloatingLabel>
-          
+
           <LoginButton loginData={loginData} />
         </Form>
 
         <p>or</p>
-        <GoogleLoginButton setLoginMsg={setLoginMsg}/>
+        <GoogleLoginButton setLoginMsg={setLoginMsg} />
       </header>
     </div>
   );
