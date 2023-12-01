@@ -84,6 +84,7 @@
 .menu-main-menu-header
 {
     /* margin-top: -5%; */
+    color: var(--text-color);
     border: 3px solid var(--border);
     font-size: 3.5rem;
     background-color: var(--normal);
@@ -125,6 +126,7 @@
 /* ============================================ SHOPPING CART =================================*/
 .ticket-container-title
 {
+    
     color: var(--white);
     text-align: center;
     scale: 85%;
@@ -137,6 +139,7 @@
 
 .ticket-item-container, .ticket-item-container-noscroll
 {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     height: 425px;
     overflow-y: scroll;
     margin: 1em;
@@ -244,6 +247,7 @@
 
 .ticket-item-price {
     margin-left: 3rem;
+    
     margin-right: auto;
 }
 
@@ -265,6 +269,7 @@
 
 .ticket-total-and-order-container
 {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -290,6 +295,7 @@
 
 .ticket-submit-button
 {
+    
     /* border: 5px solid var(--white); */
     padding: .5em;
     font-size: 2rem;
@@ -419,6 +425,7 @@
 
 .menu-body-entry-description-container
 {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;

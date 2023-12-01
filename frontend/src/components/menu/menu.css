@@ -155,7 +155,7 @@
     overflow-y: auto;
 }
 
-.menu-body-category-container
+.menu-container
 {
     color: var(--white);
     display: flex;
