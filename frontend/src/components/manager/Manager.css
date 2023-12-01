@@ -8,7 +8,6 @@
   --text-color: white;
 }
 
-
 .manager-stage {
   display: flex;
 }
@@ -69,8 +68,7 @@
   overflow-x: scroll;
   text-wrap: nowrap;
   white-space: nowrap;
-
-  margin-top: 60%;
+  margin: 10% 0;
 }
 .report-btn::-webkit-scrollbar {
   display: none;
@@ -81,6 +79,11 @@
   /* display: flex;
   flex-direction: column; */
   /* margin-top: 30px; */
+}
+
+.report-btn ul li 
+{
+  margin: 15% 0;
 }
 
 .active-report {
@@ -114,13 +117,12 @@
   flex-direction: column;
   justify-content: space-between; /* why does this not work? */
   margin-top: auto;
-
   width: 70%;
 }
 
 /* spacing between btns */
 .utility-btn > * {
-  margin-bottom: 10px;
+  margin-bottom: 20%;
 }
 
 .date-btn {
@@ -139,6 +141,10 @@
   text-align: center;
   padding: 10px;
   background-color: var(--shade2);
+  display: flex;
+  flex-direction: column;
+  gap: 70%;
+  margin: 10% 0 0 0;
 }
 
 .header h2 {

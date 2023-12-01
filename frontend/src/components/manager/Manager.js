@@ -161,11 +161,11 @@ function Manager() {
     <div className="manager-stage">
       <div className="left-panel">
         <div className="header">
-          <h2>Reports</h2>
+          <h2>Welcome,</h2>
+          <div>{userName}</div>
+          <div>{userEmail}</div>
         </div>
-        <div>{userName}</div>
-        <div>{userEmail}</div>
-
+        
         <ReportButtons
           activeReport={activeReport}
           handleReport={handleReport}
