@@ -68,13 +68,20 @@ function Manager() {
       setColumns(['product_name1', 'product_name2', 'frequency']);
       setTableData(data);
       setShowChart(false);
-    } 
-    // else if (reportType === 'Usage Chart') {
-      
-    // } 
+    }  
     else if (reportType === 'Add Employee') {
       setColumns([]);
     }
+    //______________________________
+    if (reportType === 'Usage Chart') {
+      setShowChart(true);
+      setChartData(data);
+    } 
+    else {
+      setShowChart(false);
+      setTableData(data);
+    }
+    //_____________________________
   }
 
   function handleReport(e, reportType) {
@@ -97,7 +104,7 @@ function Manager() {
           console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data);
           generateReport(reportType, response.data.data);
 
-          //TESTING
+          //TESTING___________________________
           if (reportType === "Usage Chart"){
             setShowChart(true);
             setChartData(response.data.data);
@@ -109,6 +116,7 @@ function Manager() {
             generateReport(reportType);
             setTableData(response.data.data);
           }
+          //____________________________________
         })
 
         .catch(error => {
@@ -177,6 +185,49 @@ function Manager() {
 
 
         <div className="main-content">
+          {showChart ? (
+            <CChart
+              type="bar"
+              data={{
+                labels: chartData,
+                datasets: [
+                  {
+                    label: "Usage Chart",
+                    backgroundColor: "#ff0000",
+                    data: chartData,
+                  },
+                ],
+              }}
+              labels="Inventory Items"
+              options={{
+                plugins: {
+                  legend: {
+                    labels: {
+                      color: "#00ffff",
+                    },
+                  },
+                },
+                scales: {
+                  x: {
+                    grid: {
+                      color: "#00ff00",
+                    },
+                    ticks: {
+                      color: "#0000ff",
+                    },
+                  },
+                  y: {
+                    grid: {
+                      color: "#ffcccc",
+                    },
+                    ticks: {
+                      color: "#000000",
+                    },
+                  },
+                },
+              }}
+            />
+          ) : (
           <table className='main-content-table'>
             <thead className='content-head'>
             </thead>
@@ -190,6 +241,7 @@ function Manager() {
               ))}
             </tbody>
           </table>
+          )}
           <div>
             {activeReport === "Add Employee" ? (
               <AddEmployee />
@@ -200,49 +252,6 @@ function Manager() {
 
 
         {/* TESTING */}
-        {showChart && (
-          <CChart
-            type="bar"
-            data={{
-              labels: chartData,
-              datasets: [
-                {
-                  label: "Usage Chart",
-                  backgroundColor: "#ff0000",
-                  data: chartData,
-                },
-              ],
-            }}
-            labels="Inventory Items"
-            options={{
-              plugins: {
-                legend: {
-                  labels: {
-                    color: "#00ffff",
-                  },
-                },
-              },
-              scales: {
-                x: {
-                  grid: {
-                    color: "#00ff00",
-                  },
-                  ticks: {
-                    color: "#0000ff",
-                  },
-                },
-                y: {
-                  grid: {
-                    color: "#ffcccc",
-                  },
-                  ticks: {
-                    color: "#000000",
-                  },
-                },
-              },
-            }}
-          />
-        )}
 
 
 
