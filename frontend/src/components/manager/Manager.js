@@ -152,6 +152,7 @@ function Manager() {
     //reportType = "View Employees" since handleReport(e, "View Employees")
 
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
+    console.log(reportRoute);
 
     if (reportRoute !== "view-employees") 
     {
@@ -182,9 +183,34 @@ function Manager() {
           console.error("axios error:", error);
         });
     } 
-    else if (reportRoute === "view-employees")
+    else if (reportRoute === "view-employees") 
     {
-      setColumns([]);
+      console.log("Fetching employee data...");
+    
+      axios
+        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .then((response) => {
+          console.log("Backend response for " + reportType, response.data.data);
+    
+          // Assuming the backend sends an array of employee objects
+          const employeeData = response.data.data;
+    
+          // Set columns based on the keys of the first employee (assuming all employees have the same structure)
+          const employeeColumns = Object.keys(employeeData[0]);
+    
+          // Set columns
+          setColumns(employeeColumns);
+    
+          // Set table data with employee data
+          setTableData(employeeData);
+    
+          // Assuming there's no chart for employee view
+          setShowChart(false);
+        })
+        .catch((error) => {
+          console.error("Axios error:", error);
+          // Handle the error, e.g., show an error message to the user
+        });
     }
   }
 
@@ -340,20 +366,22 @@ function Manager() {
           />
         )}
 
-        <div className="date-btn">
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            showTimeSelect
-            timeFormat="HH:mm"
-          />
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            showTimeSelect
-            timeFormat="HH:mm"
-          />
-        </div>
+        {activeReport !== "View Employees" && (
+          <div className="date-btn">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              showTimeSelect
+              timeFormat="HH:mm"
+            />
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              showTimeSelect
+              timeFormat="HH:mm"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
