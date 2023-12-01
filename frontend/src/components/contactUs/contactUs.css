@@ -144,7 +144,7 @@ textarea::-webkit-scrollbar {
     border-radius: 6px;
   }
 textarea::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
+    background: var(--bright); 
     border-radius: 6px;
 } 
 

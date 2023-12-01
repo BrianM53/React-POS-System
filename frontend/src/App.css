@@ -83,6 +83,8 @@
   justify-content: center;
   align-items: center;
 
+  background-color: var(--normal);
+
 }
 
 .big-plate-img-container {
@@ -109,6 +111,16 @@
   width: 55vw;
   height: 110vh;
 }
+.big-plate-img-bright {
+  /* filter: brightness(88%); */
+  /* margin-left: -3.6rem;
+  margin-top: -4.7rem; */
+  margin-left: -7%;
+  margin-top: -9%;
+  /* scale: 100%;  */
+  width: 55vw;
+  height: 110vh;
+}
 
 /* ================================ RIGHT STUFF TOP =========================== */
 .big-plate-info-container {
@@ -119,6 +131,8 @@
   /* margin-bottom: 10%; */
   /* background-color: green; */
   width: 80%;
+
+  color: var(--landing-text);
 }
 
 .big-plate-info-title {
@@ -165,7 +179,7 @@
     /* overflow: hiddesc; */
     white-space: nowrap;
     /* font-weight: bold; */
-    color: var(--normal);
+    color: var(--landing-text-order);
     /* background-color: var(--shade2); */
     padding: 10px;
     border-radius: 15px;

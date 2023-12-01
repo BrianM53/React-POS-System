@@ -27,7 +27,8 @@ const App = () => {
           <div className='big-plate-container'>
             <div className='big-plate-img-shadow'>
               <div class="big-plate-img-container">
-                <img class="big-plate-img" src='/hd-oreo-crepe.png' alt="Oreo Crepe on a plate" />
+                <img class={localStorage.getItem("color-style") === "dark" ? "big-plate-img" : "big-plate-img-bright"} 
+                src='/hd-oreo-crepe.png' alt="Oreo Crepe on a plate" />
               </div>
             </div>
           </div>  

@@ -8,22 +8,15 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Header from '../app/header';
+
+import { useSettings } from '../utility/settingsControl';
 library.add(fas,fab); 
 
 const Settings = () => {
-  const [colorStyle, setColorStyle] = useState("low");
-  const [fontSize, setFontSize] = useState("normal");
+
+  const { colorStyle, setColorStyle, fontSize, setFontSize } = useSettings();
 
   useEffect(() => {
-    // document.body.style.zoom = "80%";
-
-    if (localStorage.getItem("color-style")) {
-      setColorStyle(Number(localStorage.getItem("color-style")));
-    }
-
-    if (localStorage.getItem("font-size")) {
-      setFontSize(Number(localStorage.getItem("font-size")));
-    }
 
     if (!window.googleTranslateElementInit) {
       window.googleTranslateElementInit = function () {
@@ -47,19 +40,16 @@ const Settings = () => {
       googleTranslateScript.id = "googleTranslateScript";
       document.body.appendChild(googleTranslateScript);
     }
-  }, []);
-  const updateValue = (id, value) => {
-    localStorage.setItem(id, value);
-  };
+  }, []);  
 
   const handleColorChange = (e) => {
     setColorStyle(e.target.value);
-    updateValue("color-style", e.target.value);
+    localStorage.setItem("color-style", e.target.value);
   };
 
   const handleFontSizeChange = (e) => {
     setFontSize(e.target.value);
-    updateValue("font-size", e.target.value);
+    localStorage.setItem("font-size", e.target.value);
   };
 
   return (

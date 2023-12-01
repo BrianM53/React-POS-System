@@ -39,7 +39,7 @@
 }
 
 .header-nav::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
+    background: var(--bright); 
     /* border-radius: 6px; */
 }
 
