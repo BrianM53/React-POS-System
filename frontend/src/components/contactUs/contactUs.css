@@ -10,16 +10,19 @@
     --border: #81a7a2;
 }
 
+.menu-body {
+    height: 100vh;
+}
 .menu-main-contactus
 {
+    height: 100vh;
     background-color: var(--dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2em;
-    gap: 3em;
-    height: 100vh;
+    padding: 2rem;
+    gap: 3rem;
 }
 
 .top-row-form-data {
@@ -67,6 +70,9 @@
     color: var(--text-color);
     padding: 1em;
     margin-top: -2em;
+
+    /* height: 70%;
+    width: 70%; */
 }
 
 .contactus-image
@@ -163,6 +169,7 @@ textarea::-webkit-scrollbar-thumb {
     flex-direction: column;
     text-wrap: wrap;
     width: 100%;
+    max-width: 1000px;
     /* height:100%; */
     gap: .25em;
     font-size: 2.1rem;
