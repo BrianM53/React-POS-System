@@ -114,6 +114,7 @@
 
 /* ========================== right half navigation positioning ================================= */
 .header-nav-right {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     /* background-color: green; */
     display: flex;
     align-items: center;

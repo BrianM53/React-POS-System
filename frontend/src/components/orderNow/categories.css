@@ -13,6 +13,7 @@
 
 .menu-main-menu-categories 
 {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     border: 3px solid var(--border);
     display: flex;
     justify-content: space-between;

@@ -23,6 +23,7 @@ const App = () => {
       <div className='main-stage'>
 
         <div className='left-content'> 
+
           <div className='big-plate-container'>
             <div className='big-plate-img-shadow'>
               <div class="big-plate-img-container">
@@ -30,16 +31,31 @@ const App = () => {
               </div>
             </div>
           </div>  
+          
         </div>
         <div className='right-content'>
-          <div>
-            rightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrightttttttrighttttttt
-          </div>
-          <div>
-            righttttttt
+          <div className='big-plate-info-container'>
+
+            <div>
+              <div className='big-plate-info-title'>
+                Oreo Cookies n' Cream
+              </div>
+              <div className='big-plate-info-desc'>
+                Oreo cookie crumbles and vanilla cream filling.
+              </div>
+            </div>
+
+            <div className='big-plate-info-order-container'>
+              <Link to="/order-now" className='big-plate-order-now-btn'>
+                <div>Order Now</div>
+              </Link> 
+            </div>
+
+            {/* <div className='big-plate-order-now-btn-container'>
+            </div> */}
+
           </div>
         </div>
-
       </div>
     </div>
   );

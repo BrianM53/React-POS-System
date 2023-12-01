@@ -37,7 +37,7 @@ function AboutUs() {
           </div>
 
           <div className="actual-bottom-container">
-              <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image-bottom"/>
+              {/* <img src="/employeesGiveBack.jpeg" alt="Employees presenting donation check" className="menu-main-aboutus-image-bottom"/> */}
             <div className="menu-main-aboutus-bottom-container">
               <p>
                 We've donated over 11,000 additional meals recently to the Houston Food Bank through our "Eat Here, Feed There" program, totaling over 359,000 meals since it started the program in 2018. For each crepe sold with the food bank logo on the menu, we brand donates a meal to fight hunger.
