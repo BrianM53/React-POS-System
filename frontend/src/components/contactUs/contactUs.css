@@ -121,7 +121,7 @@ input
     border-radius: 10px;
     border: 5px solid var(--text-color);
     border-radius: 25px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); */
     /* color: var(--normal); */
     /* width: 100%; */
 }
@@ -131,7 +131,7 @@ textarea
     border-radius: 10px;
     border: 5px solid var(--text-color);
     border-radius: 25px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); */
     width: 100%;
     /* color: var(--normal); */
 }
@@ -162,7 +162,7 @@ textarea::-webkit-scrollbar-thumb {
     font-size: 2.2rem;
     border-radius: 25px;
     width: 100%;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    /* box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5); */
 }
 
 .contact-form-container
