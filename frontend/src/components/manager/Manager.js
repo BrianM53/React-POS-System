@@ -60,14 +60,19 @@ function Manager() {
     return date_val + " " + time_val;
   }
 
-  function generateReport(reportType, data) {
+  function generateReport(reportType, data) 
+  {
     console.log(reportType);
-    if (reportType === "Sales Report") {
+    if (reportType === "Sales Report") 
+    {
       setColumns(["product_name", "price", "numsold", "totalsales"]);
       setTableData(data);
       setShowChart(false);
-    } else if (reportType === "Excess Report") {
-      for (let i = 0; i < data.length; i++) {
+    } 
+    else if (reportType === "Excess Report") 
+    {
+      for (let i = 0; i < data.length; i++) 
+      {
         data[i].total_consumed = Math.round(data[i].total_consumed * 100) / 100;
         data[i].percent_sold = Math.round(data[i].percent_sold * 100) / 100;
       }
@@ -80,7 +85,9 @@ function Manager() {
       ]);
       setTableData(data);
       setShowChart(false);
-    } else if (reportType === "Restock Report") {
+    } 
+    else if (reportType === "Restock Report") 
+    {
       setColumns([
         "product_name",
         "inventory_item",
@@ -90,13 +97,29 @@ function Manager() {
       ]);
       setTableData(data);
       setShowChart(false);
-    } else if (reportType === "Sells Together") {
+    } 
+    else if (reportType === "Sells Together") 
+    {
       setColumns(["product_name1", "product_name2", "frequency"]);
       setTableData(data);
       setShowChart(false);
-    } else if (reportType === "View Employees") {
-      setColumns([]);
-    } else if (reportType === "View Orders") {
+    } 
+    else if (reportType === "View Employees") 
+    {
+      setColumns([
+        "employee_id",
+        "first_name",
+        "last_name",
+        "phone",
+        "email",
+        "username",
+        "password"
+      ]);
+      setTableData(data);
+      setShowChart(false);
+    } 
+    else if (reportType === "View Orders") 
+    {
       setColumns([
         "Order ID",
         "Date & Time",
@@ -113,7 +136,10 @@ function Manager() {
           Quantity: order.quantity,
         }))
       );
-    } else if (reportType === "Usage Chart") {
+    } 
+    else if (reportType === "Usage Chart") 
+    {
+
     }
   }
 
@@ -123,9 +149,12 @@ function Manager() {
     localStorage.setItem("activeReport", reportType);
     setActiveReport(reportType);
 
+    //reportType = "View Employees" since handleReport(e, "View Employees")
+
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
 
-    if (reportRoute !== "add-employee") {
+    if (reportRoute !== "view-employees") 
+    {
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute, {
           startDate: generateTimestamp(startDate),
@@ -152,7 +181,9 @@ function Manager() {
         .catch((error) => {
           console.error("axios error:", error);
         });
-    } else {
+    } 
+    else if (reportRoute === "view-employees")
+    {
       setColumns([]);
     }
   }
@@ -261,7 +292,7 @@ function Manager() {
               ))}
             </tbody>
           </table>
-          <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div>
+          {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
         </div>
 
         {/* TESTING */}

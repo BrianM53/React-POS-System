@@ -118,6 +118,27 @@ class Report {
     );
   }
 
+  static generateViewEmployees(callback) 
+  {
+    connection.query(
+      "SELECT " +
+      "  employees.first_name, " +
+      "  employees.last_name, " +
+      "  employees.phone, " +
+      "  employees.email, " +
+      "  employees.username, " +
+      "  employees.password " +
+      "FROM employees;",
+
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    );
+  }
+
   static async generateUsageChart() {
     // Assuming you have startDatePicker and endDatePicker as references to your date pickers
     // const startDate = startDatePicker.value;
@@ -264,5 +285,8 @@ class Report {
     });
   }
 }
+
+
+
 
 module.exports = Report;

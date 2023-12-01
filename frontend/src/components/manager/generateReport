@@ -31,9 +31,9 @@ function generateReport(reportType) {
       // Replace this with actual code to generate the Usage Chart
 
 
-    } else if (reportType == 'Add Employee') {
+    } else if (reportType == 'View Employees') {
       // Add Employee (You may need a different function for this)
-      console.log('Adding Employee');
+      console.log('Viewing Employees');
       // Replace this with actual code to add an employee
 
 
