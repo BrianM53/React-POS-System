@@ -51,9 +51,6 @@ const App = () => {
               </Link> 
             </div>
 
-            {/* <div className='big-plate-order-now-btn-container'>
-            </div> */}
-
           </div>
         </div>
       </div>
