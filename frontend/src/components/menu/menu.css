@@ -1,9 +1,10 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --font-size: 16px;
-}
+} */
 
 .menu-header 
 {

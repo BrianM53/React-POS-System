@@ -1,5 +1,7 @@
+@import '../utility/colors.css';
+
 /* color controller */
-:root {
+/* :root {
     --text-color: white;
     --accent: skyblue;
     --font-size: 16px;
@@ -8,7 +10,7 @@
     --normal: #A7C8C5;
     --dark: #1c221d;
     --border: #81a7a2;
-}
+} */
 
 .menu-body {
     height: 100vh;

@@ -1,5 +1,6 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --font-size: 16px;
@@ -7,7 +8,7 @@
     --bright: #BDE3DF;
     --normal: #A7C8C5;
     --dark: #262e28;
-}
+} */
 
 .socials-container {
     width: 500px;

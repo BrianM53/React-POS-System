@@ -1,5 +1,6 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --root-font-size: 16px;
@@ -9,54 +10,78 @@
     --bright: #BDE3DF;
     --normal: #A7C8C5;
     --dark: #1c221d;
-}
+} */
 
 .menu-main-menu-categories 
-{
+{   
+    /* margin-top: auto; */
+    /* margin-top: 5%; */
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     border: 3px solid var(--border);
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background-color: var(--normal);
     color: var(--white);
     font-size: 1.5rem;
     align-items: center;
-    /* padding: .5em 0; */
+    padding: .5em 0;
     /* line-height: 1.5em;  */
     text-align: center;
+    white-space: wrap;
+    text-wrap: wrap;
+
     border-radius: 25px;
-    margin-top: -1rem;
+    margin-top: 3%;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+
+    /* padding: 0.5rem; */
+    width: 85vw;
+    height: fit-content;
+    /* padding: 1rem; */
+    /* margin: 3rem; */
+    /* height: 30%; */
+
+    overflow-x: scroll;
+}
+.menu-main-menu-categories::-webkit-scrollbar {
+    display:none;
 }
 
 .category-item-passive
 {
     padding: 0 1em;
     /* border-right: 5px solid var(--white);  */
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
+    /* flex-grow: 1; */
+    /* display: flex; */
+    /* align-items: center; */
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
     /* background-color: var(--shade2);
     padding: 10px;
     border-radius: 15px; */
+
+    /* height: fit-content; */
+    
 }
 
 .category-item-active
 {
+    /* word-wrap: break-word;
+    height: fit-content; */
     padding: 0 1em;
     /* border-right: 5px solid var(--border);  */
     flex-grow: 1;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     
     background-color: var(--shade2);
     padding: 7px;
     border-radius: 15px;
+
+    /* white-space: nowrap; */
 }
 
 .category-item-passive:hover
@@ -67,5 +92,7 @@
     /* padding: 7px; */
     border-radius: 15px;
     /* font-size: 1.6rem; */
+
+    /* overflow: scroll; */
 
 }

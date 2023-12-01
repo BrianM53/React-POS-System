@@ -11,23 +11,18 @@ import Header from '../app/header';
 library.add(fas,fab); 
 
 const Settings = () => {
-  const [displayContrast, setDisplayContrast] = useState(50);
-  const [fontSize, setFontSize] = useState(16);
-  const [mouseSensitivity, setMouseSensitivity] = useState(5);
+  const [colorStyle, setColorStyle] = useState("low");
+  const [fontSize, setFontSize] = useState("normal");
 
   useEffect(() => {
     // document.body.style.zoom = "80%";
 
-    if (localStorage.getItem("display-contrast")) {
-      setDisplayContrast(Number(localStorage.getItem("display-contrast")));
+    if (localStorage.getItem("color-style")) {
+      setColorStyle(Number(localStorage.getItem("color-style")));
     }
 
     if (localStorage.getItem("font-size")) {
       setFontSize(Number(localStorage.getItem("font-size")));
-    }
-
-    if (localStorage.getItem("mouse-sensitivity")) {
-      setMouseSensitivity(Number(localStorage.getItem("mouse-sensitivity")));
     }
 
     if (!window.googleTranslateElementInit) {
@@ -57,19 +52,14 @@ const Settings = () => {
     localStorage.setItem(id, value);
   };
 
-  const handleDisplayContrastChange = (e) => {
-    setDisplayContrast(Number(e.target.value));
-    updateValue("display-contrast", e.target.value);
+  const handleColorChange = (e) => {
+    setColorStyle(e.target.value);
+    updateValue("color-style", e.target.value);
   };
 
   const handleFontSizeChange = (e) => {
-    setFontSize(Number(e.target.value));
+    setFontSize(e.target.value);
     updateValue("font-size", e.target.value);
-  };
-
-  const handleMouseSensitivityChange = (e) => {
-    setMouseSensitivity(Number(e.target.value));
-    updateValue("mouse-sensitivity", e.target.value);
   };
 
   return (
@@ -77,72 +67,60 @@ const Settings = () => {
       <Header />
       
       <main className="menu-main-settings">
-        <SpecialFontText
+        {/* <SpecialFontText
           as="div"
           className="menu-main-settings-header"
           fontSize="3.5rem"
         >
-          Accessibility Settings
-        </SpecialFontText>
+          Settings
+        </SpecialFontText> */}
 
         <div className="menu-main-settings-container">
           <div className="menu-main-settings-left-container">
             <div
-              className="menu-main-settings-entry"
-              id="menu-main-settings-entry-1"
+              className="settings-color-container"
             >
-              Display Contrast:
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={displayContrast}
-                className="range-slider"
-                id="display-contrast"
-                onChange={handleDisplayContrastChange}
-              />
-              <span id="display-contrast-value">{displayContrast}</span>
+              <div>
+                Color:   
+              </div>
+              <div>
+                <select
+                  value={colorStyle}
+                  onChange={handleColorChange}
+                  className="color-dropdown"
+                >
+                  <option value="dark">Dark</option>
+                  <option value="light">Light</option>
+                  <option value="high-contrast">High Contrast</option>
+                </select>
+              </div>
             </div>
             <div
-              className="menu-main-settings-entry"
-              id="menu-main-settings-entry-2"
+              className="settings-font-container"
             >
               Font Size:
-              <input
-                type="range"
-                min="10"
-                max="50"
+              <select
                 value={fontSize}
-                className="range-slider"
-                id="font-size"
+                className="font-dropdown"
                 onChange={handleFontSizeChange}
-              />
-              <span id="font-size-value">{fontSize}</span>
-            </div>
-            <div
-              className="menu-main-settings-entry"
-              id="menu-main-settings-entry-3"
-            >
-              Mouse Sensitivity:
-              <input
-                type="range"
-                min="1"
-                max="10"
-                value={mouseSensitivity}
-                className="range-slider"
-                id="mouse-sensitivity"
-                onChange={handleMouseSensitivityChange}
-              />
-              <span id="mouse-sensitivity-value">{mouseSensitivity}</span>
+              >
+                <option value="normal">Normal</option>
+                <option value="large">Large</option>
+              </select>
             </div>
           </div>
 
+
+
+
+
+
+
           <div className="menu-main-settings-right-container">
             <div
-              className="menu-main-settings-entry"
-              id="menu-main-settings-entry-5"
+              className="translate-container"
             >
-              Google Translate API
+              Select Language
               <div id="google_translate_element"></div>
             </div>
           </div>

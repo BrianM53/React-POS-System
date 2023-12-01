@@ -1,5 +1,6 @@
+@import '../utility/colors.css';
 /* color controller */
-:root {
+/* :root {
   --text-color: red;
   --root-font-size: 16px;
   --shade1: #89b3ae;
@@ -7,7 +8,7 @@
   --normal: #A7C8C5;
   --dark: #1c221d;
   --border: #81a7a2;
-}
+} */
 
 /* ================== scrollbar styling for about us containers =================== */
 .menu-main-aboutus-entry p::-webkit-scrollbar {

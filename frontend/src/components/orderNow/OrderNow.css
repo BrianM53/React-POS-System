@@ -1,5 +1,6 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --root-font-size: 16px;
@@ -9,6 +10,16 @@
     --normal: #A7C8C5;
     --dark: #1c221d;
     --border: #81a7a2;
+} */
+
+
+.category-container {
+    /* overflow-x: scroll; */
+    display: flex;
+    margin-bottom: auto;
+}
+.category-container::-webkit-scrollbar {
+    display: none;
 }
 
 .order-now-nav-left
@@ -33,13 +44,13 @@
 #menu-nav-settings-icon
 {
     color: white;
-    font-size: 4rem !important;
+    font-size: 4rem;
 }
 
 #menu-nav-home-icon 
 {
     color: white;
-    font-size: 4rem !important;
+    font-size: 4rem ;
 }
 
 .menu-nav-container-order-now
