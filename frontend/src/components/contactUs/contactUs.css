@@ -71,6 +71,8 @@
     padding: 1em;
     margin-top: -2em;
 
+    height: 50vh;
+
     /* height: 70%;
     width: 70%; */
 }
@@ -177,11 +179,16 @@ textarea::-webkit-scrollbar-thumb {
 
 .form-container
 {
+    height: 30vh;
     display: flex;
     flex-direction: column;
     text-wrap: wrap;
     align-items: center;
     gap: .25em;
+    overflow: scroll;
+}
+.form-container::-webkit-scrollbar {
+    display: none;
 }
 
 #message
