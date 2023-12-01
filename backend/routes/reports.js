@@ -1,8 +1,15 @@
 var express = require("express");
+const cors = require('cors');
 var router = express.Router();
 const Report = require("../models/Report");
+const app = express();
+const port = 3001;
 
 const connection = require("../connection");
+
+app.use(cors());
+
+router.use(cors());
 
 router.get("/", (res) => {
   res.send("reports route working");
@@ -99,6 +106,7 @@ router.post("/view-orders", (req, res) => {
   });
 });
 
+
 router.post("/view-employees", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
@@ -110,7 +118,25 @@ router.post("/view-employees", (req, res) => {
       res.json({ data: employeesData });
     }
   });
-
 })
+
+router.delete("/employees/:employeeId", (req, res) => {
+  const employeeId = req.params.employeeId;
+
+  // Assuming you have a deleteEmployee function in your Report module
+  Report.deleteEmployee(employeeId, (error) => {
+    if (error) {
+      res.status(500).json({ error: "Error deleting employee" });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
+
+app.use("/reports", router);
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+}); 
 
 module.exports = router;

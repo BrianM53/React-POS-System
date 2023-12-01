@@ -113,7 +113,7 @@ function Manager() {
         "phone",
         "email",
         "username",
-        "password"
+        "password",
       ]);
       setTableData(data);
       setShowChart(false);
@@ -192,26 +192,34 @@ function Manager() {
         .then((response) => {
           console.log("Backend response for " + reportType, response.data.data);
     
-          // Assuming the backend sends an array of employee objects
           const employeeData = response.data.data;
     
-          // Set columns based on the keys of the first employee (assuming all employees have the same structure)
           const employeeColumns = Object.keys(employeeData[0]);
     
-          // Set columns
           setColumns(employeeColumns);
-    
-          // Set table data with employee data
           setTableData(employeeData);
-    
-          // Assuming there's no chart for employee view
           setShowChart(false);
         })
         .catch((error) => {
           console.error("Axios error:", error);
-          // Handle the error, e.g., show an error message to the user
         });
     }
+  }
+
+  function handleRemoveEmployee(employee) 
+  {
+    console.log("Removing employee:", employee);
+  
+    axios
+    .delete(BACKEND_URL + "/reports/employees/" + employee.employee_id)
+    .then(() => {
+      console.log("Employee removed successfully");
+      // Additional logic if needed after successful removal
+    })
+    .catch((error) => {
+      console.error("Axios error:", error);
+    });
+
   }
 
   return (
@@ -303,22 +311,44 @@ function Manager() {
           <div className="label-item">
             <div className="label-item-button">Add an Employee</div>
           </div>
+
+          {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
+
         </div>
 
         <div className="main-content">
           <table className="main-content-table">
             <thead className="content-head"></thead>
-            <tbody>
-              {tableData.map((element, index) => (
-                <tr key={index}>
-                  {columns.map((column, columnIndex) => (
-                    <td key={columnIndex}>{element[column]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
+            {activeReport !== "View Employees" ? 
+            (
+              <tbody>
+                {tableData.map((element, index) => (
+                  <tr key={index}>
+                    {columns.map((column, columnIndex) => (
+                      <td key={columnIndex}>{element[column]}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+              ) : (
+              <tbody>
+                {tableData.map((element, index) => (
+                  <tr key={index}>
+                    {columns.map((column, columnIndex) => (
+                      <td key={columnIndex}>{element[column]}</td>
+                    ))}
+                    <td>
+                      {/* <button onClick={() => handleEditEmployee(element)}>Edit</button> */}
+                      <button>Edit</button>
+                    </td>
+                    <td>
+                      <button onClick={() => handleRemoveEmployee(element)}>Remove</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
-          {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
         </div>
 
         {/* TESTING */}

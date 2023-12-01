@@ -118,27 +118,6 @@ class Report {
     );
   }
 
-  static generateViewEmployees(callback) 
-  {
-    connection.query(
-      "SELECT " +
-      "  employees.first_name, " +
-      "  employees.last_name, " +
-      "  employees.phone, " +
-      "  employees.email, " +
-      "  employees.username, " +
-      "  employees.password " +
-      "FROM employees;",
-
-      (error, results) => {
-        if (error) {
-          return callback(error);
-        }
-        callback(null, results.rows);
-      }
-    );
-  }
-
   static async generateUsageChart() {
     // Assuming you have startDatePicker and endDatePicker as references to your date pickers
     // const startDate = startDatePicker.value;
@@ -284,6 +263,46 @@ class Report {
       callback(null, results.rows);
     });
   }
+
+  static generateViewEmployees(callback) 
+  {
+    connection.query(
+      "SELECT " +
+      "  employees.employee_id, " +
+      "  employees.first_name, " +
+      "  employees.last_name, " +
+      "  employees.phone, " +
+      "  employees.email, " +
+      "  employees.username, " +
+      "  employees.password " +
+      "FROM employees;",
+
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    );
+  }
+
+  static deleteEmployee(employeeId, callback) 
+  {
+    const query = "DELETE FROM employees WHERE employee_id = $1";
+    connection.query(query, [employeeId], (error) => {
+      if (error) 
+      {
+        console.error("Error deleting employee:", error);
+        callback(error);
+      } 
+      else 
+      {
+        console.log("Employee deleted successfully");
+        callback(null);
+      }
+    });
+  }
+
 }
 
 
