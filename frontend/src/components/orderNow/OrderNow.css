@@ -1,5 +1,6 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --root-font-size: 16px;
@@ -9,6 +10,16 @@
     --normal: #A7C8C5;
     --dark: #1c221d;
     --border: #81a7a2;
+} */
+
+
+.category-container {
+    /* overflow-x: scroll; */
+    display: flex;
+    margin-bottom: auto;
+}
+.category-container::-webkit-scrollbar {
+    display: none;
 }
 
 .order-now-nav-left
@@ -33,13 +44,13 @@
 #menu-nav-settings-icon
 {
     color: white;
-    font-size: 4rem !important;
+    font-size: 4rem;
 }
 
 #menu-nav-home-icon 
 {
     color: white;
-    font-size: 4rem !important;
+    font-size: 4rem ;
 }
 
 .menu-nav-container-order-now
@@ -99,9 +110,15 @@
     /* margin-top: 70%; */
     display: flex;
     overflow: scroll;
+
+    justify-content: center;
+    align-items: center;
     /* background-color: red; */
     /* padding: 50%; */
     width: 100%;
+
+    margin-bottom: auto;
+    margin-top: -3%;
 }
 .menu-main-menu-container::-webkit-scrollbar {
     display: none;
@@ -118,7 +135,7 @@
     flex-direction: column;
     border-radius: 25px;
     scale: 85%;
-    margin-top:-3rem;
+    /* margin-top:-3rem; */
     box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
 }
 
@@ -127,10 +144,10 @@
 .ticket-container-title
 {
     
-    color: var(--white);
+    color: var(--text-color);
     text-align: center;
     scale: 85%;
-    border-bottom: 5px solid var(--white);
+    border-bottom: 5px solid var(--text-color);
     margin-left: 1em;
     margin-right: 1em;
     width: 50%;
@@ -139,6 +156,7 @@
 
 .ticket-item-container, .ticket-item-container-noscroll
 {
+    color: var(--text-color);
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     height: 425px;
     overflow-y: scroll;
@@ -156,7 +174,7 @@
 }
 
 .ticket-item-container::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
+    background: var(--bright); 
     border-radius: 6px;
 } 
 
@@ -269,6 +287,7 @@
 
 .ticket-total-and-order-container
 {
+    color: var(--text-color);
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     display: flex;
     flex-direction: column;
@@ -301,7 +320,7 @@
     font-size: 2rem;
     border-radius: 500px;
 
-    color: white;
+    color: (--text-color);
     /* border-color: var(--shade1); */
     background-color: var(--shade2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -375,7 +394,7 @@
 }
   
 .menu-main-menu-body::-webkit-scrollbar-thumb {
-    background: var(--shade2); 
+    background: var(--bright); 
     border-radius: 6px;
 } 
 .menu-main-menu-body-noscroll::-webkit-scrollbar {
@@ -414,7 +433,7 @@
     display: flex;
     flex-direction: row;
     gap: .5em;
-    border: 2px solid var(--white);
+    border: 2px solid var(--text-color);
     border-radius: 55px;
     
     padding: .5em;

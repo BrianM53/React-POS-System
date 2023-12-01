@@ -1,4 +1,5 @@
-:root {
+@import '../utility/colors.css';
+/* :root {
     --bright: #BDE3DF;
     --normal: #A7C8C5;
     --shade1: #89b3ae;
@@ -6,7 +7,7 @@
     --dark: #262e28;
     --default-font-size: 16px;
     --text-color: white;
-}
+} */
 
 @font-face {
     font-family: 'cursive-font';
@@ -38,7 +39,7 @@
 }
 
 .header-nav::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
+    background: var(--bright); 
     /* border-radius: 6px; */
 }
 

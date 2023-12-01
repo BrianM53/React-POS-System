@@ -1,5 +1,7 @@
+@import '../utility/colors.css';
+
 /* color controller */
-:root {
+/* :root {
     --text-color: white;
     --accent: skyblue;
     --font-size: 16px;
@@ -8,7 +10,7 @@
     --normal: #A7C8C5;
     --dark: #1c221d;
     --border: #81a7a2;
-}
+} */
 
 .menu-body {
     height: 100vh;
@@ -121,7 +123,7 @@ input
     border-radius: 10px;
     border: 5px solid var(--text-color);
     border-radius: 25px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); */
     /* color: var(--normal); */
     /* width: 100%; */
 }
@@ -131,7 +133,7 @@ textarea
     border-radius: 10px;
     border: 5px solid var(--text-color);
     border-radius: 25px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); */
     width: 100%;
     /* color: var(--normal); */
 }
@@ -142,7 +144,7 @@ textarea::-webkit-scrollbar {
     border-radius: 6px;
   }
 textarea::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
+    background: var(--bright); 
     border-radius: 6px;
 } 
 
@@ -162,7 +164,7 @@ textarea::-webkit-scrollbar-thumb {
     font-size: 2.2rem;
     border-radius: 25px;
     width: 100%;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    /* box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5); */
 }
 
 .contact-form-container

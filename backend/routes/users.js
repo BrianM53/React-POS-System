@@ -83,6 +83,7 @@ router.post("/auth/google-login", async (req, res) => {
       );
 
       conn.release();
+
       if (employeeCredentials.rowCount > 0) {
         console.log("backend good cashier");
         res.json({
@@ -91,7 +92,7 @@ router.post("/auth/google-login", async (req, res) => {
           name: payload.name,
           isManager: false,
           isCashier: true,
-          employeeId: employeeCredentials.rows[0],
+          employeeId: employeeCredentials.rows[0].employee_id,
         });
       } else if (managerCredentials.rowCount > 0) {
         console.log("backend good manager");
@@ -101,7 +102,7 @@ router.post("/auth/google-login", async (req, res) => {
           name: payload.name,
           isManager: true,
           isCashier: false,
-          employeeId: employeeCredentials.rows[0],
+          // employeeId: employeeCredentials.rows[0],
         });
       } else {
         console.log("backend else");

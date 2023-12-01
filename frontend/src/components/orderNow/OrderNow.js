@@ -249,11 +249,13 @@ const OrderNow = () => {
       <Header />
 
       <main className="menu-main-menu">
-        <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
+        {/* <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
           Order Now
-        </SpecialFontText>
-
-        <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
+        </SpecialFontText> */}
+        
+        <div className="category-container">
+          <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
+        </div>
 
         <div className="menu-main-menu-container">
           <div 

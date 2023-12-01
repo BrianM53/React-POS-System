@@ -1,5 +1,6 @@
+@import 'components/utility/colors.css';
 /* color controller */
-:root {
+/* :root {
   --text-color: white;
   --accent: skyblue;
   --root-font-size: 16px;
@@ -10,7 +11,7 @@
   --normal: #A7C8C5;
   --dark: #1c221d;
   --border: #81a7a2;
-}
+} */
 
 @font-face {
   font-family: 'cursive-font';
@@ -25,12 +26,6 @@
       url('fonts/cursiveFont/cursive1.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-}
-
-@media (max-width: 600px) {
-  .left-content {
-    display: none;
-  }
 }
 
 /*=================================== SKELETON =================================== */
@@ -48,13 +43,17 @@
 
 .left-content {
   /* background-color: white; */
-  width: 50%;
+  width: 40%;
   justify-content: space-between;
   /* align-items: center; */
   /* display: flex; */
   flex-direction: column;
   
   /* margin-top: -1rem; */
+  /* overflow: scroll; */
+}
+.left-content::-webkit-scrollbar {
+  display: none;
 }
 
 .right-content {
@@ -75,7 +74,8 @@
 /* =========================== LEFT STUFF   ==============================  */
 .big-plate-container {
   margin-top: 10vh; 
-  max-width: 40vw; 
+  /* margin-left: ; */
+  max-width: 36vw; 
   max-height: 70vh; 
   background-color: var(--shade3);
 
@@ -83,26 +83,43 @@
   justify-content: center;
   align-items: center;
 
-  /* Optional: add padding, border-radius, or other styles as needed */
+  background-color: var(--normal);
+
 }
 
 .big-plate-img-container {
-  margin-left: 8rem;
+  /* margin-left: 8rem; */
   scale: 80%;
   
   /* border: 10px solid red; */
   border-radius: 50%; 
-  max-width: 55rem;
-  max-height: 55rem;
+  /* max-width: 52rem;
+  max-height: 52rem; */
+  width: 48vw;
+  height: 96vh;
 
   box-shadow: 0 10px 57px rgba(0, 0, 0, 1);
 }
 
 .big-plate-img {
   filter: brightness(88%);
-  margin-left: -3.6rem;
-  margin-top: -4.4rem;
-  scale: 100%;
+  /* margin-left: -3.6rem;
+  margin-top: -4.7rem; */
+  margin-left: -7%;
+  margin-top: -9%;
+  /* scale: 100%;  */
+  width: 55vw;
+  height: 110vh;
+}
+.big-plate-img-bright {
+  /* filter: brightness(88%); */
+  /* margin-left: -3.6rem;
+  margin-top: -4.7rem; */
+  margin-left: -7%;
+  margin-top: -9%;
+  /* scale: 100%;  */
+  width: 55vw;
+  height: 110vh;
 }
 
 /* ================================ RIGHT STUFF TOP =========================== */
@@ -114,6 +131,8 @@
   /* margin-bottom: 10%; */
   /* background-color: green; */
   width: 80%;
+
+  color: var(--landing-text);
 }
 
 .big-plate-info-title {
@@ -160,7 +179,7 @@
     /* overflow: hiddesc; */
     white-space: nowrap;
     /* font-weight: bold; */
-    color: var(--normal);
+    color: var(--landing-text-order);
     /* background-color: var(--shade2); */
     padding: 10px;
     border-radius: 15px;

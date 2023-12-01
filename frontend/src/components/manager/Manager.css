@@ -1,4 +1,6 @@
-:root {
+@import '../utility/colors.css';
+
+/* :root {
   --bright: #BDE3DF;
   --normal: #A7C8C5;
   --shade1: #89b3ae;
@@ -6,8 +8,7 @@
   --dark: #262e28;
   --default-font-size: 16px;
   --text-color: white;
-}
-
+} */
 
 .manager-stage {
   display: flex;
@@ -23,6 +24,12 @@
 
   border: 4px solid var(--shade2);
   box-shadow: -5px 0 5px -5px rgb(255, 255, 255);
+
+  height: 100vh;
+  overflow: scroll;
+}
+.left-panel::-webkit-scrollbar {
+  display:none;
 }
 
 /* =============== RIght side ======================= */
@@ -70,7 +77,10 @@
   text-wrap: nowrap;
   white-space: nowrap;
 
-  margin-top: 60%;
+  /* height: 30vh; */
+
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .report-btn::-webkit-scrollbar {
   display: none;
@@ -90,7 +100,6 @@
   font-weight: 700;
   color: var(--text-color);
 
-
   margin-right: 10%;
   
 }
@@ -106,8 +115,6 @@
 
 
 
-
-
 .utility-btn {
   list-style-type: none;
   display: flex;
@@ -116,6 +123,8 @@
   margin-top: auto;
 
   width: 70%;
+  height: 10%;
+  max-height: fit-content;
 }
 
 /* spacing between btns */
@@ -177,7 +186,7 @@
   align-items: center;
   margin-top: 5%;
   margin-bottom: 15px;
-  
+
   overflow: scroll;
   /* white-space: nowrap; */
   /* padding: 10px; */
@@ -186,7 +195,7 @@
   background-color: var(--normal);
   /* padding: .25em; */
   /* scale: 85%; */
-
+  
   border: 2px solid var(--bright);
   border-radius: 55px;
   align-items: center;
