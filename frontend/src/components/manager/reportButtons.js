@@ -84,15 +84,15 @@ function ReportButtons({ activeReport, handleReport }) {
             <a
               href=""
               className={
-                activeReport === "Add Employee"
+                activeReport === "View Employees"
                   ? "active-report"
                   : "passive-report"
               }
               onClick={(e) => {
-                handleReport(e, "Add Employee");
+                handleReport(e, "View Employees");
               }}
             >
-              Add Employee
+              View Employees
             </a>
           </li>
           <li>

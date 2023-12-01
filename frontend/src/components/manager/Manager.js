@@ -94,7 +94,7 @@ function Manager() {
       setColumns(["product_name1", "product_name2", "frequency"]);
       setTableData(data);
       setShowChart(false);
-    } else if (reportType === "Add Employee") {
+    } else if (reportType === "View Employees") {
       setColumns([]);
     } else if (reportType === "View Orders") {
       setColumns([
@@ -165,7 +165,7 @@ function Manager() {
           <div>{userName}</div>
           <div>{userEmail}</div>
         </div>
-        
+
         <ReportButtons
           activeReport={activeReport}
           handleReport={handleReport}
@@ -238,12 +238,14 @@ function Manager() {
         </div>
         <div
           className={
-            activeReport === "Add Employee"
+            activeReport === "View Employees"
               ? "label-container"
               : "passive-label"
           }
         >
-          <div className="label-item">Add an Employee</div>
+          <div className="label-item">
+            <div className="label-item-button">Add an Employee</div>
+          </div>
         </div>
 
         <div className="main-content">
@@ -259,7 +261,7 @@ function Manager() {
               ))}
             </tbody>
           </table>
-          <div>{activeReport === "Add Employee" ? <AddEmployee /> : null}</div>
+          <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div>
         </div>
 
         {/* TESTING */}

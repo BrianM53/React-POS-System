@@ -155,9 +155,8 @@
 .label-item {
   width: 100%;
   justify-content: center;
-
   font-size: x-large;
-
+  display: flex;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 400;
@@ -170,6 +169,22 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.label-item-button {
+  background-color: rgb(114, 220, 162);
+  width: 20%;
+  border-radius: 25px;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  border: 2px solid var(--shade2);
+  cursor: pointer;
+}
+
+.label-item-button:hover{
+  background-color: var(--shade2);
+}
+
+
+
 .label-item::-webkit-scrollbar {
   display: none;
 }
