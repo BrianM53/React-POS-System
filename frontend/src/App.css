@@ -1,5 +1,6 @@
+@import 'components/utility/colors.css';
 /* color controller */
-:root {
+/* :root {
   --text-color: white;
   --accent: skyblue;
   --root-font-size: 16px;
@@ -10,7 +11,7 @@
   --normal: #A7C8C5;
   --dark: #1c221d;
   --border: #81a7a2;
-}
+} */
 
 @font-face {
   font-family: 'cursive-font';
