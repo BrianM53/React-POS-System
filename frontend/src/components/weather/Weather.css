@@ -28,8 +28,9 @@
 
 .weather-data-container
 {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     display: flex;
-    font-size: larger;
+    font-size: 120%;
     flex-direction: column;
     gap: .5em;
     justify-content: center;

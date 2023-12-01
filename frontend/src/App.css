@@ -12,6 +12,27 @@
   --border: #81a7a2;
 }
 
+@font-face {
+  font-family: 'cursive-font';
+  src: url('fonts/cursiveFont/cursive2.woff') format('woff'),
+      url('fonts/cursiveFont/cursive2.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cursive-font-alt';
+  src: url('fonts/cursiveFont/cursive1.woff') format('woff'),
+      url('fonts/cursiveFont/cursive1.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media (max-width: 600px) {
+  .left-content {
+    display: none;
+  }
+}
+
 /*=================================== SKELETON =================================== */
 /* container for entire landing page */
 .main-stage {
@@ -27,7 +48,7 @@
 
 .left-content {
   /* background-color: white; */
-  width: 100%;
+  width: 50%;
   justify-content: space-between;
   /* align-items: center; */
   /* display: flex; */
@@ -38,27 +59,31 @@
 
 .right-content {
   color: var(--text-color);
-  width: 100%;
+  width: 60%;
+  /* margin-left: -10%; */
+  /* margin-right: -20%; */
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
 
-  background-color: red;
+  /* background-color: red; */
   margin-bottom: 5%;
 }
 
+
 /* =========================== LEFT STUFF   ==============================  */
 .big-plate-container {
-  margin-top: 10%;
-  width: 70%; 
-  height: 70%; 
-  /* margin-bottom: 7rem; */
-  background-color: var(--shade3); 
+  margin-top: 10vh; 
+  max-width: 40vw; 
+  max-height: 70vh; 
+  background-color: var(--shade3);
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* Optional: add padding, border-radius, or other styles as needed */
 }
 
 .big-plate-img-container {
@@ -67,8 +92,9 @@
   
   /* border: 10px solid red; */
   border-radius: 50%; 
-  width: 55rem;
-  height: 55rem;
+  max-width: 55rem;
+  max-height: 55rem;
+
   box-shadow: 0 10px 57px rgba(0, 0, 0, 1);
 }
 
@@ -76,6 +102,86 @@
   filter: brightness(88%);
   margin-left: -3.6rem;
   margin-top: -4.4rem;
+  scale: 100%;
+}
+
+/* ================================ RIGHT STUFF TOP =========================== */
+.big-plate-info-container {
+  /* text-align: cen; */
+  display: flex;
+  flex-direction: column;
+  /* margin-top: auto; */
+  /* margin-bottom: 10%; */
+  /* background-color: green; */
+  width: 80%;
+}
+
+.big-plate-info-title {
+  font-size: 450%;
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+  /* font-family: 'cursive-font', sans-serif; */
+  letter-spacing: .3rem;
+}
+
+.big-plate-info-desc {
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+  font-size: 220%;
+  /* margin-left: 1%; */
+}
+
+.big-plate-info-order-container {
+  display: flex;
+}
+
+.big-plate-info-price {
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-plate-order-now-btn-container {
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-plate-order-now-btn {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    text-overflow: ellipsis;
+    font-size: 140%;
+    
+    width: fit-content;
+    scale: 110%;
+    /* margin-left: 1%; */
+    margin-top: 1%;
+    /* overflow: hiddesc; */
+    white-space: nowrap;
+    /* font-weight: bold; */
+    color: var(--normal);
+    /* background-color: var(--shade2); */
+    padding: 10px;
+    border-radius: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+    text-decoration: none;
+}
+
+.big-plate-order-now-btn:hover {
+  text-decoration: underline;
+  /* margin-left: -20px; */
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+
+/* =================== right stuff bot =============================== */
+.popular-items-container {
+  display: flex;
+  margin-top: auto;
 }
 
 
