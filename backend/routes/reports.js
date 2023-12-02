@@ -1,31 +1,22 @@
 const express = require("express");
-const cors = require('cors');
 const connection = require("../connection");
 const router = express.Router();
-
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
-router.use(cors(corsOptions));
 
 router.get("/", (res) => {
   res.send("reports route working");
 });
 
-// posting doesn't show anything, change to get to show
 router.post("/sales-report", (req, res) => {
-  // const startDate = '2022-10-06 06:22:00';
-  // const endDate = '2022-10-06 08:25:00';
+  console.log("Received sales report request:", req.body);
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
 
   Report.generateSalesReport(startDate, endDate, (error, salesReportData) => {
     if (error) {
+      console.error("Error generating sales report:", error);
       res.status(500).json({ error: "Error generating sales report" });
     } else {
+      console.log("Sending sales report data:", salesReportData);
       res.json({ data: salesReportData });
     }
   });
@@ -77,22 +68,22 @@ router.post("/sells-together", (req, res) => {
   );
 });
 
-router.post("/usage-chart", (req, res) => {
-    const startDate = '2022-08-06 06:22:00';
-    const endDate = '2023-10-06 08:25:00';
-    // const startDate = req.body.startDate;
-    // const endDate = req.body.endDate;
-    console.log("usage");
-    res.send("usage");
+// router.post("/usage-chart", (req, res) => {
+//     const startDate = '2022-08-06 06:22:00';
+//     const endDate = '2023-10-06 08:25:00';
+//     // const startDate = req.body.startDate;
+//     // const endDate = req.body.endDate;
+//     console.log("usage");
+//     res.send("usage");
     
-    Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
-            if (error) {
-                    res.status(500).json({ error: "Error generating usage chart" });
-        } else {
-            res.json({ data: usageChartData });
-        }
-    });
-});
+//     Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+//             if (error) {
+//                     res.status(500).json({ error: "Error generating usage chart" });
+//         } else {
+//             res.json({ data: usageChartData });
+//         }
+//     });
+// });
 
 router.post("/view-orders", (req, res) => {
   const startDate = req.body.startDate;

@@ -468,7 +468,6 @@ function Manager() {
           )}
         </div>
 
-
         {/* TESTING */}
         {showChart && (
           <CChart
