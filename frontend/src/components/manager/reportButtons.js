@@ -84,21 +84,6 @@ function ReportButtons({ activeReport, handleReport }) {
             <a
               href=""
               className={
-                activeReport === "View Employees"
-                  ? "active-report"
-                  : "passive-report"
-              }
-              onClick={(e) => {
-                handleReport(e, "View Employees");
-              }}
-            >
-              View Employees
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              className={
                 activeReport === "View Orders"
                   ? "active-report"
                   : "passive-report"
@@ -114,6 +99,21 @@ function ReportButtons({ activeReport, handleReport }) {
             <a
               href=""
               className={
+                activeReport === "View Employees"
+                  ? "active-report"
+                  : "passive-report"
+              }
+              onClick={(e) => {
+                handleReport(e, "View Employees");
+              }}
+            >
+              View Employees
+            </a>
+          </li>
+          <li>
+            <a
+              href=""
+              className={
                 activeReport === "View Menu Items"
                   ? "active-report"
                   : "passive-report"
@@ -123,6 +123,21 @@ function ReportButtons({ activeReport, handleReport }) {
               }}
             >
               View Menu Items
+            </a>
+          </li>
+          <li>
+            <a
+              href=""
+              className={
+                activeReport === "View Inventory Items"
+                  ? "active-report"
+                  : "passive-report"
+              }
+              onClick={(e) => {
+                handleReport(e, "View Inventory Items");
+              }}
+            >
+              View Inventory Items
             </a>
           </li>
         </ul>
