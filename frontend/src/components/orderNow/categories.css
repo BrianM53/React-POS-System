@@ -17,7 +17,7 @@
     /* margin-top: auto; */
     /* margin-top: 5%; */
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
-    border: 3px solid var(--border);
+    border: 3px solid var(--bright);
     display: flex;
     /* justify-content: space-between; */
     background-color: var(--normal);

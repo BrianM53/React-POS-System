@@ -15,11 +15,16 @@ export function SettingsProvider({ children }) {
         document.documentElement.style.setProperty("--white", "black");
         document.documentElement.style.setProperty("--landing-text", "black");
         document.documentElement.style.setProperty("--landing-text-order", "#9C3E21");
+
+        document.documentElement.style.setProperty("--shade1", "#89b3ae");
+        document.documentElement.style.setProperty("--shade2", "#81a7a2");
+        document.documentElement.style.setProperty("--normal", "#A7C8C5");
+        document.documentElement.style.setProperty("--bright", "#81a7a2");
         
-        document.documentElement.style.setProperty("--shade1", "#6E8F8B");
-        document.documentElement.style.setProperty("--shade2", "#5F7A77");
-        document.documentElement.style.setProperty("--normal", "#81a7a2");
-        document.documentElement.style.setProperty("--bright", "#BDE3DF");
+        // document.documentElement.style.setProperty("--shade1", "#6E8F8B");
+        // document.documentElement.style.setProperty("--shade2", "#5F7A77");
+        // document.documentElement.style.setProperty("--normal", "#81a7a2");
+        // document.documentElement.style.setProperty("--bright", "#BDE3DF");
         
     } else if (colorStyle === "dark") {
         document.documentElement.style.setProperty("--dark", "#1c221d");
@@ -28,11 +33,27 @@ export function SettingsProvider({ children }) {
         document.documentElement.style.setProperty("--landing-text", "white");
         document.documentElement.style.setProperty("--landing-text-order", "#A7C8C5");
         
+        // document.documentElement.style.setProperty("--shade1", "#89b3ae");
+        // document.documentElement.style.setProperty("--shade2", "#81a7a2");
+        // document.documentElement.style.setProperty("--normal", "#A7C8C5");
+        // document.documentElement.style.setProperty("--bright", "#81a7a2");
+        document.documentElement.style.setProperty("--shade1", "#6E8F8B");
+        document.documentElement.style.setProperty("--shade2", "#5F7A77");
+        document.documentElement.style.setProperty("--normal", "#81a7a2");
+        document.documentElement.style.setProperty("--bright", "#6A8A86");
+
+    } else if (colorStyle === "high-contrast") {
+        document.documentElement.style.setProperty("--dark", "#000000");
+        document.documentElement.style.setProperty("--text-color", "white");
+        document.documentElement.style.setProperty("--white", "white");
+        document.documentElement.style.setProperty("--landing-text", "white");
+        document.documentElement.style.setProperty("--landing-text-order", "#B2FFC9");
+        
         document.documentElement.style.setProperty("--shade1", "#89b3ae");
         document.documentElement.style.setProperty("--shade2", "#81a7a2");
-        document.documentElement.style.setProperty("--normal", "#A7C8C5");
-        document.documentElement.style.setProperty("--bright", "#BDE3DF");
-      }
+        document.documentElement.style.setProperty("--normal", "#94C2BC");
+        document.documentElement.style.setProperty("--bright", "white");
+    }
     }, [colorStyle]);
 
     useEffect(() => {
