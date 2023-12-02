@@ -25,32 +25,35 @@ function AddEmployee({ onFinishAddingEmployee }) {
     e.preventDefault();
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
-  
+
     try {
+
+      console.log("inside the try");
+
       const response = await axios.post(
         BACKEND_URL + "/employees",
         employeeData
       );
-  
-      if (response.status === 200) {
+
+      console.log("after the try");
+
+      if (response.data.message === "Employee added successfully") 
+      {
         setErrorMsg(
           <div style={{ color: "green" }}>Employee added successfully.</div>
         );
+
         onFinishAddingEmployee();
-      } else {
-        setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
+      } 
+      else if (response.data.message === "Employee already exists") 
+      {
+        setErrorMsg(
+          <div style={{ color: "red" }}>Employee already exists.</div>
+        );
       }
     } catch (error) {
       console.error("Error adding employee:", error);
-  
-      // Check if there's a response from the server
-      if (error.response) {
-        setErrorMsg(
-          <div style={{ color: "red" }}>{error.response.data.message}</div>
-        );
-      } else {
-        setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
-      }
+      setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
     }
   };
 

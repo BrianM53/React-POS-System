@@ -23,6 +23,8 @@ function Manager() {
   const [endDate, setEndDate] = useState(new Date());
   const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
   const [isAddMenuItemClicked, setAddMenuItemClicked] = useState(false);
+  const [isFormOpen, setFormOpen] = useState(false);
+  const [activeFormType, setActiveFormType] = useState(null);
   const [isAddInventoryItemClicked, setAddInventoryItemClicked] = useState(false);
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
@@ -176,6 +178,9 @@ function Manager() {
   function handleReport(e, reportType) 
   {
     e.preventDefault();
+
+    setFormOpen(false);
+    setActiveFormType(null);
   
     localStorage.setItem("activeReport", reportType);
     setActiveReport(reportType);
@@ -337,34 +342,49 @@ function Manager() {
       });
   }
 
-  function handleAddEmployeeClicked() 
-  {
-    setAddEmployeeClicked(true);
+  function handleAddEmployeeClicked() {
+    // Open the form
+    setFormOpen(true);
+    setActiveFormType("addEmployee");
+    console.log("inside of the handle add employee clicked");
+    // setAddEmployeeClicked(true);
   }
 
-  function handleFinishAddingEmployee()
-  {
-    setAddEmployeeClicked(false);
+  function handleFinishAddingEmployee() {
+    // Close the form
+    setFormOpen(false);
+    setActiveFormType(null);
+    // setAddEmployeeClicked(false);
+
   }
 
-  function handleAddMenuItemClicked()
-  {
-    setAddMenuItemClicked(true);
+  function handleAddMenuItemClicked() {
+    // Open the form
+    setFormOpen(true);
+    setActiveFormType("addMenuItem");
+    // setAddMenuItemClicked(true);
   }
 
-  function handleFinishAddingMenuItem()
-  {
-    setAddMenuItemClicked(false);
+  function handleFinishAddingMenuItem() {
+    // Close the form
+    setFormOpen(false);
+    setActiveFormType(null);
+    // setAddMenuItemClicked(false);
   }
 
-  function handleAddInventoryItemClicked()
-  {
-    setAddInventoryItemClicked(true);
+  function handleAddInventoryItemClicked() {
+    // Open the form
+    setFormOpen(true);
+    setActiveFormType("addInventoryItem");
+    // setAddInventoryItemClicked(true);
+
   }
 
-  function handleFinishAddingInventoryItem()
-  {
-    setAddInventoryItemClicked(false);
+  function handleFinishAddingInventoryItem() {
+    // Close the form
+    setFormOpen(false);
+    setActiveFormType(null);
+    // setAddInventoryItemClicked(false);
   }
 
   return (
@@ -491,13 +511,19 @@ function Manager() {
         {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
 
         <div className="main-content">
-          {isAddEmployeeClicked ? (
+          {isFormOpen && activeFormType === "addEmployee" && (
             <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee} />
-          ) : isAddMenuItemClicked ? (
+          )}
+
+          {isFormOpen && activeFormType === "addMenuItem" && (
             <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem} />
-          ) : isAddInventoryItemClicked ? (
+          )}
+
+          {isFormOpen && activeFormType === "addInventoryItem" && (
             <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem} />
-          ) : (
+          )}
+
+          {!isFormOpen && (
             <table className="main-content-table">
               <thead className="content-head"></thead>
               {activeReport === "View Employees" ? (
@@ -569,26 +595,25 @@ function Manager() {
           )}
         </div>
 
-          {(activeReport === "View Menu Items") && (
-            <div className="label-item">
-              <div className="label-item-button" onClick={handleAddMenuItemClicked}>
-                Add a Menu Item
-              </div>
-            </div>
-          )}
-
-          {(activeReport === "View Employees") && (
-            <div className="label-item">
-              <div className="label-item-button" onClick={handleAddEmployeeClicked}>
+         {(activeReport === "View Employees") && (
+            <div className="label-item2">
+              <div className="label-item-button2" onClick={handleAddEmployeeClicked}>
                 Add an Employee
               </div>
             </div>
           )}
 
-          
+          {(activeReport === "View Menu Items") && (
+            <div className="label-item2">
+              <div className="label-item-button2" onClick={handleAddMenuItemClicked}>
+                Add a Menu Item
+              </div>
+            </div>
+          )}
+
           {(activeReport === "View Inventory Items") && (
-            <div className="label-item">
-              <div className="label-item-button" onClick={handleAddInventoryItemClicked}>
+            <div className="label-item2">
+              <div className="label-item-button2" onClick={handleAddInventoryItemClicked}>
                 Add an Inventory Item
               </div>
             </div>

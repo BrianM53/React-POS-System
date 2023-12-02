@@ -109,6 +109,7 @@ router.post("/view-employees", (req, res) => {
       res.status(500).json({ error: "Error fetching employees data" });
     } else {
       res.json({ data: employeesData });
+      console.log("nothing wrong with the report.gen");
     }
   });
 })

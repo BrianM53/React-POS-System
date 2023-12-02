@@ -3,7 +3,7 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitButton from "./submitMenuItem"; // Adjust the import based on your actual component name
+import SubmitButton from "./submitMenuItem"; 
 
 function AddMenuItem({ onFinishAddingMenuItem }) {
   const [errorMsg, setErrorMsg] = useState("");
@@ -26,7 +26,7 @@ function AddMenuItem({ onFinishAddingMenuItem }) {
 
     try {
       const response = await axios.post(
-        BACKEND_URL + "/products", // Assuming the endpoint for adding menu items is /products
+        BACKEND_URL + "/products", 
         menuItemData
       );
       if (response.data.message === "Menu item added successfully") {

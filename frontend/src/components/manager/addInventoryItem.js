@@ -46,7 +46,6 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
     } catch (error) {
       console.error("Error adding inventory item:", error);
 
-      // Check if there's a response from the server
       if (error.response) {
         setErrorMsg(
           <div style={{ color: "red" }}>{error.response.data.message}</div>
