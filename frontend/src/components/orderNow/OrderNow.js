@@ -172,7 +172,7 @@ const OrderNow = () => {
       const descriptionHasOverflow = product.product_description.length > 36;
       // const descriptionHasOverflow = true;
       return (
-        <div key={product.product_id} className="menu-body-entry-container">
+        <div key={product.product_id} className="menu-body-entry-container" onClick={() => increment(product)}>
           <img
             src={imagePath}
             alt={product.product_name}
@@ -186,7 +186,7 @@ const OrderNow = () => {
               {product.product_description}
             </div>
           </div>
-          <div className="menu-body-entry-amount-container">
+          {/* <div className="menu-body-entry-amount-container">
             <div
               className="decrement-button"
               onClick={() => decrement(product.product_id)}
@@ -200,7 +200,7 @@ const OrderNow = () => {
             >
               +
             </div>
-          </div>
+          </div> */}
         </div>
       );
     });
@@ -229,7 +229,7 @@ const OrderNow = () => {
           </div>
           <div className="ticket-item-name-container">
             <div 
-            className={nameHasOverflow ? "ticket-item-name" : "ticket-item-name-noscroll"}>
+            className="ticket-item-name">
               {item.product_name}
             </div>
           </div>
@@ -272,7 +272,7 @@ const OrderNow = () => {
             </SpecialFontText> */}
             <div ref={scrollRefs.cartScrollRef} className={cartHasOverflow ? 'ticket-item-container' : 'ticket-item-container-noscroll'}>
               <div className={getCartLength() == 0 ? "temp-cart-text" : "temp-cart-text-none"}>
-                Add an item to get started!
+                Click an item to get started!
               </div>
               {renderCartItems()}
             </div>
