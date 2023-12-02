@@ -115,7 +115,7 @@ function AddEmployee() {
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton employeeData={employeeData} />
+          <SubmitButton employeeData={employeeData} onFinishAddingEmployee={onFinishAddingEmployee}/>
         </div>
       </Form>
     </div>

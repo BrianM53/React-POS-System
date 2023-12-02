@@ -124,7 +124,6 @@ router.options("/employees/:employeeId", cors());
 router.delete("/employees/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
 
-  // Assuming you have a deleteEmployee function in your Report module
   Report.deleteEmployee(employeeId, (error) => {
     if (error) {
       res.status(500).json({ error: "Error deleting employee" });

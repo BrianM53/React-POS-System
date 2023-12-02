@@ -19,6 +19,7 @@ function Manager() {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
@@ -211,15 +212,23 @@ function Manager() {
     console.log("Removing employee:", employee);
   
     axios
-    .delete(BACKEND_URL + "/reports/employees/" + employee.employee_id)
-    .then(() => {
-      console.log("Employee removed successfully");
-      // Additional logic if needed after successful removal
-    })
-    .catch((error) => {
-      console.error("Axios error:", error);
-    });
+      .delete(BACKEND_URL + "/reports/employees/" + employee.employee_id)
+      .then(() => {
+        console.log("Employee removed successfully");
+      })
+      .catch((error) => {
+        console.error("Axios error:", error);
+      });
+  }
 
+  function handleAddEmployeeClicked() 
+  {
+    setAddEmployeeClicked(true);
+  }
+
+  function handleFinishAddingEmployee()
+  {
+    setAddEmployeeClicked(false);
   }
 
   return (
@@ -309,14 +318,19 @@ function Manager() {
           }
         >
           <div className="label-item">
-            <div className="label-item-button">Add an Employee</div>
+            <div className="label-item-button"
+            onClick={handleAddEmployeeClicked}>
+              Add an Employee
+            </div>
           </div>
-
-          {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
-
         </div>
 
+        {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
+
         <div className="main-content">
+          {isAddEmployeeClicked ? (
+            <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee} />
+          ) : (
           <table className="main-content-table">
             <thead className="content-head"></thead>
             {activeReport !== "View Employees" ? 
@@ -349,7 +363,9 @@ function Manager() {
               </tbody>
             )}
           </table>
+          )}
         </div>
+
 
         {/* TESTING */}
         {showChart && (
