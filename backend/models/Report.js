@@ -286,7 +286,7 @@ class Report {
     );
   }
 
-  static generateMenuItemes(callback)
+  static generateMenuItems(callback)
   {
     connection.query(
       "SELECT " +

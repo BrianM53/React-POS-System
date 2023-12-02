@@ -13,6 +13,7 @@ import ReportButtons from "./reportButtons";
 import ReportLabels from "./reportLabels";
 import LogoutButton from "../utility/logoutButton";
 import AddEmployee from "./addEmployee";
+import AddMenuItem from "./addMenuItem";
 import { CChart } from "@coreui/react-chartjs";
 
 function Manager() {
@@ -157,17 +158,65 @@ function Manager() {
     } 
   }
 
-  function handleReport(e, reportType) {
+  function handleReport(e, reportType) 
+  {
     e.preventDefault();
-
+  
     localStorage.setItem("activeReport", reportType);
     setActiveReport(reportType);
-
-    let reportRoute = reportType.replace(" ", "-").toLowerCase();
+  
+    let reportRoute = reportType.replace(/\s+/g, "-").toLowerCase();
     console.log(reportRoute);
-
-    if (reportRoute !== "view-employees") 
+  
+    if (reportRoute === "view-menu-items") 
     {
+      console.log("Fetching menu items data...");
+  
+      // no dates
+  
+      axios
+        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .then((response) => {
+          console.log("Backend response for " + reportType, response.data.data);
+  
+          const menuItemsData = response.data.data;
+  
+          const menuItemsColumns = Object.keys(menuItemsData[0]);
+  
+          setColumns(menuItemsColumns);
+          setTableData(menuItemsData);
+          setShowChart(false);
+        })
+        .catch((error) => {
+          console.error("Axios error:", error);
+        });
+    } 
+    else if (reportRoute === "view-employees") 
+    {
+      console.log("Fetching employee data...");
+  
+      // no dates
+  
+      axios
+        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .then((response) => {
+          console.log("Backend response for " + reportType, response.data.data);
+  
+          const employeeData = response.data.data;
+  
+          const employeeColumns = Object.keys(employeeData[0]);
+  
+          setColumns(employeeColumns);
+          setTableData(employeeData);
+          setShowChart(false);
+        })
+        .catch((error) => {
+          console.error("Axios error:", error);
+        });
+    } 
+    else 
+    {
+      // Default branch
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute, {
           startDate: generateTimestamp(startDate),
@@ -177,45 +226,21 @@ function Manager() {
         .then((response) => {
           console.log("Backend response for " + reportType, response.data.data);
           generateReport(reportType, response.data.data);
-
-          //TESTING
+  
+          // TESTING
           if (reportType === "Usage Chart") {
             setShowChart(true);
             setChartData(response.data.data);
-
-            console.log("chartData:", chartData); //TODO Check data sent to chart
+  
+            console.log("chartData:", chartData); // TODO Check data sent to chart
           } else {
             setShowChart(false);
             generateReport(reportType);
             setTableData(response.data.data);
           }
         })
-
         .catch((error) => {
           console.error("axios error:", error);
-        });
-    } 
-    else if (reportRoute === "view-employees" || reportRoute === "view-menu-items") 
-    {
-      console.log("Fetching employee data...");
-
-      //no dates
-    
-      axios
-        .post(BACKEND_URL + "/reports/" + reportRoute)
-        .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
-    
-          const employeeData = response.data.data;
-    
-          const employeeColumns = Object.keys(employeeData[0]);
-    
-          setColumns(employeeColumns);
-          setTableData(employeeData);
-          setShowChart(false);
-        })
-        .catch((error) => {
-          console.error("Axios error:", error);
         });
     }
   }
@@ -344,9 +369,6 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">First Menu Item</div>
-          <div className="label-item">Second Menu Item</div>
-          <div className="label-item">Sold Together</div>
         </div>
         <div
           className={
@@ -377,9 +399,12 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">First Menu Item</div>
-          <div className="label-item">Second Menu Item</div>
-          <div className="label-item">Sold Together</div>
+          <div className="label-item">
+            <div className="label-item-button"
+                onClick={handleAddEmployeeClicked}>
+                Add a Menu Item
+            </div>
+          </div>
         </div>
 
         {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
@@ -387,6 +412,8 @@ function Manager() {
         <div className="main-content">
           {isAddEmployeeClicked ? (
             <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee} />
+          ) : isAddMenuItemClicked ? (
+            <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem} />
           ) : (
             <table className="main-content-table">
               <thead className="content-head"></thead>

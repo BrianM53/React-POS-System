@@ -9,9 +9,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
-
 router.use(cors(corsOptions));
-router.options('*', cors());
 
 router.get("/", (res) => {
   res.send("reports route working");
@@ -126,16 +124,14 @@ router.post("/view-menu-items", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
 
-  Report.generateMenuItems((error, employeesData) => {
+  Report.generateMenuItems((error, menuItemsData) => {
     if (error) {
-      res.status(500).json({ error: "Error fetching employees data" });
+      res.status(500).json({ error: "Error fetching menu items data" });
     } else {
-      res.json({ data: employeesData });
+      res.json({ data: menuItemsData });
     }
   });
 })
-
-
 
 router.delete("/employees/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
