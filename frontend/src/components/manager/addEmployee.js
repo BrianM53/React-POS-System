@@ -5,7 +5,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import SubmitButton from "./submitEmployee";
 
-function AddEmployee() {
+function AddEmployee({ onFinishAddingEmployee }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
     first_name: "",
@@ -31,11 +31,16 @@ function AddEmployee() {
         BACKEND_URL + "/employees",
         employeeData
       );
-      if (response.data.message === "Employee added successfully") {
+      if (response.data.message === "Employee added successfully") 
+      {
         setErrorMsg(
           <div style={{ color: "green" }}>Employee added successfully.</div>
         );
-      } else if (response.data.message === "Employee already exists") {
+
+        onFinishAddingEmployee();
+      } 
+      else if (response.data.message === "Employee already exists") 
+      {
         setErrorMsg(
           <div style={{ color: "red" }}>Employee already exists.</div>
         );
@@ -115,7 +120,7 @@ function AddEmployee() {
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton employeeData={employeeData} onFinishAddingEmployee={onFinishAddingEmployee}/>
+          <SubmitButton employeeData={employeeData}/>
         </div>
       </Form>
     </div>

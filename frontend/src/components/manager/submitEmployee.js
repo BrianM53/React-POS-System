@@ -8,16 +8,11 @@ function validateInput(employeeData) {
     employeeData.last_name.length > 0;
 }
 
-const handleSubmitClick = () => {
-  // Call onFinishAddingEmployee to update the state in the Manager component
-  onFinishAddingEmployee();
-};
-
-function SubmitButton({ employeeData, onFinishAddingEmployee }) {
+function SubmitButton({ employeeData }) {
   const isInputValid = validateInput(employeeData);
 
   return (
-    <Button type="submit" variant="light" disabled={!isInputValid} onClick={handleSubmitClick}>
+    <Button type="submit" variant="light" disabled={!isInputValid}>
       Submit
     </Button>
   );
