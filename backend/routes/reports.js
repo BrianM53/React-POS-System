@@ -4,9 +4,11 @@ const cors = require('cors');
 const connection = require("../connection");
 
 const app = express();
-app.use(cors({
+
+router.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
+
 
 router.get("/", (res) => {
   res.send("reports route working");
@@ -116,6 +118,8 @@ router.post("/view-employees", (req, res) => {
     }
   });
 })
+
+router.options("/employees/:employeeId", cors());
 
 router.delete("/employees/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
