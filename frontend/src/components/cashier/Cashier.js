@@ -162,8 +162,8 @@ const Cashier = () => {
   }
 
   const productsInRows = [];
-  for (let i = 0; i < categoryData.length; i += 3) {
-    const row = categoryData.slice(i, i + 3);
+  for (let i = 0; i < categoryData.length; i += 5) {
+    const row = categoryData.slice(i, i + 5);
     productsInRows.push(row);
   }
 
@@ -175,13 +175,7 @@ const Cashier = () => {
             {product.product_name}
           </div>
           <div className="menu-product-quantity">
-            <div className="decrement-button" onClick={() => decrement(product.product_id)}>
-              -
-            </div>
-            <div className="amount-counter">{product.quantity || 0}</div>
-            <div className="increment-button" onClick={() => increment(product)}>
-              +
-            </div>
+            <div className="menu-product-quantity">{product.quantity || 0}</div>
           </div>
         </div>
       
