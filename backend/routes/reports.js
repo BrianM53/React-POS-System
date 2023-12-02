@@ -1,15 +1,12 @@
 var express = require("express");
-const cors = require('cors');
 var router = express.Router();
-const Report = require("../models/Report");
-const app = express();
-const port = 3001;
-
+const cors = require('cors');
 const connection = require("../connection");
 
-app.use(cors());
-
-router.use(cors());
+const app = express();
+app.use(cors({
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 
 router.get("/", (res) => {
   res.send("reports route working");
@@ -135,6 +132,7 @@ router.delete("/employees/:employeeId", (req, res) => {
 
 app.use("/reports", router);
 
+const port = 3001;
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 }); 
