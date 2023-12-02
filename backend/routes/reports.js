@@ -1,8 +1,10 @@
-const express = require("express");
-const connection = require("../connection");
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
+const Report = require("../models/Report");
 
-router.get("/", (req, res) => {
+const connection = require("../connection");
+
+router.get("/", (res) => {
   res.send("reports route working");
 });
 
@@ -124,6 +126,16 @@ router.post("/view-menu-items", (req, res) => {
   });
 })
 
+router.post("/view-inventory-items", (req, res) => {
+  Report.generateInventoryItems((error, inventoryItemsData) => {
+    if (error) {
+      res.status(500).json({ error: "Error fetching inventory items data" });
+    } else {
+      res.json({ data: inventoryItemsData });
+    }
+  });
+})
+
 router.delete("/employees/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
 
@@ -136,4 +148,30 @@ router.delete("/employees/:employeeId", (req, res) => {
   });
 });
 
+router.delete("/products/:productId", (req, res) => {
+  const productId = req.params.productId;
+
+  Report.deleteEmployee(productId, (error) => {
+    if (error) {
+      res.status(500).json({ error: "Error deleting product" });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
+
+router.delete("/inventory/:inventoryId", (req, res) => {
+  const inventoryId = req.params.inventoryId;
+
+  Report.deleteEmployee(inventoryId, (error) => {
+    if (error) {
+      res.status(500).json({ error: "Error deleting inventory item" });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
+
 module.exports = router;
+
+

@@ -14,6 +14,7 @@ import ReportLabels from "./reportLabels";
 import LogoutButton from "../utility/logoutButton";
 import AddEmployee from "./addEmployee";
 import AddMenuItem from "./addMenuItem";
+import AddInventoryItem from "./addInventoryItem";
 import { CChart } from "@coreui/react-chartjs";
 
 function Manager() {
@@ -22,6 +23,7 @@ function Manager() {
   const [endDate, setEndDate] = useState(new Date());
   const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
   const [isAddMenuItemClicked, setAddMenuItemClicked] = useState(false);
+  const [isAddInventoryItemClicked, setAddInventoryItemClicked] = useState(false);
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
@@ -156,6 +158,19 @@ function Manager() {
       setTableData(data);
       setShowChart(false);
     } 
+    else if (reportType === "View Inventory Items")
+    {
+      setColumns([
+        "inventory_id",
+        "inventory_item",
+        "stock_level",
+        "restock_level",
+        "measurement_type",
+        "price"
+      ]);
+      setTableData(data);
+      setShowChart(false);
+    }
   }
 
   function handleReport(e, reportType) 
@@ -208,6 +223,29 @@ function Manager() {
   
           setColumns(employeeColumns);
           setTableData(employeeData);
+          setShowChart(false);
+        })
+        .catch((error) => {
+          console.error("Axios error:", error);
+        });
+    } 
+    else if (reportRoute === "view-inventory-items") 
+    {
+      console.log("Fetching inventory item data...");
+  
+      // no dates
+  
+      axios
+        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .then((response) => {
+          console.log("Backend response for " + reportType, response.data.data);
+  
+          const inventoryItemsData = response.data.data;
+  
+          const employeeColumns = Object.keys(inventoryItemsData[0]);
+  
+          setColumns(employeeColumns);
+          setTableData(inventoryItemsData);
           setShowChart(false);
         })
         .catch((error) => {
@@ -281,6 +319,24 @@ function Manager() {
       });
   }
 
+  function handleRemoveInventoryItem(inventoryItem)
+  {
+    console.log("Removing employee:", inventoryItem);
+  
+    axios
+      .delete(BACKEND_URL + "/reports/inventory/" + inventoryItem.inventory_id, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then(() => {
+        console.log("Employee removed successfully");
+      })
+      .catch((error) => {
+        console.error("Axios error:", error);
+      });
+  }
+
   function handleAddEmployeeClicked() 
   {
     setAddEmployeeClicked(true);
@@ -299,6 +355,16 @@ function Manager() {
   function handleFinishAddingMenuItem()
   {
     setAddMenuItemClicked(false);
+  }
+
+  function handleAddInventoryItemClicked()
+  {
+    setAddInventoryItemClicked(true);
+  }
+
+  function handleFinishAddingInventoryItem()
+  {
+    setAddInventoryItemClicked(false);
   }
 
   return (
@@ -401,8 +467,23 @@ function Manager() {
         >
           <div className="label-item">
             <div className="label-item-button"
-                onClick={handleAddEmployeeClicked}>
+                onClick={handleAddMenuItemClicked}>
                 Add a Menu Item
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={
+            activeReport === "View Inventory Items"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">
+            <div className="label-item-button"
+                onClick={handleAddInventoryItemClicked}>
+                Add an Inventory Item
             </div>
           </div>
         </div>
@@ -414,6 +495,8 @@ function Manager() {
             <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee} />
           ) : isAddMenuItemClicked ? (
             <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem} />
+          ) : isAddInventoryItemClicked ? (
+            <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem} />
           ) : (
             <table className="main-content-table">
               <thead className="content-head"></thead>
@@ -448,6 +531,24 @@ function Manager() {
                       <td>
                         <button onClick={() => handleRemoveMenuItem(element)}>
                           RemoveMenu
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              ) : activeReport === "View Inventory Items" ? (
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                      <td>
+                        <button>EditInventory</button>
+                      </td>
+                      <td>
+                        <button onClick={() => handleRemoveInventoryItem(element)}>
+                          RemoveInventory
                         </button>
                       </td>
                     </tr>

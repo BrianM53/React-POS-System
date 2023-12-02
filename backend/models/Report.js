@@ -307,6 +307,27 @@ class Report {
     )
   }
 
+  static generateInventoryItems(callback)
+  {
+    connection.query(
+      "SELECT " +
+      "  inventory.inventory_id, " +
+      "  inventory.inventory_item, " +
+      "  inventory.stock_level, " +
+      "  inventory.restock_level, " +
+      "  inventory.measurement_type, " +
+      "  inventory.price " +
+      "FROM inventory;",
+      (error, results) => {
+        if (error) 
+        {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    )
+  }
+
   static deleteEmployee(employeeId, callback) 
   {
     const query = "DELETE FROM employees WHERE employee_id = $1";
@@ -341,7 +362,23 @@ class Report {
     });
   }
 
-}
+  static deleteInventoryItem(inventoryItemId, callback)
+  {
+    const query = "DELETE FROM inventory WHERE inventory_id = $1";
+    connection.query(query, [inventoryItemId], (error) => {
+      if (error) 
+      {
+        console.error("Error deleting inventory item:", error);
+        callback(error);
+      } 
+      else 
+      {
+        console.log("Inventory item deleted successfully");
+        callback(null);
+      }
+    });
+  }
 
+}
 
 module.exports = Report;
