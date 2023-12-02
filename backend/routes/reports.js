@@ -2,11 +2,11 @@ const express = require("express");
 const connection = require("../connection");
 const router = express.Router();
 
-router.get("/", (res) => {
+router.get("/", (req, res) => {
   res.send("reports route working");
 });
 
-router.post("/sales-report", (req, res) => {
+router.post("/sales-report", (res) => {
   console.log("Received sales report request:", req.body);
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
