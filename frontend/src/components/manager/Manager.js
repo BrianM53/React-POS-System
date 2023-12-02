@@ -450,12 +450,13 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">
-            <div className="label-item-button"
-            onClick={handleAddEmployeeClicked}>
-              Add an Employee
-            </div>
-          </div>
+          <div className="label-item">Employee Id</div>
+          <div className="label-item">First Name</div>
+          <div className="label-item">Last Name</div>
+          <div className="label-item">Phone</div>
+          <div className="label-item">Email</div>
+          <div className="label-item">Username</div>
+          <div className="label-item">Password</div>
 
         </div>
         <div
@@ -465,12 +466,11 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">
-            <div className="label-item-button"
-                onClick={handleAddMenuItemClicked}>
-                Add a Menu Item
-            </div>
-          </div>
+          <div className="label-item">Product ID</div>
+          <div className="label-item">Product Name</div>
+          <div className="label-item">Price</div>
+          <div className="label-item">Cateogry</div>
+          <div className="label-item">Description</div>
         </div>
 
         <div
@@ -480,12 +480,12 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">
-            <div className="label-item-button"
-                onClick={handleAddInventoryItemClicked}>
-                Add an Inventory Item
-            </div>
-          </div>
+          <div className="label-item">Inventory ID</div>
+          <div className="label-item">Item Name</div>
+          <div className="label-item">Stock Level</div>
+          <div className="label-item">Restock Level</div>
+          <div className="label-item">Measurement Type</div>
+          <div className="label-item">Price</div>
         </div>
 
         {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
@@ -569,6 +569,31 @@ function Manager() {
           )}
         </div>
 
+          {(activeReport === "View Menu Items") && (
+            <div className="label-item">
+              <div className="label-item-button" onClick={handleAddMenuItemClicked}>
+                Add a Menu Item
+              </div>
+            </div>
+          )}
+
+          {(activeReport === "View Employees") && (
+            <div className="label-item">
+              <div className="label-item-button" onClick={handleAddEmployeeClicked}>
+                Add an Employee
+              </div>
+            </div>
+          )}
+
+          
+          {(activeReport === "View Inventory Items") && (
+            <div className="label-item">
+              <div className="label-item-button" onClick={handleAddInventoryItemClicked}>
+                Add an Inventory Item
+              </div>
+            </div>
+          )}
+
         {/* TESTING */}
         {showChart && (
           <CChart
@@ -614,7 +639,7 @@ function Manager() {
           />
         )}
 
-        {activeReport !== "View Employees" && activeReport !== "View Menu Items" && (
+        {activeReport !== "View Employees" && activeReport !== "View Menu Items" && activeReport !== "View Inventory Items" && (
           <div className="date-btn">
             <DatePicker
               selected={startDate}
