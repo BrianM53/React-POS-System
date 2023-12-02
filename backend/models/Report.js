@@ -286,10 +286,48 @@ class Report {
     );
   }
 
+  static generateMenuItemes(callback)
+  {
+    connection.query(
+      "SELECT " +
+      "  products.product_id, " +
+      "  products.product_name, " +
+      "  products.price, " +
+      "  products.category, " +
+      "  products.product_description " +
+      "FROM products;",
+
+      (error, results) => {
+        if (error) 
+        {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    )
+  }
+
   static deleteEmployee(employeeId, callback) 
   {
     const query = "DELETE FROM employees WHERE employee_id = $1";
     connection.query(query, [employeeId], (error) => {
+      if (error) 
+      {
+        console.error("Error deleting employee:", error);
+        callback(error);
+      } 
+      else 
+      {
+        console.log("Employee deleted successfully");
+        callback(null);
+      }
+    });
+  }
+
+  static deleteMenuItem(menuItemId, callback) 
+  {
+    const query = "DELETE FROM products WHERE product_id = $1";
+    connection.query(query, [menuItemId], (error) => {
       if (error) 
       {
         console.error("Error deleting employee:", error);

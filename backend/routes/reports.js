@@ -1,14 +1,17 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
 const cors = require('cors');
 const connection = require("../connection");
+const router = express.Router();
 
-const app = express();
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
 
-router.use(cors({
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
-
+router.use(cors(corsOptions));
+router.options('*', cors());
 
 router.get("/", (res) => {
   res.send("reports route working");
@@ -119,7 +122,20 @@ router.post("/view-employees", (req, res) => {
   });
 })
 
-router.options("/employees/:employeeId", cors());
+router.post("/view-menu-items", (req, res) => {
+  // const startDate = req.body.startDate;
+  // const endDate = req.body.endDate;
+
+  Report.generateMenuItems((error, employeesData) => {
+    if (error) {
+      res.status(500).json({ error: "Error fetching employees data" });
+    } else {
+      res.json({ data: employeesData });
+    }
+  });
+})
+
+
 
 router.delete("/employees/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
@@ -132,12 +148,5 @@ router.delete("/employees/:employeeId", (req, res) => {
     }
   });
 });
-
-app.use("/reports", router);
-
-const port = 3001;
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-}); 
 
 module.exports = router;

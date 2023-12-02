@@ -20,6 +20,7 @@ function Manager() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
+  const [isAddMenuItemClicked, setAddMenuItemClicked] = useState(false);
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
@@ -142,6 +143,18 @@ function Manager() {
     {
 
     }
+    else if (reportType === "View Menu Items") 
+    {
+      setColumns([
+        "product_id",
+        "product_name",
+        "price",
+        "category",
+        "product_description"
+      ]);
+      setTableData(data);
+      setShowChart(false);
+    } 
   }
 
   function handleReport(e, reportType) {
@@ -149,8 +162,6 @@ function Manager() {
 
     localStorage.setItem("activeReport", reportType);
     setActiveReport(reportType);
-
-    //reportType = "View Employees" since handleReport(e, "View Employees")
 
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
     console.log(reportRoute);
@@ -184,9 +195,11 @@ function Manager() {
           console.error("axios error:", error);
         });
     } 
-    else if (reportRoute === "view-employees") 
+    else if (reportRoute === "view-employees" || reportRoute === "view-menu-items") 
     {
       console.log("Fetching employee data...");
+
+      //no dates
     
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
@@ -212,7 +225,29 @@ function Manager() {
     console.log("Removing employee:", employee);
   
     axios
-      .delete(BACKEND_URL + "/reports/employees/" + employee.employee_id)
+      .delete(BACKEND_URL + "/reports/employees/" + employee.employee_id, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then(() => {
+        console.log("Employee removed successfully");
+      })
+      .catch((error) => {
+        console.error("Axios error:", error);
+      });
+  }
+
+  function handleRemoveMenuItem(menuItem)
+  {
+    console.log("Removing employee:", menuItem);
+  
+    axios
+      .delete(BACKEND_URL + "/reports/products/" + menuItem.product_id, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
       .then(() => {
         console.log("Employee removed successfully");
       })
@@ -229,6 +264,16 @@ function Manager() {
   function handleFinishAddingEmployee()
   {
     setAddEmployeeClicked(false);
+  }
+
+  function handleAddMenuItemClicked()
+  {
+    setAddMenuItemClicked(true);
+  }
+
+  function handleFinishAddingMenuItem()
+  {
+    setAddMenuItemClicked(false);
   }
 
   return (
@@ -323,6 +368,18 @@ function Manager() {
               Add an Employee
             </div>
           </div>
+
+        </div>
+        <div
+          className={
+            activeReport === "View Menu Items"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">First Menu Item</div>
+          <div className="label-item">Second Menu Item</div>
+          <div className="label-item">Sold Together</div>
         </div>
 
         {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
@@ -331,38 +388,56 @@ function Manager() {
           {isAddEmployeeClicked ? (
             <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee} />
           ) : (
-          <table className="main-content-table">
-            <thead className="content-head"></thead>
-            {activeReport !== "View Employees" ? 
-            (
-              <tbody>
-                {tableData.map((element, index) => (
-                  <tr key={index}>
-                    {columns.map((column, columnIndex) => (
-                      <td key={columnIndex}>{element[column]}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
+            <table className="main-content-table">
+              <thead className="content-head"></thead>
+              {activeReport === "View Employees" ? (
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                      <td>
+                        <button>Edit</button>
+                      </td>
+                      <td>
+                        <button onClick={() => handleRemoveEmployee(element)}>
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              ) : activeReport === "View Menu Items" ? (
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                      <td>
+                        <button>EditMenu</button>
+                      </td>
+                      <td>
+                        <button onClick={() => handleRemoveMenuItem(element)}>
+                          RemoveMenu
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               ) : (
-              <tbody>
-                {tableData.map((element, index) => (
-                  <tr key={index}>
-                    {columns.map((column, columnIndex) => (
-                      <td key={columnIndex}>{element[column]}</td>
-                    ))}
-                    <td>
-                      {/* <button onClick={() => handleEditEmployee(element)}>Edit</button> */}
-                      <button>Edit</button>
-                    </td>
-                    <td>
-                      <button onClick={() => handleRemoveEmployee(element)}>Remove</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            )}
-          </table>
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              )}
+            </table>
           )}
         </div>
 
@@ -412,7 +487,7 @@ function Manager() {
           />
         )}
 
-        {activeReport !== "View Employees" && (
+        {activeReport !== "View Employees" && activeReport !== "View Menu Items" && (
           <div className="date-btn">
             <DatePicker
               selected={startDate}

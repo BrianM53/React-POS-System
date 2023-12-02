@@ -110,6 +110,21 @@ function ReportButtons({ activeReport, handleReport }) {
               View Orders
             </a>
           </li>
+          <li>
+            <a
+              href=""
+              className={
+                activeReport === "View Menu Items"
+                  ? "active-report"
+                  : "passive-report"
+              }
+              onClick={(e) => {
+                handleReport(e, "View Menu Items");
+              }}
+            >
+              View Menu Items
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
