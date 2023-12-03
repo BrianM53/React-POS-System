@@ -31,7 +31,7 @@ function AddEmployee({ onFinishAddingEmployee }) {
       console.log("inside the try");
 
       const response = await axios.post(
-        BACKEND_URL + "/employees",
+        BACKEND_URL + "/employees/",
         employeeData
       );
 

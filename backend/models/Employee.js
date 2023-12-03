@@ -17,7 +17,7 @@ class Employee {
         if (error) {
           return callback(error);
         }
-        callback(null, results.rows[0]);
+        callback(null);
       }
     );
   }

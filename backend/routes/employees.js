@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const Employee = require("../models/Employee");
 
-router.post("/", (req, res) => {
+router.post("/employees", (req, res) => {
   const { first_name, last_name, phone, email, username, password } = req.body;
   Employee.emailExists(email, (error, exists) => {
     if (error) {
@@ -31,4 +31,5 @@ router.post("/", (req, res) => {
     }
   });
 });
+
 module.exports = router;
