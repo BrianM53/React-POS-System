@@ -268,7 +268,6 @@ class Report {
   {
     connection.query(
       "SELECT " +
-      "  employees.employee_id, " +
       "  employees.first_name, " +
       "  employees.last_name, " +
       "  employees.phone, " +
@@ -290,7 +289,6 @@ class Report {
   {
     connection.query(
       "SELECT " +
-      "  products.product_id, " +
       "  products.product_name, " +
       "  products.price, " +
       "  products.category, " +
@@ -311,7 +309,6 @@ class Report {
   {
     connection.query(
       "SELECT " +
-      "  inventory.inventory_id, " +
       "  inventory.inventory_item, " +
       "  inventory.stock_level, " +
       "  inventory.restock_level, " +

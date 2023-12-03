@@ -115,7 +115,6 @@ function Manager() {
     else if (reportType === "View Employees") 
     {
       setColumns([
-        "employee_id",
         "first_name",
         "last_name",
         "phone",
@@ -152,7 +151,6 @@ function Manager() {
     else if (reportType === "View Menu Items") 
     {
       setColumns([
-        "product_id",
         "product_name",
         "price",
         "category",
@@ -164,7 +162,6 @@ function Manager() {
     else if (reportType === "View Inventory Items")
     {
       setColumns([
-        "inventory_id",
         "inventory_item",
         "stock_level",
         "restock_level",
@@ -462,13 +459,14 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">Employee Id</div>
           <div className="label-item">First Name</div>
           <div className="label-item">Last Name</div>
           <div className="label-item">Phone</div>
           <div className="label-item">Email</div>
           <div className="label-item">Username</div>
           <div className="label-item">Password</div>
+          <div className="label-item">Edit</div>
+          <div className="label-item">Remove</div>
 
         </div>
         <div
@@ -478,11 +476,12 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">Product ID</div>
           <div className="label-item">Product Name</div>
           <div className="label-item">Price</div>
           <div className="label-item">Cateogry</div>
           <div className="label-item">Description</div>
+          <div className="label-item">Edit</div>
+          <div className="label-item">Remove</div>
         </div>
 
         <div
@@ -492,12 +491,13 @@ function Manager() {
               : "passive-label"
           }
         >
-          <div className="label-item">Inventory ID</div>
           <div className="label-item">Item Name</div>
           <div className="label-item">Stock Level</div>
           <div className="label-item">Restock Level</div>
-          <div className="label-item">Measurement Type</div>
+          <div className="label-item">Measuring Type</div>
           <div className="label-item">Price</div>
+          <div className="label-item">Edit</div>
+          <div className="label-item">Remove</div>
         </div>
 
         {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
@@ -544,11 +544,11 @@ function Manager() {
                         <td key={columnIndex}>{element[column]}</td>
                       ))}
                       <td>
-                        <button>EditMenu</button>
+                        <button>Edit</button>
                       </td>
                       <td>
                         <button onClick={() => handleDelete(element)}>
-                          RemoveMenu
+                          Remove
                         </button>
                       </td>
                     </tr>
@@ -562,11 +562,11 @@ function Manager() {
                         <td key={columnIndex}>{element[column]}</td>
                       ))}
                       <td>
-                        <button>EditInventory</button>
+                        <button>Edit</button>
                       </td>
                       <td>
                         <button onClick={() => handleDelete(element)}>
-                          RemoveInventory
+                          Remove
                         </button>
                       </td>
                     </tr>
