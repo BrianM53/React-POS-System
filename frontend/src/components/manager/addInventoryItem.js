@@ -27,7 +27,7 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
 
     try {
       const response = await axios.post(
-        BACKEND_URL + "/inventory",
+        BACKEND_URL + "/inventory/",
         inventoryItemData
       );
 
