@@ -3,7 +3,7 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitButton from "./submitMenuItem"; 
+import SubmitMenuItem from "./submitMenuItem"; 
 
 function AddMenuItem({ onFinishAddingMenuItem }) {
   const [errorMsg, setErrorMsg] = useState("");
@@ -92,7 +92,7 @@ function AddMenuItem({ onFinishAddingMenuItem }) {
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton menuItemData={menuItemData} />
+          <SubmitMenuItem menuItemData={menuItemData} />
         </div>
       </Form>
     </div>

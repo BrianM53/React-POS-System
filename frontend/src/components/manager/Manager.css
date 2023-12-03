@@ -247,6 +247,19 @@ th, td {
   color: var(--text-color);
 }
 
+td::-webkit-scrollbar {
+  height: 5px;  /* Width of the scrollbar */
+}
+
+td::-webkit-scrollbar-thumb {
+  background-color: var(--bright);  /* Color of the scrollbar thumb */
+  border-radius: 5px;  /* Radius of the scrollbar thumb */
+}
+
+td::-webkit-scrollbar-track {
+  background-color: var(--dark);  /* Color of the scrollbar track */
+}
+
 /* ================= add employee styling =============== */
 .add-employee-content {
   /* background-color: red; */

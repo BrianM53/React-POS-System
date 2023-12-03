@@ -464,6 +464,7 @@ function Manager() {
               : "passive-label"
           }
         >
+          <div className="label-item">Employee ID</div>
           <div className="label-item">First Name</div>
           <div className="label-item">Last Name</div>
           <div className="label-item">Phone</div>
@@ -481,6 +482,7 @@ function Manager() {
               : "passive-label"
           }
         >
+          <div className="label-item">Product ID</div>
           <div className="label-item">Product Name</div>
           <div className="label-item">Price</div>
           <div className="label-item">Cateogry</div>
@@ -496,6 +498,7 @@ function Manager() {
               : "passive-label"
           }
         >
+          <div className="label-item">Inventory ID</div>
           <div className="label-item">Item Name</div>
           <div className="label-item">Stock Level</div>
           <div className="label-item">Restock Level</div>
