@@ -3,12 +3,11 @@ const cors = require('cors');
 const router = express.Router();
 const AddProduct = require("../models/AddProducts"); 
 
-router.use(cors());
-router.use(express.json());
+router.get('/', (req, res) => {
+  res.send('addproducts route working');
+});
 
-router.options('*', cors());
-
-router.post("/products", (req, res) => {
+router.post("/", (req, res) => {
   const { product_name, price, category, product_description } = req.body;
 
   AddProduct.addProduct(
@@ -27,7 +26,7 @@ router.post("/products", (req, res) => {
   );
 });
 
-router.delete("/products/:productId", (req, res) => {
+router.delete("/:productId", (req, res) => {
     const productId = req.params.productId;
   
     AddProduct.deleteEmployee(productId, (error) => {

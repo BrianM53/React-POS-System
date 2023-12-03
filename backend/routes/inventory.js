@@ -3,11 +3,6 @@ const cors = require('cors');
 const router = express.Router();
 const Inventory = require("../models/Inventory");
 
-router.use(cors());
-router.use(express.json());
-
-router.options('*', cors());
-
 router.post("/inventory", (req, res) => {
   const {
     inventory_item,
