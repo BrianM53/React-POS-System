@@ -187,7 +187,7 @@ textarea::-webkit-scrollbar-thumb {
     text-wrap: wrap;
     align-items: center;
     gap: .25em;
-    overflow: scroll;
+    overflow-x: scroll;
 }
 .form-container::-webkit-scrollbar {
     display: none;

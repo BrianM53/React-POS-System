@@ -460,7 +460,7 @@
 }
 .menu-body-entry-container:hover {
     scale: 102%;
-    border: 5px solid var(--text-color);
+    border: 5px solid var(--white);
 }
 
 .menu-body-entry-amount-container

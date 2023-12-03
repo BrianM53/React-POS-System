@@ -45,9 +45,9 @@ export function SettingsProvider({ children }) {
     } else if (colorStyle === "high-contrast") {
         document.documentElement.style.setProperty("--dark", "#000000");
         document.documentElement.style.setProperty("--text-color", "white");
-        document.documentElement.style.setProperty("--white", "white");
+        document.documentElement.style.setProperty("--white", "#00B2FF");
         document.documentElement.style.setProperty("--landing-text", "white");
-        document.documentElement.style.setProperty("--landing-text-order", "#B2FFC9");
+        document.documentElement.style.setProperty("--landing-text-order", "#00B2FF");
         
         document.documentElement.style.setProperty("--shade1", "#89b3ae");
         document.documentElement.style.setProperty("--shade2", "#81a7a2");

@@ -19,7 +19,7 @@
 }
 
 .menu-main-aboutus-entry p::-webkit-scrollbar-thumb {
-  background: var(--bright); 
+  background: var(--shade2); 
   border-radius: 6px;
 } 
 
