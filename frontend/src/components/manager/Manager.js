@@ -349,6 +349,7 @@ function Manager() {
     setFormOpen(false);
     setActiveFormType(null);
     // setAddEmployeeClicked(false);
+    console.log("handleFinishAddingEmployee");
 
   }
 
@@ -357,12 +358,14 @@ function Manager() {
     setFormOpen(true);
     setActiveFormType("addMenuItem");
     // setAddMenuItemClicked(true);
+    console.log("inside of the handle add menu item clicked");
   }
 
   function handleFinishAddingMenuItem() {
     // Close the form
     setFormOpen(false);
     setActiveFormType(null);
+    console.log("handleFinishAddingMenuItem");
     // setAddMenuItemClicked(false);
   }
 
@@ -371,6 +374,7 @@ function Manager() {
     setFormOpen(true);
     setActiveFormType("addInventoryItem");
     // setAddInventoryItemClicked(true);
+    console.log("inside of the handle add inventory item clicked");
 
   }
 
@@ -379,6 +383,7 @@ function Manager() {
     setFormOpen(false);
     setActiveFormType(null);
     // setAddInventoryItemClicked(false);
+    console.log("handleFinishAddingInventoryItem");
   }
 
   return (

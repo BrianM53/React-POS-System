@@ -29,19 +29,24 @@ function AddMenuItem({ onFinishAddingMenuItem }) {
         BACKEND_URL + "/addproducts/", 
         menuItemData
       );
-      if (response.data.message === "Menu item added successfully") {
+
+      console.log(response.data.message);
+
+      if (response.data.message === "Product added successfully") 
+      {
         setErrorMsg(
-          <div style={{ color: "green" }}>Menu item added successfully.</div>
+          <div style={{ color: "green" }}>Product added successfully.</div>
         );
 
         onFinishAddingMenuItem();
-      } else if (response.data.message === "Menu item already exists") {
+      } 
+      else if (response.data.message === "Product already exists") {
         setErrorMsg(
-          <div style={{ color: "red" }}>Menu item already exists.</div>
+          <div style={{ color: "red" }}>Product already exists.</div>
         );
       }
     } catch (error) {
-      console.error("Error adding menu item:", error);
+      console.error("Error adding product:", error);
       setErrorMsg(<div style={{ color: "red" }}>Error adding menu item.</div>);
     }
   };

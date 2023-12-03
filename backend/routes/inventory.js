@@ -8,12 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const {
-    inventory_item,
-    stock_level,
-    restock_level,
-    measurement_type,
-    price,
+  const { inventory_item, stock_level, restock_level, measurement_type, price,
   } = req.body;
 
   Inventory.addInventoryItem(

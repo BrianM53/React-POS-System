@@ -20,18 +20,26 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
     setInventoryItemData({ ...inventoryItemData, [name]: value });
   };
 
-  const addInventoryItem = async (e) => {
+  const addInventoryItem = async (e) => 
+  {
     e.preventDefault();
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
-
+  
     try {
+
+      console.log("inside of try");
+
       const response = await axios.post(
         BACKEND_URL + "/inventory/",
         inventoryItemData
       );
 
-      if (response.status === 200) {
+      console.log("past axios");
+  
+      console.log(response.data.message);
+  
+      if (response.data.message === "Inventory item added successfully") {
         setErrorMsg(
           <div style={{ color: "green" }}>
             Inventory item added successfully.
@@ -45,7 +53,7 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
       }
     } catch (error) {
       console.error("Error adding inventory item:", error);
-
+  
       if (error.response) {
         setErrorMsg(
           <div style={{ color: "red" }}>{error.response.data.message}</div>
