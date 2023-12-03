@@ -37,7 +37,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/reports", reportsRouter);
-pp.use("/employees", employeesRouter); /*more localhost:3001/___ routes set up */
+app.use("/employees", employeesRouter); /*more localhost:3001/___ routes set up */
 app.use("/addproducts", addproductsRouter);
 app.use("/inventory", inventoryRouter); 
 
