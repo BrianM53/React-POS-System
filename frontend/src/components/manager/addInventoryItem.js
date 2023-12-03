@@ -9,7 +9,7 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [inventoryItemData, setInventoryItemData] = useState({
     inventory_item: "",
-    stock_level: 0,
+    stock_level: 0, 
     restock_level: 0,
     measurement_type: "",
     price: 0,

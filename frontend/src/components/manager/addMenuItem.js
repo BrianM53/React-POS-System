@@ -3,7 +3,7 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitMenuItem from "./submitMenuItem"; 
+import SubmitMenuItem from "./submitMenuItem";  
 
 function AddMenuItem({ onFinishAddingMenuItem }) {
   const [errorMsg, setErrorMsg] = useState("");

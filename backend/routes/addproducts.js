@@ -25,6 +25,26 @@ router.post("/", (req, res) => {
   );
 });
 
+router.put("/:productId", (req, res) => {
+  const productId = req.params.productId;
+  const { product_name, price, category, product_description } = req.body;
+
+  AddProducts.updateProduct(
+    productId,
+    product_name,
+    price,
+    category,
+    product_description,
+    (error) => {
+      if (error) {
+        res.status(500).json({ error: "Error updating product" });
+      } else {
+        res.json({ message: "Product updated successfully" });
+      }
+    }
+  );
+});
+
 router.delete("/:productId", (req, res) => {
     const productId = req.params.productId;
   

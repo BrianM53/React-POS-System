@@ -64,8 +64,6 @@ function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditin
       setErrorMsg(<div style={{ color: "red" }}>Error updating employee.</div>);
     }
 
-    e.preventDefault();
-    handleFinishEditing();
 
   };
 

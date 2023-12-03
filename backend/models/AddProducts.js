@@ -20,6 +20,26 @@ class AddProducts {
     );
   }
 
+  static updateProduct(
+    productId,
+    product_name,
+    price,
+    category,
+    product_description,
+    callback
+  ) {
+    connection.query(
+      "UPDATE products SET product_name = $2, price = $3, category = $4, product_description = $5 WHERE product_id = $1",
+      [productId, product_name, price, category, product_description],
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null);
+      }
+    );
+}
+
   static deleteProduct(menuItemId, callback) 
   {
     const query = "DELETE FROM products WHERE product_id = $1";

@@ -365,8 +365,6 @@ function Manager() {
       default:
         console.error(`Unknown element type`);
     }
-    /*** by this point, the setEditFormOpen setSelectedRowData and setActiveEditFormType have been set after the click */
-    /** meaning that the pop up has shown up, and now everythign from here is in edit___.js */
   } 
   const handleFinishEditing = () => {
     setEditFormOpen(false);
@@ -454,6 +452,7 @@ function Manager() {
       </div>
       <div className="main-manager">
         {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
+        {/* ================ AHHHH MY EYESSSS THEY'RE BLEEDING AT THIS MESS YOU'VE MADE AHHHH *dies* ================== */}
         <div
           className={
             activeReport === "Sales Report"
@@ -557,8 +556,6 @@ function Manager() {
           <div className="label-item">Edit</div>
           <div className="label-item">Remove</div>
         </div>
-
-        {/* <div>{activeReport === "View Employees" ? <AddEmployee /> : null}</div> */}
 
         <div className="main-content">
           {isFormOpen && activeFormType === "addEmployee" && (
