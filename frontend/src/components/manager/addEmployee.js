@@ -5,7 +5,8 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import SubmitButton from "./submitEmployee";
 
-function AddEmployee({ onFinishAddingEmployee }) {
+function AddEmployee({ onFinishAddingEmployee }) 
+{
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
     first_name: "",

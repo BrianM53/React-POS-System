@@ -6,6 +6,8 @@ const AddProduct = require("../models/AddProducts");
 router.use(cors());
 router.use(express.json());
 
+router.options('*', cors());
+
 router.post("/products", (req, res) => {
   const { product_name, price, category, product_description } = req.body;
 
