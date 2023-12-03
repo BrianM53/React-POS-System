@@ -20,7 +20,7 @@ const OrderNow = () => {
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
   const [productData, setProductData] = useState({}); // Initialize product data as an empty object
   const [cart, setCart] = useState([]); // New state for the cart
-  const { addToCart, decrementQuantity } = useCart();
+  const { addToCart, decrementQuantity, getCartLength } = useCart();
 
   // dynamic scrollbar display
   const scrollRefs = {
@@ -271,6 +271,9 @@ const OrderNow = () => {
               Your Cart
             </SpecialFontText> */}
             <div ref={scrollRefs.cartScrollRef} className={cartHasOverflow ? 'ticket-item-container' : 'ticket-item-container-noscroll'}>
+              <div className={getCartLength() == 0 ? "temp-cart-text" : "temp-cart-text-none"}>
+                Add an item to get started!
+              </div>
               {renderCartItems()}
             </div>
             <div className="ticket-total-and-order-container">
