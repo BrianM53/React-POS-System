@@ -27,6 +27,28 @@ router.post("/", (req, res) => {
   );
 });
 
+router.put("/:employeeId", (req, res) => {
+  const employeeId = req.params.employeeId;
+  const { first_name, last_name, phone, email, username, password } = req.body;
+
+  Employees.updateEmployee(
+    employeeId,
+    first_name,
+    last_name,
+    phone,
+    email,
+    username,
+    password,
+    (error) => {
+      if (error) {
+        res.status(500).json({ error: "Error updating employee" });
+      } else {
+        res.json({ message: "Employee updated successfully" });
+      }
+    }
+  );
+});
+
 router.delete("/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
 
@@ -38,5 +60,7 @@ router.delete("/:employeeId", (req, res) => {
     }
   });
 });
+
+
 
 module.exports = router;

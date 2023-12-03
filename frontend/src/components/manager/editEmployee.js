@@ -26,31 +26,35 @@ function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditin
   };
 
   const updateEmployee = async (e) => {
-    // e.preventDefault();
-    // const BACKEND_URL =
-    //   process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+    e.preventDefault();
+     const BACKEND_URL =
+       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-    // try {
-    //   const response = await axios.put(
-    //     `${BACKEND_URL}/employees/${editedEmployeeData.employee_id}`,
-    //     editedEmployeeData
-    //   );
+    try {
+      const response = await axios.put(
+        BACKEND_URL + "/employees/",
+        editedEmployeeData
+      );
 
-    //   if (response.data.message === "Employee updated successfully") {
-    //     setErrorMsg(
-    //       <div style={{ color: "green" }}>Employee updated successfully.</div>
-    //     );
-
-    //     handleFinishEditing();
-    //   } else {
-    //     setErrorMsg(
-    //       <div style={{ color: "red" }}>Error updating employee.</div>
-    //     );
-    //   }
-    // } catch (error) {
-    //   console.error("Error updating employee:", error);
-    //   setErrorMsg(<div style={{ color: "red" }}>Error updating employee.</div>);
-    // }
+      if (response.data.message === "Employee updated successfully") 
+      {
+        setErrorMsg(
+          <div style={{ color: "green" }}>Employee updated successfully.</div>
+        );
+        handleFinishEditing();
+      } 
+      else 
+      {
+        setErrorMsg(
+          <div style={{ color: "red" }}>Error updating employee.</div>
+        );
+      }
+    } 
+    catch (error) 
+    {
+      console.error("Error updating employee:", error);
+      setErrorMsg(<div style={{ color: "red" }}>Error updating employee.</div>);
+    }
 
     e.preventDefault();
     handleFinishEditing();
