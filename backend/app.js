@@ -20,7 +20,7 @@ app.set("view engine", "jade");
 // enable communication between different domains
 var corsOptions = {
   origin: ["http://localhost:3000", "https://jbold-frontend.onrender.com"],
-  methods: "GET,POST",
+  methods: "GET,POST,DELETE",
 };
 app.use(cors(corsOptions));
 

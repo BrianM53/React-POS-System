@@ -4,11 +4,11 @@ const Report = require("../models/Report");
 
 const connection = require("../connection");
 
-router.get("/", (res) => {
+router.get("/", (req, res) => {
   res.send("reports route working");
 });
 
-router.post("/sales-report", (res) => {
+router.post("/sales-report", (req, res) => {
   console.log("Received sales report request:", req.body);
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
