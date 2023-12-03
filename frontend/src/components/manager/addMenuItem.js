@@ -26,7 +26,7 @@ function AddMenuItem({ onFinishAddingMenuItem }) {
 
     try {
       const response = await axios.post(
-        BACKEND_URL + "/addproducts", 
+        BACKEND_URL + "/addproducts/", 
         menuItemData
       );
       if (response.data.message === "Menu item added successfully") {
