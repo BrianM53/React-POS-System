@@ -31,10 +31,18 @@ function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditin
        process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
     try {
+
+      console.log("inside try");
+      console.log(editedEmployeeData);
+
       const response = await axios.put(
-        BACKEND_URL + "/employees/",
+        `${BACKEND_URL}/employees/${editedEmployeeData.employee_id}`,
         editedEmployeeData
       );
+
+      console.log("after try");
+
+      console.log(response.data.message);
 
       if (response.data.message === "Employee updated successfully") 
       {
