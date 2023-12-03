@@ -15,9 +15,9 @@ import LogoutButton from "../utility/logoutButton";
 import AddEmployee from "./addEmployee";
 import AddMenuItem from "./addMenuItem";
 import AddInventoryItem from "./addInventoryItem";
-import EditEmployee from "./EditEmployee";
-import EditMenuItem from "./EditMenuItem";
-import EditInventoryItem from "./EditInventoryItem";
+import EditEmployee from "./editEmployee";
+import EditMenuItem from "./editMenuItem";
+import EditInventoryItem from "./editInventoryItem";
 
 import { CChart } from "@coreui/react-chartjs";
 
@@ -365,13 +365,21 @@ function Manager() {
       default:
         console.error(`Unknown element type`);
     }
-  }
-
+    /*** by this point, the setEditFormOpen setSelectedRowData and setActiveEditFormType have been set after the click */
+    /** meaning that the pop up has shown up, and now everythign from here is in edit___.js */
+  } 
   const handleFinishEditing = () => {
     setEditFormOpen(false);
     setSelectedRowData(null);
     setActiveEditFormType(null);
   };
+
+  const handleCancelEditing = () => {
+    setEditFormOpen(false);
+    setSelectedRowData(null);
+    setActiveEditFormType(null);
+  }
+
 
   function handleAddEmployeeClicked() {
     // Open the form
@@ -567,29 +575,29 @@ function Manager() {
 
           {isEditFormOpen && selectedRowData && activeEditFormType === 'editEmployee' && (
             <EditEmployee
-              rowData={selectedRowData}
-              onFinishEditingEmployee={handleFinishEditing}
-              onCancel={handleFinishEditing}
+              selectedRowData={selectedRowData}
+              handleFinishEditing={handleFinishEditing}
+              handleCancelEditing={handleCancelEditing}
             />
           )}
 
           {isEditFormOpen && selectedRowData && activeEditFormType === 'editMenuItem' && (
             <EditMenuItem
-              rowData={selectedRowData}
-              onFinishEditingMenuItem={handleFinishEditing}
-              onCancel={handleFinishEditing}
+              selectedRowData={selectedRowData}
+              handleFinishEditing={handleFinishEditing}
+              handleCancelEditing={handleCancelEditing}
             />
           )}
 
           {isEditFormOpen && selectedRowData && activeEditFormType === 'editInventoryItem' && (
             <EditInventoryItem
-              rowData={selectedRowData}
-              onFinishEditingInventoryItem={handleFinishEditing}
-              onCancel={handleFinishEditing}
+              selectedRowData={selectedRowData}
+              handleFinishEditing={handleFinishEditing}
+              handleCancelEditing={handleCancelEditing}
             />
-          )}
+          )} 
 
-          {!isFormOpen && (
+          {!isFormOpen && !isEditFormOpen && (
             <table className="main-content-table">
               <thead className="content-head"></thead>
               {activeReport === "View Employees" ? (
