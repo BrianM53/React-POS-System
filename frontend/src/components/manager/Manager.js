@@ -15,6 +15,9 @@ import LogoutButton from "../utility/logoutButton";
 import AddEmployee from "./addEmployee";
 import AddMenuItem from "./addMenuItem";
 import AddInventoryItem from "./addInventoryItem";
+import EditEmployee from "./EditEmployee";
+import EditMenuItem from "./EditMenuItem";
+import EditInventoryItem from "./EditInventoryItem";
 
 import { CChart } from "@coreui/react-chartjs";
 
@@ -27,6 +30,13 @@ function Manager() {
   // const [isAddInventoryItemClicked, setAddInventoryItemClicked] = useState(false);
   const [isFormOpen, setFormOpen] = useState(false);
   const [activeFormType, setActiveFormType] = useState(null);
+
+
+  const [isEditFormOpen, setEditFormOpen] = useState(false);
+  const [activeEditFormType, setActiveEditFormType] = useState(null);
+  const [selectedRowData, setSelectedRowData] = useState(null);
+
+
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
@@ -336,6 +346,33 @@ function Manager() {
     }
   }
 
+  function handleEdit(element)
+  {
+    setEditFormOpen(true);
+    setSelectedRowData(element);
+
+    switch (activeReport.toLowerCase().replace(/\s+/g, '')) 
+    {
+      case 'viewemployees':
+        setActiveEditFormType('editEmployee');
+        break;
+      case 'viewmenuitems':
+        setActiveEditFormType('editMenuItem');
+        break;
+      case 'viewinventoryitems':
+        setActiveEditFormType('editInventoryItem');
+        break;
+      default:
+        console.error(`Unknown element type`);
+    }
+  }
+
+  const handleFinishEditing = () => {
+    setEditFormOpen(false);
+    setSelectedRowData(null);
+    setActiveEditFormType(null);
+  };
+
   function handleAddEmployeeClicked() {
     // Open the form
     setFormOpen(true);
@@ -528,6 +565,30 @@ function Manager() {
             <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem} />
           )}
 
+          {isEditFormOpen && selectedRowData && activeEditFormType === 'editEmployee' && (
+            <EditEmployee
+              rowData={selectedRowData}
+              onFinishEditingEmployee={handleFinishEditing}
+              onCancel={handleFinishEditing}
+            />
+          )}
+
+          {isEditFormOpen && selectedRowData && activeEditFormType === 'editMenuItem' && (
+            <EditMenuItem
+              rowData={selectedRowData}
+              onFinishEditingMenuItem={handleFinishEditing}
+              onCancel={handleFinishEditing}
+            />
+          )}
+
+          {isEditFormOpen && selectedRowData && activeEditFormType === 'editInventoryItem' && (
+            <EditInventoryItem
+              rowData={selectedRowData}
+              onFinishEditingInventoryItem={handleFinishEditing}
+              onCancel={handleFinishEditing}
+            />
+          )}
+
           {!isFormOpen && (
             <table className="main-content-table">
               <thead className="content-head"></thead>
@@ -539,12 +600,10 @@ function Manager() {
                         <td key={columnIndex}>{element[column]}</td>
                       ))}
                       <td>
-                        <button>Edit</button>
+                        <button onClick={() => handleEdit(element)}>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(element)}>
-                          Remove
-                        </button>
+                        <button onClick={() => handleDelete(element)}>Remove</button>
                       </td>
                     </tr>
                   ))}
@@ -557,12 +616,10 @@ function Manager() {
                         <td key={columnIndex}>{element[column]}</td>
                       ))}
                       <td>
-                        <button>Edit</button>
+                        <button onClick={() => handleEdit(element)}>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(element)}>
-                          Remove
-                        </button>
+                        <button onClick={() => handleDelete(element)}>Remove</button>
                       </td>
                     </tr>
                   ))}
@@ -575,12 +632,10 @@ function Manager() {
                         <td key={columnIndex}>{element[column]}</td>
                       ))}
                       <td>
-                        <button>Edit</button>
+                        <button onClick={() => handleEdit(element)}>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(element)}>
-                          Remove
-                        </button>
+                        <button onClick={() => handleDelete(element)}>Remove</button>
                       </td>
                     </tr>
                   ))}
