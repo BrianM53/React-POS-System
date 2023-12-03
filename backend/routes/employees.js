@@ -1,10 +1,14 @@
 var express = require("express");
+const cors = require('cors');
 var router = express.Router();
-const Employee = require("../models/Employee");
+const Employees = require("../models/Employees");
+
+router.use(cors());
+router.use(express.json());
 
 router.post("/employees", (req, res) => {
   const { first_name, last_name, phone, email, username, password } = req.body;
-  Employee.emailExists(email, (error, exists) => {
+  Employees.emailExists(email, (error, exists) => {
     if (error) {
       return res
         .status(500)
@@ -13,7 +17,7 @@ router.post("/employees", (req, res) => {
     if (exists) {
       return res.status(409).json({ message: "Employee already exists" });
     } else {
-      Employee.addEmployee(
+      Employees.addEmployee(
         first_name,
         last_name,
         phone,
@@ -28,6 +32,18 @@ router.post("/employees", (req, res) => {
           res.status(201).json({ message: "Employee added successfully" });
         }
       );
+    }
+  });
+});
+
+router.delete("/employees/:employeeId", (req, res) => {
+  const employeeId = req.params.employeeId;
+
+  Employees.deleteEmployee(employeeId, (error) => {
+    if (error) {
+      res.status(500).json({ error: "Error deleting employee" });
+    } else {
+      res.json({ success: true });
     }
   });
 });

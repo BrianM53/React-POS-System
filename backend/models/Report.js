@@ -328,57 +328,6 @@ class Report {
     )
   }
 
-  static deleteEmployee(employeeId, callback) 
-  {
-    const query = "DELETE FROM employees WHERE employee_id = $1";
-    connection.query(query, [employeeId], (error) => {
-      if (error) 
-      {
-        console.error("Error deleting employee:", error);
-        callback(error);
-      } 
-      else 
-      {
-        console.log("Employee deleted successfully");
-        callback(null);
-      }
-    });
-  }
-
-  static deleteMenuItem(menuItemId, callback) 
-  {
-    const query = "DELETE FROM products WHERE product_id = $1";
-    connection.query(query, [menuItemId], (error) => {
-      if (error) 
-      {
-        console.error("Error deleting employee:", error);
-        callback(error);
-      } 
-      else 
-      {
-        console.log("Employee deleted successfully");
-        callback(null);
-      }
-    });
-  }
-
-  static deleteInventoryItem(inventoryItemId, callback)
-  {
-    const query = "DELETE FROM inventory WHERE inventory_id = $1";
-    connection.query(query, [inventoryItemId], (error) => {
-      if (error) 
-      {
-        console.error("Error deleting inventory item:", error);
-        callback(error);
-      } 
-      else 
-      {
-        console.log("Inventory item deleted successfully");
-        callback(null);
-      }
-    });
-  }
-
 }
 
 module.exports = Report;

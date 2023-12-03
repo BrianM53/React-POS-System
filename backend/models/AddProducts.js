@@ -20,24 +20,23 @@ class AddProducts {
     );
   }
 
-  // Add additional methods as needed
-
-  // For example, if you need to check if a product already exists:
-  static productExists(product_name, callback) {
-    connection.query(
-      "SELECT * FROM products WHERE product_name = $1",
-      [product_name],
-      (error, results) => {
-        if (error) {
-          return callback(error, null);
-        }
-        if (results.rows.length > 0) {
-          return callback(null, true); // Product exists
-        }
-        callback(null, false);
+  static deleteMenuItem(menuItemId, callback) 
+  {
+    const query = "DELETE FROM products WHERE product_id = $1";
+    connection.query(query, [menuItemId], (error) => {
+      if (error) 
+      {
+        console.error("Error deleting employee:", error);
+        callback(error);
+      } 
+      else 
+      {
+        console.log("Employee deleted successfully");
+        callback(null);
       }
-    );
+    });
   }
+
 }
 
 module.exports = AddProducts;

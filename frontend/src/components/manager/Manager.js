@@ -15,17 +15,18 @@ import LogoutButton from "../utility/logoutButton";
 import AddEmployee from "./addEmployee";
 import AddMenuItem from "./addMenuItem";
 import AddInventoryItem from "./addInventoryItem";
+
 import { CChart } from "@coreui/react-chartjs";
 
 function Manager() {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
-  const [isAddMenuItemClicked, setAddMenuItemClicked] = useState(false);
+  // const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
+  // const [isAddMenuItemClicked, setAddMenuItemClicked] = useState(false);
+  // const [isAddInventoryItemClicked, setAddInventoryItemClicked] = useState(false);
   const [isFormOpen, setFormOpen] = useState(false);
   const [activeFormType, setActiveFormType] = useState(null);
-  const [isAddInventoryItemClicked, setAddInventoryItemClicked] = useState(false);
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
@@ -288,58 +289,49 @@ function Manager() {
     }
   }
 
-  function handleRemoveEmployee(employee) 
+  function handleDelete(element) 
   {
-    console.log("Removing employee:", employee);
-  
-    axios
-      .delete(BACKEND_URL + "/reports/employees/" + employee.employee_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then(() => {
-        console.log("Employee removed successfully");
-      })
-      .catch((error) => {
-        console.error("Axios error:", error);
-      });
-  }
-
-  function handleRemoveMenuItem(menuItem)
-  {
-    console.log("Removing employee:", menuItem);
-  
-    axios
-      .delete(BACKEND_URL + "/reports/products/" + menuItem.product_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then(() => {
-        console.log("Employee removed successfully");
-      })
-      .catch((error) => {
-        console.error("Axios error:", error);
-      });
-  }
-
-  function handleRemoveInventoryItem(inventoryItem)
-  {
-    console.log("Removing employee:", inventoryItem);
-  
-    axios
-      .delete(BACKEND_URL + "/reports/inventory/" + inventoryItem.inventory_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then(() => {
-        console.log("Employee removed successfully");
-      })
-      .catch((error) => {
-        console.error("Axios error:", error);
-      });
+    console.log("inside of handleDelete");
+    const elementType = activeReport.toLowerCase().replace(/\s+/g, '');
+    console.log(elementType);
+    switch (elementType) 
+    {
+      case 'viewemployees':
+        console.log("inside of viewemployees");
+        axios
+          .delete(BACKEND_URL + "/employees/" + element.employee_id)
+          .then(() => {
+            console.log("Employee removed successfully");
+          })
+          .catch((error) => {
+            console.error("Axios error:", error);
+          });
+        break;
+      case 'viewmenuitems':
+        console.log("inside of viewmenuitems");
+        axios
+          .delete(BACKEND_URL + "/addproducts/" + element.product_id)
+          .then(() => {
+            console.log("Menu item removed successfully");
+          })
+          .catch((error) => {
+            console.error("Axios error:", error);
+          });
+        break;
+      case 'viewinventoryitems':
+        console.log("inside of inventoryitems");
+        axios
+          .delete(BACKEND_URL + "/inventory/" + element.inventory_id)
+          .then(() => {
+            console.log("Inventory item removed successfully");
+          })
+          .catch((error) => {
+            console.error("Axios error:", error);
+          });
+        break;
+      default:
+        console.error(`Unknown element type: ${elementType}`);
+    }
   }
 
   function handleAddEmployeeClicked() {
@@ -537,7 +529,7 @@ function Manager() {
                         <button>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleRemoveEmployee(element)}>
+                        <button onClick={() => handleDelete(element)}>
                           Remove
                         </button>
                       </td>
@@ -555,7 +547,7 @@ function Manager() {
                         <button>EditMenu</button>
                       </td>
                       <td>
-                        <button onClick={() => handleRemoveMenuItem(element)}>
+                        <button onClick={() => handleDelete(element)}>
                           RemoveMenu
                         </button>
                       </td>
@@ -573,7 +565,7 @@ function Manager() {
                         <button>EditInventory</button>
                       </td>
                       <td>
-                        <button onClick={() => handleRemoveInventoryItem(element)}>
+                        <button onClick={() => handleDelete(element)}>
                           RemoveInventory
                         </button>
                       </td>

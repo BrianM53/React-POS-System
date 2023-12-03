@@ -114,8 +114,6 @@ router.post("/view-employees", (req, res) => {
   });
 })
 
-
-
 router.post("/view-menu-items", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
@@ -138,42 +136,6 @@ router.post("/view-inventory-items", (req, res) => {
     }
   });
 })
-
-router.delete("/employees/:employeeId", (req, res) => {
-  const employeeId = req.params.employeeId;
-
-  Report.deleteEmployee(employeeId, (error) => {
-    if (error) {
-      res.status(500).json({ error: "Error deleting employee" });
-    } else {
-      res.json({ success: true });
-    }
-  });
-});
-
-router.delete("/products/:productId", (req, res) => {
-  const productId = req.params.productId;
-
-  Report.deleteEmployee(productId, (error) => {
-    if (error) {
-      res.status(500).json({ error: "Error deleting product" });
-    } else {
-      res.json({ success: true });
-    }
-  });
-});
-
-router.delete("/inventory/:inventoryId", (req, res) => {
-  const inventoryId = req.params.inventoryId;
-
-  Report.deleteEmployee(inventoryId, (error) => {
-    if (error) {
-      res.status(500).json({ error: "Error deleting inventory item" });
-    } else {
-      res.json({ success: true });
-    }
-  });
-});
 
 module.exports = router;
 

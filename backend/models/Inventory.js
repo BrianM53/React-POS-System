@@ -21,21 +21,23 @@ class Inventory {
     );
   }
 
-  static inventoryItemExists(inventory_item, callback) {
-    connection.query(
-      "SELECT * FROM inventory_items WHERE inventory_item = $1",
-      [inventory_item],
-      (error, results) => {
-        if (error) {
-          return callback(error, null);
-        }
-        if (results.rows.length > 0) {
-          return callback(null, true);
-        }
-        callback(null, false);
+  static deleteInventoryItem(inventoryItemId, callback)
+  {
+    const query = "DELETE FROM inventory WHERE inventory_id = $1";
+    connection.query(query, [inventoryItemId], (error) => {
+      if (error) 
+      {
+        console.error("Error deleting inventory item:", error);
+        callback(error);
+      } 
+      else 
+      {
+        console.log("Inventory item deleted successfully");
+        callback(null);
       }
-    );
+    });
   }
+
 }
 
 module.exports = Inventory;

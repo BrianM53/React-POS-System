@@ -1,6 +1,6 @@
 const connection = require("../connection");
 
-class Employee {
+class Employees {
   static addEmployee(
     first_name,
     last_name,
@@ -22,20 +22,23 @@ class Employee {
     );
   }
 
-  static emailExists(email, callback) {
-    connection.query(
-      "SELECT * FROM employees WHERE email = $1",
-      [email],
-      (error, results) => {
-        if (error) {
-          return callback(error, null);
-        }
-        if (results.rows.length > 0) {
-          return callback(null, true); // Email exists
-        }
-        callback(null, false);
+  static deleteEmployee(employeeId, callback) 
+  {
+    const query = "DELETE FROM employees WHERE employee_id = $1";
+    connection.query(query, [employeeId], (error) => {
+      if (error) 
+      {
+        console.error("Error deleting employee:", error);
+        callback(error);
+      } 
+      else 
+      {
+        console.log("Employee deleted successfully");
+        callback(null);
       }
-    );
+    });
   }
+
+
 }
-module.exports = Employee;
+module.exports = Employees;
