@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const router = express.Router();
-const AddProduct = require("../models/AddProducts"); 
+const AddProducts = require("../models/AddProducts"); 
 
 router.get('/', (req, res) => {
   res.send('addproducts route working');
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 router.post("/", (req, res) => {
   const { product_name, price, category, product_description } = req.body;
 
-  AddProduct.addProduct(
+  AddProducts.addProduct(
     product_name,
     price,
     category,
@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
 router.delete("/:productId", (req, res) => {
     const productId = req.params.productId;
   
-    AddProduct.deleteEmployee(productId, (error) => {
+    AddProducts.deleteEmployee(productId, (error) => {
       if (error) {
         res.status(500).json({ error: "Error deleting product" });
       } else {
@@ -38,22 +38,5 @@ router.delete("/:productId", (req, res) => {
     });
   });
 
-  function handleRemoveMenuItem(menuItem)
-  {
-    console.log("Removing employee:", menuItem);
-  
-    axios
-      .delete(BACKEND_URL + "/reports/products/" + menuItem.product_id, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then(() => {
-        console.log("Employee removed successfully");
-      })
-      .catch((error) => {
-        console.error("Axios error:", error);
-      });
-  }
 
 module.exports = router;

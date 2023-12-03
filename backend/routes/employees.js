@@ -9,32 +9,22 @@ router.get('/', (req, res) => {
 
 router.post("/", (req, res) => {
   const { first_name, last_name, phone, email, username, password } = req.body;
-  Employees.emailExists(email, (error, exists) => {
-    if (error) {
-      return res
-        .status(500)
-        .json({ error: "Error checking employee existence" });
+
+  Employees.addEmployee(
+    first_name,
+    last_name,
+    phone,
+    email,
+    username,
+    password,
+    (error, result) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).json({ error: "Error adding employee" });
+      }
+      res.status(201).json({ message: "Employee added successfully" });
     }
-    if (exists) {
-      return res.status(409).json({ message: "Employee already exists" });
-    } else {
-      Employees.addEmployee(
-        first_name,
-        last_name,
-        phone,
-        email,
-        username,
-        password,
-        (error, result) => {
-          if (error) {
-            console.log(error);
-            return res.status(500).json({ error: "Error adding employee" });
-          }
-          res.status(201).json({ message: "Employee added successfully" });
-        }
-      );
-    }
-  });
+  );
 });
 
 router.delete("/:employeeId", (req, res) => {

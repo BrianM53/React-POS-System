@@ -3,7 +3,11 @@ const cors = require('cors');
 const router = express.Router();
 const Inventory = require("../models/Inventory");
 
-router.post("/inventory", (req, res) => {
+router.get('/', (req, res) => {
+  res.send('inventory route working');
+});
+
+router.post("/", (req, res) => {
   const {
     inventory_item,
     stock_level,
@@ -28,7 +32,7 @@ router.post("/inventory", (req, res) => {
   );
 });
 
-router.delete("/inventory/:inventoryId", (req, res) => {
+router.delete("/:inventoryId", (req, res) => {
   const inventoryId = req.params.inventoryId;
 
   Inventory.deleteInventoryItem(inventoryId, (error) => {

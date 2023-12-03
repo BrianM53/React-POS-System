@@ -115,6 +115,7 @@ function Manager() {
     else if (reportType === "View Employees") 
     {
       setColumns([
+        "employee_id",
         "first_name",
         "last_name",
         "phone",
@@ -151,6 +152,7 @@ function Manager() {
     else if (reportType === "View Menu Items") 
     {
       setColumns([
+        "product_id",
         "product_name",
         "price",
         "category",
@@ -162,6 +164,7 @@ function Manager() {
     else if (reportType === "View Inventory Items")
     {
       setColumns([
+        "inventory_id",
         "inventory_item",
         "stock_level",
         "restock_level",
@@ -291,6 +294,8 @@ function Manager() {
     console.log("inside of handleDelete");
     const elementType = activeReport.toLowerCase().replace(/\s+/g, '');
     console.log(elementType);
+    console.log(element);
+    console.log("after console.log(element");
     switch (elementType) 
     {
       case 'viewemployees':
