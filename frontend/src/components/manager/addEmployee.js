@@ -3,7 +3,7 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitButton from "./submitEmployee";
+import SubmitEmployee from "./submitEmployee";
 
 function AddEmployee({ onFinishAddingEmployee }) 
 {
@@ -127,7 +127,7 @@ function AddEmployee({ onFinishAddingEmployee })
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton employeeData={employeeData}/>
+          <SubmitEmployee employeeData={employeeData}/>
         </div>
       </Form>
     </div>

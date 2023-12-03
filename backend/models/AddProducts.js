@@ -20,7 +20,7 @@ class AddProducts {
     );
   }
 
-  static deleteMenuItem(menuItemId, callback) 
+  static deleteProduct(menuItemId, callback) 
   {
     const query = "DELETE FROM products WHERE product_id = $1";
     connection.query(query, [menuItemId], (error) => {

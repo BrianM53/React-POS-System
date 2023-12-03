@@ -9,7 +9,7 @@ function validateInput(inventoryItemData) {
     inventoryItemData.price >= 0;
 }
 
-function SubmitButton({ inventoryItemData }) {
+function SubmitInventoryItem({ inventoryItemData }) {
   const isInputValid = validateInput(inventoryItemData);
 
   return (
@@ -19,4 +19,4 @@ function SubmitButton({ inventoryItemData }) {
   );
 }
 
-export default SubmitButton;
+export default SubmitInventoryItem;

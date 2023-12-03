@@ -8,7 +8,7 @@ function validateInput(menuItemData) {
     menuItemData.product_description.length > 0;
 }
 
-function SubmitButton({ menuItemData }) {
+function SubmitMenuItem({ menuItemData }) {
   const isInputValid = validateInput(menuItemData);
 
   return (
@@ -18,4 +18,4 @@ function SubmitButton({ menuItemData }) {
   );
 }
 
-export default SubmitButton;
+export default SubmitMenuItem;

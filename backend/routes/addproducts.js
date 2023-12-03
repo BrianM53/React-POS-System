@@ -15,7 +15,6 @@ router.post("/", (req, res) => {
     price,
     category,
     product_description,
-    callback,
     (error, result) => {
       if (error) {
         console.log(error);
@@ -29,7 +28,7 @@ router.post("/", (req, res) => {
 router.delete("/:productId", (req, res) => {
     const productId = req.params.productId;
   
-    AddProducts.deleteEmployee(productId, (error) => {
+    AddProducts.deleteProduct(productId, (error) => {
       if (error) {
         res.status(500).json({ error: "Error deleting product" });
       } else {

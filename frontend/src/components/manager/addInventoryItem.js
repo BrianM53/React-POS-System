@@ -3,7 +3,7 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitButton from "./submitInventoryItem";
+import SubmitInventoryItem from "./submitInventoryItem";
 
 function AddInventoryItem({ onFinishAddingInventoryItem }) {
   const [errorMsg, setErrorMsg] = useState("");
@@ -115,7 +115,7 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton inventoryItemData={inventoryItemData} />
+          <SubmitInventoryItem inventoryItemData={inventoryItemData} />
         </div>
       </Form>
     </div>
