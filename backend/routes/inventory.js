@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const InventoryItem = require("../models/InventoryItem");
+const Inventory = require("../models/Inventory");
 
 router.post("/inventory", (req, res) => {
   const { inventory_item, stock_level, restock_level, measurement_type, price } = req.body;
 
-  InventoryItem.addInventoryItem(
+  Inventory.addInventoryItem(
     inventory_item,
     stock_level,
     restock_level,
     measurement_type,
     price,
+    callback,
     (error, result) => {
       if (error) {
         console.log(error);
