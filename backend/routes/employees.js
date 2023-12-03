@@ -6,6 +6,8 @@ const Employees = require("../models/Employees");
 router.use(cors());
 router.use(express.json());
 
+router.options('*', cors());
+
 router.post("/employees", (req, res) => {
   const { first_name, last_name, phone, email, username, password } = req.body;
   Employees.emailExists(email, (error, exists) => {
