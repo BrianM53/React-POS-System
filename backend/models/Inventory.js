@@ -10,7 +10,7 @@ class Inventory {
     callback
   ) {
     connection.query(
-      "INSERT INTO inventory_items(inventory_item, stock_level, restock_level, measurement_type, price) VALUES ($1, $2, $3, $4, $5)",
+      "INSERT INTO inventory(inventory_item, stock_level, restock_level, measurement_type, price) VALUES ($1, $2, $3, $4, $5)",
       [inventory_item, stock_level, restock_level, measurement_type, price],
       (error, results) => {
         if (error) {
