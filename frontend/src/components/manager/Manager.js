@@ -18,6 +18,7 @@ import AddInventoryItem from "./addInventoryItem";
 import EditEmployee from "./editEmployee";
 import EditMenuItem from "./editMenuItem";
 import EditInventoryItem from "./editInventoryItem";
+import RemoveConfirmation from "./removeConfirmation";
 
 import { CChart } from "@coreui/react-chartjs";
 
@@ -437,6 +438,34 @@ function Manager()
     fetchAndRenderData();
   }
 
+
+  // {isDeleteConfirmationOpen && (
+  //   <RemoveConfirmation onConfirm={confirmDelete} onCancel={closeDeleteConfirmation} />
+  // )}
+
+  // <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
+
+  const [isDeleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+
+  function openDeleteConfirmation(item) {
+    setItemToDelete(item);
+    setDeleteConfirmationOpen(true);
+  }
+
+  function closeDeleteConfirmation() {
+    setItemToDelete(null);
+    setDeleteConfirmationOpen(false);
+  }
+
+  function confirmDelete() {
+    if (itemToDelete) {
+      handleDelete(itemToDelete);
+      closeDeleteConfirmation(); //set item to delete back to null and close pop up
+    }
+  }
+
+
   const [tableDataKey, setTableDataKey] = useState(0);
 
   useEffect(() => {
@@ -626,7 +655,11 @@ function Manager()
             />
           )} 
 
-          {!isFormOpen && !isEditFormOpen && (
+          {isDeleteConfirmationOpen && (
+            <RemoveConfirmation onConfirm={confirmDelete} onCancel={closeDeleteConfirmation} />
+          )}
+
+          {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
             <table className="main-content-table">
               <thead className="content-head"></thead>
               {activeReport === "View Employees" ? (
@@ -640,7 +673,7 @@ function Manager()
                         <button onClick={() => handleEdit(element)}>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(element)}>Remove</button>
+                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
                       </td>
                     </tr>
                   ))}
@@ -656,7 +689,7 @@ function Manager()
                         <button onClick={() => handleEdit(element)}>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(element)}>Remove</button>
+                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
                       </td>
                     </tr>
                   ))}
@@ -672,7 +705,7 @@ function Manager()
                         <button onClick={() => handleEdit(element)}>Edit</button>
                       </td>
                       <td>
-                        <button onClick={() => handleDelete(element)}>Remove</button>
+                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
                       </td>
                     </tr>
                   ))}
