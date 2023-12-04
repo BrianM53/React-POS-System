@@ -96,6 +96,7 @@ function Manager() {
       setShowChart(false);
     } else if (reportType === "Add Employee") {
       setColumns([]);
+      setShowChart(false);
     } else if (reportType === "View Orders") {
       setColumns([
         "Order ID",
@@ -113,7 +114,24 @@ function Manager() {
           Quantity: order.quantity,
         }))
       );
+      setShowChart(false);
     } else if (reportType === "Usage Chart") {
+      const chartLabels = data.map((item) => item.inventoryItem);
+      const chartValues = data.map((item) => item.amountUsed);
+
+      setChartData({
+        labels: chartLabels,
+        datasets: [
+          {
+            label: "Inventory Usage",
+            backgroundColor: "rgba(0, 123, 255, 0.5)",
+            borderColor: "rgba(0, 123, 255, 1)",
+            borderWidth: 1,
+            data: chartValues,
+          },
+        ],
+      });
+      setShowChart(true);
     }
   }
 
@@ -123,7 +141,7 @@ function Manager() {
     localStorage.setItem("activeReport", reportType);
     setActiveReport(reportType);
 
-    let reportRoute = reportType.replace(" ", "-").toLowerCase();
+    const reportRoute = reportType.replace(" ", "-").toLowerCase();
 
     if (reportRoute !== "add-employee") {
       axios
@@ -135,20 +153,7 @@ function Manager() {
         .then((response) => {
           console.log("Backend response for " + reportType, response.data.data);
           generateReport(reportType, response.data.data);
-
-          //TESTING
-          if (reportType === "Usage Chart") {
-            setShowChart(true);
-            setChartData(response.data.data);
-
-            console.log("chartData:", chartData); //TODO Check data sent to chart
-          } else {
-            setShowChart(false);
-            generateReport(reportType);
-            setTableData(response.data.data);
-          }
         })
-
         .catch((error) => {
           console.error("axios error:", error);
         });
@@ -263,48 +268,30 @@ function Manager() {
         </div>
 
         {/* TESTING */}
-        {showChart && (
+        {showChart ? (
           <CChart
             type="bar"
-            data={{
-              labels: chartData,
-              datasets: [
-                {
-                  label: "Usage Chart",
-                  backgroundColor: "#ff0000",
-                  data: chartData,
-                },
-              ],
-            }}
-            labels="Inventory Items"
+            data={chartData}
             options={{
-              plugins: {
-                legend: {
-                  labels: {
-                    color: "#00ffff",
-                  },
-                },
-              },
               scales: {
-                x: {
-                  grid: {
-                    color: "#00ff00",
-                  },
-                  ticks: {
-                    color: "#0000ff",
-                  },
-                },
-                y: {
-                  grid: {
-                    color: "#ffcccc",
-                  },
-                  ticks: {
-                    color: "#000000",
-                  },
-                },
+                x: { title: { display: true, text: "Inventory Item" } },
+                y: { title: { display: true, text: "Amount Used" } },
               },
             }}
           />
+        ) : (
+          <table className="main-content-table">
+            <thead className="content-head"></thead>
+            <tbody>
+              {tableData.map((element, index) => (
+                <tr key={index}>
+                  {columns.map((column, columnIndex) => (
+                    <td key={columnIndex}>{element[column]}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
 
         <div className="date-btn">
