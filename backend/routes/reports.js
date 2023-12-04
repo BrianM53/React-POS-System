@@ -114,6 +114,34 @@ router.post("/view-employees", (req, res) => {
   });
 })
 
+// router.post("/view-managers", (req, res) => {
+//   // const startDate = req.body.startDate;
+//   // const endDate = req.body.endDate;
+
+//   Report.generateViewEmployees((error, employeesData) => {
+//     if (error) {
+//       res.status(500).json({ error: "Error fetching employees data" });
+//     } else {
+//       res.json({ data: employeesData });
+//       console.log("nothing wrong with the report.gen");
+//     }
+//   });
+// })
+
+// router.post("/view-customers", (req, res) => {
+//   // const startDate = req.body.startDate;
+//   // const endDate = req.body.endDate;
+
+//   Report.generateViewEmployees((error, employeesData) => {
+//     if (error) {
+//       res.status(500).json({ error: "Error fetching employees data" });
+//     } else {
+//       res.json({ data: employeesData });
+//       console.log("nothing wrong with the report.gen");
+//     }
+//   });
+// })
+
 router.post("/view-menu-items", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;

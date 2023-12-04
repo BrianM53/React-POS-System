@@ -61,6 +61,28 @@ class AdminEmployees {
     });
   }
 
+  static generateViewEmployees(callback) 
+  {
+    connection.query(
+      "SELECT " +
+      " employees.employee_id," + 
+      "  employees.first_name, " +
+      "  employees.last_name, " +
+      "  employees.phone, " +
+      "  employees.email, " +
+      "  employees.username, " +
+      "  employees.password " +
+      "FROM employees;",
+
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    );
+  }
+
 
 }
 module.exports = AdminEmployees;

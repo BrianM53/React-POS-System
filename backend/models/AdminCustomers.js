@@ -58,5 +58,26 @@ class AdminCustomers {
   }
 
 
+  static generateViewCustomers(callback) 
+  {
+    connection.query(
+      "SELECT " +
+      " customers.customer_id," + 
+      "  customers.first_name, " +
+      "  customers.last_name, " +
+      "  customers.phone, " +
+      "  customers.email, " +
+      "FROM customers;",
+
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    );
+  }
+
+
 }
 module.exports = AdminCustomers;

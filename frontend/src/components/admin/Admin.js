@@ -142,7 +142,7 @@ function Admin() {
       console.log("Fetching employee data...");
 
       axios
-        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .post(BACKEND_URL + "/adminemployees/" + reportRoute)
         .then((response) => {
           console.log("Backend response for " + reportType, response.data.data);
   

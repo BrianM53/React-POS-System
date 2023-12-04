@@ -62,5 +62,28 @@ class AdminManagers {
   }
 
 
+  static generateViewManagers(callback) 
+  {
+    connection.query(
+      "SELECT " +
+      " managers.manager_id," + 
+      "  managers.first_name, " +
+      "  managers.last_name, " +
+      "  managers.phone, " +
+      "  managers.email, " +
+      "  managers.username, " +
+      "  managers.password " +
+      "FROM managers;",
+
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    );
+  }
+
+
 }
 module.exports = AdminManagers;

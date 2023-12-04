@@ -61,6 +61,20 @@ router.delete("/:managerId", (req, res) => {
   });
 });
 
+router.post("/view-customers", (req, res) => {
+  // const startDate = req.body.startDate;
+  // const endDate = req.body.endDate;
+
+  AdminCustomers.generateViewCustomers((error, customersData) => {
+    if (error) {
+      res.status(500).json({ error: "Error fetching employees data" });
+    } else {
+      res.json({ data: customersData });
+      console.log("nothing wrong with the report.gen");
+    }
+  });
+})
+
 
 
 module.exports = router;
