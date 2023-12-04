@@ -1,324 +1,124 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --font-size: 16px;
+} */
+
+@font-face {
+    font-family: 'plant-font';
+    src: url('../../fonts/plantFont/Plante.woff') format('woff'),
+        url('../../fonts/plantFont/Plante.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.menu-header 
+/* ================================== root containers ============================ */
+.menu-stage
 {
-    background-color: var(--white);
-    color: var(--accent);
-    min-height: 100px;
-    font-size: 3rem;
+    background-color: var(--dark);
+    padding: 2em;
+    height: 100%;
+}
+
+.menu-container {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
+    background-color: var(--normal);
+    margin-left: 13rem;
+    margin-right: 13rem;
+    padding-top: 2rem;
+
+    border-radius: 45px;
+    box-shadow: 0 2px 12px var(--shadow);
+    /* width: 70%; */
 }
 
-.menu-nav
+
+/* ================================== entry containers ===================================== */
+.menu-category-container
 {
-    background-color: var(--accent);
+    /* width: 120%; */
     color: var(--white);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    padding: 1em;
-    gap: 2em;
-}
-
-#menu-nav-settings-icon
-{
-    color: white;
-}
-
-#menu-nav-home-icon 
-{
-    color: white;
-}
-
-.menu-nav-title
-{
-    font-size: 2rem;
-    color: var(--white);
-}
-
-.menu-nav-container
-{
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-}
-
-.menu-nav-container-button
-{
-    border-radius: 15px;
-    background-color: var(--white);
-    color: var(--accent);
-    font-size: 1.5rem;
-    border-color: var(--white);
-    border-width: 2px;
-}
-
-.menu-nav-admin-login
-{
-    border-radius: 15px;
-    background-color: var(--white);
-    color: var(--accent);
-    font-size: 1.5rem;
-    border-color: var(--white);
-    border-width: 2px;
-}
-
-
-.menu-main-menu
-{
-    background-color: var(--white);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
-    gap: 2em;
+    
+    padding-bottom: 2rem;
 }
-
-.menu-main-menu-header
-{
-    font-size: 3.5rem;
-    background-color: var(--accent);
-    color: var(--white);
-    padding: .25em;
-}
-
-.menu-categories 
-{
-    border: 3px solid white;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--normal);
-    color: var(--white);
-    font-size: 1.5rem;
-    align-items: center;
-    padding: .5em 0;
-    line-height: 1.5em;
+.category-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-family: 'plant-font', Georgia, 'Times New Roman', Times, serif, sans-serif;
+    margin-bottom: 1rem;   
+    color: var(--text-color);
     text-align: center;
-    border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
-    margin-top: -1rem;
-}
 
-.menu-main-menu-category 
-{
-    padding: 0 1em;
-    border-right: 5px solid var(--white); 
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.menu-main-menu-category:hover
-{
-    font-size: 10px;
-}
-
-#menu-main-menu-water-and-beverages
-{
-    border-right: none; 
-}
-
-#menu-main-menu-sweet-crepes 
-{
-    border-left: none
-}
-
-.menu-entry-photo
-{
-    margin-left: 1rem;
-    width: 125px;
-    height: 125px;
-    /* padding: 1em; */
-
+    /* padding: 5px; */
     background-color: var(--shade2);
-    padding: 5px;
-    scale:110%;
+    border: 1px solid var(--text-color);
     border-radius: 45px;
 }
 
-.menu-main-menu-body 
+.product-container
 {
-    height: 450px;
-    overflow-y: auto;
-}
-
-.menu-container
-{
-    color: var(--white);
+    width:100%;
     display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-
-.menu-entry-container
-{
-    margin-right: 1rem;
-    border: 3px solid var(--border);
-    display: flex;
-    /* scale: 80%; */
-    /* width: auto; */
-    gap: 2rem;
-    margin-left: 3rem;
-    /* margin-right: auto; */
-    /* width: 1100px; */
-    height: 9rem;
-    flex-direction: row;
-    background-color: var(--normal);
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 25px;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
-}
-
-.entry-description-container
-{
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    padding: 1em;
-    gap: .5em;
-    /* background-color: var(--shade); */
-    /* margin-top: 1rem; */
-    /* margin-bottom: ; */
-    scale: 90%;
-    max-width: 60rem;
+    align-items: center;
+}
+
+.empty-product-container {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+}
+
+.product-name
+{
+    color: var(--text-color);
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     margin-right: auto;
-    
-    position: relative;
-    border-left: none;
-    border-right: none;
-    /* border-right: 3px solid var(--shade1); */
-    border-bottom: 3px solid var(--shade2);
-}
-.entry-description-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0px; 
-    width:3px;
-    background-image: linear-gradient(to top, var(--shade1), var(--normal));
-    /* z-index: -1; */
-}
-.entry-description-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0px;
-    width:3px; 
-    background-image: linear-gradient(to top, var(--shade1), var(--normal));
-    /* z-index: -1; */
+    font-size: 1.3rem;
 }
 
-.entry-description
-{
-    overflow-x: scroll;
-    white-space: nowrap;
-    font-size: 1.5rem;
-    /* text-overflow: ellipsis; */
-    /* overflow-y: scroll; */
-    /* white-space: nowrap; */
-}
-.entry-description-noscroll {
-    overflow-x: scroll;
-    white-space: nowrap;
-    font-size: 1.5rem;
-    text-overflow: ellipsis;
+.product-price {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
 
-.entry-description::-webkit-scrollbar {
-    width: 8px;
-    background-color: #565a57;
-    /* margin-top: 15px; */
-    /* margin-bottom: -1rem; */
-    border-radius: 6px;
-}
-.entry-description::-webkit-scrollbar-thumb {
-    background: var(--shade1); 
-    border-radius: 6px;
-} 
-.entry-description-noscroll::-webkit-scrollbar {
-    display: none;
+.product-line {
+    flex: 1;
+    /* height: 1px;
+    background-color: var(--bright);  */
+    margin: 0 10px; 
+    /* border-top: 4px dotted var(--bright); */
+    border-top: 0.1px solid var(--bright);
+    /* border-radius: 50%; */
 }
 
-.entry-title
-{
-    font-size: 2rem;
+
+/* =========================== menu formatting =================================== */
+.column1, .column2 {
+    width: 33%;
+    /* background-color: red; */
+    margin-right: 5rem; 
+    margin-bottom: auto;
 }
 
-.entry-description
-{
-    font-size: 1.5rem;
+
+/* =========================== images =========================== */
+.image1 {
+    margin-left: -20%;
+    /* margin-right: auto; */
+    scale: 40%;
+}
+.image2 {
+    margin-right: -20%;
+    /* margin-left:auto ; */
+    scale: 40%;
 }
 
-#menu-body-sweet-crepes
-{
-    display: flex;
-    
-}
-
-#menu-body-savory-crepes
-{
-    display: none;
-    
-}
-
-#menu-body-kids-crepes
-{
-    display: none;
-    
-}
-
-#menu-body-sweet-paris-waffles
-{
-    display: none;
-    
-}
-
-#menu-body-breakfast-crepes-and-waffles
-{
-    display: none;
-    
-}
-
-#menu-body-soups-salads-and-paninis
-{
-    display: none;
-    
-}
-
-#menu-body-le-bar
-{
-    display: none;
-    
-}
-
-#menu-body-hot-drinks-and-milkshakes
-{
-    display: none;
-    
-}
-
-#menu-body-beverages
-{
-    display: none;
-    
-}
-
-.menu-filler-block {
-    height: 2.2rem;
-} 

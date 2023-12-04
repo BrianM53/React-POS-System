@@ -28,6 +28,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CartProvider } from "./components/cart/CartContext";
+import { SettingsProvider } from "./components/settings/settingsControl";
 
 const clientID =
   "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
@@ -107,7 +108,9 @@ root.render(
     <BrowserRouter>
       <CartProvider>
         <UserProvider>
-          <Routing />
+          <SettingsProvider>
+            <Routing />
+          </SettingsProvider>
         </UserProvider>
       </CartProvider>
     </BrowserRouter>

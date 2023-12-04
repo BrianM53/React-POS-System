@@ -1,7 +1,9 @@
-:root {
+@import '../utility/colors.css';
+
+/* :root {
     --white: white;
     --accent: skyblue;
-}
+} */
 
 .Cashier {
     background-color: var(--white);

@@ -20,7 +20,7 @@ const OrderNow = () => {
   const [activeSection, setActiveSection] = useState("Sweet Crepes");
   const [productData, setProductData] = useState({}); // Initialize product data as an empty object
   const [cart, setCart] = useState([]); // New state for the cart
-  const { addToCart, decrementQuantity } = useCart();
+  const { addToCart, decrementQuantity, getCartLength } = useCart();
 
   // dynamic scrollbar display
   const scrollRefs = {
@@ -167,12 +167,17 @@ const OrderNow = () => {
       .replace(/[,]/g, "") // Remove commas
       .replace(/[&]/g, "and");
       
-      const imagePath = require(`../../images/menu/${imageName}.jpg`);
+      let imagePath;
+      try {
+          imagePath = require(`../../images/menu/${imageName}.jpg`);
+      } catch (error) {
+          imagePath = require('../../images/logo.png');
+      }
       
       const descriptionHasOverflow = product.product_description.length > 36;
       // const descriptionHasOverflow = true;
       return (
-        <div key={product.product_id} className="menu-body-entry-container">
+        <div key={product.product_id} className="menu-body-entry-container" onClick={() => increment(product)}>
           <img
             src={imagePath}
             alt={product.product_name}
@@ -186,7 +191,7 @@ const OrderNow = () => {
               {product.product_description}
             </div>
           </div>
-          <div className="menu-body-entry-amount-container">
+          {/* <div className="menu-body-entry-amount-container">
             <div
               className="decrement-button"
               onClick={() => decrement(product.product_id)}
@@ -200,7 +205,7 @@ const OrderNow = () => {
             >
               +
             </div>
-          </div>
+          </div> */}
         </div>
       );
     });
@@ -208,8 +213,6 @@ const OrderNow = () => {
 
   const renderCartItems = () => {
     return cart.map((item) => {
-      const nameHasOverflow = !(item.product_name.length < 22);
-  
       return (
         <div key={item.product_id} className="ticket-item">
           <div className="ticket-item-quantity">
@@ -229,7 +232,7 @@ const OrderNow = () => {
           </div>
           <div className="ticket-item-name-container">
             <div 
-            className={nameHasOverflow ? "ticket-item-name" : "ticket-item-name-noscroll"}>
+            className="ticket-item-name">
               {item.product_name}
             </div>
           </div>
@@ -249,11 +252,13 @@ const OrderNow = () => {
       <Header />
 
       <main className="menu-main-menu">
-        <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
+        {/* <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
           Order Now
-        </SpecialFontText>
-
-        <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
+        </SpecialFontText> */}
+        
+        <div className="category-container">
+          <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
+        </div>
 
         <div className="menu-main-menu-container">
           <div 
@@ -269,6 +274,9 @@ const OrderNow = () => {
               Your Cart
             </SpecialFontText> */}
             <div ref={scrollRefs.cartScrollRef} className={cartHasOverflow ? 'ticket-item-container' : 'ticket-item-container-noscroll'}>
+              <div className={getCartLength() == 0 ? "temp-cart-text" : "temp-cart-text-none"}>
+                Click an item to get started!
+              </div>
               {renderCartItems()}
             </div>
             <div className="ticket-total-and-order-container">

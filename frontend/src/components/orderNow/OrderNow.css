@@ -1,5 +1,6 @@
 /* color controller */
-:root {
+@import '../utility/colors.css';
+/* :root {
     --white: white;
     --accent: skyblue;
     --root-font-size: 16px;
@@ -9,64 +10,16 @@
     --normal: #A7C8C5;
     --dark: #1c221d;
     --border: #81a7a2;
-}
+} */
 
-.order-now-nav-left
-{
+
+.category-container {
+    /* overflow-x: scroll; */
     display: flex;
-    flex-direction: row;
-    gap: 2em;
+    margin-bottom: auto;
 }
-
-.order-now-nav-right
-{
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-}
-
-.fa-arrow-left
-{
-    color: white;
-}
-
-#menu-nav-settings-icon
-{
-    color: white;
-    font-size: 4rem !important;
-}
-
-#menu-nav-home-icon 
-{
-    color: white;
-    font-size: 4rem !important;
-}
-
-.menu-nav-container-order-now
-{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    margin-left: 1em;
-    margin-right: 1em;
-}
-
-.menu-nav-container-left-order-now
-{
-    display: flex;
-    flex-direction: row;
-    gap: 3em;
-}
-
-.menu-nav-container-button
-{
-    border-radius: 15px;
-    background-color: var(--white);
-    color: var(--normal);
-    font-size: 1.5rem;
-    border-color: var(--border);
-    border-width: 2px;
+.category-container::-webkit-scrollbar {
+    display: none;
 }
 
 .menu-main-menu
@@ -99,9 +52,16 @@
     /* margin-top: 70%; */
     display: flex;
     overflow: scroll;
+
+    justify-content: center;
+    align-items: center;
     /* background-color: red; */
+    height:100%;
     /* padding: 50%; */
     width: 100%;
+
+    margin-bottom: auto;
+    margin-top: -3%;
 }
 .menu-main-menu-container::-webkit-scrollbar {
     display: none;
@@ -109,17 +69,21 @@
 
 .menu-main-menu-ticket-container
 {
-    border: 3px solid var(--border);
+    border: 5px solid var(--bright);
     background-color: var(--normal);
     width: 50%;
     height: 91%;
     color: var(--white);
     display: flex;
+    /* justify-content: ; */
+    /* margin-top: auto; */
+    /* align-items: flex-start; */
     flex-direction: column;
     border-radius: 25px;
     scale: 85%;
-    margin-top:-3rem;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    /* margin-top:-3rem; */
+    box-shadow: 0 2px 12px var(--shadow);
+    /* margin-bottom: auto; */
 }
 
 
@@ -127,10 +91,10 @@
 .ticket-container-title
 {
     
-    color: var(--white);
+    color: var(--text-color);
     text-align: center;
     scale: 85%;
-    border-bottom: 5px solid var(--white);
+    border-bottom: 5px solid var(--text-color);
     margin-left: 1em;
     margin-right: 1em;
     width: 50%;
@@ -139,13 +103,18 @@
 
 .ticket-item-container, .ticket-item-container-noscroll
 {
+    color: var(--text-color);
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
-    height: 425px;
+    height: 100%;
     overflow-y: scroll;
     margin: 1em;
+
+    /* background-color: red; */
+    margin-top: auto;
     border-bottom: 5px solid var(--shade2);
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
+
 }
 
 .ticket-item-container::-webkit-scrollbar {
@@ -153,6 +122,18 @@
     background-color: #565a57;
     margin-top: 15px;
     border-radius: 6px;
+}
+
+.temp-cart-text {
+    color: var(--text-color);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+.temp-cart-text-none {
+    display: none;
 }
 
 .ticket-item-container::-webkit-scrollbar-thumb {
@@ -182,32 +163,16 @@
 {
     width: 400px;
     white-space: nowrap;
-    overflow-x: scroll; 
+    user-select: none;
+    /* overflow-x: scroll;  */
     /* text-overflow: ellipsis; */
-    /* margin-left: ; */
     
     /* padding-right: 5rem; */
+    
 }
-.ticket-item-name-noscroll
-{
-    width: 400px;
-    white-space: nowrap;
-    overflow-x: scroll; 
-    /* text-overflow: ellipsis; */
-    /* margin-left: ; */
+.ticket-item-price, .ticket-total-title {
+    user-select: none;
 }
-.ticket-item-name::-webkit-scrollbar {
-    /* width: 1px;
-    background-color: #565a57;
-    margin-top: 15px;
-    border-radius: 6px; */
-    display: none;
-}
-
-.ticket-item-name::-webkit-scrollbar-thumb {
-    /* background: var(--shade1); 
-    border-radius: 6px; */
-} 
 
 .ticket-item-name-noscroll::-webkit-scrollbar {
     display: none;
@@ -218,13 +183,24 @@
     border-bottom: 3px solid var(--shade2);
     border-right: none;
     margin-left: 3rem;
+    margin-right: 3rem;
     position: relative;
     border-left: none;
+
+
+    /* background-color: red; */
+    width: 100%;
+
     padding-left: 2rem;
     padding-right: 2rem;
+
+    overflow-x: scroll;
+}
+.ticket-item-name-container::-webkit-scrollbar {
+    display: none;
 }
 
-.ticket-item-name-container::before {
+/* .ticket-item-name-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -232,7 +208,6 @@
     left: 0px; 
     width:3px;
     background-image: linear-gradient(to top, var(--shade1), var(--normal));
-    /* z-index: -1; */
 }
 .ticket-item-name-container::after {
     content: '';
@@ -242,13 +217,12 @@
     right: 0px;
     width:3px; 
     background-image: linear-gradient(to top, var(--shade1), var(--normal));
-    /* z-index: -1; */
-}
+} */
 
 .ticket-item-price {
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
     
-    margin-right: auto;
+    margin-left: auto;
 }
 
 .ticket-item-quantity
@@ -264,16 +238,19 @@
     gap: .75em;
     border-radius: 25px;
 
+    margin-right: auto;
     cursor: pointer;
 }
 
 .ticket-total-and-order-container
 {
+    color: var(--text-color);
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: .75em;
+    margin-top: auto;
 }
 
 .ticket-total-container
@@ -295,13 +272,13 @@
 
 .ticket-submit-button
 {
-    
+    user-select: none;
     /* border: 5px solid var(--white); */
     padding: .5em;
     font-size: 2rem;
     border-radius: 500px;
 
-    color: white;
+    color: (--text-color);
     /* border-color: var(--shade1); */
     background-color: var(--shade2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -315,6 +292,17 @@
     scale: 95%;
 }
 
+.ticket-item-decrement, .ticket-item-increment {
+    padding: 1rem;
+    user-select: none;
+}
+
+.ticket-item-current-quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
 
 
 /* =========================== categories ========================== */
@@ -331,15 +319,15 @@
 .menu-body-entry-photo
 {
     margin-left: 1rem;
-    width: 125px;
-    height: 125px;
+    /* max-width: 125px;
+    max-height: 125px; */
     /* padding: 1em; */
-
+    width: 20%;
+    height: 100%;
     background-color: var(--shade2);
     padding: 5px;
-    scale:110%;
+    scale:100%;
     border-radius: 45px;
-
 }
 
 .menu-main-menu-body, .menu-main-menu-body-noscroll 
@@ -351,8 +339,12 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 70%;
+    width: 50%;
     /* background-color: red; */
+
+    margin-top:-1%;
+
+    padding: 10px;
 
 }
 
@@ -369,13 +361,15 @@
 } */
 .menu-main-menu-body::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
     background-color: #565a57;
     margin-top: 15px;
     border-radius: 6px;
+    /* margin-right: 1rem; */
 }
   
 .menu-main-menu-body::-webkit-scrollbar-thumb {
-    background: var(--shade2); 
+    background: var(--shade1); 
     border-radius: 6px;
 } 
 .menu-main-menu-body-noscroll::-webkit-scrollbar {
@@ -384,27 +378,33 @@
 
 .menu-body-entry-container
 {
-    margin-right: 1rem;
-    border: 3px solid var(--border);
+    border: 5px solid var(--bright);
     display: flex;
     /* scale: 80%; */
     /* width: auto; */
-    gap: 2rem;
+    /* gap: 2rem; */
     /* margin-left: 3rem; */
     margin-right: auto;
+    /* margin-top: -2%; */
     width: 100%;
+    /* height: 100vh; */
     /* width: 1100px; */
-    /* height: 9rem; */
+    max-height: 50rem;
     flex-direction: row;
     background-color: var(--normal);
     justify-content: space-between;
     align-items: center;
     border-radius: 25px;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    user-select: none;
+    box-shadow: 0 2px 12px var(--shadow);
     
-    
-    /* text-align: center;
-    overflow-x: scroll; */
+    cursor: pointer;
+    /* text-align: center; */
+    /* overflow-x: auto; */
+}
+.menu-body-entry-container:hover {
+    scale: 102%;
+    border: 5px solid var(--white);
 }
 
 .menu-body-entry-amount-container
@@ -414,13 +414,15 @@
     display: flex;
     flex-direction: row;
     gap: .5em;
-    border: 2px solid var(--white);
+    border: 2px solid var(--text-color);
     border-radius: 55px;
     
     padding: .5em;
     padding-top: .25em;
     padding-bottom: .25em;
     margin-left: auto;
+
+    /* overflow: scroll; */
 }
 
 .menu-body-entry-description-container
@@ -431,12 +433,11 @@
     justify-content: center;
     padding: 1em;
     gap: .5em;
-    /* background-color: var(--shade); */
     /* margin-top: 1rem; */
     /* margin-bottom: ; */
     scale: 90%;
     /* max-width: 30rem; */
-    width: 70%;
+    width: 100%;
     /* margin-left: auto; */
     position: relative;
     border-left: none;
@@ -487,68 +488,22 @@
 }
 
 .menu-body-entry-description::-webkit-scrollbar {
-    width: 8px;
-    background-color: #565a57;
-    /* margin-top: 15px; */
-    /* margin-bottom: -1rem; */
-    border-radius: 6px;
     display:none;
 }
-.menu-body-entry-description::-webkit-scrollbar-thumb {
-    /* background: var(--shade1); 
-    border-radius: 6px; */
-} 
+ 
 .menu-body-entry-description-noscroll::-webkit-scrollbar {
     display: none;
-}
-
-#menu-body-sweet-crepes
-{
-    display: flex;
-}
-
-#menu-body-savory-crepes
-{
-    display: none;
-}
-
-#menu-body-kids-crepes
-{
-    display: none;
-}
-
-#menu-body-sweet-paris-waffles
-{
-    display: none;
-}
-
-#menu-body-breakfast-crepes-and-waffles
-{
-    display: none;
-}
-
-#menu-body-soups-salads-and-paninis
-{
-    display: none;
-}
-
-#menu-body-hot-drinks-and-milkshakes
-{
-    display: none;
-}
-
-#menu-body-beverages
-{
-    display: none; 
 }
 
 .decrement-button
 {
     cursor: pointer;
+    padding: 0.3rem;
 }
 
 .increment-button
 {
+    padding: 0.3rem;
     cursor: pointer;
 }
 

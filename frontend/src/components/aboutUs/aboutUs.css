@@ -1,5 +1,6 @@
+@import '../utility/colors.css';
 /* color controller */
-:root {
+/* :root {
   --text-color: red;
   --root-font-size: 16px;
   --shade1: #89b3ae;
@@ -7,7 +8,7 @@
   --normal: #A7C8C5;
   --dark: #1c221d;
   --border: #81a7a2;
-}
+} */
 
 /* ================== scrollbar styling for about us containers =================== */
 .menu-main-aboutus-entry p::-webkit-scrollbar {
@@ -18,7 +19,7 @@
 }
 
 .menu-main-aboutus-entry p::-webkit-scrollbar-thumb {
-  background: var(--shade1); 
+  background: var(--shade2); 
   border-radius: 6px;
 } 
 
@@ -40,13 +41,13 @@
 
 .menu-main-aboutus-header
 {
-  border: 3px solid var(--border);
+  border: 5px solid var(--bright);
   background-color: var(--normal);
   color: var(--text-color);
   padding: .25rem;
   margin-top: 7px;
   border-radius: 25px;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px var(--shadow);
 }
 
 .menu-main-aboutus-entry
@@ -98,7 +99,8 @@
 
 .menu-main-aboutus-top-container  
 {
-  border: 3px solid var(--border);
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+  border: 8px solid var(--bright);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -109,7 +111,7 @@
   padding-right: 2rem;
   font-size: 2rem;
   border-radius: 100px;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px var(--shadow);
   scale: 70%;
 
   height: 40vh;
@@ -117,9 +119,10 @@
 
 .menu-main-aboutus-bottom-container
 {
+  font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
   height: 40vh;
   scale: 70%;
-  border: 3px solid var(--border);
+  border: 8px solid var(--bright);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -131,7 +134,7 @@
   padding-right: 2rem;
   font-size: 2rem;
   border-radius: 100px;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px var(--shadow);
 }
 
 .menu-main-aboutus-image-bottom
@@ -143,7 +146,7 @@
   width: 40%;
   /* height: 15%; */
   border-radius: 500px;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px var(--shadow);
 }
 .menu-main-aboutus-image-top
 {
@@ -156,6 +159,6 @@
   width: 40%;
   /* height: 1%; */
   border-radius: 500px;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 12px var(--shadow);
 
 }
