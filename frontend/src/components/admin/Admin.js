@@ -162,7 +162,7 @@ function Admin() {
       console.log("Fetching manager data...");
 
       axios
-        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .post(BACKEND_URL + "/adminmanagers/" + reportRoute)
         .then((response) => {
           console.log("Backend response for " + reportType, response.data.data);
   
@@ -182,7 +182,7 @@ function Admin() {
       console.log("Fetching customer data...");
 
       axios
-        .post(BACKEND_URL + "/reports/" + reportRoute)
+        .post(BACKEND_URL + "/admincustomers/" + reportRoute)
         .then((response) => {
           console.log("Backend response for " + reportType, response.data.data);
   
@@ -215,7 +215,7 @@ function Admin() {
       case 'viewemployees':
         console.log("inside of employees");
         axios
-          .delete(BACKEND_URL + "/employees/" + element.employee_id)
+          .delete(BACKEND_URL + "/adminemployees/" + element.employee_id)
           .then(() => {
             console.log("Employee removed successfully");
             fetchAndRenderData();
@@ -227,7 +227,7 @@ function Admin() {
       case 'viewmanagers':
         console.log("inside of managers");
         axios
-          .delete(BACKEND_URL + "/addproducts/" + element.product_id) /*****change /addproducts/ */
+          .delete(BACKEND_URL + "/adminmanagers/" + element.manager_id) /*****change /addproducts/ */
           .then(() => {
             console.log("Menu item removed successfully");
             fetchAndRenderData();
@@ -239,7 +239,7 @@ function Admin() {
       case 'viewcustomers':
         console.log("inside of customers");
         axios
-          .delete(BACKEND_URL + "/inventory/" + element.inventory_id) /*****change /inventory/ */
+          .delete(BACKEND_URL + "/admincustomers/" + element.customer_id) /*****change /inventory/ */
           .then(() => {
             console.log("Inventory item removed successfully");
             fetchAndRenderData();
