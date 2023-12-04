@@ -22,64 +22,6 @@
     display: none;
 }
 
-.order-now-nav-left
-{
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-}
-
-.order-now-nav-right
-{
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-}
-
-.fa-arrow-left
-{
-    color: white;
-}
-
-#menu-nav-settings-icon
-{
-    color: white;
-    font-size: 4rem;
-}
-
-#menu-nav-home-icon 
-{
-    color: white;
-    font-size: 4rem ;
-}
-
-.menu-nav-container-order-now
-{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    margin-left: 1em;
-    margin-right: 1em;
-}
-
-.menu-nav-container-left-order-now
-{
-    display: flex;
-    flex-direction: row;
-    gap: 3em;
-}
-
-.menu-nav-container-button
-{
-    border-radius: 15px;
-    background-color: var(--white);
-    color: var(--normal);
-    font-size: 1.5rem;
-    border-color: var(--border);
-    border-width: 2px;
-}
-
 .menu-main-menu
 {
     background-color: var(--dark);
@@ -114,6 +56,7 @@
     justify-content: center;
     align-items: center;
     /* background-color: red; */
+    height:100%;
     /* padding: 50%; */
     width: 100%;
 
@@ -128,7 +71,7 @@
 {
     border: 5px solid var(--bright);
     background-color: var(--normal);
-    width: 70%;
+    width: 50%;
     height: 91%;
     color: var(--white);
     display: flex;
@@ -139,7 +82,7 @@
     border-radius: 25px;
     scale: 85%;
     /* margin-top:-3rem; */
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px var(--shadow);
     /* margin-bottom: auto; */
 }
 
@@ -194,7 +137,7 @@
 }
 
 .ticket-item-container::-webkit-scrollbar-thumb {
-    background: var(--bright); 
+    background: var(--shade1); 
     border-radius: 6px;
 } 
 
@@ -376,15 +319,15 @@
 .menu-body-entry-photo
 {
     margin-left: 1rem;
-    width: 125px;
-    height: 125px;
+    /* max-width: 125px;
+    max-height: 125px; */
     /* padding: 1em; */
-
+    width: 20%;
+    height: 100%;
     background-color: var(--shade2);
     padding: 5px;
-    scale:110%;
+    scale:100%;
     border-radius: 45px;
-
 }
 
 .menu-main-menu-body, .menu-main-menu-body-noscroll 
@@ -396,8 +339,10 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 70%;
+    width: 50%;
     /* background-color: red; */
+
+    margin-top:-1%;
 
     padding: 10px;
 
@@ -433,7 +378,6 @@
 
 .menu-body-entry-container
 {
-    margin-right: 1rem;
     border: 5px solid var(--bright);
     display: flex;
     /* scale: 80%; */
@@ -445,14 +389,14 @@
     width: 100%;
     /* height: 100vh; */
     /* width: 1100px; */
-    height: 50rem;
+    max-height: 50rem;
     flex-direction: row;
     background-color: var(--normal);
     justify-content: space-between;
     align-items: center;
     border-radius: 25px;
     user-select: none;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px var(--shadow);
     
     cursor: pointer;
     /* text-align: center; */
@@ -544,59 +488,11 @@
 }
 
 .menu-body-entry-description::-webkit-scrollbar {
-    width: 8px;
-    background-color: #565a57;
-    /* margin-top: 15px; */
-    /* margin-bottom: -1rem; */
-    border-radius: 6px;
     display:none;
 }
-.menu-body-entry-description::-webkit-scrollbar-thumb {
-    /* background: var(--shade1); 
-    border-radius: 6px; */
-} 
+ 
 .menu-body-entry-description-noscroll::-webkit-scrollbar {
     display: none;
-}
-
-#menu-body-sweet-crepes
-{
-    display: flex;
-}
-
-#menu-body-savory-crepes
-{
-    display: none;
-}
-
-#menu-body-kids-crepes
-{
-    display: none;
-}
-
-#menu-body-sweet-paris-waffles
-{
-    display: none;
-}
-
-#menu-body-breakfast-crepes-and-waffles
-{
-    display: none;
-}
-
-#menu-body-soups-salads-and-paninis
-{
-    display: none;
-}
-
-#menu-body-hot-drinks-and-milkshakes
-{
-    display: none;
-}
-
-#menu-body-beverages
-{
-    display: none; 
 }
 
 .decrement-button

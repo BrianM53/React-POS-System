@@ -22,7 +22,7 @@
     /* justify-content: space-between; */
     background-color: var(--normal);
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.36rem;
     align-items: center;
     padding: .5em 0;
     /* line-height: 1.5em;  */
@@ -32,7 +32,7 @@
 
     border-radius: 25px;
     margin-top: 3%;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px var(--shadow);
 
     /* padding: 0.5rem; */
     width: 85vw;

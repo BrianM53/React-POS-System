@@ -167,7 +167,12 @@ const OrderNow = () => {
       .replace(/[,]/g, "") // Remove commas
       .replace(/[&]/g, "and");
       
-      const imagePath = require(`../../images/menu/${imageName}.jpg`);
+      let imagePath;
+      try {
+          imagePath = require(`../../images/menu/${imageName}.jpg`);
+      } catch (error) {
+          imagePath = require('../../images/logo.png');
+      }
       
       const descriptionHasOverflow = product.product_description.length > 36;
       // const descriptionHasOverflow = true;
@@ -208,8 +213,6 @@ const OrderNow = () => {
 
   const renderCartItems = () => {
     return cart.map((item) => {
-      const nameHasOverflow = !(item.product_name.length < 22);
-  
       return (
         <div key={item.product_id} className="ticket-item">
           <div className="ticket-item-quantity">
