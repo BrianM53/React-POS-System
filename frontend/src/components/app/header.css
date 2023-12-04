@@ -221,3 +221,15 @@
     margin: -10px;
     border-radius: 15px;   
 }
+
+#menu-nav-settings-icon
+{
+    color: white;
+    font-size: 4rem;
+}
+
+#menu-nav-home-icon 
+{
+    color: white;
+    font-size: 4rem ;
+}

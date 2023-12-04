@@ -50,7 +50,7 @@
     border: 3px solid var(--border);
     font-size: 3.5rem;
     background-color: var(--normal) !important;
-    color: var(--white);
+    color: var(--text-color);
     padding: .25em;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -73,12 +73,10 @@
     gap: 4em;
     background-color: var(--normal);
     /* background-color: red; */
-    color: var(--white);
+    color: var(--text-color);
     padding: 10em;
     border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-
-
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .settings-color-container

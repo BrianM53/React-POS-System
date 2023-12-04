@@ -57,7 +57,7 @@
     color: var(--text-color);
     padding: .25em;
     border-radius: 25px;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 12px var(--shadow);
     margin-top: -5%;
 }
 
@@ -157,6 +157,8 @@ textarea::-webkit-scrollbar-thumb {
 
 .contactus-right-container
 {
+    box-shadow: 0 2px 12px var(--shadow);
+
     border: 5px solid var(--bright);
     background-color: var(--normal);
     text-align: center;
@@ -177,6 +179,7 @@ textarea::-webkit-scrollbar-thumb {
     /* height:100%; */
     gap: .25em;
     font-size: 2.1rem;
+    
 }
 
 .form-container
@@ -187,7 +190,7 @@ textarea::-webkit-scrollbar-thumb {
     text-wrap: wrap;
     align-items: center;
     gap: .25em;
-    overflow: scroll;
+    overflow-x: scroll;
 }
 .form-container::-webkit-scrollbar {
     display: none;
@@ -211,7 +214,6 @@ textarea::-webkit-scrollbar-thumb {
     color: var(--text-color);
     /* border-color: var(--text-color); */
     background-color: var(--shade1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     scale: 80%;
 }
 

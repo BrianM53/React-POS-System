@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Header from '../app/header';
 
-import { useSettings } from '../utility/settingsControl';
+import { useSettings } from './settingsControl';
 library.add(fas,fab); 
 
 const Settings = () => {
@@ -81,7 +81,7 @@ const Settings = () => {
                 >
                   <option value="dark">Dark</option>
                   <option value="light">Light</option>
-                  <option value="high-contrast">High Contrast</option>
+                  <option value="high-contrast">Contrast</option>
                 </select>
               </div>
             </div>
