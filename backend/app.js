@@ -39,7 +39,7 @@ app.use("/products", productsRouter);
 app.use("/reports", reportsRouter);
 app.use('/orders', ordersRouter);
 app.use("/employees", employeesRouter);
-app.use("/customers", employeesRouter);
+app.use("/customers", customersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
