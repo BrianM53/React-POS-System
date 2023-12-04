@@ -32,6 +32,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--dark);
+  background-attachment: fixed;
+  background-position: center;
 
   display: flex;
   flex-direction: column;
