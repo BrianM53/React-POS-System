@@ -34,6 +34,11 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const getCartLength = () => {
+    console.log(cartItems.reduce((totalLength, item) => totalLength + item.quantity, 0));
+    return cartItems.reduce((totalLength, item) => totalLength + item.quantity, 0);
+  };
+
   const decrementQuantity = (productId) => {
     setCartItems((prevItems) => {
       return prevItems
@@ -54,6 +59,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         decrementQuantity,
+        getCartLength,
       }}
     >
       {children}

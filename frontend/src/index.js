@@ -13,6 +13,7 @@ import {UserProvider, useUser} from "./components/utility/userControl";
 // the page components
 import App from "./App";
 import Login from "./components/login/Login";
+import Admin from "./components/admin/Admin"
 import Manager from "./components/manager/Manager";
 import Menu from "./components/menu/menu"
 import Cashier from "./components/cashier/Cashier";
@@ -28,6 +29,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CartProvider } from "./components/cart/CartContext";
+import { SettingsProvider } from "./components/settings/settingsControl";
 
 const clientID =
   "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
@@ -73,6 +75,15 @@ function Routing() {
         }
       />
       <Route
+        path="/admin"
+        element={
+          <PrivateRoute
+            element={<Admin />}
+            requiredRole="admin"
+          />
+        }
+      />
+      <Route
         path="/manager"
         element={
           <PrivateRoute
@@ -107,7 +118,9 @@ root.render(
     <BrowserRouter>
       <CartProvider>
         <UserProvider>
-          <Routing />
+          <SettingsProvider>
+            <Routing />
+          </SettingsProvider>
         </UserProvider>
       </CartProvider>
     </BrowserRouter>

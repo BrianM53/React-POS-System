@@ -1,10 +1,12 @@
-/* color controller */
+
+@import '../utility/colors.css';
+/* color controller
 :root {
     --white: white;
     --accent: skyblue;
     
 
-  }
+  } */
 
 .menu-header 
 {

@@ -25,9 +25,12 @@ function Login() {
   };
 
   const login = async (event) => {
-    const { isCashier, isManager } = await handleSubmit(event, loginData);
+    const { isCashier, isManager, isAdmin } = await handleSubmit(event, loginData);
     console.log("login attempt with role " + userRole);
-    if (isManager) {
+    if (isAdmin) {
+      setUserRole("admin");
+      navigate("/admin");
+    } else if (isManager) {
       setUserRole("manager");
       navigate("/manager");
     } else if (isCashier) {
@@ -54,7 +57,7 @@ function Login() {
               placeholder="Email address"
               onChange={handleInputChange}
             />
-          </FloatingLabel>
+          </FloatingLabel>  
 
           <FloatingLabel label="Password" className="mb-3">
             <Form.Control

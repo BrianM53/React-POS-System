@@ -73,6 +73,13 @@ export function Categories( {activeSection, setActiveSection} ) {
           >
             Beverages
           </div>
+          <div 
+          className={activeSection === "Seasonal" ? 'category-item-active' : 'category-item-passive'}  
+          id="menu-main-menu-seasonal" 
+          onClick={() => setActiveSection('Seasonal')}     
+          >
+            Seasonal
+          </div>
         </div>
     );
 }

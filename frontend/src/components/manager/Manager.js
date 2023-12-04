@@ -10,7 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 //import generateReport from './generateReport';
 import ReportButtons from "./reportButtons";
-import ReportLabels from "./reportLabels";
+// import ReportLabels from "./reportLabels";
 import LogoutButton from "../utility/logoutButton";
 import AddEmployee from "./addEmployee";
 import AddMenuItem from "./addMenuItem";
