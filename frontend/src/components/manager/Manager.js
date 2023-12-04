@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
@@ -27,8 +27,8 @@ function Manager() {
 
   // the report data that will show up in the main content box
   const [tableData, setTableData] = useState([]); 
-  const [chartData, setChartData] = useState([])
-  const [showChart, setShowChart] = useState(false);
+  const [chartData, setChartData] = useState([]);
+  const [showChart, setShowChart] = useState([]);
   // user variables
   const { userRole, setUserRole, userName, setUserName, userEmail, setUserEmail } = useUser();
 
@@ -73,10 +73,10 @@ function Manager() {
       setColumns([]);
     }
     //______________________________
-    if (reportType === 'Usage Chart') {
-      setShowChart(true);
-      setChartData(data);
-    } 
+    // if (reportType === 'Usage Chart') {
+    //   setShowChart(true);
+    //   setChartData(data);
+    // } 
     else {
       setShowChart(false);
       setTableData(data);
@@ -94,13 +94,14 @@ function Manager() {
 
     let reportRoute = reportType.replace(" ", "-").toLowerCase();
 
-    if (reportRoute != "add-employee") {
+    if (reportRoute !== "add-employee") {
       axios
         .post(BACKEND_URL + '/reports/' + reportRoute, {
           startDate: generateTimestamp(startDate),
           endDate: generateTimestamp(endDate),
         })
         .then(response => {
+          console.log(response.data);
           console.log(reportType, "data for \nStart date:", generateTimestamp(startDate), "\nEnd date:", generateTimestamp(endDate), "\n", response.data.data);
           generateReport(reportType, response.data.data);
 
@@ -185,52 +186,51 @@ function Manager() {
 
 
         <div className="main-content">
-          {showChart ? (
-            <CChart
-              type="bar"
-              data={{
-                labels: chartData,
-                datasets: [
-                  {
-                    label: "Usage Chart",
-                    backgroundColor: "#ff0000",
-                    data: chartData,
-                  },
-                ],
-              }}
-              labels="Inventory Items"
-              options={{
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: "#00ffff",
-                    },
+        {showChart && chartData ? (
+          <CChart
+            type="bar"
+            data={{
+              labels: chartData.map(item => item.inventoryItem),
+              datasets: [
+                {
+                  label: "Usage Chart",
+                  backgroundColor: "#ff0000",
+                  data: chartData.map(item => item.amountUsed),
+                },
+              ],
+            }}
+            labels="Inventory Items"
+            options={{
+              plugins: {
+                legend: {
+                  labels: {
+                    color: "#00ffff",
                   },
                 },
-                scales: {
-                  x: {
-                    grid: {
-                      color: "#00ff00",
-                    },
-                    ticks: {
-                      color: "#0000ff",
-                    },
+              },
+              scales: {
+                x: {
+                  grid: {
+                    color: "#00ff00",
                   },
-                  y: {
-                    grid: {
-                      color: "#ffcccc",
-                    },
-                    ticks: {
-                      color: "#000000",
-                    },
+                  ticks: {
+                    color: "#0000ff",
                   },
                 },
-              }}
-            />
-          ) : (
+                y: {
+                  grid: {
+                    color: "#ffcccc",
+                  },
+                  ticks: {
+                    color: "#000000",
+                  },
+                },
+              },
+            }}
+          />
+        ) : (
           <table className='main-content-table'>
-            <thead className='content-head'>
-            </thead>
+            <thead className='content-head'></thead>
             <tbody>
               {tableData.map((element, index) => (
                 <tr key={index}>
@@ -241,7 +241,7 @@ function Manager() {
               ))}
             </tbody>
           </table>
-          )}
+        )}
           <div>
             {activeReport === "Add Employee" ? (
               <AddEmployee />

@@ -64,21 +64,33 @@ router.post("/sells-together", (req, res) => {
     });
 });
 
-router.post("/usage-chart", (req, res) => {
-    const startDate = '2022-08-06 06:22:00';
-    const endDate = '2023-10-06 08:25:00';
-    // const startDate = req.body.startDate;
-    // const endDate = req.body.endDate;
-    console.log("usage");
-    res.send("usage");
+// router.post("/usage-chart", (req, res) => {
+//     const startDate = '2022-08-06 06:22:00';
+//     const endDate = '2023-10-06 08:25:00';
+//     // const startDate = req.body.startDate;
+//     // const endDate = req.body.endDate;
+//     console.log("usage");
+//     res.send("usage");
     
-    Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
-            if (error) {
-                    res.status(500).json({ error: "Error generating usage chart" });
-        } else {
-            res.json({ data: usageChartData });
-        }
-    });
+//     Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+//             if (error) {
+//                     res.status(500).json({ error: "Error generating usage chart" });
+//         } else {
+//             res.json({ data: usageChartData });
+//         }
+//     });
+// });
+router.post("/usage-chart", async (req, res) => {
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+
+  try {
+      const response = await Report.generateUsageChart(startDate, endDate);
+      res.json({ data: response });
+  } catch (error) {
+      console.error('Error generating usage chart:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 router.post("/add-employee", (req, res) => {

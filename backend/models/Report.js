@@ -134,14 +134,14 @@ class Report {
           "GROUP BY i.inventory_item, i.measurement_type";
       
         try {
-          const response = await axios.post('/your-backend-endpoint', {
+          const response = await axios.post(BACKEND_URL + '/reports/' + reportRoute, {
             startDate: startDate.toISOString().slice(0, 10),
             endDate: endDate.toISOString().slice(0, 10),
             query: usageQuery,
           });
       
-          const data = response.data;
-      
+          const data = response.data.data;
+          // CHECK Mapping
           const labels = data.map((item) => item.inventoryItem);
           const amounts = data.map((item) => item.amountUsed);
       
