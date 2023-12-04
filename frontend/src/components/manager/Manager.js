@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import { useUser } from "../utility/userControl";
@@ -34,8 +34,9 @@ function Manager() {
     "totalsales",
   ]);
 
-  const [tableData, setTableData] = useState([]);
-  const [chartData, setChartData] = useState([]);
+  // the report data that will show up in the main content box
+  const [tableData, setTableData] = useState([]); 
+  const [chartData, setChartData] = useState([])
   const [showChart, setShowChart] = useState(false);
   // user variables
   const {
@@ -94,45 +95,23 @@ function Manager() {
       setColumns(["product_name1", "product_name2", "frequency"]);
       setTableData(data);
       setShowChart(false);
-    } else if (reportType === "Add Employee") {
+    } 
+    // else if (reportType === 'Usage Chart') {
+      
+    // } 
+    else if (reportType === 'Add Employee') {
       setColumns([]);
-      setShowChart(false);
-    } else if (reportType === "View Orders") {
-      setColumns([
-        "Order ID",
-        "Date & Time",
-        "Total Cost",
-        "Product ID",
-        "Quantity",
-      ]);
-      setTableData(
-        data.map((order) => ({
-          "Order ID": order.order_id,
-          "Date & Time": new Date(order.date_time).toLocaleString(),
-          "Total Cost": order.total_cost,
-          "Product ID": order.product_id,
-          Quantity: order.quantity,
-        }))
-      );
-      setShowChart(false);
-    } else if (reportType === "Usage Chart") {
-      const chartLabels = data.map((item) => item.inventoryItem);
-      const chartValues = data.map((item) => item.amountUsed);
-
-      setChartData({
-        labels: chartLabels,
-        datasets: [
-          {
-            label: "Inventory Usage",
-            backgroundColor: "rgba(0, 123, 255, 0.5)",
-            borderColor: "rgba(0, 123, 255, 1)",
-            borderWidth: 1,
-            data: chartValues,
-          },
-        ],
-      });
-      setShowChart(true);
     }
+    //______________________________
+    // if (reportType === 'Usage Chart') {
+    //   setShowChart(true);
+    //   setChartData(data);
+    // } 
+    else {
+      setShowChart(false);
+      setTableData(data);
+    }
+    //_____________________________
   }
 
   function handleReport(e, reportType) {
@@ -142,6 +121,9 @@ function Manager() {
     setActiveReport(reportType);
 
     const reportRoute = reportType.replace(" ", "-").toLowerCase();
+
+    if (reportRoute !== "add-employee") {
+    let reportRoute = reportType.replace(" ", "-").toLowerCase();
 
     if (reportRoute !== "add-employee") {
       axios
@@ -272,6 +254,17 @@ function Manager() {
           <CChart
             type="bar"
             data={chartData}
+            data={{
+              labels: chartData.map(item => item.inventoryItem),
+              datasets: [
+                {
+                  label: "Usage Chart",
+                  backgroundColor: "#ff0000",
+                  data: chartData.map(item => item.amountUsed),
+                },
+              ],
+            }}
+            labels="Inventory Items"
             options={{
               scales: {
                 x: { title: { display: true, text: "Inventory Item" } },
