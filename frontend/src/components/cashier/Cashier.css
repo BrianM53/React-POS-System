@@ -641,3 +641,14 @@
     display: flex;
     gap: 1em; /* Adjust the spacing between the inputs */
   }
+
+  .menu-body {
+    position: relative;
+    /* Other styling for your main content */
+  }
+  
+  .logout-button-container {
+    position: absolute;
+    top: 10px; /* Adjust this value to position it vertically */
+    right: 10px; /* Adjust this value to position it horizontally */
+  }

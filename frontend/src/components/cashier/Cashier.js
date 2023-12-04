@@ -150,7 +150,7 @@ const Cashier = () => {
       alert('Employee ID is required to submit the order.');
       return;
     }
-    
+
     const customerId = await fetchCustomerId();
 
     const orderId = 1; // Replace with the actual order ID if available
@@ -247,17 +247,16 @@ const Cashier = () => {
   return (
     <div className="menu-body">
 
-      <header className="Cashier-header">
-        <div className="top-right">
-          <LogoutButton />
-        </div>
-      </header>
+      
 
       <main className="menu-main-menu">
         {/* <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
           Order Now
         </SpecialFontText> */}
-
+        <div className="logout-button-container">
+          <LogoutButton />
+        </div>
+        
         <div className="category-container">
           <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
         </div>
@@ -302,9 +301,6 @@ const Cashier = () => {
                 </div>
                 <div className="ticket-submit-button" onClick={submitOrder}>
                   Submit Order
-                </div>
-                <div className="test-fetch-button" onClick={fetchCustomerId}>
-                  Test Fetch Customer ID
                 </div>
               </div>
             </div>
