@@ -27,6 +27,27 @@ router.post("/", (req, res) => {
   );
 });
 
+router.put("/:inventoryId", (req, res) => {
+  const inventoryId = req.params.inventoryId;
+  const { inventory_item, stock_level, restock_level, measurement_type, price } = req.body;
+
+  Inventory.updateInventory(
+    inventoryId,
+    inventory_item,
+    stock_level,
+    restock_level,
+    measurement_type,
+    price,
+    (error) => {
+      if (error) {
+        res.status(500).json({ error: "Error updating inventory item" });
+      } else {
+        res.json({ message: "Inventory item updated successfully" });
+      }
+    }
+  );
+});
+
 router.delete("/:inventoryId", (req, res) => {
   const inventoryId = req.params.inventoryId;
 
