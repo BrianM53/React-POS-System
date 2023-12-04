@@ -21,21 +21,18 @@ import EditInventoryItem from "./editInventoryItem";
 
 import { CChart } from "@coreui/react-chartjs";
 
-function Manager() {
+function Manager() 
+{
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  // const [isAddEmployeeClicked, setAddEmployeeClicked] = useState(false);
-  // const [isAddMenuItemClicked, setAddMenuItemClicked] = useState(false);
-  // const [isAddInventoryItemClicked, setAddInventoryItemClicked] = useState(false);
+
   const [isFormOpen, setFormOpen] = useState(false);
   const [activeFormType, setActiveFormType] = useState(null);
-
 
   const [isEditFormOpen, setEditFormOpen] = useState(false);
   const [activeEditFormType, setActiveEditFormType] = useState(null);
   const [selectedRowData, setSelectedRowData] = useState(null);
-
 
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
@@ -188,7 +185,9 @@ function Manager() {
 
   function handleReport(e, reportType) 
   {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
 
     setFormOpen(false);
     setActiveFormType(null);
@@ -314,6 +313,7 @@ function Manager() {
           .delete(BACKEND_URL + "/employees/" + element.employee_id)
           .then(() => {
             console.log("Employee removed successfully");
+            fetchAndRenderData();
           })
           .catch((error) => {
             console.error("Axios error:", error);
@@ -325,6 +325,7 @@ function Manager() {
           .delete(BACKEND_URL + "/addproducts/" + element.product_id)
           .then(() => {
             console.log("Menu item removed successfully");
+            fetchAndRenderData();
           })
           .catch((error) => {
             console.error("Axios error:", error);
@@ -336,6 +337,7 @@ function Manager() {
           .delete(BACKEND_URL + "/inventory/" + element.inventory_id)
           .then(() => {
             console.log("Inventory item removed successfully");
+            fetchAndRenderData();
           })
           .catch((error) => {
             console.error("Axios error:", error);
@@ -370,6 +372,7 @@ function Manager() {
     setEditFormOpen(false);
     setSelectedRowData(null);
     setActiveEditFormType(null);
+    fetchAndRenderData();
   };
 
   const handleCancelEditing = () => {
@@ -395,6 +398,7 @@ function Manager() {
     setActiveFormType(null);
     // setAddEmployeeClicked(false);
     console.log("handleFinishAddingEmployee");
+    fetchAndRenderData();
 
   }
 
@@ -412,6 +416,7 @@ function Manager() {
     setActiveFormType(null);
     console.log("handleFinishAddingMenuItem");
     // setAddMenuItemClicked(false);
+    fetchAndRenderData();
   }
 
   function handleAddInventoryItemClicked() {
@@ -429,6 +434,28 @@ function Manager() {
     setActiveFormType(null);
     // setAddInventoryItemClicked(false);
     console.log("handleFinishAddingInventoryItem");
+    fetchAndRenderData();
+  }
+
+  const [tableDataKey, setTableDataKey] = useState(0);
+
+  useEffect(() => {
+    // Fetch data based on the active report, and update the state
+    const fetchData = async () => {
+      await handleReport(null, activeReport);
+    };
+  
+    fetchData();
+  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeReport, tableDataKey]);
+
+  function fetchAndRenderData() {
+    // Fetch data based on the active report, and update the state
+    handleReport(null, activeReport);
+
+    // Increment the key to trigger a re-render
+    setTableDataKey((prevKey) => prevKey + 1);
   }
 
   return (
