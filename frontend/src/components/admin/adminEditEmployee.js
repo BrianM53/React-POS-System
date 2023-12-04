@@ -38,7 +38,7 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
       console.log(editedEmployeeData);
 
       const response = await axios.put(
-        `${BACKEND_URL}/employees/${editedEmployeeData.employee_id}`,
+        `${BACKEND_URL}/adminemployees/${editedEmployeeData.employee_id}`,
         editedEmployeeData
       );
 
@@ -140,7 +140,7 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
         </FloatingLabel>
 
         <div className="submit">
-          <AdminSubmitEditEmployee employeeData={editedEmployeeData} />
+          <AdminSubmitEditEmployee editedEmployeeData={editedEmployeeData} />
         </div>
       </Form>
     </div>

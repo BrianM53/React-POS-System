@@ -12,8 +12,6 @@ function AdminAddCustomer() {
     last_name: "",
     phone: "",
     email: "",
-    username: "",
-    password: "",
   });
 
   const handleInputChange = (e) => {
@@ -28,7 +26,7 @@ function AdminAddCustomer() {
 
     try {
       const response = await axios.post(
-        BACKEND_URL + "/employees",
+        BACKEND_URL + "/admincustomers",
         customerData
       );
       if (response.data.message === "Employee added successfully") {
@@ -89,27 +87,6 @@ function AdminAddCustomer() {
             type="email"
             value={customerData.email}
             placeholder="Email address"
-            onChange={handleInputChange}
-          />
-        </FloatingLabel>
-
-        <FloatingLabel label="Username" className="mb-3">
-          <Form.Control
-            name="username"
-            type="text"
-            value={customerData.username}
-            placeholder="Username"
-            onChange={handleInputChange}
-          />
-        </FloatingLabel>
-
-        <FloatingLabel label="Password" className="mb-3">
-          <Form.Control
-            autoFocus
-            name="password"
-            type="password"
-            value={customerData.password}
-            placeholder="Password"
             onChange={handleInputChange}
           />
         </FloatingLabel>

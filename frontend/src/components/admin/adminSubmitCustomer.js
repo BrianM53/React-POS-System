@@ -10,7 +10,7 @@ function validateInput(editedCustomerData) {
   );
 }
 
-function AdminSubmitCustomer({ customerData }) { /*maybe need to change customerData to adminCustomerData?*/
+function AdminSubmitCustomer({ customerData }) { 
   const isInputValid = validateInput(customerData);
 
   return (

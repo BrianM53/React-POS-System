@@ -7,7 +7,7 @@ import "./adminAdd.css";
 
 function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
-  const [editedEmployeeData, setEditedEmployeeData] = useState({
+  const [editedCustomerData, setEditedCustomerData] = useState({
     first_name: "",
     last_name: "",
     phone: "",
@@ -18,13 +18,13 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
 
   useEffect(() => {
     if (selectedRowData) {
-      setEditedEmployeeData({ ...selectedRowData });
+      setEditedCustomerData({ ...selectedRowData });
     }
   }, [selectedRowData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditedEmployeeData({ ...editedEmployeeData, [name]: value });
+    setEditedCustomerData({ ...editedCustomerData, [name]: value });
   };
 
   const updateEmployee = async (e) => {
@@ -35,11 +35,11 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
     try {
 
       console.log("inside try");
-      console.log(editedEmployeeData);
+      console.log(editedCustomerData);
 
       const response = await axios.put(
-        `${BACKEND_URL}/employees/${editedEmployeeData.employee_id}`,
-        editedEmployeeData
+        `${BACKEND_URL}/admincustomers/${editedCustomerData.customer_id}`,
+        editedCustomerData
       );
 
       console.log("after try");
@@ -82,7 +82,7 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
             <Form.Control
                 name="first_name"
                 type="text"
-                value={editedEmployeeData.first_name}
+                value={editedCustomerData.first_name}
                 placeholder="First name"
                 onChange={handleInputChange}
             />
@@ -92,7 +92,7 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
             <Form.Control
                 name="last_name"
                 type="text"
-                value={editedEmployeeData.last_name}
+                value={editedCustomerData.last_name}
                 placeholder="Last name"
                 onChange={handleInputChange}
             />
@@ -103,7 +103,7 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
                 name="phone"
                 type="tel"
                 maxLength="11"
-                value={editedEmployeeData.phone}
+                value={editedCustomerData.phone}
                 placeholder="Phone"
                 onChange={handleInputChange}
             />
@@ -113,34 +113,14 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
             <Form.Control
                 name="email"
                 type="email"
-                value={editedEmployeeData.email}
+                value={editedCustomerData.email}
                 placeholder="Email address"
                 onChange={handleInputChange}
             />
         </FloatingLabel>
 
-        <FloatingLabel label="Username" className="mb-3">
-            <Form.Control
-                name="username"
-                type="text"
-                value={editedEmployeeData.username}
-                placeholder="Username"
-                onChange={handleInputChange}
-            />
-        </FloatingLabel>
-
-        <FloatingLabel label="Password" className="mb-3">
-            <Form.Control
-                name="password"
-                type="password"
-                value={editedEmployeeData.password}
-                placeholder="Password"
-                onChange={handleInputChange}
-            />
-        </FloatingLabel>
-
         <div className="submit">
-          <AdminSubmitEditCustomer employeeData={editedEmployeeData} />
+          <AdminSubmitEditCustomer editedCustomerData={editedCustomerData} />
         </div>
       </Form>
     </div>

@@ -28,7 +28,7 @@ function AdminAddEmployee() {
 
     try {
       const response = await axios.post(
-        BACKEND_URL + "/employees",
+        BACKEND_URL + "/adminemployees",
         employeeData
       );
       if (response.data.message === "Employee added successfully") {
