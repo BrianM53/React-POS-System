@@ -9,6 +9,11 @@
     width: 40px;
 }
 
+.add-employee-content .x-out-btn {
+    position: absolute;
+    top: 6%;
+}
+
 .title{
     color: white;
     font-size: 36px;
@@ -21,7 +26,7 @@
     position: relative;
 }
 
-Form 
+.add-employee-content Form, .add-menu-item-content Form, .add-inventory-item-content Form, .edit-menu-item-popup Form, .edit-inventory-item-popup Form, .edit-employee-popup Form
 {
     width: 50%;
     margin: 0 auto;
