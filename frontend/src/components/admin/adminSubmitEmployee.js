@@ -8,7 +8,7 @@ function validateInput(employeeData) {
     employeeData.last_name.length > 0;
 }
 
-function SubmitButton({ employeeData }) {
+function AdminSubmitEmployee({ employeeData }) {
   const isInputValid = validateInput(employeeData);
 
   return (
@@ -18,4 +18,4 @@ function SubmitButton({ employeeData }) {
   );
 }
 
-export default SubmitButton;
+export default AdminSubmitEmployee;

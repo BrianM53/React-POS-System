@@ -3,9 +3,9 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitButton from "./submitEmployee";
+import AdminSubmitEmployee from "./adminSubmitEmployee";
 
-function AddEmployee() {
+function AdminAddEmployee() {
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
     first_name: "",
@@ -115,11 +115,11 @@ function AddEmployee() {
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton employeeData={employeeData} />
+          <AdminSubmitEmployee employeeData={employeeData} />
         </div>
       </Form>
     </div>
   );
 }
 
-export default AddEmployee;
+export default AdminAddEmployee;
