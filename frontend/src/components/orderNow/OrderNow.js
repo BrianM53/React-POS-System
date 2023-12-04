@@ -140,8 +140,8 @@ const OrderNow = () => {
       console.log(customerId);
       return customerId;
     } catch (error) {
+      alert("Please enter a valid email address.") // Propagate the error back to the caller for handling
       console.error("Error fetching customer ID:", error);
-      throw error; // Propagate the error back to the caller for handling
     }
   };
 
@@ -167,6 +167,7 @@ const OrderNow = () => {
       const updatedCart = [];
       // If your cart is stateful, update the state with the empty cart array
       setCart(updatedCart);
+      alert("Your order has been placed! Thank you for shopping with us!")
     } catch (error) {
       console.error("Error submitting order:", error);
       // Handle the error here, if needed

@@ -139,8 +139,8 @@ const Cashier = () => {
       console.log(customerId);
       return customerId;
     } catch (error) {
+      alert("Please enter a valid email address.") // Propagate the error back to the caller for handling
       console.error("Error fetching customer ID:", error);
-      throw error; // Propagate the error back to the caller for handling
     }
   };
 
