@@ -129,8 +129,8 @@ const Cashier = () => {
     console.log(customerEmail);
     try {
       if (!customerEmail) {
-        setCustomerId(0);
-        return 0;
+        setCustomerId(1);
+        return 1;
       }
 
       const response = await axios.get(`${BACKEND_URL}/customers/${customerEmail}`);
@@ -256,7 +256,7 @@ const Cashier = () => {
         <div className="logout-button-container">
           <LogoutButton />
         </div>
-        
+
         <div className="category-container">
           <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
         </div>
