@@ -51,7 +51,7 @@ function AddMenuItem({ onFinishAddingMenuItem, handleCancelEditing }) {
       console.error("Error adding product:", error);
       setErrorMsg(<div style={{ color: "red" }}>Error adding menu item.</div>);
     }
-  };
+  }; 
 
   return (
     <div className="add-menu-item-content">
