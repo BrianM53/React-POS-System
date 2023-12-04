@@ -7,10 +7,11 @@ var cors = require("cors");
 var express = require("express");
 var app = express();
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var productsRouter = require("./routes/products");
-var reportsRouter = require("./routes/reports");
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
+var reportsRouter = require('./routes/reports');
+var ordersRouter = require('./routes/orders');
 var employeesRouter = require("./routes/employees");
 var customersRouter = require("./routes/customers");
 
@@ -36,6 +37,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/reports", reportsRouter);
+app.use('/orders', ordersRouter);
 app.use("/employees", employeesRouter);
 app.use("/customers", employeesRouter);
 

@@ -121,31 +121,32 @@ const OrderNow = () => {
     decrementQuantity(productId);
   };
 
-  const submitOrder = () => {
-    // Send a request to your backend API to create a new order
-    console.log("Submitting order...");
-    fetch(`${BACKEND_URL}/orders`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        employeeId: "yourEmployeeId", // Replace with the actual employeeId
-        customerId: "yourCustomerId", // Replace with the actual customerId
-        totalCost: calculateTotalCost(), // Implement this function to calculate the total cost
-        paymentMethod: "card", // Replace with the actual payment method
-        paymentStatus: "yourPaymentStatus", // Replace with the actual payment status
-        products: cart, // Send the cart items as part of the request
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Order submitted successfully:", data);
-        // Optionally, you can clear the cart or perform any other actions after submitting the order
-      })
-      .catch((error) => {
-        console.error("Error submitting order:", error);
+  const submitOrder = async () => {
+    const orderId = 1; // Replace with the actual order ID if available
+    const employeeId = 1; // Replace with the actual employee ID
+    const customerId = 1; // Replace with the actual customer ID
+    const totalCost = calculateTotalCost(); // Implement this function to calculate the total cost
+    const paymentStatus = true; // Replace with the actual payment status
+    const paymentMethod = "card"; // Replace with the actual payment method
+  
+    try {
+      const response = await axios.post(`${BACKEND_URL}/orders/create`, {
+        orderId,
+        employeeId,
+        customerId,
+        totalCost,
+        paymentStatus,
+        paymentMethod,
       });
+  
+      console.log("Order submitted successfully:", response.data);
+      const updatedCart = [];
+      // If your cart is stateful, update the state with the empty cart array
+      setCart(updatedCart);
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      // Handle the error here, if needed
+    }
   };
 
   const calculateTotalCost = () => {

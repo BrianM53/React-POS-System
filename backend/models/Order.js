@@ -1,27 +1,50 @@
 const connection = require("../connection");
 
 class Order {
-  // create a new order(note that orders are not created until the create order button is created)
-  // a local list might need to be used to minimize interactions with the backend until the customer creates the order.
-  static createOrder(
-    employeeId,
-    customerId,
-    totalCost,
-    paymentMethod,
-    paymentStatus,
-    callback
-  ) { 
-    connection.query(
-      "INSERT INTO orders (date_time, employee_id, customer_id, total_cost, payment_method, payment_status) VALUES (NOW(), $1, $2, $3, $4, $5) RETURNING order_id",
-      [employeeId, customerId, totalCost, paymentMethod, paymentStatus],
-      (error, results) => {
-        if (error) {
-          return callback(error);
-        }
-        callback(null, results.rows[0].order_id);
-      }
-    );
+  static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod) {
+    try {
+      const currentDate = new Date().toISOString();
+  
+      const getMaxOrderIdQuery = `
+        SELECT MAX(order_id) AS max_order_id FROM orders
+      `;
+      const maxOrderIdResult = await connection.query(getMaxOrderIdQuery);
+      console.log("Max Order ID Result:", maxOrderIdResult.rows[0]);
+  
+      const orderId = maxOrderIdResult.rows[0].max_order_id + 1;
+      console.log("New Order ID:", orderId);
+  
+      console.log("Values for Insert Query:");
+      console.log("Order ID:", orderId);
+      console.log("Date Time:", currentDate);
+      console.log("Employee ID:", employeeId);
+      console.log("Customer ID:", customerId);
+      console.log("Total Cost:", totalCost);
+      console.log("Payment Method:", paymentMethod);
+      console.log("Payment Status:", paymentStatus);
+  
+      const query = `
+        INSERT INTO orders (order_id, date_time, employee_id, customer_id, total_cost, payment_method, payment_status) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING order_id
+      `;
+      const newOrderResult = await connection.query(query, [
+        orderId,
+        currentDate,
+        employeeId,
+        customerId,
+        totalCost,
+        paymentMethod,
+        paymentStatus,
+      ]);
+      console.log("New Order Result:", newOrderResult.rows[0]);
+  
+    } catch (error) {
+      console.error("Error in createOrder:", error);
+      throw error;
+    }
   }
+  
+  
 
   // add a product to an order
   static addProductToOrder(orderId, productId, quantity, callback) {
@@ -129,6 +152,10 @@ class Order {
         );
       }
     );
+  }
+  
+  toString() {
+    return `Order ID: ${this.orderId}, Employee ID: ${this.employeeId}, Customer ID: ${this.customerId}, Total Cost: ${this.totalCost}, Payment Status: ${this.paymentStatus}`;
   }
 }
 module.exports = Order;
