@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import { useUser } from "../utility/userControl";
@@ -35,8 +35,8 @@ function Manager() {
   ]);
 
   // the report data that will show up in the main content box
-  const [tableData, setTableData] = useState([]); 
-  const [chartData, setChartData] = useState([])
+  const [tableData, setTableData] = useState([]);
+  const [chartData, setChartData] = useState([]);
   const [showChart, setShowChart] = useState(false);
   // user variables
   const {
@@ -95,23 +95,15 @@ function Manager() {
       setColumns(["product_name1", "product_name2", "frequency"]);
       setTableData(data);
       setShowChart(false);
-    } 
-    // else if (reportType === 'Usage Chart') {
-      
-    // } 
-    else if (reportType === 'Add Employee') {
+    } else if (reportType === "Add Employee") {
       setColumns([]);
-    }
-    //______________________________
-    // if (reportType === 'Usage Chart') {
-    //   setShowChart(true);
-    //   setChartData(data);
-    // } 
-    else {
+    } else if (reportType === "Usage Chart") {
+      setShowChart(true);
+      setChartData(data);
+    } else {
       setShowChart(false);
       setTableData(data);
     }
-    //_____________________________
   }
 
   function handleReport(e, reportType) {
@@ -121,10 +113,6 @@ function Manager() {
     setActiveReport(reportType);
 
     const reportRoute = reportType.replace(" ", "-").toLowerCase();
-
-    if (reportRoute !== "add-employee") {
-    let reportRoute = reportType.replace(" ", "-").toLowerCase();
-
     if (reportRoute !== "add-employee") {
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute, {
@@ -254,17 +242,6 @@ function Manager() {
           <CChart
             type="bar"
             data={chartData}
-            data={{
-              labels: chartData.map(item => item.inventoryItem),
-              datasets: [
-                {
-                  label: "Usage Chart",
-                  backgroundColor: "#ff0000",
-                  data: chartData.map(item => item.amountUsed),
-                },
-              ],
-            }}
-            labels="Inventory Items"
             options={{
               scales: {
                 x: { title: { display: true, text: "Inventory Item" } },
