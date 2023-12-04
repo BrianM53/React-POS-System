@@ -66,7 +66,7 @@ class AdminCustomers {
       "  customers.first_name, " +
       "  customers.last_name, " +
       "  customers.phone, " +
-      "  customers.email, " +
+      "  customers.email " +
       "FROM customers;",
 
       (error, results) => {
