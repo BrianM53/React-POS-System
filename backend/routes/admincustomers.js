@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
   );
 });
 
-router.put("/:managerId", (req, res) => {
+router.put("/:customerId", (req, res) => {
   const customerId = req.params.customerId;
   const { first_name, last_name, phone, email, username, password } = req.body;
 
@@ -49,7 +49,7 @@ router.put("/:managerId", (req, res) => {
   );
 });
 
-router.delete("/:managerId", (req, res) => {
+router.delete("/:customerId", (req, res) => {
   const customerId = req.params.customerId;
 
   AdminCustomers.deleteCustomer(customerId, (error) => {
@@ -65,9 +65,11 @@ router.post("/view-customers", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
 
+  console.log("Does it get into the router.post?");
+
   AdminCustomers.generateViewCustomers((error, customersData) => {
     if (error) {
-      res.status(500).json({ error: "Error fetching employees data" });
+      res.status(500).json({ error: "Error fetching customers data" });
     } else {
       res.json({ data: customersData });
       console.log("nothing wrong with the report.gen");

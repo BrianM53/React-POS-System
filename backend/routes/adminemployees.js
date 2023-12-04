@@ -65,7 +65,7 @@ router.post("/view-employees", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
 
-  Report.generateViewEmployees((error, employeesData) => {
+  AdminEmployees.generateViewEmployees((error, employeesData) => {
     if (error) {
       res.status(500).json({ error: "Error fetching employees data" });
     } else {

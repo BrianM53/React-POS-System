@@ -20,14 +20,14 @@ router.post("/", (req, res) => {
     (error, result) => {
       if (error) {
         console.log(error);
-        return res.status(500).json({ error: "Error adding employee" });
+        return res.status(500).json({ error: "Error adding manager" });
       }
-      res.status(201).json({ message: "Employee added successfully" });
+      res.status(201).json({ message: "manager added successfully" });
     }
   );
 });
 
-router.put("/:employeeId", (req, res) => {
+router.put("/:managerId", (req, res) => {
   const managerId = req.params.managerId;
   const { first_name, last_name, phone, email, username, password } = req.body;
 
@@ -41,33 +41,33 @@ router.put("/:employeeId", (req, res) => {
     password,
     (error) => {
       if (error) {
-        res.status(500).json({ error: "Error updating employee" });
+        res.status(500).json({ error: "Error updating manager" });
       } else {
-        res.json({ message: "Employee updated successfully" });
+        res.json({ message: "manager updated successfully" });
       }
     }
   );
 });
 
-router.delete("/:employeeId", (req, res) => {
+router.delete("/:managerId", (req, res) => {
   const managerId = req.params.managerId;
 
-  AdminManagers.deleteEmployee(managerId, (error) => {
+  AdminManagers.deleteManager(managerId, (error) => {
     if (error) {
-      res.status(500).json({ error: "Error deleting employee" });
+      res.status(500).json({ error: "Error deleting manager" });
     } else {
       res.json({ success: true });
     }
   });
 });
 
-router.post("/view-employees", (req, res) => {
+router.post("/view-managers", (req, res) => {
     // const startDate = req.body.startDate;
     // const endDate = req.body.endDate;
   
     AdminManagers.generateViewManagers((error, managersData) => {
       if (error) {
-        res.status(500).json({ error: "Error fetching employees data" });
+        res.status(500).json({ error: "Error fetching managers data" });
       } else {
         res.json({ data: managersData });
         console.log("nothing wrong with the report.gen");
