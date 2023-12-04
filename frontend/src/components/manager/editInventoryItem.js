@@ -3,6 +3,8 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 import SubmitEditInventoryItem from "./submitEditInventoryItem";
 
+import "./add.css";
+
 function EditInventoryItem({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [editedInventoryItemData, setEditedInventoryItemData] = useState({
@@ -57,10 +59,10 @@ function EditInventoryItem({ selectedRowData, handleFinishEditing, handleCancelE
 
   return (
     <div className="edit-inventory-item-popup">
-      <h3>Edit Inventory Item</h3>
+      <div className="title">Edit Inventory Item</div>
       <div className="error-msg">{errorMsg}</div>
 
-      <button onClick={handleCancelEditing}>Cancel</button>
+      <button onClick={handleCancelEditing} className="x-out-btn">X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={updateInventoryItem}>
         <FloatingLabel label="Inventory Item" className="mb-3">

@@ -1,0 +1,28 @@
+.x-out-btn{
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+    right: 26%;
+    top: 2%;
+    height: 40px;
+    width: 40px;
+}
+
+.title{
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.add-employee-content, .add-menu-item-content, .add-inventory-item-content, .edit-menu-item-popup, .edit-inventory-item-popup, .edit-employee-popup
+{
+    position: relative;
+}
+
+Form 
+{
+    width: 50%;
+    margin: 0 auto;
+}

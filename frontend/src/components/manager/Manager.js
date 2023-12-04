@@ -373,8 +373,10 @@ function Manager() {
   };
 
   const handleCancelEditing = () => {
+    setFormOpen(false);
     setEditFormOpen(false);
     setSelectedRowData(null);
+    setActiveFormType(null);
     setActiveEditFormType(null);
   }
 
@@ -559,15 +561,18 @@ function Manager() {
 
         <div className="main-content">
           {isFormOpen && activeFormType === "addEmployee" && (
-            <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee} />
+            <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee}
+            handleCancelEditing={handleCancelEditing} />
           )}
 
           {isFormOpen && activeFormType === "addMenuItem" && (
-            <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem} />
+            <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem}
+            handleCancelEditing={handleCancelEditing} />
           )}
 
           {isFormOpen && activeFormType === "addInventoryItem" && (
-            <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem} />
+            <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
+            handleCancelEditing={handleCancelEditing} />
           )}
 
           {isEditFormOpen && selectedRowData && activeEditFormType === 'editEmployee' && (

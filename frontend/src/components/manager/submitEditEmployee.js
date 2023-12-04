@@ -6,7 +6,9 @@ function validateInput(editedEmployeeData) {
     editedEmployeeData.email.length > 0 &&
     editedEmployeeData.username.length > 0 &&
     editedEmployeeData.first_name.length > 0 &&
-    editedEmployeeData.last_name.length > 0
+    editedEmployeeData.last_name.length > 0 &&
+    editedEmployeeData.username.length > 0 && 
+    editedEmployeeData.password.length > 0
   );
 }
 

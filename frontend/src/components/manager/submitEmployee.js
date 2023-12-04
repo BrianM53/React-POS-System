@@ -5,7 +5,9 @@ function validateInput(employeeData) {
     return employeeData.email.length > 0 && 
     employeeData.username.length > 0 &&
     employeeData.first_name.length > 0 && 
-    employeeData.last_name.length > 0;
+    employeeData.last_name.length > 0 &&
+    employeeData.username.length > 0 &&
+    employeeData.password.length > 0;
 }
 
 function SubmitEmployee({ employeeData }) {

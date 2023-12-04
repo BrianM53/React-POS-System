@@ -5,7 +5,9 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import SubmitEmployee from "./submitEmployee";
 
-function AddEmployee({ onFinishAddingEmployee }) 
+import "./add.css";
+
+function AddEmployee({ onFinishAddingEmployee, handleCancelEditing }) 
 {
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
@@ -60,7 +62,10 @@ function AddEmployee({ onFinishAddingEmployee })
 
   return (
     <div className="add-employee-content">
+      <div className="title">Add Employee</div>
       <div className="Login-msg">{errorMsg}</div>
+
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={addEmployee}>
         <FloatingLabel label="First name" className="mb-3">

@@ -3,6 +3,8 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 import SubmitEmployee from "./submitEmployee";
 
+import "./add.css";
+
 function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [editedEmployeeData, setEditedEmployeeData] = useState({
@@ -69,10 +71,10 @@ function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditin
 
   return (
     <div className="edit-employee-popup">
-      <h3>Edit Employee</h3>
+      <div className="title">Edit Employee</div>
       <div className="Login-msg">{errorMsg}</div>
 
-      <button onClick={handleCancelEditing}>Cancel</button>
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={updateEmployee}>
 

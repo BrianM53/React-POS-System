@@ -5,11 +5,13 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import SubmitMenuItem from "./submitMenuItem";  
 
-function AddMenuItem({ onFinishAddingMenuItem }) {
+import "./add.css";
+
+function AddMenuItem({ onFinishAddingMenuItem, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [menuItemData, setMenuItemData] = useState({
     product_name: "",
-    price: "",
+    price: 0,
     category: "",
     product_description: "",
   });
@@ -53,7 +55,10 @@ function AddMenuItem({ onFinishAddingMenuItem }) {
 
   return (
     <div className="add-menu-item-content">
+      <div className="title">Add Menu Item</div>
       <div className="Login-msg">{errorMsg}</div>
+
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={addMenuItem}>
         <FloatingLabel label="Product name" className="mb-3">

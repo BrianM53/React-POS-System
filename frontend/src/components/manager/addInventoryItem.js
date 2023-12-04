@@ -5,7 +5,9 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import SubmitInventoryItem from "./submitInventoryItem";
 
-function AddInventoryItem({ onFinishAddingInventoryItem }) {
+import "./add.css";
+
+function AddInventoryItem({ onFinishAddingInventoryItem, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [inventoryItemData, setInventoryItemData] = useState({
     inventory_item: "",
@@ -68,7 +70,10 @@ function AddInventoryItem({ onFinishAddingInventoryItem }) {
 
   return (
     <div className="add-inventory-item-content">
+      <div className="title">Add Inventory Item</div>
       <div className="InventoryItem-msg">{errorMsg}</div>
+
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={addInventoryItem}>
         <FloatingLabel label="Inventory Item" className="mb-3">

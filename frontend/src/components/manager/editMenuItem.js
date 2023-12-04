@@ -3,11 +3,13 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 import SubmitEditMenuItem from "./submitEditMenuItem";
 
+import "./add.css";
+
 function EditMenuItem({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [editedMenuItemData, setEditedMenuItemData] = useState({
     product_name: "",
-    price: "",
+    price: 0,
     category: "",
     product_description: "",
   });
@@ -64,10 +66,10 @@ function EditMenuItem({ selectedRowData, handleFinishEditing, handleCancelEditin
 
     return (
         <div className="edit-menu-item-popup">
-          <h3>Edit Menu Item</h3>
+          <div className="title">Edit Menu Item</div>
           <div className="Login-msg">{errorMsg}</div>
     
-          <button onClick={handleCancelEditing}>Cancel</button>
+          <button onClick={handleCancelEditing} className="x-out-btn">X</button>
     
           <Form className="rounded p-3 p-sm-3" onSubmit={updateMenuItem}>
             <FloatingLabel label="Product Name" className="mb-3">
