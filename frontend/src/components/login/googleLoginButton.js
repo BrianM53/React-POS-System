@@ -14,11 +14,11 @@ const GoogleLoginButton = ({ setLoginMsg }) => {
     setUserEmail,
   } = useUser();
   const navigate = useNavigate();
+  const backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
   const handleSuccess = async (credential) => {
     try {
-      var backendURL =
-        "http://localhost:3001" || process.env.REACT_APP_BACKEND_URL;
+      console.log("trying",backendURL);
 
       // console.log("sending credential response: " + credential);
 
@@ -43,7 +43,7 @@ const GoogleLoginButton = ({ setLoginMsg }) => {
             setUserName(result.name);
             setUserEmail(result.email);
 
-            console.log("success manager", userName, userEmail);
+            // console.log("success manager", userName, userEmail);
 
             setUserRole("manager");
             navigate("/manager");
@@ -51,10 +51,18 @@ const GoogleLoginButton = ({ setLoginMsg }) => {
             setUserName(result.name);
             setUserEmail(result.email);
 
-            console.log("success cashier", userName, userEmail);
+            // console.log("success cashier", userName, userEmail);
 
             setUserRole("cashier");
             navigate("/cashier");
+          } else if (result.success && result.isAdmin) {
+            setUserName(result.name);
+            setUserEmail(result.email);
+
+            // console.log("success admin", userName, userEmail);
+
+            setUserRole("admin");
+            navigate("/admin");
           } else {
             setLoginMsg(
               <div style={{ color: "red" }}>

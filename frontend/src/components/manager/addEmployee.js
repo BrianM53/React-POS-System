@@ -3,9 +3,12 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitButton from "./submitEmployee";
+import SubmitEmployee from "./submitEmployee";
 
-function AddEmployee() {
+import "./add.css";
+
+function AddEmployee({ onFinishAddingEmployee, handleCancelEditing }) 
+{
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
     first_name: "",
@@ -27,15 +30,22 @@ function AddEmployee() {
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
     try {
+
       const response = await axios.post(
-        BACKEND_URL + "/employees",
+        BACKEND_URL + "/employees/",
         employeeData
       );
-      if (response.data.message === "Employee added successfully") {
+
+      if (response.data.message === "Employee added successfully") 
+      {
         setErrorMsg(
           <div style={{ color: "green" }}>Employee added successfully.</div>
         );
-      } else if (response.data.message === "Employee already exists") {
+
+        onFinishAddingEmployee();
+      } 
+      else if (response.data.message === "Employee already exists") 
+      {
         setErrorMsg(
           <div style={{ color: "red" }}>Employee already exists.</div>
         );
@@ -48,7 +58,10 @@ function AddEmployee() {
 
   return (
     <div className="add-employee-content">
+      <div className="title">Add Employee</div>
       <div className="Login-msg">{errorMsg}</div>
+
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={addEmployee}>
         <FloatingLabel label="First name" className="mb-3">
@@ -115,7 +128,7 @@ function AddEmployee() {
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitButton employeeData={employeeData} />
+          <SubmitEmployee employeeData={employeeData}/>
         </div>
       </Form>
     </div>

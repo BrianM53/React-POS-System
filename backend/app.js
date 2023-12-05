@@ -11,7 +11,14 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var productsRouter = require("./routes/products");
 var reportsRouter = require("./routes/reports");
+
 var employeesRouter = require("./routes/employees");
+var addproductsRouter = require("./routes/addproducts");
+var inventoryRouter = require("./routes/inventory");
+
+var adminemployeesRouter = require("./routes/adminemployees");
+var adminmanagersRouter = require("./routes/adminmanagers");
+var admincustomersRouter = require("./routes/admincustomers");
 
 // view engine setup
 app.set("views", path.join("views"));
@@ -20,7 +27,7 @@ app.set("view engine", "jade");
 // enable communication between different domains
 var corsOptions = {
   origin: ["http://localhost:3000", "https://jbold-frontend.onrender.com"],
-  methods: "GET,POST",
+  methods: "GET,POST,DELETE, PUT",
 };
 app.use(cors(corsOptions));
 
@@ -35,7 +42,13 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/reports", reportsRouter);
-app.use("/employees", employeesRouter);
+app.use("/employees", employeesRouter); /*more localhost:3001/___ routes set up */
+app.use("/addproducts", addproductsRouter);
+app.use("/inventory", inventoryRouter); 
+app.use("/adminemployees", adminemployeesRouter);
+app.use("/adminmanagers", adminmanagersRouter);
+app.use("/admincustomers", admincustomersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -51,24 +64,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
-});
-
-// get credential response of Google sign in success
-// app.post('/users', (req, res) => {
-//   const credentialResponse = req.body;
-
-//   // Now you can use the credentialResponse as needed in your backend
-//   // For example, you can save it to a database, perform user authentication, etc.
-
-//   console.log('Received credentialResponse in the backend:', credentialResponse);
-//   res.send('Credential received successfully');
-// });
-
-app.post("/send-message", (req, res) => {
-  const message = req.body.message;
-  console.log("Received message from the frontend:", message);
-  // You can now process the message or perform any other actions you need.
-  res.send("Message received successfully");
 });
 
 module.exports = app;

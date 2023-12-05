@@ -2,24 +2,47 @@ var express = require("express");
 var router = express.Router();
 const Order = require("../models/Order");
 
-router.post("/", (req, res) => {
-  const { employeeId, customerId, totalCost, paymentMethod, paymentStatus } =
-    req.body;
+router.post("/create", async (req, res) => {
+  const { employeeId, customerId, totalCost, paymentStatus } = req.body;
 
-  Order.createOrder(
-    employeeId,
-    customerId,
-    totalCost,
-    paymentMethod,
-    paymentStatus,
-    (error, orderId) => {
-      if (error) {
-        return res.status(500).json({ error: "Error creating order" });
-      }
-      res.json({ orderId });
-    }
-  );
+  try {
+    console.log("Trying to create order");
+    const orderId = 1; // You might have a function to generate order IDs
+    const newOrderId = new Promise((resolve, reject) => {
+      Order.createOrder(
+        orderId,
+        employeeId,
+        customerId,
+        totalCost,
+        paymentStatus,
+        'Online Transfer', // Set payment method to 'Online Transfer' by default
+        (error, id) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(id);
+          }
+        }
+      );
+    });
+
+    const newOrder = new Order({
+      orderId: newOrderId,
+      employeeId,
+      customerId,
+      totalCost,
+      paymentStatus,
+      paymentMethod: 'Online Transfer',
+    });
+
+    console.log(newOrder.toString());
+    res.status(200).json({ message: "Order created successfully", orderId: newOrderId });
+  } catch (error) {
+    console.error("Error creating order", error);
+    res.status(500).json({ error: "Error creating order" });
+  }
 });
+
 
 router.post("/:orderId/products", (req, res) => {
   const { productId, quantity } = req.body;

@@ -11,6 +11,9 @@
     --fuck: green;
 } */
 
+.settings-h1 {
+    display: none;
+}
 .settings-body {
     /* background-color: var(--dark) !important; */
     height: 100vh;
