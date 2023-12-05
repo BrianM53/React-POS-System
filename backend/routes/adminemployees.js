@@ -111,7 +111,7 @@ router.delete("/:employeeId/remove-and-create", async (req, res) => {
                 console.error("Error adding manager:", error);
                 res.status(500).json({ error: "Error adding manager" });
               } else {
-                console.log("Manager added successfully");
+                console.log("Manager added successfully:", addedManager);
                 res.json({ success: true });
               }
             }

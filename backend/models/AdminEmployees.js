@@ -63,7 +63,7 @@ class AdminEmployees {
                 callback(null, addedCustomer);
             }
         );
-    }
+  }
 
   static deleteEmployee(employeeId, callback) {
     connection.query(
@@ -122,9 +122,7 @@ class AdminEmployees {
       }
     );
   }
-
-
-
-
 }
+
+
 module.exports = AdminEmployees;

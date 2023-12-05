@@ -65,9 +65,33 @@ function AdminEditManager({ selectedRowData, handleFinishEditing, handleCancelEd
       console.error("Error updating manager:", error);
       setErrorMsg(<div style={{ color: "red" }}>Error updating manager.</div>);
     }
-
-
   };
+
+  const handleDeleteAndAdd = async (role) => {
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+    
+    try {
+      const response = await axios.delete(
+        `${BACKEND_URL}/adminmanagers/${editedManagerData.manager_id}/remove-and-create`,
+        { data: { ...editedManagerData, role } }
+      );
+  
+      if (response.status === 200) {
+        console.log("Success of the await axios delete");
+        handleFinishEditing();
+      } else {
+        setErrorMsg(
+          <div style={{ color: "red" }}>{`Error deleting manager: ${response.data.message || response.statusText}`}</div>
+        );
+      }
+    } catch (error) {
+      console.error("Error deleting manager:", error);
+      setErrorMsg(
+        <div style={{ color: "red" }}>{`Error deleting manager: ${error.response ? error.response.data.message || error.response.statusText : error.message}`}</div>
+      );
+    }
+  };
+
 
   return (
     <div className="edit-employee-popup">
@@ -143,6 +167,19 @@ function AdminEditManager({ selectedRowData, handleFinishEditing, handleCancelEd
           <AdminSubmitEditManager editedManagerData={editedManagerData} />
         </div>
       </Form>
+
+      <div className="role-buttons">
+        <div className="make-employee-btn make-btn" onClick={() => handleDeleteAndAdd("employee")}>
+          Delete and Add as Employee
+        </div>
+        <div className="make-manager-btn make-btn" onClick={() => handleDeleteAndAdd("manager")}>
+          Delete and Add as Manager
+        </div>
+        <div className="make-customer-btn make-btn" onClick={() => handleDeleteAndAdd("customer")}>
+          Delete and Add as Customer
+        </div>
+      </div>
+
     </div>
   );
 }

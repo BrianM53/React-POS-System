@@ -1,23 +1,82 @@
 const connection = require("../connection");
 
 class AdminManagers {
+
+  static addEmployee(
+    first_name,
+    last_name,
+    phone,
+    email,
+    username,
+    password,
+    callback
+  ) {
+    connection.query(
+        "INSERT INTO employees(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [first_name, last_name, phone, email, username, password],
+        (error, result) => {
+        if (error) {
+            return callback(error, null);
+        }
+        const addedEmployee = result.rows[0];
+        callback(null, addedEmployee);
+        }
+    );
+  }
+
   static addManager(
     first_name,
     last_name,
     phone,
     email,
-    username, 
+    username,
     password,
     callback
   ) {
-    connection.query(
-      "INSERT INTO managers(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6)",
-      [first_name, last_name, phone, email, username, password],
-      (error, results) => {
-        if (error) {
-          return callback(error);
+      connection.query(
+        "INSERT INTO managers(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [first_name, last_name, phone, email, username, password],
+        (error, result) => {
+          if (error) {
+              return callback(error, null);
+          }
+          const addedManager = result.rows[0];
+          callback(null, addedManager);
         }
-        callback(null);
+    );
+  }
+
+
+  static addCustomer(
+    first_name,
+    last_name,
+    phone,
+    email,
+    callback
+  ) {
+      connection.query(
+          "INSERT INTO customers(first_name, last_name, phone, email) VALUES ($1, $2, $3, $4) RETURNING *",
+          [first_name, last_name, phone, email],
+          (error, result) => {
+              if (error) {
+                  return callback(error, null);
+              }
+              const addedCustomer = result.rows[0];
+              callback(null, addedCustomer);
+          }
+      );
+  }
+
+  static deleteManager(managerId, callback) {
+    connection.query(
+      "DELETE FROM managers WHERE manager_id = $1 RETURNING *",
+      [managerId],
+      (error, result) => {
+        if (error) {
+          return callback(error, null);
+        }
+        const deletedManager = result.rows[0];
+        callback(null, deletedManager);
       }
     );
   }
@@ -44,24 +103,6 @@ class AdminManagers {
     );
   }
 
-  static deleteManager(managerId, callback) 
-  {
-    const query = "DELETE FROM managers WHERE manager_id = $1";
-    connection.query(query, [managerId], (error) => {
-      if (error) 
-      {
-        console.error("Error deleting manager:", error);
-        callback(error);
-      } 
-      else 
-      {
-        console.log("manager deleted successfully");
-        callback(null);
-      }
-    });
-  }
-
-
   static generateViewManagers(callback) 
   {
     connection.query(
@@ -83,7 +124,7 @@ class AdminManagers {
       }
     );
   }
-
-
 }
+
+
 module.exports = AdminManagers;
