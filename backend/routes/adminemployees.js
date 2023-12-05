@@ -1,16 +1,16 @@
 var express = require("express");
 const cors = require('cors');
 var router = express.Router();
-const Employees = require("../models/Employees");
+const AdminEmployees = require("../models/AdminEmployees");
 
 router.get('/', (req, res) => {
-  res.send('employees route working');
+  res.send('admin employees route working');
 });
 
 router.post("/", (req, res) => {
   const { first_name, last_name, phone, email, username, password } = req.body;
 
-  Employees.addEmployee(
+  AdminEmployees.addEmployee(
     first_name,
     last_name,
     phone,
@@ -31,7 +31,7 @@ router.put("/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
   const { first_name, last_name, phone, email, username, password } = req.body;
 
-  Employees.updateEmployee(
+  AdminEmployees.updateEmployee(
     employeeId,
     first_name,
     last_name,
@@ -52,7 +52,7 @@ router.put("/:employeeId", (req, res) => {
 router.delete("/:employeeId", (req, res) => {
   const employeeId = req.params.employeeId;
 
-  Employees.deleteEmployee(employeeId, (error) => {
+  AdminEmployees.deleteEmployee(employeeId, (error) => {
     if (error) {
       res.status(500).json({ error: "Error deleting employee" });
     } else {
@@ -61,6 +61,18 @@ router.delete("/:employeeId", (req, res) => {
   });
 });
 
+router.post("/view-employees", (req, res) => {
+  // const startDate = req.body.startDate;
+  // const endDate = req.body.endDate;
 
+  AdminEmployees.generateViewEmployees((error, employeesData) => {
+    if (error) {
+      res.status(500).json({ error: "Error fetching employees data" });
+    } else {
+      res.json({ data: employeesData });
+      console.log("nothing wrong with the report.gen");
+    }
+  });
+})
 
 module.exports = router;

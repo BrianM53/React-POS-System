@@ -13,6 +13,7 @@ import {UserProvider, useUser} from "./components/utility/userControl";
 // the page components
 import App from "./App";
 import Login from "./components/login/Login";
+import Admin from "./components/admin/Admin"
 import Manager from "./components/manager/Manager";
 import Menu from "./components/menu/menu"
 import Cashier from "./components/cashier/Cashier";
@@ -71,6 +72,15 @@ function Routing() {
           <GoogleOAuthProvider clientId={clientID}>
             <Login />
           </GoogleOAuthProvider>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <PrivateRoute
+            element={<Admin />}
+            requiredRole="admin"
+          />
         }
       />
       <Route
