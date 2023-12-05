@@ -556,6 +556,11 @@ function Manager()
               : "passive-label"
           }
         >
+          <div className="label-item">Menu Item 1</div>
+          <div className="label-item">Menu Item 2</div>
+          <div className="label-item">Occurrences</div>
+          
+          
         </div>
         <div
           className={
@@ -563,6 +568,25 @@ function Manager()
           }
         >
           <div className="label-item">Amount of Ingredients Used</div>
+        </div>
+        <div
+          className={
+            activeReport === "View Orders"
+              ? "label-container"
+              : "passive-label"
+          }
+        //   "Order ID",
+        // "Date & Time",
+        // "Total Cost",
+        // "Product ID",
+        // "Quantity",
+        >
+          <div className="label-item">Order #</div>
+          <div className="label-item">Timestamp</div>
+          <div className="label-item">Total Cost</div>
+          <div className="label-item">Product ID</div>
+          <div className="label-item">Quantity</div>
+
         </div>
         <div
           className={
