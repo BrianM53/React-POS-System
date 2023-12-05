@@ -17,8 +17,7 @@ const GoogleLoginButton = ({ setLoginMsg }) => {
 
   const handleSuccess = async (credential) => {
     try {
-      var backendURL =
-        "http://localhost:3001" || process.env.REACT_APP_BACKEND_URL;
+      var backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
       // console.log("sending credential response: " + credential);
 
