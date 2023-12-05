@@ -15,7 +15,7 @@ class AdminCustomers {
         if (error) {
           return callback(error);
         }
-        callback(null, results);
+        callback(null);
       }
     );
   }
@@ -30,7 +30,7 @@ class AdminCustomers {
   ) {
     connection.query(
       "UPDATE customers SET first_name = $2, last_name = $3, phone = $4, email = $5 WHERE customer_id = $1",
-      [customerId, first_name, last_name, phone],
+      [customerId, first_name, last_name, phone, email],
       (error, results) => {
         if (error) {
           return callback(error);

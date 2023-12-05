@@ -227,9 +227,9 @@ function Admin() {
       case 'viewmanagers':
         // console.log("inside of managers");
         axios
-          .delete(BACKEND_URL + "/adminmanagers/" + element.manager_id) /*****change /addproducts/ */
+          .delete(BACKEND_URL + "/adminmanagers/" + element.manager_id)
           .then(() => {
-            console.log("Menu item removed successfully");
+            console.log("Manager removed successfully");
             fetchAndRenderData();
           })
           .catch((error) => {
@@ -239,9 +239,9 @@ function Admin() {
       case 'viewcustomers':
         // console.log("inside of customers");
         axios
-          .delete(BACKEND_URL + "/admincustomers/" + element.customer_id) /*****change /inventory/ */
+          .delete(BACKEND_URL + "/admincustomers/" + element.customer_id) 
           .then(() => {
-            console.log("Inventory item removed successfully");
+            console.log("Customer removed successfully");
             fetchAndRenderData();
           })
           .catch((error) => {
@@ -294,14 +294,12 @@ function Admin() {
     setFormOpen(true);
     setActiveFormType("addEmployee");
     // console.log("inside of the handle add employee clicked");
-    // setAddEmployeeClicked(true);
   }
 
   function handleFinishAddingEmployee() {
     // Close the form
     setFormOpen(false);
     setActiveFormType(null);
-    // setAddEmployeeClicked(false);
     // console.log("handleFinishAddingEmployee");
     fetchAndRenderData();
 
@@ -311,7 +309,6 @@ function Admin() {
     // Open the form
     setFormOpen(true);
     setActiveFormType("addManager");
-    // setAddMenuItemClicked(true);
     // console.log("inside of the handle add manager clicked");
   }
 
@@ -320,7 +317,6 @@ function Admin() {
     setFormOpen(false);
     setActiveFormType(null);
     // console.log("handleFinishAddingManager");
-    // setAddMenuItemClicked(false);
     fetchAndRenderData();
   }
 
@@ -328,7 +324,6 @@ function Admin() {
     // Open the form
     setFormOpen(true);
     setActiveFormType("addCustomer");
-    // setAddInventoryItemClicked(true);
     // console.log("inside of the handle add customer clicked");
 
   }
@@ -337,7 +332,6 @@ function Admin() {
     // Close the form
     setFormOpen(false);
     setActiveFormType(null);
-    // setAddInventoryItemClicked(false);
     // console.log("handleFinishAddingCustomer");
     fetchAndRenderData();
   }

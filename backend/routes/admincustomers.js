@@ -15,8 +15,6 @@ router.post("/", (req, res) => {
     last_name,
     phone,
     email,
-    username,
-    password,
     (error, result) => {
       if (error) {
         console.log(error);
@@ -37,8 +35,6 @@ router.put("/:customerId", (req, res) => {
     last_name,
     phone,
     email,
-    username,
-    password,
     (error) => {
       if (error) {
         res.status(500).json({ error: "Error updating customer" });
