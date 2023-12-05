@@ -1,7 +1,8 @@
 const connection = require("../connection");
+const Product = require("./Products");
 
 class Order {
-  static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod) {
+  static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod, cart) {
     try {
       const currentDate = new Date().toISOString();
   
@@ -36,7 +37,12 @@ class Order {
         paymentMethod,
         paymentStatus,
       ]);
+  
       console.log("New Order Result:", newOrderResult.rows[0]);
+  
+      for (const product of cart) {
+        await this.addProductToOrder(newOrderResult.rows[0].order_id, product.product_id, product.quantity);
+      }
   
     } catch (error) {
       console.error("Error in createOrder:", error);
@@ -47,17 +53,19 @@ class Order {
   
 
   // add a product to an order
-  static addProductToOrder(orderId, productId, quantity, callback) {
-    connection.query(
-      "INSERT INTO order_details (order_id, product_id, quantity) VALUES ($1, $2, $3)",
-      [orderId, productId, quantity],
-      (error, results) => {
-        if (error) {
-          return callback(error);
-        }
-        callback(null, results.rows[0]);
-      }
-    );
+  static async addProductToOrder(orderId, productId, quantity) {
+    
+    try {
+      const result = await connection.query(
+        "INSERT INTO order_details (order_id, product_id, quantity) VALUES ($1, $2, $3)",
+        [orderId, productId, quantity]
+      );
+  
+      return result.rows[0];
+    } catch (error) {
+      console.error("Error adding product to order:", error);
+      throw error;
+    }
   }
 
   // Update product details of an existing order

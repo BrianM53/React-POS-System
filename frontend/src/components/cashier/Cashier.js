@@ -166,7 +166,12 @@ const Cashier = () => {
         totalCost,
         paymentStatus,
         paymentMethod,
+        cart,
       });
+      for (const product of cart) {
+        console.log("Order details response:", product);
+      }
+      
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
@@ -255,7 +260,7 @@ const Cashier = () => {
   return (
     <div className="menu-body">
 
-      
+
 
       <main className="menu-main-menu">
         {/* <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
