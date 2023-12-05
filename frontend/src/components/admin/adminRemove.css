@@ -1,0 +1,44 @@
+.remove-confirmation
+{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+    margin: 5% auto;
+    text-align: center;
+    border: 3px solid white;
+    padding: 2%;
+    gap: 5%;
+}
+
+.remove-question
+{
+    font-size: 26px;
+    color: white;
+    margin-bottom: 5%;
+}
+
+.btn-container
+{
+    display: flex;
+    flex-direction: row;
+    gap: 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel-btn
+{
+    background-color: red;
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;
+}
+
+.remove-btn
+{
+    background-color: lime;
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;
+}

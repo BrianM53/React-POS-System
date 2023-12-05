@@ -263,6 +263,71 @@ class Report {
       callback(null, results.rows);
     });
   }
+
+  static generateViewEmployees(callback) 
+  {
+    connection.query(
+      "SELECT " +
+      " employees.employee_id," + 
+      "  employees.first_name, " +
+      "  employees.last_name, " +
+      "  employees.phone, " +
+      "  employees.email, " +
+      "  employees.username, " +
+      "  employees.password " +
+      "FROM employees;",
+
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    );
+  }
+
+  static generateMenuItems(callback)
+  {
+    connection.query(
+      "SELECT " +
+      " products.product_id," + 
+      "  products.product_name, " +
+      "  products.price, " +
+      "  products.category, " +
+      "  products.product_description " +
+      "FROM products;",
+
+      (error, results) => {
+        if (error) 
+        {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    )
+  }
+
+  static generateInventoryItems(callback)
+  {
+    connection.query(
+      "SELECT " +
+      " inventory.inventory_id," + 
+      "  inventory.inventory_item, " +
+      "  inventory.stock_level, " +
+      "  inventory.restock_level, " +
+      "  inventory.measurement_type, " +
+      "  inventory.price " +
+      "FROM inventory;",
+      (error, results) => {
+        if (error) 
+        {
+          return callback(error);
+        }
+        callback(null, results.rows);
+      }
+    )
+  }
+
 }
 
 module.exports = Report;

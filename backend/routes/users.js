@@ -25,6 +25,10 @@ router.post("/auth/login", async (req, res) => {
       "SELECT * FROM managers WHERE email = $1 AND password = $2",
       [email, password]
     );
+    const adminCredentials = await conn.query(
+      "SELECT * FROM administrators WHERE email = $1 AND password = $2",
+      [email, password]
+    );
 
     conn.release();
     console.log("closed connection");
@@ -37,9 +41,11 @@ router.post("/auth/login", async (req, res) => {
         employeeId: employee.employee_id,
       });
     } else if (managerCredentials.rowCount > 0) {
-      res.json({ isManager: true, isCashier: false });
+      res.json({ isAdmin: false, isManager: true, isCashier: false });
+    } else if (adminCredentials.rowCount > 0) {
+      res.json({ isAdmin: true, isManager: true, isCashier: false });
     } else {
-      res.json({ isCashier: false, isManager: false });
+      res.json({ isAdmin: false, isCashier: false, isManager: false });
     }
   } catch (error) {
     console.error("Error connecting to the database:", error);
@@ -81,6 +87,10 @@ router.post("/auth/google-login", async (req, res) => {
         "SELECT * FROM managers WHERE email = $1",
         [payload.email]
       );
+      const adminCredentials = await conn.query(
+        "SELECT * FROM administrators WHERE email = $1",
+        [payload.email]
+      );
 
       conn.release();
 
@@ -90,6 +100,7 @@ router.post("/auth/google-login", async (req, res) => {
           success: true,
           email: payload.email,
           name: payload.name,
+          isAdmin: false,
           isManager: false,
           isCashier: true,
           employeeId: employeeCredentials.rows[0].employee_id,
@@ -100,6 +111,18 @@ router.post("/auth/google-login", async (req, res) => {
           success: true,
           email: payload.email,
           name: payload.name,
+          isAdmin: false,
+          isManager: true,
+          isCashier: false,
+          // employeeId: employeeCredentials.rows[0],
+        });
+      } else if (adminCredentials.rowCount > 0) {
+        console.log("backend good manager");
+        res.json({
+          success: true,
+          email: payload.email,
+          name: payload.name,
+          isAdmin: true,
           isManager: true,
           isCashier: false,
           // employeeId: employeeCredentials.rows[0],
@@ -110,6 +133,7 @@ router.post("/auth/google-login", async (req, res) => {
           success: false,
           email: payload.email,
           name: payload.name,
+          isAdmin: false,
           isCashier: false,
           isManager: false,
         });

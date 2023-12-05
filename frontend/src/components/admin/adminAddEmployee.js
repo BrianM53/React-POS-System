@@ -3,12 +3,11 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
-import SubmitEmployee from "./submitEmployee";
+import AdminSubmitEmployee from "./adminSubmitEmployee";
 
-import "./add.css";
+import "./adminAdd.css";
 
-function AddEmployee({ onFinishAddingEmployee, handleCancelEditing }) 
-{
+function AdminAddEmployee({ onFinishAddingEmployee, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
     first_name: "",
@@ -29,23 +28,17 @@ function AddEmployee({ onFinishAddingEmployee, handleCancelEditing })
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-    try {
-
-      console.log("inside the try");
-
+    try 
+    {
       const response = await axios.post(
-        BACKEND_URL + "/employees/",
+        BACKEND_URL + "/adminemployees",
         employeeData
       );
-
-      console.log("after the try");
-
       if (response.data.message === "Employee added successfully") 
       {
         setErrorMsg(
           <div style={{ color: "green" }}>Employee added successfully.</div>
         );
-
         onFinishAddingEmployee();
       } 
       else if (response.data.message === "Employee already exists") 
@@ -54,7 +47,9 @@ function AddEmployee({ onFinishAddingEmployee, handleCancelEditing })
           <div style={{ color: "red" }}>Employee already exists.</div>
         );
       }
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error("Error adding employee:", error);
       setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
     }
@@ -132,11 +127,11 @@ function AddEmployee({ onFinishAddingEmployee, handleCancelEditing })
         </FloatingLabel>
 
         <div className="submit">
-          <SubmitEmployee employeeData={employeeData}/>
+          <AdminSubmitEmployee employeeData={employeeData} />
         </div>
       </Form>
     </div>
   );
 }
 
-export default AddEmployee;
+export default AdminAddEmployee;
