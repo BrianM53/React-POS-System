@@ -5,7 +5,9 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import AdminSubmitEmployee from "./adminSubmitEmployee";
 
-function AdminAddEmployee() {
+import "./adminAdd.css";
+
+function AdminAddEmployee({ onFinishAddingEmployee, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
     first_name: "",
@@ -26,21 +28,28 @@ function AdminAddEmployee() {
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-    try {
+    try 
+    {
       const response = await axios.post(
         BACKEND_URL + "/adminemployees",
         employeeData
       );
-      if (response.data.message === "Employee added successfully") {
+      if (response.data.message === "Employee added successfully") 
+      {
         setErrorMsg(
           <div style={{ color: "green" }}>Employee added successfully.</div>
         );
-      } else if (response.data.message === "Employee already exists") {
+        onFinishAddingEmployee();
+      } 
+      else if (response.data.message === "Employee already exists") 
+      {
         setErrorMsg(
           <div style={{ color: "red" }}>Employee already exists.</div>
         );
       }
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error("Error adding employee:", error);
       setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
     }
@@ -48,7 +57,10 @@ function AdminAddEmployee() {
 
   return (
     <div className="add-employee-content">
+      <div className="title">Add Employee</div>
       <div className="Login-msg">{errorMsg}</div>
+
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={addEmployee}>
         <FloatingLabel label="First name" className="mb-3">

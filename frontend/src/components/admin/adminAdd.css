@@ -4,14 +4,9 @@
     border-radius: 10px;
     position: absolute;
     right: 26%;
-    top: 2%;
+    top: 20%;
     height: 40px;
     width: 40px;
-}
-
-.add-employee-content .x-out-btn {
-    position: absolute;
-    top: 6%;
 }
 
 .title{
@@ -21,7 +16,7 @@
     margin-top: 2%;
 }
 
-.add-employee-content, .add-menu-item-content, .add-inventory-item-content, .edit-menu-item-popup, .edit-inventory-item-popup, .edit-employee-popup
+.add-employee-content, .add-menu-item-content, .add-inventory-item-content, .add-customer-content, .add-manager-content, .edit-menu-item-popup, .edit-inventory-item-popup, .edit-employee-popup
 {
     position: relative;
 }

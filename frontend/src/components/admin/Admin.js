@@ -461,12 +461,12 @@ function Admin() {
           )}
 
           {isFormOpen && activeFormType === "addManager" && (
-            <AdminAddManager onFinishAddingMenuItem={handleFinishAddingManager}
+            <AdminAddManager onFinishAddingManager={handleFinishAddingManager}
             handleCancelEditing={handleCancelEditing} />
           )}
 
           {isFormOpen && activeFormType === "addCustomer" && (
-            <AdminAddCustomer onFinishAddingInventoryItem={handleFinishAddingCustomer}
+            <AdminAddCustomer onFinishAddingCustomer={handleFinishAddingCustomer}
             handleCancelEditing={handleCancelEditing} />
           )}
 

@@ -4,8 +4,9 @@ import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.css";
 import AdminSubmitManager from "./adminSubmitManager";
+import "./adminAdd.css";
 
-function AdminAddManager() {
+function AdminAddManager({ onFinishAddingManager, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [managerData, setManagerData] = useState({
     first_name: "",
@@ -26,29 +27,47 @@ function AdminAddManager() {
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-    try {
+    try 
+    {
+
+      console.log("inside try");
+
       const response = await axios.post(
         BACKEND_URL + "/adminmanagers",
         managerData
       );
-      if (response.data.message === "Employee added successfully") {
+
+      console.log("after try");
+
+      console.log(response.data.message);
+
+      if (response.data.message === "Manager added successfully") 
+      {
         setErrorMsg(
-          <div style={{ color: "green" }}>Employee added successfully.</div>
+          <div style={{ color: "green" }}>Manager added successfully.</div>
         );
-      } else if (response.data.message === "Employee already exists") {
+        onFinishAddingManager();
+      } 
+      else if (response.data.message === "Manager already exists") 
+      {
         setErrorMsg(
-          <div style={{ color: "red" }}>Employee already exists.</div>
+          <div style={{ color: "red" }}>Manager already exists.</div>
         );
       }
-    } catch (error) {
-      console.error("Error adding employee:", error);
-      setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
+    } 
+    catch (error) 
+    {
+      console.error("Error adding manager:", error);
+      setErrorMsg(<div style={{ color: "red" }}>Error adding manager.</div>);
     }
   };
 
   return (
     <div className="add-employee-content">
+      <div className="title">Add Manager</div>
       <div className="Login-msg">{errorMsg}</div>
+
+      <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
       <Form className="rounded p-3 p-sm-3" onSubmit={addEmployee}>
         <FloatingLabel label="First name" className="mb-3">
