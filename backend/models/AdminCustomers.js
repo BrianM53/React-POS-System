@@ -1,21 +1,81 @@
 const connection = require("../connection");
 
 class AdminCustomers {
+  
+  static addEmployee(
+    first_name,
+    last_name,
+    phone,
+    email,
+    username,
+    password,
+    callback
+  ) {
+    connection.query(
+        "INSERT INTO employees(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [first_name, last_name, phone, email, username, password],
+        (error, result) => {
+        if (error) {
+            return callback(error, null);
+        }
+        const addedEmployee = result.rows[0];
+        callback(null, addedEmployee);
+        }
+    );
+  }
+
+  static addManager(
+    first_name,
+    last_name,
+    phone,
+    email,
+    username,
+    password,
+    callback
+  ) {
+      connection.query(
+          "INSERT INTO managers(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+          [first_name, last_name, phone, email, username, password],
+          (error, result) => {
+              if (error) {
+                  return callback(error, null);
+              }
+              const addedManager = result.rows[0];
+              callback(null, addedManager);
+          }
+      );
+  }
+  
   static addCustomer(
     first_name,
     last_name,
     phone,
     email,
     callback
-  ) {
+    ) {
+        connection.query(
+            "INSERT INTO customers(first_name, last_name, phone, email) VALUES ($1, $2, $3, $4) RETURNING *",
+            [first_name, last_name, phone, email],
+            (error, result) => {
+                if (error) {
+                    return callback(error, null);
+                }
+                const addedCustomer = result.rows[0];
+                callback(null, addedCustomer);
+            }
+        );
+    }
+
+  static deleteCustomer(customerId, callback) {
     connection.query(
-      "INSERT INTO customers(first_name, last_name, phone, email) VALUES ($1, $2, $3, $4)",
-      [first_name, last_name, phone, email],
-      (error, results) => {
+      "DELETE FROM customers WHERE customer_id = $1 RETURNING *",
+      [customerId],
+      (error, result) => {
         if (error) {
-          return callback(error);
+          return callback(error, null);
         }
-        callback(null);
+        const deletedCustomer = result.rows[0];
+        callback(null, deletedCustomer);
       }
     );
   }
@@ -39,24 +99,6 @@ class AdminCustomers {
       }
     );
   }
-
-  static deleteCustomer(customerId, callback) 
-  {
-    const query = "DELETE FROM customers WHERE customer_id = $1";
-    connection.query(query, [customerId], (error) => {
-      if (error) 
-      {
-        console.error("Error deleting customer:", error);
-        callback(error);
-      } 
-      else 
-      {
-        console.log("Customer deleted successfully");
-        callback(null);
-      }
-    });
-  }
-
 
   static generateViewCustomers(callback) 
   {

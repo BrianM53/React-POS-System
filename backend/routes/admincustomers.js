@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { first_name, last_name, phone, email, username, password } = req.body;
+  const { first_name, last_name, phone, email} = req.body;
 
   AdminCustomers.addCustomer(
     first_name,
@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
 
 router.put("/:customerId", (req, res) => {
   const customerId = req.params.customerId;
-  const { first_name, last_name, phone, email, username, password } = req.body;
+  const { first_name, last_name, phone, email} = req.body;
 
   AdminCustomers.updateCustomer(
     customerId,
@@ -55,6 +55,100 @@ router.delete("/:customerId", (req, res) => {
       res.json({ success: true });
     }
   });
+});
+
+router.delete("/:customerId/remove-and-create", async (req, res) => {
+  const customerId = req.params.customerId;
+
+  console.log("employeeId: " + customerId);
+
+  try {
+
+    console.log("inside try");
+
+    await AdminCustomers.deleteCustomer(customerId, async (error, deletedCustomer) => {
+      if (error) 
+      {
+        res.status(500).json({ error: "Error deleting customer" });
+      } 
+      else if (deletedCustomer) 
+      {
+        console.log("inside else if");
+
+        console.log("deletedCustomer: " + JSON.stringify(deletedCustomer));
+
+        const { role } = req.body;
+
+        console.log("role: " + role);
+        console.log("req.body: " + JSON.stringify(req.body));
+
+        const timestamp = Date.now(); 
+        const default_username = "defaultUsername" + timestamp;
+        const default_password = "defaultPassword" + timestamp;
+
+        if (role === "employee") {
+          console.log("inside role == employee");
+          await AdminCustomers.addEmployee(
+            deletedCustomer.first_name,
+            deletedCustomer.last_name,
+            deletedCustomer.phone,
+            deletedCustomer.email,
+            default_username,
+            default_password,
+            (error, addedEmployee) => {
+              if (error) {
+                console.error("Error adding employee:", error);
+                res.status(500).json({ error: "Error adding employee" });
+              } else {
+                console.log("Employee added successfully:", addedEmployee);
+                res.json({ success: true });
+              }
+            }
+          );
+        } else if (role === "manager") {
+          console.log("inside role == manager");
+          await AdminCustomers.addManager(
+            deletedCustomer.first_name,
+            deletedCustomer.last_name,
+            deletedCustomer.phone,
+            deletedCustomer.email,
+            default_username,
+            default_password,
+            (error, addedManager) => {
+              if (error) {
+                console.error("Error adding manager:", error);
+                res.status(500).json({ error: "Error adding manager" });
+              } else {
+                console.log("Manager added successfully:", addedManager);
+                res.json({ success: true });
+              }
+            }
+          );
+        } else if (role === "customer") {
+          console.log("inside role == customer");
+          await AdminCustomers.addCustomer(
+            deletedCustomer.first_name,
+            deletedCustomer.last_name,
+            deletedCustomer.phone,
+            deletedCustomer.email,
+            (error, addedCustomer) => {
+              if (error) {
+                console.error("Error adding customer:", error);
+                res.status(500).json({ error: "Error adding customer" });
+              } else {
+                console.log("Customer added successfully:", addedCustomer);
+                res.json({ success: true });
+              }
+            }
+          );
+        } else {
+          res.status(404).json({ error: "Invalid role specification" });
+        }
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting and adding employee" });
+  }
 });
 
 router.post("/view-customers", (req, res) => {
