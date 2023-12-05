@@ -31,14 +31,10 @@ function AddEmployee({ onFinishAddingEmployee, handleCancelEditing })
 
     try {
 
-      console.log("inside the try");
-
       const response = await axios.post(
         BACKEND_URL + "/employees/",
         employeeData
       );
-
-      console.log("after the try");
 
       if (response.data.message === "Employee added successfully") 
       {

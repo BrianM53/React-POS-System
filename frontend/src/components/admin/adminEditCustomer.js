@@ -34,15 +34,12 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
 
     try {
 
-      console.log("inside try");
       console.log(editedCustomerData);
 
       const response = await axios.put(
         `${BACKEND_URL}/admincustomers/${editedCustomerData.customer_id}`,
         editedCustomerData
       );
-
-      console.log("after try");
 
       console.log(response.data.message);
 

@@ -38,6 +38,8 @@ function Manager()
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
+  console.log("Manager query ", BACKEND_URL);
+
   // default variables are for Sales Report
   const [activeReport, setActiveReport] = useState(
     () => localStorage.getItem("activeReport") || "Sales Report"
@@ -201,14 +203,14 @@ function Manager()
   
     if (reportRoute === "view-menu-items") 
     {
-      console.log("Fetching menu items data...");
+      // console.log("Fetching menu items data...");
   
       // no dates
   
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+          // console.log("Backend response for " + reportType, response.data.data);
   
           const menuItemsData = response.data.data;
   
@@ -224,14 +226,14 @@ function Manager()
     } 
     else if (reportRoute === "view-employees") 
     {
-      console.log("Fetching employee data...");
+      // console.log("Fetching employee data...");
   
       // no dates
   
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+          // console.log("Backend response for " + reportType, response.data.data);
   
           const employeeData = response.data.data;
   
@@ -247,14 +249,14 @@ function Manager()
     } 
     else if (reportRoute === "view-inventory-items") 
     {
-      console.log("Fetching inventory item data...");
+      // console.log("Fetching inventory item data...");
   
       // no dates
   
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+          // console.log("Backend response for " + reportType, response.data.data);
   
           const inventoryItemsData = response.data.data;
   
@@ -278,7 +280,7 @@ function Manager()
           employeeId: employeeId,
         })
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+          // console.log("Backend response for " + reportType, response.data.data);
           generateReport(reportType, response.data.data);
   
           // TESTING
@@ -286,7 +288,7 @@ function Manager()
             setShowChart(true);
             setChartData(response.data.data);
   
-            console.log("chartData:", chartData); // TODO Check data sent to chart
+            // console.log("chartData:", chartData); // TODO Check data sent to chart
           } else {
             setShowChart(false);
             generateReport(reportType);
@@ -301,19 +303,19 @@ function Manager()
 
   function handleDelete(element) 
   {
-    console.log("inside of handleDelete");
+    // console.log("inside of handleDelete");
     const elementType = activeReport.toLowerCase().replace(/\s+/g, '');
-    console.log(elementType);
-    console.log(element);
-    console.log("after console.log(element");
+    // console.log(elementType);
+    // console.log(element);
+    // console.log("after console.log(element");
     switch (elementType) 
     {
       case 'viewemployees':
-        console.log("inside of viewemployees");
+        // console.log("inside of viewemployees");
         axios
           .delete(BACKEND_URL + "/employees/" + element.employee_id)
           .then(() => {
-            console.log("Employee removed successfully");
+            // console.log("Employee removed successfully");
             fetchAndRenderData();
           })
           .catch((error) => {
@@ -321,11 +323,11 @@ function Manager()
           });
         break;
       case 'viewmenuitems':
-        console.log("inside of viewmenuitems");
+        // console.log("inside of viewmenuitems");
         axios
           .delete(BACKEND_URL + "/addproducts/" + element.product_id)
           .then(() => {
-            console.log("Menu item removed successfully");
+            // console.log("Menu item removed successfully");
             fetchAndRenderData();
           })
           .catch((error) => {
@@ -333,11 +335,11 @@ function Manager()
           });
         break;
       case 'viewinventoryitems':
-        console.log("inside of inventoryitems");
+        // console.log("inside of inventoryitems");
         axios
           .delete(BACKEND_URL + "/inventory/" + element.inventory_id)
           .then(() => {
-            console.log("Inventory item removed successfully");
+            // console.log("Inventory item removed successfully");
             fetchAndRenderData();
           })
           .catch((error) => {
@@ -389,7 +391,7 @@ function Manager()
     // Open the form
     setFormOpen(true);
     setActiveFormType("addEmployee");
-    console.log("inside of the handle add employee clicked");
+    // console.log("inside of the handle add employee clicked");
     // setAddEmployeeClicked(true);
   }
 
@@ -398,7 +400,7 @@ function Manager()
     setFormOpen(false);
     setActiveFormType(null);
     // setAddEmployeeClicked(false);
-    console.log("handleFinishAddingEmployee");
+    // console.log("handleFinishAddingEmployee");
     fetchAndRenderData();
 
   }
@@ -408,14 +410,14 @@ function Manager()
     setFormOpen(true);
     setActiveFormType("addMenuItem");
     // setAddMenuItemClicked(true);
-    console.log("inside of the handle add menu item clicked");
+    // console.log("inside of the handle add menu item clicked");
   }
 
   function handleFinishAddingMenuItem() {
     // Close the form
     setFormOpen(false);
     setActiveFormType(null);
-    console.log("handleFinishAddingMenuItem");
+    // console.log("handleFinishAddingMenuItem");
     // setAddMenuItemClicked(false);
     fetchAndRenderData();
   }
@@ -425,7 +427,7 @@ function Manager()
     setFormOpen(true);
     setActiveFormType("addInventoryItem");
     // setAddInventoryItemClicked(true);
-    console.log("inside of the handle add inventory item clicked");
+    // console.log("inside of the handle add inventory item clicked");
 
   }
 
@@ -434,7 +436,7 @@ function Manager()
     setFormOpen(false);
     setActiveFormType(null);
     // setAddInventoryItemClicked(false);
-    console.log("handleFinishAddingInventoryItem");
+    // console.log("handleFinishAddingInventoryItem");
     fetchAndRenderData();
   }
 

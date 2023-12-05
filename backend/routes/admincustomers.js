@@ -65,14 +65,14 @@ router.post("/view-customers", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
 
-  console.log("Does it get into the router.post?");
+  // console.log("Does it get into the router.post?");
 
   AdminCustomers.generateViewCustomers((error, customersData) => {
     if (error) {
       res.status(500).json({ error: "Error fetching customers data" });
     } else {
       res.json({ data: customersData });
-      console.log("Nothing wrong with the report.gen");
+      // console.log("Nothing wrong with the report.gen");
     }
   });
 })

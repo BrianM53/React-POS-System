@@ -127,7 +127,7 @@ const OrderNow = () => {
   };
 
   const fetchCustomerId = async () => {
-    console.log(customerEmail);
+    // console.log(customerEmail);
     try {
       if (!customerEmail) {
         setCustomerId(1);
@@ -137,7 +137,7 @@ const OrderNow = () => {
       const response = await axios.get(`${BACKEND_URL}/customers/${customerEmail}`);
       const customerId = response.data.customerID; // Adjust this based on your API response structure
       // Use the retrieved customerId for further processing (e.g., storing in state)
-      console.log(customerId);
+      // console.log(customerId);
       return customerId;
     } catch (error) {
       alert("Please enter a valid email address.") // Propagate the error back to the caller for handling

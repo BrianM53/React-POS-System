@@ -2,7 +2,7 @@ const connection = require("../connection");
 
 class Report {
   static generateSalesReport(startDate, endDate, callback) {
-    console.log(startDate, " ", endDate);
+    // console.log(startDate, " ", endDate);
     connection.query(
       "SELECT " +
         "products.product_id, " +
@@ -255,7 +255,7 @@ class Report {
         WHERE o.date_time BETWEEN $1::timestamp AND $2::timestamp
         ORDER BY o.date_time;
         `;
-    console.log(startDate, " ", endDate);
+    // console.log(startDate, " ", endDate);
     connection.query(query, [startDate, endDate], (error, results) => {
       if (error) {
         return callback(error, null);

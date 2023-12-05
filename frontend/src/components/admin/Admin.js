@@ -139,12 +139,12 @@ function Admin() {
 
     if (reportRoute === "view-employees") 
     {
-      console.log("Fetching employee data...");
+    //   console.log("Fetching employee data...");
 
       axios
         .post(BACKEND_URL + "/adminemployees/" + reportRoute)
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+        //   console.log("Backend response for " + reportType, response.data.data);
   
           const employeeData = response.data.data;
   
@@ -159,12 +159,12 @@ function Admin() {
     } 
     else if (reportRoute === "view-managers")
     {
-      console.log("Fetching manager data...");
+    //   console.log("Fetching manager data...");
 
       axios
         .post(BACKEND_URL + "/adminmanagers/" + reportRoute)
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+        //   console.log("Backend response for " + reportType, response.data.data);
   
           const managerData = response.data.data;
   
@@ -179,12 +179,12 @@ function Admin() {
     }
     else if (reportRoute === "view-customers")
     {
-      console.log("Fetching customer data...");
+    //   console.log("Fetching customer data...");
 
       axios
         .post(BACKEND_URL + "/admincustomers/" + reportRoute)
         .then((response) => {
-          console.log("Backend response for " + reportType, response.data.data);
+        //   console.log("Backend response for " + reportType, response.data.data);
   
           const customerData = response.data.data;
   
@@ -205,15 +205,15 @@ function Admin() {
 
   function handleDelete(element) 
   {
-    console.log("inside of handleDelete");
+    // console.log("inside of handleDelete");
     const elementType = activeReport.toLowerCase().replace(/\s+/g, '');
-    console.log(elementType);
-    console.log(element);
-    console.log("after console.log(element");
+    // console.log(elementType);
+    // console.log(element);
+    // console.log("after console.log(element");
     switch (elementType) 
     {
       case 'viewemployees':
-        console.log("inside of employees");
+        // console.log("inside of employees");
         axios
           .delete(BACKEND_URL + "/adminemployees/" + element.employee_id)
           .then(() => {
@@ -225,7 +225,7 @@ function Admin() {
           });
         break;
       case 'viewmanagers':
-        console.log("inside of managers");
+        // console.log("inside of managers");
         axios
           .delete(BACKEND_URL + "/adminmanagers/" + element.manager_id) /*****change /addproducts/ */
           .then(() => {
@@ -237,7 +237,7 @@ function Admin() {
           });
         break;
       case 'viewcustomers':
-        console.log("inside of customers");
+        // console.log("inside of customers");
         axios
           .delete(BACKEND_URL + "/admincustomers/" + element.customer_id) /*****change /inventory/ */
           .then(() => {
@@ -293,7 +293,7 @@ function Admin() {
     // Open the form
     setFormOpen(true);
     setActiveFormType("addEmployee");
-    console.log("inside of the handle add employee clicked");
+    // console.log("inside of the handle add employee clicked");
     // setAddEmployeeClicked(true);
   }
 
@@ -302,7 +302,7 @@ function Admin() {
     setFormOpen(false);
     setActiveFormType(null);
     // setAddEmployeeClicked(false);
-    console.log("handleFinishAddingEmployee");
+    // console.log("handleFinishAddingEmployee");
     fetchAndRenderData();
 
   }
@@ -312,14 +312,14 @@ function Admin() {
     setFormOpen(true);
     setActiveFormType("addManager");
     // setAddMenuItemClicked(true);
-    console.log("inside of the handle add manager clicked");
+    // console.log("inside of the handle add manager clicked");
   }
 
   function handleFinishAddingManager() {
     // Close the form
     setFormOpen(false);
     setActiveFormType(null);
-    console.log("handleFinishAddingManager");
+    // console.log("handleFinishAddingManager");
     // setAddMenuItemClicked(false);
     fetchAndRenderData();
   }
@@ -329,7 +329,7 @@ function Admin() {
     setFormOpen(true);
     setActiveFormType("addCustomer");
     // setAddInventoryItemClicked(true);
-    console.log("inside of the handle add customer clicked");
+    // console.log("inside of the handle add customer clicked");
 
   }
 
@@ -338,7 +338,7 @@ function Admin() {
     setFormOpen(false);
     setActiveFormType(null);
     // setAddInventoryItemClicked(false);
-    console.log("handleFinishAddingCustomer");
+    // console.log("handleFinishAddingCustomer");
     fetchAndRenderData();
   }
 

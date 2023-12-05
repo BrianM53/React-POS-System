@@ -66,22 +66,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-// get credential response of Google sign in success
-// app.post('/users', (req, res) => {
-//   const credentialResponse = req.body;
-
-//   // Now you can use the credentialResponse as needed in your backend
-//   // For example, you can save it to a database, perform user authentication, etc.
-
-//   console.log('Received credentialResponse in the backend:', credentialResponse);
-//   res.send('Credential received successfully');
-// });
-
-app.post("/send-message", (req, res) => {
-  const message = req.body.message;
-  console.log("Received message from the frontend:", message);
-  // You can now process the message or perform any other actions you need.
-  res.send("Message received successfully");
-});
-
 module.exports = app;

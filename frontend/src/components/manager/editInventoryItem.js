@@ -37,7 +37,7 @@ function EditInventoryItem({ selectedRowData, handleFinishEditing, handleCancelE
         editedInventoryItemData
       );
 
-      console.log(response.data.message);
+      // console.log(response.data.message);
 
       if (response.data.message === "Inventory item updated successfully") {
         setErrorMsg(
