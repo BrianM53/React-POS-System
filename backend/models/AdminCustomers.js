@@ -15,7 +15,7 @@ class AdminCustomers {
         if (error) {
           return callback(error);
         }
-        callback(null);
+        callback(null, results);
       }
     );
   }
@@ -51,7 +51,7 @@ class AdminCustomers {
       } 
       else 
       {
-        console.log("customer deleted successfully");
+        console.log("Customer deleted successfully");
         callback(null);
       }
     });
