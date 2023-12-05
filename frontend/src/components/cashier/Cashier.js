@@ -172,6 +172,14 @@ const Cashier = () => {
       const updatedCart = [];
       // If your cart is stateful, update the state with the empty cart array
       setCart(updatedCart);
+      const updatedProductData = { ...productData };
+      Object.keys(updatedProductData).forEach((category) => {
+        updatedProductData[category] = updatedProductData[category].map((product) => ({
+          ...product,
+          quantity: 0,
+        }));
+      });
+      setProductData(updatedProductData);
     } catch (error) {
       console.error("Error submitting order:", error);
       // Handle the error here, if needed
