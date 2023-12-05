@@ -55,6 +55,14 @@ const GoogleLoginButton = ({ setLoginMsg }) => {
 
             setUserRole("cashier");
             navigate("/cashier");
+          } else if (result.success && result.isAdmin) {
+            setUserName(result.name);
+            setUserEmail(result.email);
+
+            console.log("success admin", userName, userEmail);
+
+            setUserRole("admin");
+            navigate("/admin");
           } else {
             setLoginMsg(
               <div style={{ color: "red" }}>

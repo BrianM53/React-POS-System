@@ -123,7 +123,7 @@ router.post("/auth/google-login", async (req, res) => {
           email: payload.email,
           name: payload.name,
           isAdmin: true,
-          isManager: true,
+          isManager: false,
           isCashier: false,
           // employeeId: employeeCredentials.rows[0],
         });
