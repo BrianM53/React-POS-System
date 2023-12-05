@@ -27,7 +27,7 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
     setEditedCustomerData({ ...editedCustomerData, [name]: value });
   };
 
-  const updateEmployee = async (e) => {
+  const updateEditCustomer = async (e) => {
     e.preventDefault();
      const BACKEND_URL =
        process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
@@ -46,24 +46,24 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
 
       console.log(response.data.message);
 
-      if (response.data.message === "Employee updated successfully") 
+      if (response.data.message === "Customer updated successfully") 
       {
         setErrorMsg(
-          <div style={{ color: "green" }}>Employee updated successfully.</div>
+          <div style={{ color: "green" }}>Customer updated successfully.</div>
         );
         handleFinishEditing();
       } 
       else 
       {
         setErrorMsg(
-          <div style={{ color: "red" }}>Error updating employee.</div>
+          <div style={{ color: "red" }}>Error updating customer.</div>
         );
       }
     } 
     catch (error) 
     {
-      console.error("Error updating employee:", error);
-      setErrorMsg(<div style={{ color: "red" }}>Error updating employee.</div>);
+      console.error("Error updating customer:", error);
+      setErrorMsg(<div style={{ color: "red" }}>Error updating customer.</div>);
     }
 
 
@@ -71,12 +71,12 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
 
   return (
     <div className="edit-employee-popup">
-      <div className="title">Edit Employee</div>
+      <div className="title">Edit Customer</div>
       <div className="Login-msg">{errorMsg}</div>
 
       <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
-      <Form className="rounded p-3 p-sm-3" onSubmit={updateEmployee}>
+      <Form className="rounded p-3 p-sm-3" onSubmit={updateEditCustomer}>
 
         <FloatingLabel label="First name" className="mb-3">
             <Form.Control

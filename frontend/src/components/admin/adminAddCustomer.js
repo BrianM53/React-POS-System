@@ -21,7 +21,7 @@ function AdminAddCustomer({ onFinishAddingCustomer, handleCancelEditing }) {
     setCustomerData({ ...customerData, [name]: value });
   };
 
-  const addEmployee = async (e) => {
+  const addCustomer = async (e) => {
     e.preventDefault();
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
@@ -32,24 +32,24 @@ function AdminAddCustomer({ onFinishAddingCustomer, handleCancelEditing }) {
         BACKEND_URL + "/admincustomers",
         customerData
       );
-      if (response.data.message === "Employee added successfully") 
+      if (response.data.message === "Customer added successfully") 
       {
         setErrorMsg(
-          <div style={{ color: "green" }}>Employee added successfully.</div>
+          <div style={{ color: "green" }}>Customer added successfully.</div>
         );
         onFinishAddingCustomer();
       } 
-      else if (response.data.message === "Employee already exists") 
+      else if (response.data.message === "Customer already exists") 
       {
         setErrorMsg(
-          <div style={{ color: "red" }}>Employee already exists.</div>
+          <div style={{ color: "red" }}>Customer already exists.</div>
         );
       }
     } 
     catch (error) 
     {
-      console.error("Error adding employee:", error);
-      setErrorMsg(<div style={{ color: "red" }}>Error adding employee.</div>);
+      console.error("Error adding customer:", error);
+      setErrorMsg(<div style={{ color: "red" }}>Error adding customer.</div>);
     }
   };
 
@@ -60,7 +60,7 @@ function AdminAddCustomer({ onFinishAddingCustomer, handleCancelEditing }) {
 
       <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
-      <Form className="rounded p-3 p-sm-3" onSubmit={addEmployee}>
+      <Form className="rounded p-3 p-sm-3" onSubmit={addCustomer}>
         <FloatingLabel label="First name" className="mb-3">
           <Form.Control
             name="first_name"

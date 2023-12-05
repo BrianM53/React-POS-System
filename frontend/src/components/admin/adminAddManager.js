@@ -22,7 +22,7 @@ function AdminAddManager({ onFinishAddingManager, handleCancelEditing }) {
     setManagerData({ ...managerData, [name]: value });
   };
 
-  const addEmployee = async (e) => {
+  const addManager = async (e) => {
     e.preventDefault();
     const BACKEND_URL =
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
@@ -69,7 +69,7 @@ function AdminAddManager({ onFinishAddingManager, handleCancelEditing }) {
 
       <button onClick={handleCancelEditing} className="x-out-btn" >X</button>
 
-      <Form className="rounded p-3 p-sm-3" onSubmit={addEmployee}>
+      <Form className="rounded p-3 p-sm-3" onSubmit={addManager}>
         <FloatingLabel label="First name" className="mb-3">
           <Form.Control
             name="first_name"

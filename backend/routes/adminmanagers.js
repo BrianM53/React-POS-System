@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
         console.log(error);
         return res.status(500).json({ error: "Error adding manager" });
       }
-      res.status(201).json({ message: "manager added successfully" });
+      res.status(201).json({ message: "Manager added successfully" });
     }
   );
 });
@@ -43,7 +43,7 @@ router.put("/:managerId", (req, res) => {
       if (error) {
         res.status(500).json({ error: "Error updating manager" });
       } else {
-        res.json({ message: "manager updated successfully" });
+        res.json({ message: "Manager updated successfully" });
       }
     }
   );
@@ -70,7 +70,7 @@ router.post("/view-managers", (req, res) => {
         res.status(500).json({ error: "Error fetching managers data" });
       } else {
         res.json({ data: managersData });
-        console.log("nothing wrong with the report.gen");
+        console.log("Nothing wrong with the report.gen");
       }
     });
   })
