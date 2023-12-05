@@ -98,8 +98,41 @@ function Manager() {
     } else if (reportType === "Add Employee") {
       setColumns([]);
     } else if (reportType === "Usage Chart") {
+      const chartLabels = data.map((item) => item.inventoryitem);
+      const chartValues = data.map((item) => item.amountused);
+
+      setChartData({
+        labels: chartLabels,
+        datasets: [
+          {
+            label: "Inventory Usage",
+            backgroundColor: "rgba(0, 123, 255, 0.5)",
+            borderColor: "rgba(0, 123, 255, 1)",
+            borderWidth: 1,
+            data: chartValues,
+          },
+        ],
+      });
       setShowChart(true);
-      setChartData(data);
+      setTableData([]);
+    } else if (reportType === "View Orders") {
+      setColumns([
+        "Order ID",
+        "Date & Time",
+        "Total Cost",
+        "Product ID",
+        "Quantity",
+      ]);
+      setTableData(
+        data.map((order) => ({
+          "Order ID": order.order_id,
+          "Date & Time": new Date(order.date_time).toLocaleString(),
+          "Total Cost": order.total_cost,
+          "Product ID": order.product_id,
+          Quantity: order.quantity,
+        }))
+      );
+      setShowChart(false);
     } else {
       setShowChart(false);
       setTableData(data);
@@ -222,47 +255,43 @@ function Manager() {
         </div>
 
         <div className="main-content">
-          <table className="main-content-table">
-            <thead className="content-head"></thead>
-            <tbody>
-              {tableData.map((element, index) => (
-                <tr key={index}>
-                  {columns.map((column, columnIndex) => (
-                    <td key={columnIndex}>{element[column]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div>{activeReport === "Add Employee" ? <AddEmployee /> : null}</div>
+          {!showChart && (
+            <table className="main-content-table">
+              <thead className="content-head"></thead>
+              <tbody>
+                {tableData.map((element, index) => (
+                  <tr key={index}>
+                    {columns.map((column, columnIndex) => (
+                      <td key={columnIndex}>{element[column]}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+          {showChart && (
+            <CChart
+              type="bar"
+              data={chartData}
+              options={{
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: "Inventory Item",
+                    },
+                  },
+                  y: {
+                    title: {
+                      display: true,
+                      text: "Amount Used",
+                    },
+                  },
+                },
+              }}
+            />
+          )}
         </div>
-
-        {/* TESTING */}
-        {showChart ? (
-          <CChart
-            type="bar"
-            data={chartData}
-            options={{
-              scales: {
-                x: { title: { display: true, text: "Inventory Item" } },
-                y: { title: { display: true, text: "Amount Used" } },
-              },
-            }}
-          />
-        ) : (
-          <table className="main-content-table">
-            <thead className="content-head"></thead>
-            <tbody>
-              {tableData.map((element, index) => (
-                <tr key={index}>
-                  {columns.map((column, columnIndex) => (
-                    <td key={columnIndex}>{element[column]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
 
         <div className="date-btn">
           <DatePicker

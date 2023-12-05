@@ -121,14 +121,16 @@ class Report {
   static generateUsageChart(startDate, endDate, callback) {
     const usageQuery = `
         SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, 
-               SUM(pi.quantity) as amountUsed 
+              SUM(pi.quantity) as amountUsed 
         FROM orders o 
         JOIN order_details od ON o.order_id = od.order_id 
         JOIN product_ingredients pi ON od.product_id = pi.product_id 
         JOIN inventory i ON pi.inventory_id = i.inventory_id 
         WHERE o.date_time BETWEEN $1::timestamp AND $2::timestamp 
-        GROUP BY i.inventory_item, i.measurement_type;
-    `;
+        GROUP BY i.inventory_item, i.measurement_type 
+        ORDER BY SUM(pi.quantity) DESC 
+        LIMIT 10;
+      `;
 
     connection.query(usageQuery, [startDate, endDate], (error, results) => {
       if (error) {
