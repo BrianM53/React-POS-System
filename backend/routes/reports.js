@@ -9,16 +9,16 @@ router.get("/", (req, res) => {
 });
 
 router.post("/sales-report", (req, res) => {
-  console.log("Received sales report request:", req.body);
+  // console.log("Received sales report request:", req.body);
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
 
   Report.generateSalesReport(startDate, endDate, (error, salesReportData) => {
     if (error) {
-      console.error("Error generating sales report:", error);
+      // console.error("Error generating sales report:", error);
       res.status(500).json({ error: "Error generating sales report" });
     } else {
-      console.log("Sending sales report data:", salesReportData);
+      // console.log("Sending sales report data:", salesReportData);
       res.json({ data: salesReportData });
     }
   });
@@ -75,7 +75,7 @@ router.post("/usage-chart", (req, res) => {
     const endDate = '2023-10-06 08:25:00';
     // const startDate = req.body.startDate;
     // const endDate = req.body.endDate;
-    console.log("usage");
+    // console.log("usage");
     res.send("usage");
     
     Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
@@ -109,7 +109,7 @@ router.post("/view-employees", (req, res) => {
       res.status(500).json({ error: "Error fetching employees data" });
     } else {
       res.json({ data: employeesData });
-      console.log("nothing wrong with the report.gen");
+      // console.log("nothing wrong with the report.gen");
     }
   });
 })

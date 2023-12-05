@@ -30,16 +30,16 @@ function AdminAddManager({ onFinishAddingManager, handleCancelEditing }) {
     try 
     {
 
-      console.log("inside try");
+      // console.log("inside try");
 
       const response = await axios.post(
         BACKEND_URL + "/adminmanagers",
         managerData
       );
 
-      console.log("after try");
+      // console.log("after try");
 
-      console.log(response.data.message);
+      // console.log(response.data.message);
 
       if (response.data.message === "Manager added successfully") 
       {

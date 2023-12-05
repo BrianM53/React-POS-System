@@ -34,17 +34,14 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
 
     try {
 
-      console.log("inside try");
-      console.log(editedEmployeeData);
+      // console.log(editedEmployeeData);
 
       const response = await axios.put(
         `${BACKEND_URL}/adminemployees/${editedEmployeeData.employee_id}`,
         editedEmployeeData
       );
 
-      console.log("after try");
-
-      console.log(response.data.message);
+      // console.log(response.data.message);
 
       if (response.data.message === "Employee updated successfully") 
       {

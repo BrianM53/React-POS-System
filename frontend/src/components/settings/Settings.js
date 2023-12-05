@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Settings.css';
 import SpecialFontText from "../../fonts/specialFontText/SpecialFontText";
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,34 +13,42 @@ import { useSettings } from './settingsControl';
 library.add(fas,fab); 
 
 const Settings = () => {
-
   const { colorStyle, setColorStyle, fontSize, setFontSize } = useSettings();
+  const scriptLoaded = useRef(false);
+
+  const loadGoogleTranslateScript = () => {
+    if (!scriptLoaded.current) {
+      if (!window.googleTranslateElementInit) {
+        window.googleTranslateElementInit = function () {
+          new window.google.translate.TranslateElement(
+            {
+              pageLanguage: 'en',
+              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            },
+            'google_translate_element'
+          );
+        };
+      }
+
+      const existingScript = document.getElementById('googleTranslateScript');
+      if (existingScript) {
+        existingScript.remove(); // Remove existing script to reload it
+      }
+
+      const googleTranslateScript = document.createElement('script');
+      googleTranslateScript.type = 'text/javascript';
+      googleTranslateScript.src =
+        '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      googleTranslateScript.id = 'googleTranslateScript';
+      document.body.appendChild(googleTranslateScript);
+
+      scriptLoaded.current = true;
+    }
+  };
 
   useEffect(() => {
-
-    if (!window.googleTranslateElementInit) {
-      window.googleTranslateElementInit = function () {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            layout:
-              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element"
-        );
-      };
-    }
-
-    const existingScript = document.getElementById("googleTranslateScript");
-    if (!existingScript) {
-      const googleTranslateScript = document.createElement("script");
-      googleTranslateScript.type = "text/javascript";
-      googleTranslateScript.src =
-        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      googleTranslateScript.id = "googleTranslateScript";
-      document.body.appendChild(googleTranslateScript);
-    }
-  }, []);  
+    loadGoogleTranslateScript(); // Load script on initial mount
+  }, []);
 
   const handleColorChange = (e) => {
     setColorStyle(e.target.value);
@@ -54,6 +62,7 @@ const Settings = () => {
 
   return (
     <div className="settings-body">
+      <h1 className='settings-h1'>settings</h1>
       <Header />
       
       <main className="menu-main-settings">

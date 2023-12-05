@@ -38,7 +38,7 @@ function EditMenuItem({ selectedRowData, handleFinishEditing, handleCancelEditin
           editedMenuItemData
         );
 
-        console.log(response.data.message);
+        // console.log(response.data.message);
   
         if (response.data.message === "Product updated successfully") 
         {

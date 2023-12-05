@@ -70,7 +70,7 @@ router.post("/view-managers", (req, res) => {
         res.status(500).json({ error: "Error fetching managers data" });
       } else {
         res.json({ data: managersData });
-        console.log("Nothing wrong with the report.gen");
+        // console.log("Nothing wrong with the report.gen");
       }
     });
   })

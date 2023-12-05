@@ -6,6 +6,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+
 
 import { useCart } from "../cart/CartContext";
 import Header from "../app/header";
@@ -21,17 +23,20 @@ const OrderNow = () => {
   const [productData, setProductData] = useState({}); // Initialize product data as an empty object
   const [cart, setCart] = useState([]); // New state for the cart
   const { addToCart, decrementQuantity, getCartLength } = useCart();
+  const [customerEmail, setCustomerEmail] = useState(""); // State for customer email
+  const [customerId, setCustomerId] = useState(""); // State for customer ID
+  
 
   // dynamic scrollbar display
   const scrollRefs = {
     cartScrollRef: useRef(null),
     menuScrollRef: useRef(null),
   };
-  
+
   const cartHasOverflow = useDynamicScrollbar(cart, scrollRefs.cartScrollRef);
   const menuHasOverflow = useDynamicScrollbar(productData[activeSection], scrollRefs.menuScrollRef);
   // const descriptionHasOverflow = true;
-  
+
   useEffect(() => {
     // document.body.style.zoom = "80%";
     // Check if product data for the active category is already fetched
@@ -59,7 +64,7 @@ const OrderNow = () => {
   const increment = (product) => {
     // Check if the product is already in the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
-  
+
     if (cartItemIndex !== -1) {
       // If the product is already in the cart, update its quantity
       // console.log("found in cart. adding", product);
@@ -71,21 +76,21 @@ const OrderNow = () => {
       // console.log("not in cart. adding", product);
       setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
     }
-  
+
     // Update the category data
     const categoryData = productData[activeSection];
     const updatedCategoryData = categoryData.map((p) =>
       p.product_id === product.product_id ? { ...p, quantity: p.quantity + 1 } : p
     );
-  
+
     setProductData((prevData) => ({
       ...prevData,
       [activeSection]: updatedCategoryData,
     }));
-  
+
     addToCart(product);
   };
-  
+
 
   const decrement = (productId) => {
     // Find the product in the active section's data
@@ -121,31 +126,52 @@ const OrderNow = () => {
     decrementQuantity(productId);
   };
 
-  const submitOrder = () => {
-    // Send a request to your backend API to create a new order
-    console.log("Submitting order...");
-    fetch(`${BACKEND_URL}/orders`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        employeeId: "yourEmployeeId", // Replace with the actual employeeId
-        customerId: "yourCustomerId", // Replace with the actual customerId
-        totalCost: calculateTotalCost(), // Implement this function to calculate the total cost
-        paymentMethod: "card", // Replace with the actual payment method
-        paymentStatus: "yourPaymentStatus", // Replace with the actual payment status
-        products: cart, // Send the cart items as part of the request
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Order submitted successfully:", data);
-        // Optionally, you can clear the cart or perform any other actions after submitting the order
-      })
-      .catch((error) => {
-        console.error("Error submitting order:", error);
+  const fetchCustomerId = async () => {
+    // console.log(customerEmail);
+    try {
+      if (!customerEmail) {
+        setCustomerId(1);
+        return 1;
+      }
+
+      const response = await axios.get(`${BACKEND_URL}/customers/${customerEmail}`);
+      const customerId = response.data.customerID; // Adjust this based on your API response structure
+      // Use the retrieved customerId for further processing (e.g., storing in state)
+      // console.log(customerId);
+      return customerId;
+    } catch (error) {
+      alert("Please enter a valid email address.") // Propagate the error back to the caller for handling
+      console.error("Error fetching customer ID:", error);
+    }
+  };
+
+  const submitOrder = async () => {
+    const customerId = await fetchCustomerId();
+    const orderId = 1; // Replace with the actual order ID if available
+    const employeeId = 1; // Replace with the actual employee ID
+    const totalCost = calculateTotalCost(); // Implement this function to calculate the total cost
+    const paymentStatus = true; // Replace with the actual payment status
+    const paymentMethod = "card"; // Replace with the actual payment method
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/orders/create`, {
+        orderId,
+        employeeId,
+        customerId,
+        totalCost,
+        paymentStatus,
+        paymentMethod,
       });
+
+      console.log("Order submitted successfully:", response.data);
+      const updatedCart = [];
+      // If your cart is stateful, update the state with the empty cart array
+      setCart(updatedCart);
+      alert("Your order has been placed! Thank you for shopping with us!")
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      // Handle the error here, if needed
+    }
   };
 
   const calculateTotalCost = () => {
@@ -162,18 +188,18 @@ const OrderNow = () => {
 
     return categoryData.map((product) => {
       const imageName = product.product_name
-      .toLowerCase()
-      .replace(/\s+/g, "-") // Replace spaces with hyphens
-      .replace(/[,]/g, "") // Remove commas
-      .replace(/[&]/g, "and");
-      
+        .toLowerCase()
+        .replace(/\s+/g, "-") // Replace spaces with hyphens
+        .replace(/[,]/g, "") // Remove commas
+        .replace(/[&]/g, "and");
+
       let imagePath;
       try {
-          imagePath = require(`../../images/menu/${imageName}.jpg`);
+        imagePath = require(`../../images/menu/${imageName}.jpg`);
       } catch (error) {
-          imagePath = require('../../images/logo.png');
+        imagePath = require('../../images/logo.png');
       }
-      
+
       const descriptionHasOverflow = product.product_description.length > 36;
       // const descriptionHasOverflow = true;
       return (
@@ -231,8 +257,8 @@ const OrderNow = () => {
             </div>
           </div>
           <div className="ticket-item-name-container">
-            <div 
-            className="ticket-item-name">
+            <div
+              className="ticket-item-name">
               {item.product_name}
             </div>
           </div>
@@ -244,7 +270,7 @@ const OrderNow = () => {
       );
     });
   };
-  
+
 
   return (
     <div className="menu-body">
@@ -255,18 +281,18 @@ const OrderNow = () => {
         {/* <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
           Order Now
         </SpecialFontText> */}
-        
+
         <div className="category-container">
           <Categories activeSection={activeSection} setActiveSection={setActiveSection} />
         </div>
 
         <div className="menu-main-menu-container">
-          <div 
-          ref={scrollRefs.menuScrollRef} 
-          className={menuHasOverflow ? 'menu-main-menu-body' : 'menu-main-menu-body-noscroll'}
+          <div
+            ref={scrollRefs.menuScrollRef}
+            className={menuHasOverflow ? 'menu-main-menu-body' : 'menu-main-menu-body-noscroll'}
           >
             {/* <div className='menu-body-category-container'id={`menu-body-${activeSection}`}style={{ display: "flex" }}> */}
-              {renderProducts()}
+            {renderProducts()}
             {/* </div> */}
           </div>
           <div className="menu-main-menu-ticket-container">
@@ -287,6 +313,14 @@ const OrderNow = () => {
                 </div>
               </div>
               <div className="ticket-submit-container">
+                <div className="customer-info spaced-inputs">
+                  <input
+                    type="email"
+                    placeholder="Customer Email"
+                    value={customerEmail}
+                    onChange={(e) => setCustomerEmail(e.target.value)}
+                  />
+                </div>
                 <div className="ticket-submit-button" onClick={submitOrder}>
                   Submit Order
                 </div>

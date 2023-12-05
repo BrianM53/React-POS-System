@@ -15,7 +15,7 @@ router.post("/auth/login", async (req, res) => {
   try {
     console.log("email: " + email + " password: " + password);
     const conn = await connection.connect();
-    console.log("created connection");
+    // console.log("created connection");
 
     const employeeCredentials = await conn.query(
       "SELECT * FROM employees WHERE email = $1 AND password = $2",
@@ -31,7 +31,7 @@ router.post("/auth/login", async (req, res) => {
     );
 
     conn.release();
-    console.log("closed connection");
+    // console.log("closed connection");
 
     if (employeeCredentials.rowCount > 0) {
       const employee = employeeCredentials.rows[0];
@@ -77,7 +77,7 @@ router.post("/auth/google-login", async (req, res) => {
       // console.log("Email:", payload.email);
 
       const conn = await connection.connect();
-      console.log("created connection");
+      // console.log("created connection");
 
       const employeeCredentials = await conn.query(
         "SELECT * FROM employees WHERE email = $1",
@@ -95,7 +95,7 @@ router.post("/auth/google-login", async (req, res) => {
       conn.release();
 
       if (employeeCredentials.rowCount > 0) {
-        console.log("backend good cashier");
+        // console.log("backend good cashier");
         res.json({
           success: true,
           email: payload.email,
@@ -106,7 +106,7 @@ router.post("/auth/google-login", async (req, res) => {
           employeeId: employeeCredentials.rows[0].employee_id,
         });
       } else if (managerCredentials.rowCount > 0) {
-        console.log("backend good manager");
+        // console.log("backend good manager");
         res.json({
           success: true,
           email: payload.email,
@@ -117,18 +117,18 @@ router.post("/auth/google-login", async (req, res) => {
           // employeeId: employeeCredentials.rows[0],
         });
       } else if (adminCredentials.rowCount > 0) {
-        console.log("backend good manager");
+        // console.log("backend good manager");
         res.json({
           success: true,
           email: payload.email,
           name: payload.name,
           isAdmin: true,
-          isManager: true,
+          isManager: false,
           isCashier: false,
           // employeeId: employeeCredentials.rows[0],
         });
       } else {
-        console.log("backend else");
+        // console.log("backend else");
         res.json({
           success: false,
           email: payload.email,

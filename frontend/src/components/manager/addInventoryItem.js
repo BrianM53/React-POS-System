@@ -29,17 +29,12 @@ function AddInventoryItem({ onFinishAddingInventoryItem, handleCancelEditing }) 
       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
   
     try {
-
-      console.log("inside of try");
-
       const response = await axios.post(
         BACKEND_URL + "/inventory/",
         inventoryItemData
       );
-
-      console.log("past axios");
   
-      console.log(response.data.message);
+      // console.log(response.data.message);
   
       if (response.data.message === "Inventory item added successfully") {
         setErrorMsg(
