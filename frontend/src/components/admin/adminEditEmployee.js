@@ -65,31 +65,26 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
   };
 
   const handleDeleteAndAdd = async (role) => {
-
-    const BACKEND_URL =
-       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
-
-    try 
-    {
-      await axios.delete(`${BACKEND_URL}/adminemployees/${editedEmployeeData.employee_id}/remove-and-create`, editedEmployeeData);
-      const response = await axios.post(`${BACKEND_URL}/${role}/remove-and-create`, editedEmployeeData);
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+    
+    try {
+      const response = await axios.delete(
+        `${BACKEND_URL}/adminemployees/${editedEmployeeData.employee_id}/remove-and-create`,
+        { data: { ...editedEmployeeData, role } }
+      );
   
-      if (response.data.message === `${role} added successfully`) 
-      {
+      if (response.status === 200) {
+        console.log("Success of the await axios delete");
         handleFinishEditing();
-      } 
-      else 
-      {
+      } else {
         setErrorMsg(
-          <div style={{ color: "red" }}>{`Error adding ${role.toLowerCase()}.`}</div>
+          <div style={{ color: "red" }}>{`Error deleting employee: ${response.data.message || response.statusText}`}</div>
         );
       }
-    } 
-    catch (error) 
-    {
-      console.error(`Error deleting and adding as ${role.toLowerCase()}:`, error);
+    } catch (error) {
+      console.error("Error deleting employee:", error);
       setErrorMsg(
-        <div style={{ color: "red" }}>{`Error adding ${role.toLowerCase()}.`}</div>
+        <div style={{ color: "red" }}>{`Error deleting employee: ${error.response ? error.response.data.message || error.response.statusText : error.message}`}</div>
       );
     }
   };

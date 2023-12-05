@@ -6,18 +6,19 @@ class AdminEmployees {
     last_name,
     phone,
     email,
-    username, 
+    username,
     password,
     callback
   ) {
     connection.query(
-      "INSERT INTO employees(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6)",
+      "INSERT INTO employees(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [first_name, last_name, phone, email, username, password],
-      (error, results) => {
+      (error, result) => {
         if (error) {
-          return callback(error);
+          return callback(error, null);
         }
-        callback(null);
+        const addedEmployee = result.rows[0];
+        callback(null, addedEmployee);
       }
     );
   }
@@ -32,17 +33,18 @@ class AdminEmployees {
     callback
   ) {
     connection.query(
-      "INSERT INTO managers(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6)",
+      "INSERT INTO managers(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [first_name, last_name, phone, email, username, password],
-      (error, results) => {
+      (error, result) => {
         if (error) {
-          return callback(error);
+          return callback(error, null);
         }
-        callback(null);
+        const addedManager = result.rows[0];
+        callback(null, addedManager);
       }
     );
   }
-
+  
   static addCustomer(
     first_name,
     last_name,
@@ -51,15 +53,34 @@ class AdminEmployees {
     callback
   ) {
     connection.query(
-      "INSERT INTO customers(first_name, last_name, phone, email) VALUES ($1, $2, $3, $4, $5, $6)",
+      "INSERT INTO customers(first_name, last_name, phone, email) VALUES ($1, $2, $3, $4) RETURNING *",
       [first_name, last_name, phone, email],
-      (error, results) => {
+      (error, result) => {
         if (error) {
-          return callback(error);
+          return callback(error, null);
         }
-        callback(null);
+        const addedCustomer = result.rows[0];
+        callback(null, addedCustomer);
       }
     );
+  }
+
+  static deleteEmployee(employeeId, callback) 
+  {
+    const query = "DELETE FROM employees WHERE employee_id = $1 RETURNING *";
+    connection.query(query, [employeeId], (error, result) => {
+      if (error) 
+      {
+        console.error("Error deleting employee:", error);
+        callback(error, null);
+      } 
+      else 
+      {
+        console.log("Employee deleted successfully");
+        const deletedEmployee = result.rows[0];
+        callback(null, deletedEmployee); 
+      }
+    });
   }
 
   static updateEmployee(
@@ -82,23 +103,6 @@ class AdminEmployees {
         callback(null);
       }
     );
-  }
-
-  static deleteEmployee(employeeId, callback) 
-  {
-    const query = "DELETE FROM employees WHERE employee_id = $1";
-    connection.query(query, [employeeId], (error) => {
-      if (error) 
-      {
-        console.error("Error deleting employee:", error);
-        callback(error);
-      } 
-      else 
-      {
-        console.log("Employee deleted successfully");
-        callback(null);
-      }
-    });
   }
 
   static generateViewEmployees(callback) 
