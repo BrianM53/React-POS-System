@@ -33,8 +33,6 @@ import AdminSubmitEditCustomer from "./adminSubmitEditCustomer";
 
 import AdminRemoveConfirmation from "./adminRemoveConfirmation";
 
-import { CChart } from "@coreui/react-chartjs";
-
 function Admin() {
   const navigate = useNavigate();
   const BACKEND_URL =

@@ -22,6 +22,46 @@ class AdminEmployees {
     );
   }
 
+  static addManager(
+    first_name,
+    last_name,
+    phone,
+    email,
+    username,
+    password,
+    callback
+  ) {
+    connection.query(
+      "INSERT INTO managers(first_name, last_name, phone, email, username, password) VALUES ($1, $2, $3, $4, $5, $6)",
+      [first_name, last_name, phone, email, username, password],
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null);
+      }
+    );
+  }
+
+  static addCustomer(
+    first_name,
+    last_name,
+    phone,
+    email,
+    callback
+  ) {
+    connection.query(
+      "INSERT INTO customers(first_name, last_name, phone, email) VALUES ($1, $2, $3, $4, $5, $6)",
+      [first_name, last_name, phone, email],
+      (error, results) => {
+        if (error) {
+          return callback(error);
+        }
+        callback(null);
+      }
+    );
+  }
+
   static updateEmployee(
     employeeId,
     first_name,
@@ -82,6 +122,8 @@ class AdminEmployees {
       }
     );
   }
+
+
 
 
 }

@@ -61,6 +61,42 @@ router.delete("/:employeeId", (req, res) => {
   });
 });
 
+router.delete("/:employeeId/remove-and-create", async (req, res) => {
+  const employeeId = req.params.employeeId;
+
+  try 
+  {
+    const deletedEmployee = await AdminEmployees.deleteEmployee(employeeId);
+    
+    if (deletedEmployee) 
+    {
+      const { role } = req.body;
+      if (role === "employee") 
+      {
+        await AdminEmployees.addEmployee(deletedEmployee);
+      } 
+      else if (role === "manager") 
+      {
+        await AdminEmployees.addManager(deletedEmployee);
+      } 
+      else if (role === "customer") 
+      {
+        await AdminEmployees.addCustomer(deletedEmployee);
+      }
+
+      res.json({ success: true });
+    }
+     else 
+     {
+      res.status(404).json({ error: "Employee not found" });
+    }
+  } 
+  catch (error) 
+  {
+    res.status(500).json({ error: "Error deleting and adding employee" });
+  }
+});
+
 router.post("/view-employees", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;

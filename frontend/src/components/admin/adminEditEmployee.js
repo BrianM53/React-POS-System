@@ -32,10 +32,8 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
      const BACKEND_URL =
        process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-    try {
-
-      // console.log(editedEmployeeData);
-
+    try 
+    {
       const response = await axios.put(
         `${BACKEND_URL}/adminemployees/${editedEmployeeData.employee_id}`,
         editedEmployeeData
@@ -64,6 +62,36 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
     }
 
 
+  };
+
+  const handleDeleteAndAdd = async (role) => {
+
+    const BACKEND_URL =
+       process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+
+    try 
+    {
+      await axios.delete(`${BACKEND_URL}/adminemployees/${editedEmployeeData.employee_id}/remove-and-create`, editedEmployeeData);
+      const response = await axios.post(`${BACKEND_URL}/${role}/remove-and-create`, editedEmployeeData);
+  
+      if (response.data.message === `${role} added successfully`) 
+      {
+        handleFinishEditing();
+      } 
+      else 
+      {
+        setErrorMsg(
+          <div style={{ color: "red" }}>{`Error adding ${role.toLowerCase()}.`}</div>
+        );
+      }
+    } 
+    catch (error) 
+    {
+      console.error(`Error deleting and adding as ${role.toLowerCase()}:`, error);
+      setErrorMsg(
+        <div style={{ color: "red" }}>{`Error adding ${role.toLowerCase()}.`}</div>
+      );
+    }
   };
 
   return (
@@ -140,6 +168,19 @@ function AdminEditEmployee({ selectedRowData, handleFinishEditing, handleCancelE
           <AdminSubmitEditEmployee editedEmployeeData={editedEmployeeData} />
         </div>
       </Form>
+
+      <div className="role-buttons">
+        <div className="make-employee-btn make-btn" onClick={() => handleDeleteAndAdd("employee")}>
+          Delete and Add as Employee
+        </div>
+        <div className="make-manager-btn make-btn" onClick={() => handleDeleteAndAdd("manager")}>
+          Delete and Add as Manager
+        </div>
+        <div className="make-customer-btn make-btn" onClick={() => handleDeleteAndAdd("customer")}>
+          Delete and Add as Customer
+        </div>
+      </div>
+      
     </div>
   );
 }
