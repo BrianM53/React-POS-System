@@ -68,12 +68,12 @@ function Header() {
             </div>
 
             <div className='header-title-container'>
-                <div className='header-title1'>
+                <h1 className='header-title1'>
                     Sweet Paris
-                </div>
-                <div className='header-title2'>
+                </h1>
+                <h1 className='header-title2'>
                     Crêperie & Café
-                </div>
+                </h1>
             </div>
 
             <div className='header-nav-right'>
