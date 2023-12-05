@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
         console.log(error);
         return res.status(500).json({ error: "Error adding customer" });
       }
-      res.status(201).json({ message: "customer added successfully" });
+      res.status(201).json({ message: "Customer added successfully" });
     }
   );
 });
@@ -43,7 +43,7 @@ router.put("/:customerId", (req, res) => {
       if (error) {
         res.status(500).json({ error: "Error updating customer" });
       } else {
-        res.json({ message: "customer updated successfully" });
+        res.json({ message: "Customer updated successfully" });
       }
     }
   );
@@ -72,7 +72,7 @@ router.post("/view-customers", (req, res) => {
       res.status(500).json({ error: "Error fetching customers data" });
     } else {
       res.json({ data: customersData });
-      console.log("nothing wrong with the report.gen");
+      console.log("Nothing wrong with the report.gen");
     }
   });
 })
