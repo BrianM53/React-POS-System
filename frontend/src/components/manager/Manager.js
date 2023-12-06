@@ -602,17 +602,17 @@ function Manager() {
           {showChart && activeReport === "Usage Chart" ? (
             // Render only the chart for "Usage Chart"
             <CChart
-              type="bar"
-              data={{
-                labels: chartData.map((item) => item.inventoryitem),
-                datasets: [
-                  {
-                    label: "Usage Chart",
-                    backgroundColor: "#ff0000",
-                    data: chartData.map((item) => item.amountused),
-                  },
-                ],
-              }}
+              // type="bar"
+              // data={{
+              //   labels: chartData.map((item) => item.inventoryitem),
+              //   datasets: [
+              //     {
+              //       label: "Usage Chart",
+              //       backgroundColor: "#ff0000",
+              //       data: chartData.map((item) => item.amountused),
+              //     },
+              //   ],
+              // }}
               options={{
                 plugins: {
                   legend: {
