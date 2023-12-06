@@ -472,9 +472,10 @@ function Manager() {
           <LogoutButton onLogout={handleLogout} />
         </div>
       </div>
+
       <div className="main-manager">
-        {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
-        {/* ================ AHHHH MY EYESSSS THEY'RE BLEEDING AT THIS MESS YOU'VE MADE AHHHH *dies* ================== */}
+        {/* Label containers for each report */}
+        {/* ... label containers ... */}
         <div
           className={
             activeReport === "Sales Report"
@@ -598,238 +599,162 @@ function Manager() {
         </div>
 
         <div className="main-content">
-          {isFormOpen && activeFormType === "addEmployee" && (
-            <AddEmployee
-              onFinishAddingEmployee={handleFinishAddingEmployee}
-              handleCancelEditing={handleCancelEditing}
+          {showChart && activeReport === "Usage Chart" ? (
+            // Render only the chart for "Usage Chart"
+            <CChart
+              type="bar"
+              data={{
+                labels: chartData.map((item) => item.inventoryitem),
+                datasets: [
+                  {
+                    label: "Usage Chart",
+                    backgroundColor: "#ff0000",
+                    data: chartData.map((item) => item.amountused),
+                  },
+                ],
+              }}
+              options={{
+                plugins: {
+                  legend: {
+                    labels: {
+                      color: "#00ffff",
+                    },
+                  },
+                },
+                scales: {
+                  x: {
+                    grid: {
+                      color: "#00ff00",
+                    },
+                    ticks: {
+                      color: "#0000ff",
+                    },
+                  },
+                  y: {
+                    grid: {
+                      color: "#ffcccc",
+                    },
+                    ticks: {
+                      color: "#000000",
+                    },
+                  },
+                },
+              }}
             />
-          )}
-
-          {isFormOpen && activeFormType === "addMenuItem" && (
-            <AddMenuItem
-              onFinishAddingMenuItem={handleFinishAddingMenuItem}
-              handleCancelEditing={handleCancelEditing}
-            />
-          )}
-
-          {isFormOpen && activeFormType === "addInventoryItem" && (
-            <AddInventoryItem
-              onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
-              handleCancelEditing={handleCancelEditing}
-            />
-          )}
-
-          {isEditFormOpen &&
-            selectedRowData &&
-            activeEditFormType === "editEmployee" && (
-              <EditEmployee
-                selectedRowData={selectedRowData}
-                handleFinishEditing={handleFinishEditing}
-                handleCancelEditing={handleCancelEditing}
-              />
-            )}
-
-          {isEditFormOpen &&
-            selectedRowData &&
-            activeEditFormType === "editMenuItem" && (
-              <EditMenuItem
-                selectedRowData={selectedRowData}
-                handleFinishEditing={handleFinishEditing}
-                handleCancelEditing={handleCancelEditing}
-              />
-            )}
-
-          {isEditFormOpen &&
-            selectedRowData &&
-            activeEditFormType === "editInventoryItem" && (
-              <EditInventoryItem
-                selectedRowData={selectedRowData}
-                handleFinishEditing={handleFinishEditing}
-                handleCancelEditing={handleCancelEditing}
-              />
-            )}
-
-          {isDeleteConfirmationOpen && (
-            <RemoveConfirmation
-              onConfirm={confirmDelete}
-              onCancel={closeDeleteConfirmation}
-            />
-          )}
-
-          {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
-            <table className="main-content-table">
-              <thead className="content-head"></thead>
-              {activeReport === "View Employees" ? (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>
-                          Edit
-                        </button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              ) : activeReport === "View Menu Items" ? (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>
-                          Edit
-                        </button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              ) : activeReport === "View Inventory Items" ? (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>
-                          Edit
-                        </button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              ) : (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
+          ) : (
+            // Render forms, tables, etc., for other reports
+            <>
+              {isFormOpen && activeFormType === "addEmployee" && (
+                <AddEmployee
+                  onFinishAddingEmployee={handleFinishAddingEmployee}
+                  handleCancelEditing={handleCancelEditing}
+                />
               )}
-            </table>
+
+              {isFormOpen && activeFormType === "addMenuItem" && (
+                <AddMenuItem
+                  onFinishAddingMenuItem={handleFinishAddingMenuItem}
+                  handleCancelEditing={handleCancelEditing}
+                />
+              )}
+
+              {isFormOpen && activeFormType === "addInventoryItem" && (
+                <AddInventoryItem
+                  onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
+                  handleCancelEditing={handleCancelEditing}
+                />
+              )}
+
+              {isEditFormOpen &&
+                selectedRowData &&
+                activeEditFormType === "editEmployee" && (
+                  <EditEmployee
+                    selectedRowData={selectedRowData}
+                    handleFinishEditing={handleFinishEditing}
+                    handleCancelEditing={handleCancelEditing}
+                  />
+                )}
+
+              {isEditFormOpen &&
+                selectedRowData &&
+                activeEditFormType === "editMenuItem" && (
+                  <EditMenuItem
+                    selectedRowData={selectedRowData}
+                    handleFinishEditing={handleFinishEditing}
+                    handleCancelEditing={handleCancelEditing}
+                  />
+                )}
+
+              {isEditFormOpen &&
+                selectedRowData &&
+                activeEditFormType === "editInventoryItem" && (
+                  <EditInventoryItem
+                    selectedRowData={selectedRowData}
+                    handleFinishEditing={handleFinishEditing}
+                    handleCancelEditing={handleCancelEditing}
+                  />
+                )}
+
+              {isDeleteConfirmationOpen && (
+                <RemoveConfirmation
+                  onConfirm={confirmDelete}
+                  onCancel={closeDeleteConfirmation}
+                />
+              )}
+
+              {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
+                <table className="main-content-table">
+                  <thead className="content-head"></thead>
+                  <tbody>
+                    {tableData.map((element, index) => (
+                      <tr key={index}>
+                        {columns.map((column, columnIndex) => (
+                          <td key={columnIndex}>{element[column]}</td>
+                        ))}
+                        {[
+                          "View Employees",
+                          "View Menu Items",
+                          "View Inventory Items",
+                        ].includes(activeReport) && (
+                          <>
+                            <td>
+                              <button onClick={() => handleEdit(element)}>
+                                Edit
+                              </button>
+                            </td>
+                            <td>
+                              <button
+                                onClick={() => openDeleteConfirmation(element)}
+                              >
+                                Remove
+                              </button>
+                            </td>
+                          </>
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </>
           )}
         </div>
 
-        {activeReport === "View Employees" && (
-          <div className="label-item2">
-            <div
-              className="label-item-button2"
-              onClick={handleAddEmployeeClicked}
-            >
-              Add an Employee
-            </div>
-          </div>
-        )}
-
-        {activeReport === "View Menu Items" && (
-          <div className="label-item2">
-            <div
-              className="label-item-button2"
-              onClick={handleAddMenuItemClicked}
-            >
-              Add a Menu Item
-            </div>
-          </div>
-        )}
-
-        {activeReport === "View Inventory Items" && (
-          <div className="label-item2">
-            <div
-              className="label-item-button2"
-              onClick={handleAddInventoryItemClicked}
-            >
-              Add an Inventory Item
-            </div>
-          </div>
-        )}
-
-        {/* TESTING */}
-        {showChart && (
-          <CChart
-            type="bar"
-            data={{
-              labels: chartData,
-              datasets: [
-                {
-                  label: "Usage Chart",
-                  backgroundColor: "#ff0000",
-                  data: chartData,
-                },
-              ],
-            }}
-            labels="Inventory Items"
-            options={{
-              plugins: {
-                legend: {
-                  labels: {
-                    color: "#00ffff",
-                  },
-                },
-              },
-              scales: {
-                x: {
-                  grid: {
-                    color: "#00ff00",
-                  },
-                  ticks: {
-                    color: "#0000ff",
-                  },
-                },
-                y: {
-                  grid: {
-                    color: "#ffcccc",
-                  },
-                  ticks: {
-                    color: "#000000",
-                  },
-                },
-              },
-            }}
+        {/* Static Date Picker outside of main-manager */}
+        <div className="date-btn">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
           />
-        )}
-
-        {activeReport !== "View Employees" &&
-          activeReport !== "View Menu Items" &&
-          activeReport !== "View Inventory Items" && (
-            <div className="date-btn">
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                showTimeSelect
-                timeFormat="HH:mm"
-              />
-              <DatePicker
-                selected={endDate}
-                onChange={(date) => setEndDate(date)}
-                showTimeSelect
-                timeFormat="HH:mm"
-              />
-            </div>
-          )}
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+          />
+        </div>
       </div>
     </div>
   );
