@@ -1,61 +1,162 @@
 const connection = require("../connection");
 
 class Order {
-  static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod) {
+  static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod, cart) {
     try {
-      const currentDate = new Date().toISOString();
-  
+      const currentDate = new Date();
+      const centralTime = currentDate.toLocaleString('en-US', {
+        timeZone: 'America/Chicago',
+        hour12: false,
+      });
+
       const getMaxOrderIdQuery = `
         SELECT MAX(order_id) AS max_order_id FROM orders
       `;
       const maxOrderIdResult = await connection.query(getMaxOrderIdQuery);
       console.log("Max Order ID Result:", maxOrderIdResult.rows[0]);
-  
+
       const orderId = maxOrderIdResult.rows[0].max_order_id + 1;
       console.log("New Order ID:", orderId);
-  
+
       console.log("Values for Insert Query:");
       console.log("Order ID:", orderId);
-      console.log("Date Time:", currentDate);
+      console.log("Date Time:", centralTime);
       console.log("Employee ID:", employeeId);
       console.log("Customer ID:", customerId);
       console.log("Total Cost:", totalCost);
       console.log("Payment Method:", paymentMethod);
       console.log("Payment Status:", paymentStatus);
-  
+
       const query = `
         INSERT INTO orders (order_id, date_time, employee_id, customer_id, total_cost, payment_method, payment_status) 
         VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING order_id
       `;
       const newOrderResult = await connection.query(query, [
         orderId,
-        currentDate,
+        centralTime,
         employeeId,
         customerId,
         totalCost,
         paymentMethod,
         paymentStatus,
       ]);
+
       console.log("New Order Result:", newOrderResult.rows[0]);
-  
+      
+      if (cart) {
+        for (const product of cart) {
+          await this.addProductToOrder(newOrderResult.rows[0].order_id, product.product_id, product.quantity);
+          await this.updateInventory(product.product_id, product.quantity);
+        }
+      }
+
     } catch (error) {
       console.error("Error in createOrder:", error);
       throw error;
     }
-  } 
+  }
+
+  static async getOrdersWithFalsePaymentStatus() {
+    try {
+      const query = `
+        SELECT * FROM orders
+        WHERE payment_status = $1
+      `;
+      const ordersResult = await connection.query(query, [false]);
+
+      return ordersResult.rows;
+    } catch (error) {
+      console.error("Error fetching orders with false payment status:", error);
+      throw error;
+    }
+  }
+
+  static async deleteOrder(orderId) {
+    try {
+      // Delete order details associated with the orderId first
+      await this.deleteOrderDetails(orderId);
+
+      const deleteOrderQuery = `
+        DELETE FROM orders WHERE order_id = $1
+      `;
+      await connection.query(deleteOrderQuery, [orderId]);
+      return `Order with ID ${orderId} deleted successfully`;
+    } catch (error) {
+      console.error(`Error deleting order ${orderId}:`, error);
+      throw error;
+    }
+  }
+
+  static async deleteOrderDetails(orderId) {
+    try {
+      const deleteOrderDetailsQuery = `
+        DELETE FROM order_details WHERE order_id = $1
+      `;
+      await connection.query(deleteOrderDetailsQuery, [orderId]);
+      return `Order details for order ID ${orderId} deleted successfully`;
+    } catch (error) {
+      console.error(`Error deleting order details for order ${orderId}:`, error);
+      throw error;
+    }
+  }
 
   // add a product to an order
-  static addProductToOrder(orderId, productId, quantity, callback) {
-    connection.query(
-      "INSERT INTO order_details (order_id, product_id, quantity) VALUES ($1, $2, $3)",
-      [orderId, productId, quantity],
-      (error, results) => {
-        if (error) {
-          return callback(error);
-        }
-        callback(null, results.rows[0]);
+  static async addProductToOrder(orderId, productId, quantity) {
+
+    try {
+      const result = await connection.query(
+        "INSERT INTO order_details (order_id, product_id, quantity) VALUES ($1, $2, $3)",
+        [orderId, productId, quantity]
+      );
+
+      return result.rows[0];
+    } catch (error) {
+      console.error("Error adding product to order:", error);
+      throw error;
+    }
+  }
+
+  static async updatePaymentStatusToTrue(orderId) {
+    console.log("Updating payment Status");
+    try {
+      const query = `
+        UPDATE orders
+        SET payment_status = $1
+        WHERE order_id = $2
+      `;
+      await connection.query(query, [true, orderId]);
+      return `Payment status for order ${orderId} updated to true`;
+    } catch (error) {
+      console.error(`Error updating payment status for order ${orderId} to true:`, error);
+      throw error;
+    }
+  }
+
+  static async updateInventory(productId, quantity) {
+    try {
+      const quantityAndID = await connection.query(
+        "SELECT quantity, inventory_id FROM product_ingredients WHERE product_id = $1",
+        [productId]
+      );
+
+      for (const item of quantityAndID.rows) {
+        const inventoryId = item.inventory_id;
+        const stockLevelResult = await connection.query(
+          "SELECT stock_level FROM inventory WHERE inventory_id = $1",
+          [inventoryId]
+        );
+        const currentStockLevel = stockLevelResult.rows[0].stock_level;
+        const newStockLevel = parseInt(currentStockLevel - quantity * item.quantity);
+
+        await connection.query(
+          "UPDATE inventory SET stock_level = $1 WHERE inventory_id = $2",
+          [newStockLevel, inventoryId]
+        );
       }
-    );
+    } catch (error) {
+      console.error("Error updating inventory:", error);
+      throw error;
+    }
   }
 
   // Update product details of an existing order
@@ -151,7 +252,7 @@ class Order {
       }
     );
   }
-  
+
   toString() {
     return `Order ID: ${this.orderId}, Employee ID: ${this.employeeId}, Customer ID: ${this.customerId}, Total Cost: ${this.totalCost}, Payment Status: ${this.paymentStatus}`;
   }

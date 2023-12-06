@@ -64,31 +64,29 @@ const OrderNow = () => {
   const increment = (product) => {
     // Check if the product is already in the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
-
+  
     if (cartItemIndex !== -1) {
       // If the product is already in the cart, update its quantity
-      // console.log("found in cart. adding", product);
       const updatedCart = [...cart];
       updatedCart[cartItemIndex].quantity += 1;
       setCart(updatedCart); // Update the cart
     } else {
-      // If the product is not in the cart, add it to the cart
-      // console.log("not in cart. adding", product);
+      // If the product is not in the cart, add it to the cart with quantity 1
       setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
     }
-
+  
     // Update the category data
     const categoryData = productData[activeSection];
     const updatedCategoryData = categoryData.map((p) =>
       p.product_id === product.product_id ? { ...p, quantity: p.quantity + 1 } : p
     );
-
+  
     setProductData((prevData) => ({
       ...prevData,
       [activeSection]: updatedCategoryData,
     }));
-
-    addToCart(product);
+  
+    addToCart(product); // Assuming addToCart is a function from CartContext, add the product to context
   };
 
 
@@ -127,7 +125,7 @@ const OrderNow = () => {
   };
 
   const fetchCustomerId = async () => {
-    // console.log(customerEmail);
+    console.log(customerEmail);
     try {
       if (!customerEmail) {
         setCustomerId(1);
@@ -137,16 +135,47 @@ const OrderNow = () => {
       const response = await axios.get(`${BACKEND_URL}/customers/${customerEmail}`);
       const customerId = response.data.customerID; // Adjust this based on your API response structure
       // Use the retrieved customerId for further processing (e.g., storing in state)
-      // console.log(customerId);
+      console.log(customerId);
       return customerId;
     } catch (error) {
-      alert("Please enter a valid email address.") // Propagate the error back to the caller for handling
-      console.error("Error fetching customer ID:", error);
+      if (error.response && error.response.status === 404) {
+        try {
+          // Check if the email is a valid address
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailRegex.test(customerEmail)) {
+            // Email is valid, attempt to add it as a new customer
+            const response = await axios.post(`${BACKEND_URL}/customers/new-customer`, {
+              email: customerEmail,
+            });
+            const customerId = response.data.customerID;
+            console.log('New customer added with ID:', customerId);
+            return customerId;
+          } else {
+            alert('Please enter a valid email address.');
+          }
+        } catch (error) {
+          alert('Error adding new customer:', error);
+          console.error('Error adding new customer:', error);
+        }
+      } else {
+        alert('Error fetching customer ID:', error);
+        console.error('Error fetching customer ID:', error);
+        return -1;
+      }
     }
   };
 
   const submitOrder = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) && customerEmail) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+  
     const customerId = await fetchCustomerId();
+    if (customerId === -1) {
+      return;
+    }
+
     const orderId = 1; // Replace with the actual order ID if available
     const employeeId = 1; // Replace with the actual employee ID
     const totalCost = calculateTotalCost(); // Implement this function to calculate the total cost
@@ -161,12 +190,23 @@ const OrderNow = () => {
         totalCost,
         paymentStatus,
         paymentMethod,
+        cart,
       });
+      for (const product of cart) {
+        console.log("Order details response:", product);
+      }
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
       // If your cart is stateful, update the state with the empty cart array
       setCart(updatedCart);
+      const updatedProductData = { ...productData };
+      Object.keys(updatedProductData).forEach((category) => {
+        updatedProductData[category] = updatedProductData[category].map((product) => ({
+          ...product,
+          quantity: 0,
+        }));
+      });
       alert("Your order has been placed! Thank you for shopping with us!")
     } catch (error) {
       console.error("Error submitting order:", error);

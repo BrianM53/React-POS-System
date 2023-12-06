@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const getCartLength = () => {
-    console.log(cartItems.reduce((totalLength, item) => totalLength + item.quantity, 0));
+    // console.log(cartItems.reduce((totalLength, item) => totalLength + item.quantity, 0));
     return cartItems.reduce((totalLength, item) => totalLength + item.quantity, 0);
   };
 
