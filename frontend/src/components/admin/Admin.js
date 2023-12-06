@@ -409,7 +409,6 @@ function Admin() {
           <div className="label-item">Phone</div>
           <div className="label-item">Email</div>
           <div className="label-item">Username</div>
-          <div className="label-item">Password</div>
           <div className="label-item">Edit</div>
           <div className="label-item">Remove</div>
         </div>
@@ -427,7 +426,6 @@ function Admin() {
           <div className="label-item">Phone</div>
           <div className="label-item">Email</div>
           <div className="label-item">Username</div>
-          <div className="label-item">Password</div>
           <div className="label-item">Edit</div>
           <div className="label-item">Remove</div>
         </div>
@@ -495,26 +493,33 @@ function Admin() {
               <thead className="content-head"></thead>
               {activeReport === "View Employees" ? (
                 <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
+                {tableData.map((element, index) => (
+                  <tr key={index}>
+                    {columns.map((column, columnIndex) => (
+                      // Check if the column is 'password'; if yes, don't render it
+                      column !== 'password' && (
                         <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>Edit</button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                      )
+                    ))}
+                    <td>
+                      <button onClick={() => handleEdit(element)}>Edit</button>
+                    </td>
+                    <td>
+                      <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              
               ) : activeReport === "View Managers" ? (
                 <tbody>
                   {tableData.map((element, index) => (
                     <tr key={index}>
                       {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
+                        // Check if the column is 'password'; if yes, don't render it
+                        column !== 'password' && (
+                          <td key={columnIndex}>{element[column]}</td>
+                        )
                       ))}
                       <td>
                         <button onClick={() => handleEdit(element)}>Edit</button>
@@ -525,6 +530,7 @@ function Admin() {
                     </tr>
                   ))}
                 </tbody>
+
               ) : activeReport === "View Customers" ? (
                 <tbody>
                   {tableData.map((element, index) => (

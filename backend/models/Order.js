@@ -42,9 +42,7 @@ class Order {
       console.error("Error in createOrder:", error);
       throw error;
     }
-  }
-  
-  
+  } 
 
   // add a product to an order
   static addProductToOrder(orderId, productId, quantity, callback) {

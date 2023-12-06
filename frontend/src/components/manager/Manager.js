@@ -38,8 +38,6 @@ function Manager()
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-  console.log("Manager query ", BACKEND_URL);
-
   // default variables are for Sales Report
   const [activeReport, setActiveReport] = useState(
     () => localStorage.getItem("activeReport") || "Sales Report"
@@ -127,22 +125,16 @@ function Manager()
     } 
     else if (reportType === "View Employees") 
     {
-      const updatedColumns = [
+      setColumns([
         "employee_id",
         "first_name",
         "last_name",
         "phone",
         "email",
         "username",
-      ];
-      
-      const updatedTableData = data.map((employee) => {
-        const { password, ...rest } = employee; 
-        return rest; 
-      });
-    
-      setColumns(updatedColumns);
-      setTableData(updatedTableData);
+        "password",
+      ]);
+      setTableData(data);
       setShowChart(false);
     } 
     else if (reportType === "View Orders") 
@@ -612,7 +604,6 @@ function Manager()
           <div className="label-item">Phone</div>
           <div className="label-item">Email</div>
           <div className="label-item">Username</div>
-          <div className="label-item">Password</div>
           <div className="label-item">Edit</div>
           <div className="label-item">Remove</div>
 
@@ -699,20 +690,28 @@ function Manager()
               <thead className="content-head"></thead>
               {activeReport === "View Employees" ? ( 
                 <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>Edit</button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                {tableData.map((element, index) => (
+                  <tr key={index}>
+                    {columns.map((column, columnIndex) => {
+                      if (columnIndex === 6) {
+                        return null; // Do not render the column at index 6 (password column)
+                      } else {
+                        return (
+                          <td key={columnIndex}>{element[column]}</td>
+                        );
+                      }
+                    })}
+                    <td>
+                      <button onClick={() => handleEdit(element)}>Edit</button>
+                    </td>
+                    <td>
+                      <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              
+              
               ) : activeReport === "View Menu Items" ? (
                 <tbody>
                   {tableData.map((element, index) => (
