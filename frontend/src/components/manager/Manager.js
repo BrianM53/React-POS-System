@@ -22,8 +22,7 @@ import RemoveConfirmation from "./removeConfirmation";
 
 import { CChart } from "@coreui/react-chartjs";
 
-function Manager() 
-{
+function Manager() {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -56,7 +55,7 @@ function Manager()
   const [chartData, setChartData] = useState([]);
   const [showChart, setShowChart] = useState(false);
 
-  let colorFlag = true
+  let colorFlag = true;
 
   // user variables
   const {
@@ -81,19 +80,14 @@ function Manager()
     return date_val + " " + time_val;
   }
 
-  function generateReport(reportType, data) 
-  {
+  function generateReport(reportType, data) {
     console.log(reportType);
-    if (reportType === "Sales Report") 
-    {
+    if (reportType === "Sales Report") {
       setColumns(["product_name", "price", "numsold", "totalsales"]);
       setTableData(data);
       setShowChart(false);
-    } 
-    else if (reportType === "Excess Report") 
-    {
-      for (let i = 0; i < data.length; i++) 
-      {
+    } else if (reportType === "Excess Report") {
+      for (let i = 0; i < data.length; i++) {
         data[i].total_consumed = Math.round(data[i].total_consumed * 100) / 100;
         data[i].percent_sold = Math.round(data[i].percent_sold * 100) / 100;
       }
@@ -106,9 +100,7 @@ function Manager()
       ]);
       setTableData(data);
       setShowChart(false);
-    } 
-    else if (reportType === "Restock Report") 
-    {
+    } else if (reportType === "Restock Report") {
       setColumns([
         "product_name",
         "inventory_item",
@@ -118,15 +110,11 @@ function Manager()
       ]);
       setTableData(data);
       setShowChart(false);
-    } 
-    else if (reportType === "Sells Together") 
-    {
+    } else if (reportType === "Sells Together") {
       setColumns(["product_name1", "product_name2", "frequency"]);
       setTableData(data);
       setShowChart(false);
-    } 
-    else if (reportType === "View Employees") 
-    {
+    } else if (reportType === "View Employees") {
       const updatedColumns = [
         "employee_id",
         "first_name",
@@ -135,18 +123,16 @@ function Manager()
         "email",
         "username",
       ];
-      
+
       const updatedTableData = data.map((employee) => {
-        const { password, ...rest } = employee; 
-        return rest; 
+        const { password, ...rest } = employee;
+        return rest;
       });
-    
+
       setColumns(updatedColumns);
       setTableData(updatedTableData);
       setShowChart(false);
-    } 
-    else if (reportType === "View Orders") 
-    {
+    } else if (reportType === "View Orders") {
       setColumns([
         "Order ID",
         "Date & Time",
@@ -160,71 +146,62 @@ function Manager()
           "Date & Time": new Date(order.date_time).toLocaleString(),
           "Total Cost": order.total_cost,
           "Product Name": order.product_name,
-          "Quantity": order.quantity,
+          Quantity: order.quantity,
         }))
       );
-    } 
-    else if (reportType === "Usage Chart") 
-    {
-
-    }
-    else if (reportType === "View Menu Items") 
-    {
+    } else if (reportType === "Usage Chart") {
+    } else if (reportType === "View Menu Items") {
       setColumns([
         "product_id",
         "product_name",
         "price",
         "category",
-        "product_description"
+        "product_description",
       ]);
       setTableData(data);
       setShowChart(false);
-    } 
-    else if (reportType === "View Inventory Items")
-    {
+    } else if (reportType === "View Inventory Items") {
       setColumns([
         "inventory_id",
         "inventory_item",
         "stock_level",
         "restock_level",
         "measurement_type",
-        "price"
+        "price",
       ]);
       setTableData(data);
       setShowChart(false);
     }
   }
 
-  function handleReport(e, reportType) 
-  {
+  function handleReport(e, reportType) {
     if (e) {
       e.preventDefault();
     }
 
     setFormOpen(false);
     setActiveFormType(null);
-  
+
     localStorage.setItem("activeReport", reportType);
     setActiveReport(reportType);
-  
+
     let reportRoute = reportType.replace(/\s+/g, "-").toLowerCase();
     console.log(reportRoute);
-  
-    if (reportRoute === "view-menu-items") 
-    {
+
+    if (reportRoute === "view-menu-items") {
       // console.log("Fetching menu items data...");
-  
+
       // no dates
-  
+
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
         .then((response) => {
           // console.log("Backend response for " + reportType, response.data.data);
-  
+
           const menuItemsData = response.data.data;
-  
+
           const menuItemsColumns = Object.keys(menuItemsData[0]);
-  
+
           setColumns(menuItemsColumns);
           setTableData(menuItemsData);
           setShowChart(false);
@@ -232,22 +209,20 @@ function Manager()
         .catch((error) => {
           console.error("Axios error:", error);
         });
-    } 
-    else if (reportRoute === "view-employees") 
-    {
+    } else if (reportRoute === "view-employees") {
       // console.log("Fetching employee data...");
-  
+
       // no dates
-  
+
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
         .then((response) => {
           // console.log("Backend response for " + reportType, response.data.data);
-  
+
           const employeeData = response.data.data;
-  
+
           const employeeColumns = Object.keys(employeeData[0]);
-  
+
           setColumns(employeeColumns);
           setTableData(employeeData);
           setShowChart(false);
@@ -255,22 +230,20 @@ function Manager()
         .catch((error) => {
           console.error("Axios error:", error);
         });
-    } 
-    else if (reportRoute === "view-inventory-items") 
-    {
+    } else if (reportRoute === "view-inventory-items") {
       // console.log("Fetching inventory item data...");
-  
+
       // no dates
-  
+
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute)
         .then((response) => {
           // console.log("Backend response for " + reportType, response.data.data);
-  
+
           const inventoryItemsData = response.data.data;
-  
+
           const employeeColumns = Object.keys(inventoryItemsData[0]);
-  
+
           setColumns(employeeColumns);
           setTableData(inventoryItemsData);
           setShowChart(false);
@@ -278,9 +251,7 @@ function Manager()
         .catch((error) => {
           console.error("Axios error:", error);
         });
-    } 
-    else 
-    {
+    } else {
       // Default branch
       axios
         .post(BACKEND_URL + "/reports/" + reportRoute, {
@@ -291,12 +262,12 @@ function Manager()
         .then((response) => {
           // console.log("Backend response for " + reportType, response.data.data);
           generateReport(reportType, response.data.data);
-  
+
           // TESTING
           if (reportType === "Usage Chart") {
             setShowChart(true);
             setChartData(response.data.data);
-  
+
             // console.log("chartData:", chartData); // TODO Check data sent to chart
           } else {
             setShowChart(false);
@@ -310,16 +281,14 @@ function Manager()
     }
   }
 
-  function handleDelete(element) 
-  {
+  function handleDelete(element) {
     // console.log("inside of handleDelete");
-    const elementType = activeReport.toLowerCase().replace(/\s+/g, '');
+    const elementType = activeReport.toLowerCase().replace(/\s+/g, "");
     // console.log(elementType);
     // console.log(element);
     // console.log("after console.log(element");
-    switch (elementType) 
-    {
-      case 'viewemployees':
+    switch (elementType) {
+      case "viewemployees":
         // console.log("inside of viewemployees");
         axios
           .delete(BACKEND_URL + "/employees/" + element.employee_id)
@@ -331,7 +300,7 @@ function Manager()
             console.error("Axios error:", error);
           });
         break;
-      case 'viewmenuitems':
+      case "viewmenuitems":
         // console.log("inside of viewmenuitems");
         axios
           .delete(BACKEND_URL + "/addproducts/" + element.product_id)
@@ -343,7 +312,7 @@ function Manager()
             console.error("Axios error:", error);
           });
         break;
-      case 'viewinventoryitems':
+      case "viewinventoryitems":
         // console.log("inside of inventoryitems");
         axios
           .delete(BACKEND_URL + "/inventory/" + element.inventory_id)
@@ -360,26 +329,24 @@ function Manager()
     }
   }
 
-  function handleEdit(element)
-  {
+  function handleEdit(element) {
     setEditFormOpen(true);
     setSelectedRowData(element);
 
-    switch (activeReport.toLowerCase().replace(/\s+/g, '')) 
-    {
-      case 'viewemployees':
-        setActiveEditFormType('editEmployee');
+    switch (activeReport.toLowerCase().replace(/\s+/g, "")) {
+      case "viewemployees":
+        setActiveEditFormType("editEmployee");
         break;
-      case 'viewmenuitems':
-        setActiveEditFormType('editMenuItem');
+      case "viewmenuitems":
+        setActiveEditFormType("editMenuItem");
         break;
-      case 'viewinventoryitems':
-        setActiveEditFormType('editInventoryItem');
+      case "viewinventoryitems":
+        setActiveEditFormType("editInventoryItem");
         break;
       default:
         console.error(`Unknown element type`);
     }
-  } 
+  }
   const handleFinishEditing = () => {
     setEditFormOpen(false);
     setSelectedRowData(null);
@@ -393,8 +360,7 @@ function Manager()
     setSelectedRowData(null);
     setActiveFormType(null);
     setActiveEditFormType(null);
-  }
-
+  };
 
   function handleAddEmployeeClicked() {
     // Open the form
@@ -411,7 +377,6 @@ function Manager()
     // setAddEmployeeClicked(false);
     // console.log("handleFinishAddingEmployee");
     fetchAndRenderData();
-
   }
 
   function handleAddMenuItemClicked() {
@@ -437,7 +402,6 @@ function Manager()
     setActiveFormType("addInventoryItem");
     // setAddInventoryItemClicked(true);
     // console.log("inside of the handle add inventory item clicked");
-
   }
 
   function handleFinishAddingInventoryItem() {
@@ -448,7 +412,6 @@ function Manager()
     // console.log("handleFinishAddingInventoryItem");
     fetchAndRenderData();
   }
-
 
   // {isDeleteConfirmationOpen && (
   //   <RemoveConfirmation onConfirm={confirmDelete} onCancel={closeDeleteConfirmation} />
@@ -476,7 +439,6 @@ function Manager()
     }
   }
 
-
   const [tableDataKey, setTableDataKey] = useState(0);
 
   useEffect(() => {
@@ -484,9 +446,9 @@ function Manager()
     const fetchData = async () => {
       await handleReport(null, activeReport);
     };
-  
+
     fetchData();
-  
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeReport, tableDataKey]);
 
@@ -520,331 +482,264 @@ function Manager()
         </div>
       </div>
       <div className="main-manager">
-        {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
-        {/* ================ AHHHH MY EYESSSS THEY'RE BLEEDING AT THIS MESS YOU'VE MADE AHHHH *dies* ================== */}
-        <div
-          className={
-            activeReport === "Sales Report"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Menu Item</div>
-          <div className="label-item">Price</div>
-          <div className="label-item">Amount Sold</div>
-          <div className="label-item">Total sales</div>
-        </div>
-        <div
-          className={
-            activeReport === "Excess Report"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Ingredient</div>
-          <div className="label-item">Total Consumed</div>
-          <div className="label-item">Current Stock</div>
-          <div className="label-item">Past Stock</div>
-          <div className="label-item">% Sold</div>
-        </div>
-        <div
-          className={
-            activeReport === "Restock Report"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Menu Item</div>
-          <div className="label-item">Ingredient</div>
-          <div className="label-item">Stock Level</div>
-          <div className="label-item">Restock Level</div>
-          <div className="label-item">Measurement Type</div>
-        </div>
-        <div
-          className={
-            activeReport === "Sells Together"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Menu Item 1</div>
-          <div className="label-item">Menu Item 2</div>
-          <div className="label-item">Occurrences</div>
-          
-          
-        </div>
-        <div
-          className={
-            activeReport === "Usage Chart" ? "label-container" : "passive-label"
-          }
-        >
-          <div className="label-item">Amount of Ingredients Used</div>
-        </div>
-        <div
-          className={
-            activeReport === "View Orders"
-              ? "label-container"
-              : "passive-label"
-          }
-        //   "Order ID",
-        // "Date & Time",
-        // "Total Cost",
-        // "Product ID",
-        // "Quantity",
-        >
-          <div className="label-item">Order #</div>
-          <div className="label-item">Timestamp</div>
-          <div className="label-item">Total Cost</div>
-          <div className="label-item">Product Name</div>
-          <div className="label-item">Quantity</div>
+        {activeReport !== "Usage Chart" && (
+          <>
+            {/* Conditional rendering for labels of each report */}
+            {activeReport === "Sales Report" && (
+              <div className="label-container">
+                <div className="label-item">Menu Item</div>
+                <div className="label-item">Price</div>
+                <div className="label-item">Amount Sold</div>
+                <div className="label-item">Total sales</div>
+              </div>
+            )}
 
-        </div>
-        <div
-          className={
-            activeReport === "View Employees"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Employee ID</div>
-          <div className="label-item">First Name</div>
-          <div className="label-item">Last Name</div>
-          <div className="label-item">Phone</div>
-          <div className="label-item">Email</div>
-          <div className="label-item">Username</div>
-          <div className="label-item">Password</div>
-          <div className="label-item">Edit</div>
-          <div className="label-item">Remove</div>
+            {activeReport === "Excess Report" && (
+              <div className="label-container">
+                <div className="label-item">Ingredient</div>
+                <div className="label-item">Total Consumed</div>
+                <div className="label-item">Current Stock</div>
+                <div className="label-item">Past Stock</div>
+                <div className="label-item">% Sold</div>
+              </div>
+            )}
 
-        </div>
-        <div
-          className={
-            activeReport === "View Menu Items"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Product ID</div>
-          <div className="label-item">Product Name</div>
-          <div className="label-item">Price</div>
-          <div className="label-item">Cateogry</div>
-          <div className="label-item">Description</div>
-          <div className="label-item">Edit</div>
-          <div className="label-item">Remove</div>
-        </div>
+            {activeReport === "Restock Report" && (
+              <div className="label-container">
+                <div className="label-item">Menu Item</div>
+                <div className="label-item">Ingredient</div>
+                <div className="label-item">Stock Level</div>
+                <div className="label-item">Restock Level</div>
+                <div className="label-item">Measurement Type</div>
+              </div>
+            )}
 
-        <div
-          className={
-            activeReport === "View Inventory Items"
-              ? "label-container"
-              : "passive-label"
-          }
-        >
-          <div className="label-item">Inventory ID</div>
-          <div className="label-item">Item Name</div>
-          <div className="label-item">Stock Level</div>
-          <div className="label-item">Restock Level</div>
-          <div className="label-item">Measuring Type</div>
-          <div className="label-item">Price</div>
-          <div className="label-item">Edit</div>
-          <div className="label-item">Remove</div>
-        </div>
+            {activeReport === "Sells Together" && (
+              <div className="label-container">
+                <div className="label-item">Menu Item 1</div>
+                <div className="label-item">Menu Item 2</div>
+                <div className="label-item">Occurrences</div>
+              </div>
+            )}
 
-        <div className="main-content">
-          {isFormOpen && activeFormType === "addEmployee" && (
-            <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee}
-            handleCancelEditing={handleCancelEditing} />
-          )}
+            {activeReport === "View Orders" && (
+              <div className="label-container">
+                <div className="label-item">Order #</div>
+                <div className="label-item">Timestamp</div>
+                <div className="label-item">Total Cost</div>
+                <div className="label-item">Product Name</div>
+                <div className="label-item">Quantity</div>
+              </div>
+            )}
 
-          {isFormOpen && activeFormType === "addMenuItem" && (
-            <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem}
-            handleCancelEditing={handleCancelEditing} />
-          )}
+            {activeReport === "View Employees" && (
+              <div className="label-container">
+                <div className="label-item">Employee ID</div>
+                <div className="label-item">First Name</div>
+                <div className="label-item">Last Name</div>
+                <div className="label-item">Phone</div>
+                <div className="label-item">Email</div>
+                <div className="label-item">Username</div>
+                <div className="label-item">Password</div>
+                <div className="label-item">Edit</div>
+                <div className="label-item">Remove</div>
+              </div>
+            )}
 
-          {isFormOpen && activeFormType === "addInventoryItem" && (
-            <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
-            handleCancelEditing={handleCancelEditing} />
-          )}
+            {activeReport === "View Menu Items" && (
+              <div className="label-container">
+                <div className="label-item">Product ID</div>
+                <div className="label-item">Product Name</div>
+                <div className="label-item">Price</div>
+                <div className="label-item">Category</div>
+                <div className="label-item">Description</div>
+                <div className="label-item">Edit</div>
+                <div className="label-item">Remove</div>
+              </div>
+            )}
 
-          {isEditFormOpen && selectedRowData && activeEditFormType === 'editEmployee' && (
-            <EditEmployee
-              selectedRowData={selectedRowData}
-              handleFinishEditing={handleFinishEditing}
-              handleCancelEditing={handleCancelEditing}
-            />
-          )}
+            {activeReport === "View Inventory Items" && (
+              <div className="label-container">
+                <div className="label-item">Inventory ID</div>
+                <div className="label-item">Item Name</div>
+                <div className="label-item">Stock Level</div>
+                <div className="label-item">Restock Level</div>
+                <div className="label-item">Measuring Type</div>
+                <div className="label-item">Price</div>
+                <div className="label-item">Edit</div>
+                <div className="label-item">Remove</div>
+              </div>
+            )}
 
-          {isEditFormOpen && selectedRowData && activeEditFormType === 'editMenuItem' && (
-            <EditMenuItem
-              selectedRowData={selectedRowData}
-              handleFinishEditing={handleFinishEditing}
-              handleCancelEditing={handleCancelEditing}
-            />
-          )}
-
-          {isEditFormOpen && selectedRowData && activeEditFormType === 'editInventoryItem' && (
-            <EditInventoryItem
-              selectedRowData={selectedRowData}
-              handleFinishEditing={handleFinishEditing}
-              handleCancelEditing={handleCancelEditing}
-            />
-          )} 
-
-          {isDeleteConfirmationOpen && (
-            <RemoveConfirmation onConfirm={confirmDelete} onCancel={closeDeleteConfirmation} />
-          )}
-
-          {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
-            <table className="main-content-table">
-              <thead className="content-head"></thead>
-              {activeReport === "View Employees" ? ( 
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>Edit</button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              ) : activeReport === "View Menu Items" ? (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>Edit</button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              ) : activeReport === "View Inventory Items" ? (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                      <td>
-                        <button onClick={() => handleEdit(element)}>Edit</button>
-                      </td>
-                      <td>
-                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              ) : (
-                <tbody>
-                  {tableData.map((element, index) => (
-                    <tr key={index}>
-                      {columns.map((column, columnIndex) => (
-                        <td key={columnIndex}>{element[column]}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
+            <div className="main-content">
+              {isFormOpen && activeFormType === "addEmployee" && (
+                <AddEmployee
+                  onFinishAddingEmployee={handleFinishAddingEmployee}
+                  handleCancelEditing={handleCancelEditing}
+                />
               )}
-            </table>
-          )}
-        </div>
-
-         {(activeReport === "View Employees") && (
-            <div className="label-item2">
-              <div className="label-item-button2" onClick={handleAddEmployeeClicked}>
-                Add an Employee
-              </div>
+              {isFormOpen && activeFormType === "addMenuItem" && (
+                <AddMenuItem
+                  onFinishAddingMenuItem={handleFinishAddingMenuItem}
+                  handleCancelEditing={handleCancelEditing}
+                />
+              )}
+              {isFormOpen && activeFormType === "addInventoryItem" && (
+                <AddInventoryItem
+                  onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
+                  handleCancelEditing={handleCancelEditing}
+                />
+              )}
+              {isEditFormOpen &&
+                selectedRowData &&
+                activeEditFormType === "editEmployee" && (
+                  <EditEmployee
+                    selectedRowData={selectedRowData}
+                    handleFinishEditing={handleFinishEditing}
+                    handleCancelEditing={handleCancelEditing}
+                  />
+                )}
+              {isEditFormOpen &&
+                selectedRowData &&
+                activeEditFormType === "editMenuItem" && (
+                  <EditMenuItem
+                    selectedRowData={selectedRowData}
+                    handleFinishEditing={handleFinishEditing}
+                    handleCancelEditing={handleCancelEditing}
+                  />
+                )}
+              {isEditFormOpen &&
+                selectedRowData &&
+                activeEditFormType === "editInventoryItem" && (
+                  <EditInventoryItem
+                    selectedRowData={selectedRowData}
+                    handleFinishEditing={handleFinishEditing}
+                    handleCancelEditing={handleCancelEditing}
+                  />
+                )}
+              {isDeleteConfirmationOpen && (
+                <RemoveConfirmation
+                  onConfirm={confirmDelete}
+                  onCancel={closeDeleteConfirmation}
+                />
+              )}
+              {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
+                <table className="main-content-table">
+                  <thead className="content-head"></thead>
+                  <tbody>
+                    {tableData.map((element, index) => (
+                      <tr key={index}>
+                        {columns.map((column, columnIndex) => (
+                          <td key={columnIndex}>{element[column]}</td>
+                        ))}
+                        <td>
+                          <button onClick={() => handleEdit(element)}>
+                            Edit
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => openDeleteConfirmation(element)}
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+              {activeReport === "View Employees" && (
+                <div className="label-item2">
+                  <div
+                    className="label-item-button2"
+                    onClick={handleAddEmployeeClicked}
+                  >
+                    Add an Employee
+                  </div>
+                </div>
+              )}
+              {activeReport === "View Menu Items" && (
+                <div className="label-item2">
+                  <div
+                    className="label-item-button2"
+                    onClick={handleAddMenuItemClicked}
+                  >
+                    Add a Menu Item
+                  </div>
+                </div>
+              )}
+              {activeReport === "View Inventory Items" && (
+                <div className="label-item2">
+                  <div
+                    className="label-item-button2"
+                    onClick={handleAddInventoryItemClicked}
+                  >
+                    Add an Inventory Item
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-
-          {(activeReport === "View Menu Items") && (
-            <div className="label-item2">
-              <div className="label-item-button2" onClick={handleAddMenuItemClicked}>
-                Add a Menu Item
-              </div>
-            </div>
-          )}
-
-          {(activeReport === "View Inventory Items") && (
-            <div className="label-item2">
-              <div className="label-item-button2" onClick={handleAddInventoryItemClicked}>
-                Add an Inventory Item
-              </div>
-            </div>
-          )}
-
-        {/* TESTING */}
-        {showChart && (
-          <CChart
-            type="bar"
-            data={{
-              labels: chartData,
-              datasets: [
-                {
-                  label: "Usage Chart",
-                  backgroundColor: "#ff0000",
-                  data: chartData,
-                },
-              ],
-            }}
-            labels="Inventory Items"
-            options={{
-              plugins: {
-                legend: {
-                  labels: {
-                    color: "#00ffff",
-                  },
-                },
-              },
-              scales: {
-                x: {
-                  grid: {
-                    color: "#00ff00",
-                  },
-                  ticks: {
-                    color: "#0000ff",
-                  },
-                },
-                y: {
-                  grid: {
-                    color: "#ffcccc",
-                  },
-                  ticks: {
-                    color: "#000000",
-                  },
-                },
-              },
-            }}
-          />
+          </>
         )}
-
-        {activeReport !== "View Employees" && activeReport !== "View Menu Items" && activeReport !== "View Inventory Items" && (
-          <div className="date-btn">
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              showTimeSelect
-              timeFormat="HH:mm"
-            />
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => setEndDate(date)}
-              showTimeSelect
-              timeFormat="HH:mm"
+        {activeReport === "Usage Chart" && showChart && (
+          <div className="chart-container">
+            <CChart
+              type="bar"
+              data={{
+                labels: chartData.map((d) => d.inventoryitem),
+                datasets: [
+                  {
+                    label: "Usage Chart",
+                    backgroundColor: "#ff0000",
+                    data: chartData.map((d) => d.amountused),
+                  },
+                ],
+              }}
+              options={{
+                plugins: {
+                  legend: {
+                    labels: {
+                      color: "#00ffff",
+                    },
+                  },
+                },
+                scales: {
+                  x: {
+                    grid: {
+                      color: "#00ff00",
+                    },
+                    ticks: {
+                      color: "#0000ff",
+                    },
+                  },
+                  y: {
+                    grid: {
+                      color: "#ffcccc",
+                    },
+                    ticks: {
+                      color: "#0000ff",
+                    },
+                  },
+                },
+              }}
             />
           </div>
         )}
+        <div className="date-btn">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+          />
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+          />
+        </div>
       </div>
     </div>
   );
