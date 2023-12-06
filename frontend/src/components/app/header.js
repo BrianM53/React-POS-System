@@ -67,14 +67,12 @@ function Header() {
                 </ul>
             </div>
 
-            <div className='header-title-container'>
-                <h1 className='header-title1'>
-                    Sweet Paris
-                </h1>
-                <h1 className='header-title2'>
-                    Crêperie & Café
-                </h1>
-            </div>
+            <header>
+                <div class="header-title-container">
+                    <h1 class="header-title1">Sweet Paris</h1>
+                    <h1 class="header-title2">Crêperie & Café</h1>
+                </div>
+            </header>
 
             <div className='header-nav-right'>
                 <ul>

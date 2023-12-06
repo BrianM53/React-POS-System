@@ -31,9 +31,9 @@ const App = () => {
           <div className='big-plate-info-container'>
 
             <div>
-              <div className='big-plate-info-title'>
+              <h2 className='big-plate-info-title'>
                 Oreo Cookies n' Cream
-              </div>
+              </h2>
               <div className='big-plate-info-desc'>
                 Oreo cookie crumbles and vanilla cream filling.
               </div>
