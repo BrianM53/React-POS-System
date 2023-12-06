@@ -38,6 +38,7 @@ const Menu = () => {
     fetchProducts("Milkshakes");
     fetchProducts("Beverages");
     fetchProducts("Seasonal");
+    fetchProducts("WOW");
   }, []);
 
   const renderProducts = (category) => {
@@ -59,7 +60,7 @@ const Menu = () => {
         .replace(/[&]/g, "and");
   
       return (
-        <div key={product.product_id} className="product-container">
+        <div key={product.product_id} className="menu-product-container">
           <div className="product-name">
             {product.product_name}
           </div>

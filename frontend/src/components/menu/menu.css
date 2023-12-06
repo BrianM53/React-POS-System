@@ -63,7 +63,7 @@
     border-radius: 45px;
 }
 
-.product-container
+.menu-product-container
 {
     width:100%;
     display: flex;
@@ -121,4 +121,3 @@
     /* margin-left:auto ; */
     scale: 40%;
 }
-
