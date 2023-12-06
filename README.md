@@ -29,28 +29,28 @@ All meetings in class (0800 - 0850)
   - Identify tasks to complete during sprint 3
   - Break down tasks for each person
     
-####11/27/2023 - SCRUM 1
+11/27/2023 - SCRUM 1
   - Discuss completed work
   - Bring up current task
   - Talk about any problems
   - Need to focus on cashier interface, order now, and reports
   - Work on web redesign
     
-####11/29/2023 - SCRUM 2
+11/29/2023 - SCRUM 2
   - Discuss completed work
   - Bring up current task
   - Talk about any problems
   - Set date for final presentation
   - Continue working on tasks
     
-####12/1/2023 - SCRUM 3
+12/1/2023 - SCRUM 3
   - Discuss completed work
   - Bring up current task
   - Talk about any problems
   - Accessibility complete
   - Analyze our web and tasks we need to complete rubric
     
-####12/4/2023 - Final Meeting
+12/4/2023 - Final Meeting
   - There is still work to do to wrap up
   - Focus on removing items, usage chart, product ingredients
 
