@@ -690,7 +690,7 @@ function Manager() {
                 labels: chartData.map((d) => d.inventoryitem),
                 datasets: [
                   {
-                    label: "Usage Chart",
+                    label: "Amount of ingredient used",
                     backgroundColor: "#ff0000",
                     data: chartData.map((d) => d.amountused),
                   },
@@ -700,25 +700,27 @@ function Manager() {
                 plugins: {
                   legend: {
                     labels: {
-                      color: "#00ffff",
+                      color: "#111111",
                     },
                   },
                 },
                 scales: {
                   x: {
                     grid: {
-                      color: "#00ff00",
+                      color: "#0000ff",
                     },
                     ticks: {
                       color: "#0000ff",
+                      fontSize: 25,
                     },
                   },
                   y: {
                     grid: {
-                      color: "#ffcccc",
+                      color: "#0000ff",
                     },
                     ticks: {
                       color: "#0000ff",
+                      fontSize: 25,
                     },
                   },
                 },
