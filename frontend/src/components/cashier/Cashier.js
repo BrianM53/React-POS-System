@@ -172,7 +172,7 @@ const Cashier = () => {
       for (const product of cart) {
         console.log("Order details response:", product);
       }
-      
+
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
@@ -264,9 +264,21 @@ const Cashier = () => {
       console.log("Orders with false payment status:", orders);
       setOrdersWithFalsePayment(orders);
       // Handle the fetched orders as needed
+      
     } catch (error) {
       console.error("Error fetching orders with false payment status:", error);
       // Handle errors here
+    }
+  };
+
+  const togglePaymentStatus = async (orderId) => {
+    try {
+      const response = await axios.post(`${BACKEND_URL}/orders/${orderId}/toggle-payment`);
+      console.log('Payment status toggled successfully:', response.data);
+      setOrdersWithFalsePayment(prevOrders => prevOrders.filter(order => order.order_id !== orderId));
+    } catch (error) {
+      console.error('There was a problem toggling the payment status:', error);
+      // Handle the error here
     }
   };
 
@@ -274,13 +286,7 @@ const Cashier = () => {
     if (!ordersWithFalsePayment || ordersWithFalsePayment.length === 0) {
       return <div>No orders found.</div>;
     }
-  
-    const togglePaymentStatus = (orderId) => {
-      // Logic to toggle the payment status for a specific order ID
-      // This function should interact with your backend to update the payment status
-      console.log(`Toggle payment status for order ${orderId}`);
-    };
-  
+
     return (
       <table className="orders-table">
         <thead>
@@ -300,7 +306,10 @@ const Cashier = () => {
               <td>${order.total_cost}</td>
               <td>{order.payment_status ? 'True' : 'False'}</td>
               <td>
-                <button onClick={() => togglePaymentStatus(order.order_id)}>
+                <button
+                  onClick={() => togglePaymentStatus(order.order_id)}
+                  className="toggle-payment-button"
+                >
                   Toggle Payment
                 </button>
               </td>

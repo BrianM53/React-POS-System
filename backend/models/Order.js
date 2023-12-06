@@ -81,6 +81,22 @@ class Order {
     }
   }
 
+  static async updatePaymentStatusToTrue(orderId) {
+    console.log("Updating payment Status");
+    try {
+      const query = `
+        UPDATE orders
+        SET payment_status = $1
+        WHERE order_id = $2
+      `;
+      await connection.query(query, [true, orderId]);
+      return `Payment status for order ${orderId} updated to true`;
+    } catch (error) {
+      console.error(`Error updating payment status for order ${orderId} to true:`, error);
+      throw error;
+    }
+  }
+
   static async updateInventory(productId, quantity) {
     try {
       const quantityAndID = await connection.query(

@@ -91,4 +91,19 @@ router.get("/falsePaymentStatus", async (req, res) => {
   }
 });
 
+router.post("/:orderId/toggle-payment", async (req, res) => {
+  const orderId = req.params.orderId;
+
+  try {
+    // Call the method to update payment status to true for the provided orderId
+    await Order.updatePaymentStatusToTrue(orderId);
+
+    res.json({ message: `Payment status for order ${orderId} toggled to true` });
+  } catch (error) {
+    console.error(`Error toggling payment status for order ${orderId}:`, error);
+    res.status(500).json({ error: "Error toggling payment status" });
+  }
+});
+
+
 module.exports = router;

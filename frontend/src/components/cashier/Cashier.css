@@ -656,14 +656,20 @@
   .orders-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1em;
   }
   
-  .orders-table th,
+  .orders-table th {
+    border: 2px solid var(--shade2);
+    padding: 0.5em;
+    text-align: center;
+  }
+
   .orders-table td {
     border: 2px solid var(--shade2);
     padding: 0.5em;
     text-align: center;
+    color: black; /* Set the text color to black */
+    font-size: 1.8rem;
   }
   
   .orders-table th {
@@ -673,10 +679,38 @@
     font-weight: bold;
   }
   
-  .orders-table tbody tr:nth-child(even) {
-    background-color: var(--shade1);
+  .orders-table tbody tr:hover {
+    background-color: whitesmoke;
   }
   
-  .orders-table tbody tr:hover {
+  .fetch-orders-button {
+    height: 50px; /* Adjust height as needed */
+    font-size: 2rem; /* Increase font size */
+    line-height: 40px; /* Center text vertically */
+    text-align: center; /* Center text horizontally */
     background-color: var(--shade2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    bottom: 20px; /* Adjust this value to set the distance from the bottom */
+  }
+  
+  .fetch-orders-button:hover {
+    background-color: var(--shade1);
+  }
+
+  .toggle-payment-button {
+    background-color: red; /* Set the background color to red */
+    color: black; /* Text color */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px; /* Adjust padding as needed */
+    font-size: 1.5rem; /* Adjust the font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-payment-button:hover {
+    background-color: darkred; /* Change color on hover */
   }
