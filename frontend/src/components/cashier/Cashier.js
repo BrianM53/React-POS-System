@@ -272,7 +272,7 @@ const Cashier = () => {
         <div className="menu-main-menu-container">
           <div
             ref={scrollRefs.menuScrollRef}
-            className={menuHasOverflow ? 'menu-main-menu-body' : 'menu-main-menu-body-noscroll'}
+            className={menuHasOverflow ? 'product-container' : 'product-container-noscroll'}
           >
             {/* <div className='menu-body-category-container'id={`menu-body-${activeSection}`}style={{ display: "flex" }}> */}
             {renderProducts()}
