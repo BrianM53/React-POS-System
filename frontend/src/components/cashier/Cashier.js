@@ -25,6 +25,8 @@ const Cashier = () => {
   const [customerEmail, setCustomerEmail] = useState(""); // State for customer email
   const [employeeId, setEmployeeId] = useState(""); // State for employee ID
   const [customerId, setCustomerId] = useState("");
+  const [ordersWithFalsePayment, setOrdersWithFalsePayment] = useState([]);
+  const [orderIdRemove, setOrderIdRemove] = useState("");
 
   // dynamic scrollbar display
   const scrollRefs = {
@@ -126,7 +128,7 @@ const Cashier = () => {
   };
 
   const fetchCustomerId = async () => {
-    // console.log(customerEmail);
+    console.log(customerEmail);
     try {
       if (!customerEmail) {
         setCustomerId(1);
@@ -136,11 +138,33 @@ const Cashier = () => {
       const response = await axios.get(`${BACKEND_URL}/customers/${customerEmail}`);
       const customerId = response.data.customerID; // Adjust this based on your API response structure
       // Use the retrieved customerId for further processing (e.g., storing in state)
-      // console.log(customerId);
+      console.log(customerId);
       return customerId;
     } catch (error) {
-      alert("Please enter a valid email address.") // Propagate the error back to the caller for handling
-      console.error("Error fetching customer ID:", error);
+      if (error.response && error.response.status === 404) {
+        try {
+          // Check if the email is a valid address
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailRegex.test(customerEmail)) {
+            // Email is valid, attempt to add it as a new customer
+            const response = await axios.post(`${BACKEND_URL}/customers/new-customer`, {
+              email: customerEmail,
+            });
+            const customerId = response.data.customerID;
+            console.log('New customer added with ID:', customerId);
+            return customerId;
+          } else {
+            alert('Please enter a valid email address.');
+          }
+        } catch (error) {
+          alert('Error adding new customer:', error);
+          console.error('Error adding new customer:', error);
+        }
+      } else {
+        alert('Error fetching customer ID:', error);
+        console.error('Error fetching customer ID:', error);
+        return -1;
+      }
     }
   };
 
@@ -151,11 +175,19 @@ const Cashier = () => {
       return;
     }
 
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) && customerEmail) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     const customerId = await fetchCustomerId();
+    if (customerId === -1) {
+      return;
+    }
 
     const orderId = 1; // Replace with the actual order ID if available
     const totalCost = calculateTotalCost(); // Implement this function to calculate the total cost
-    const paymentStatus = true; // Replace with the actual payment status
+    const paymentStatus = false; // Replace with the actual payment status
     const paymentMethod = "card"; // Replace with the actual payment method
 
     try {
@@ -166,7 +198,12 @@ const Cashier = () => {
         totalCost,
         paymentStatus,
         paymentMethod,
+        cart,
       });
+      for (const product of cart) {
+        console.log("Order details response:", product);
+      }
+
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
@@ -180,6 +217,8 @@ const Cashier = () => {
         }));
       });
       setProductData(updatedProductData);
+      fetchOrdersWithFalsePayment();
+      setCustomerEmail('');
     } catch (error) {
       console.error("Error submitting order:", error);
       // Handle the error here, if needed
@@ -189,6 +228,21 @@ const Cashier = () => {
   const calculateTotalCost = () => {
     // Implement this function to calculate the total cost based on items in the cart
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const removeOrder = async () => {
+    try {
+      // Implement functionality to remove an order
+      // For example:
+      const orderIdToRemove = orderIdRemove; // Replace with the actual order ID to remove
+      await axios.delete(`${BACKEND_URL}/orders/delete/${orderIdToRemove}`);
+      console.log(`Order with ID ${orderIdToRemove} removed successfully`);
+      setOrderIdRemove('');
+      // Additional logic if needed, such as updating UI state
+    } catch (error) {
+      console.error("Error removing order:", error);
+      // Handle error, show error message, etc.
+    }
   };
 
   const renderProducts = () => {
@@ -251,11 +305,73 @@ const Cashier = () => {
     });
   };
 
+  const fetchOrdersWithFalsePayment = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/orders/falsePaymentStatus`);
+      const orders = response.data;
+      console.log("Orders with false payment status:", orders);
+      setOrdersWithFalsePayment(orders);
+      // Handle the fetched orders as needed
+
+    } catch (error) {
+      console.error("Error fetching orders with false payment status:", error);
+      // Handle errors here
+    }
+  };
+
+  const togglePaymentStatus = async (orderId) => {
+    try {
+      const response = await axios.post(`${BACKEND_URL}/orders/${orderId}/toggle-payment`);
+      console.log('Payment status toggled successfully:', response.data);
+      setOrdersWithFalsePayment(prevOrders => prevOrders.filter(order => order.order_id !== orderId));
+    } catch (error) {
+      console.error('There was a problem toggling the payment status:', error);
+      // Handle the error here
+    }
+  };
+
+  const renderOrdersTable = () => {
+    if (!ordersWithFalsePayment || ordersWithFalsePayment.length === 0) {
+      return <div>No orders found.</div>;
+    }
+
+    return (
+      <table className="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Total Cost</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ordersWithFalsePayment.map((order) => (
+            <tr key={order.order_id}>
+              <td>{order.order_id}</td>
+              <td>{order.customer_id}</td>
+              <td>${order.total_cost}</td>
+              <td>{order.payment_status ? 'True' : 'False'}</td>
+              <td>
+                <button
+                  onClick={() => togglePaymentStatus(order.order_id)}
+                  className="toggle-payment-button"
+                >
+                  Toggle Payment
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <div className="menu-body">
 
-      
+
 
       <main className="menu-main-menu">
         {/* <SpecialFontText as="div" className="menu-main-menu-header" fontSize="3.5rem">
@@ -272,7 +388,7 @@ const Cashier = () => {
         <div className="menu-main-menu-container">
           <div
             ref={scrollRefs.menuScrollRef}
-            className={menuHasOverflow ? 'product-container' : 'product-container-noscroll'}
+            className={menuHasOverflow ? 'menu-main-menu-body' : 'menu-main-menu-body-noscroll'}
           >
             {/* <div className='menu-body-category-container'id={`menu-body-${activeSection}`}style={{ display: "flex" }}> */}
             {renderProducts()}
@@ -311,10 +427,30 @@ const Cashier = () => {
                   Submit Order
                 </div>
               </div>
+              <div className="ticket-submit-container">
+                <div className="customer-info spaced-inputs">
+                  <input
+                    type="orderId"
+                    placeholder="Order ID"
+                    value={orderIdRemove}
+                    onChange={(e) => setOrderIdRemove(e.target.value)}
+                  />
+                </div>
+                <div className="ticket-submit-button" onClick={removeOrder}>
+                  Remove Order
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </main>
+
+      <div className="fetch-orders-button" onClick={fetchOrdersWithFalsePayment}>
+        Show Orders with False Payment Status
+      </div>
+
+      {ordersWithFalsePayment.length > 0 && renderOrdersTable()}
+
     </div>
   );
 };
