@@ -254,7 +254,7 @@ th, td {
   text-align: center;
   width: 25%;
   overflow-x: auto;
-  color: var(--text-color);
+  color: var(--new-text-color);
 }
 
 td::-webkit-scrollbar {

@@ -38,7 +38,6 @@ const Menu = () => {
     fetchProducts("Milkshakes");
     fetchProducts("Beverages");
     fetchProducts("Seasonal");
-    fetchProducts("WOW");
   }, []);
 
   const renderProducts = (category) => {
