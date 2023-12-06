@@ -122,7 +122,7 @@
 
 
 
-.utility-btn {
+.admin-utility-btn {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -131,11 +131,6 @@
   width: 70%;
   height: 10%;
   max-height: fit-content;
-}
-
-/* spacing between btns */
-.utility-btn > * {
-  margin-bottom: 20%;
 }
 
 .date-btn {

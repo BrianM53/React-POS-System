@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
@@ -6,6 +6,8 @@ import Header from './components/app/header';
 import './App.css'
 
 const App = () => {
+  localStorage.setItem('activePage', "Home");
+  
   return (
     <div>
       

@@ -391,7 +391,7 @@ function Admin() {
           handleReport={handleReport}
         />
 
-        <div className="utility-btn">
+        <div className="admin-utility-btn">
           <LogoutButton onLogout={handleLogout} />
         </div>
       </div>

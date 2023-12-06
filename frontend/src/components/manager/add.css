@@ -20,6 +20,9 @@
     text-align: center;
     margin-top: 2%;
 }
+.title::-webkit-scrollbar {
+    display: none;
+}
 
 .add-employee-content, .add-menu-item-content, .add-inventory-item-content, .edit-menu-item-popup, .edit-inventory-item-popup, .edit-employee-popup
 {

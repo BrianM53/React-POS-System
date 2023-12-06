@@ -4,19 +4,25 @@ class Report {
   static generateSalesReport(startDate, endDate, callback) {
     // console.log(startDate, " ", endDate);
     connection.query(
-      "SELECT " +
-        "products.product_id, " +
-        "products.product_name, " +
-        "products.price, " +
-        "SUM(order_details.quantity) as numSold, " +
-        "SUM(products.price * order_details.quantity) as totalSales " +
-        "FROM products " +
-        "INNER JOIN order_details " +
-        "ON products.product_id = order_details.product_id " +
-        "INNER JOIN orders " +
-        "ON order_details.order_id = orders.order_id " +
-        "WHERE orders.date_time BETWEEN $1::timestamp AND $2::timestamp " +
-        "GROUP BY products.product_id, products.product_name, products.price",
+      `SELECT
+          products.product_id,
+          products.product_name,
+          products.price,
+          SUM(order_details.quantity) AS numSold,
+          SUM(products.price * order_details.quantity) AS totalSales
+      FROM
+          products
+      INNER JOIN
+          order_details ON products.product_id = order_details.product_id
+      INNER JOIN
+          orders ON order_details.order_id = orders.order_id
+      WHERE
+          orders.date_time BETWEEN $1::timestamp AND $2::timestamp
+      GROUP BY
+          products.product_id, products.product_name, products.price
+      ORDER BY
+          numSold DESC; -- Sorts by the amount sold in descending order
+    `,
       [startDate, endDate],
       (error, results) => {
         if (error) {
@@ -49,33 +55,34 @@ class Report {
   static generateExcessReport(startDate, endDate, callback) {
     connection.query(
       `WITH usedStock AS (
-                SELECT
-                    inventory.inventory_id,
-                    inventory.inventory_item,
-                    SUM(CASE WHEN orders.date_time BETWEEN $1::timestamp AND $2::timestamp THEN order_details.quantity * product_ingredients.quantity ELSE 0 END) AS total_used_between_timestamps
-                FROM inventory
-                INNER JOIN product_ingredients ON inventory.inventory_id = product_ingredients.inventory_id
-                INNER JOIN order_details ON product_ingredients.product_id = order_details.product_id
-                INNER JOIN orders ON order_details.order_id = orders.order_id
-                WHERE orders.date_time >= $3::timestamp
-                GROUP BY inventory.inventory_id, inventory.inventory_item
-            ),
-            currentStock AS (
-                SELECT
-                    inventory.inventory_id,
-                    SUM(inventory.stock_level) AS current_stock
-                FROM inventory
-                GROUP BY inventory.inventory_id
-            )
             SELECT
-                I.inventory_item,
-                I.total_used_between_timestamps AS total_consumed,
-                C.current_stock AS current_stock,
-                (I.total_used_between_timestamps + C.current_stock) AS past_stock,
-                ((I.total_used_between_timestamps * 1.0) / (I.total_used_between_timestamps + C.current_stock)) * 100 AS percent_sold
-            FROM usedStock AS I
-            INNER JOIN currentStock AS C ON I.inventory_id = C.inventory_id
-            WHERE ((I.total_used_between_timestamps * 1.0) / (I.total_used_between_timestamps + C.current_stock)) * 100 < 10;`,
+                inventory.inventory_id,
+                inventory.inventory_item,
+                SUM(CASE WHEN orders.date_time BETWEEN $1::timestamp AND $2::timestamp THEN order_details.quantity * product_ingredients.quantity ELSE 0 END) AS total_used_between_timestamps
+            FROM inventory
+            INNER JOIN product_ingredients ON inventory.inventory_id = product_ingredients.inventory_id
+            INNER JOIN order_details ON product_ingredients.product_id = order_details.product_id
+            INNER JOIN orders ON order_details.order_id = orders.order_id
+            WHERE orders.date_time >= $3::timestamp
+            GROUP BY inventory.inventory_id, inventory.inventory_item
+        ),
+        currentStock AS (
+            SELECT
+                inventory.inventory_id,
+                SUM(inventory.stock_level) AS current_stock
+            FROM inventory
+            GROUP BY inventory.inventory_id
+        )
+        SELECT
+            I.inventory_item,
+            I.total_used_between_timestamps AS total_consumed,
+            C.current_stock AS current_stock,
+            (I.total_used_between_timestamps + C.current_stock) AS past_stock,
+            ((I.total_used_between_timestamps * 1.0) / (I.total_used_between_timestamps + C.current_stock)) * 100 AS percent_sold
+        FROM usedStock AS I
+        INNER JOIN currentStock AS C ON I.inventory_id = C.inventory_id
+        WHERE ((I.total_used_between_timestamps * 1.0) / (I.total_used_between_timestamps + C.current_stock)) * 100 < 10
+        ORDER BY total_consumed DESC;`,
       [startDate, endDate, startDate],
       (error, results) => {
         if (error) {
@@ -249,12 +256,23 @@ class Report {
 
   static getOrdersInTimeInterval(startDate, endDate, callback) {
     const query = `
-        SELECT o.order_id, o.date_time, o.total_cost, od.product_id, od.quantity
-        FROM orders o
-        LEFT JOIN order_details od ON o.order_id = od.order_id
-        WHERE o.date_time BETWEEN $1::timestamp AND $2::timestamp
-        ORDER BY o.date_time;
-        `;
+      SELECT
+          o.order_id,
+          o.date_time,
+          o.total_cost,
+          p.product_name AS product_name,
+          od.quantity
+      FROM
+          orders o
+      LEFT JOIN
+          order_details od ON o.order_id = od.order_id
+      LEFT JOIN
+          products p ON od.product_id = p.product_id
+      WHERE
+          o.date_time BETWEEN $1::timestamp AND $2::timestamp
+      ORDER BY
+          o.date_time;
+    `;  
     // console.log(startDate, " ", endDate);
     connection.query(query, [startDate, endDate], (error, results) => {
       if (error) {

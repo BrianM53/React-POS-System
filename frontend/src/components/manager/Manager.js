@@ -55,6 +55,9 @@ function Manager()
   const [tableData, setTableData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [showChart, setShowChart] = useState(false);
+
+  let colorFlag = true
+
   // user variables
   const {
     userRole,
@@ -124,16 +127,22 @@ function Manager()
     } 
     else if (reportType === "View Employees") 
     {
-      setColumns([
+      const updatedColumns = [
         "employee_id",
         "first_name",
         "last_name",
         "phone",
         "email",
         "username",
-        "password",
-      ]);
-      setTableData(data);
+      ];
+      
+      const updatedTableData = data.map((employee) => {
+        const { password, ...rest } = employee; 
+        return rest; 
+      });
+    
+      setColumns(updatedColumns);
+      setTableData(updatedTableData);
       setShowChart(false);
     } 
     else if (reportType === "View Orders") 
@@ -142,7 +151,7 @@ function Manager()
         "Order ID",
         "Date & Time",
         "Total Cost",
-        "Product ID",
+        "Product Name",
         "Quantity",
       ]);
       setTableData(
@@ -150,8 +159,8 @@ function Manager()
           "Order ID": order.order_id,
           "Date & Time": new Date(order.date_time).toLocaleString(),
           "Total Cost": order.total_cost,
-          "Product ID": order.product_id,
-          Quantity: order.quantity,
+          "Product Name": order.product_name,
+          "Quantity": order.quantity,
         }))
       );
     } 
@@ -586,7 +595,7 @@ function Manager()
           <div className="label-item">Order #</div>
           <div className="label-item">Timestamp</div>
           <div className="label-item">Total Cost</div>
-          <div className="label-item">Product ID</div>
+          <div className="label-item">Product Name</div>
           <div className="label-item">Quantity</div>
 
         </div>
@@ -688,7 +697,7 @@ function Manager()
           {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
             <table className="main-content-table">
               <thead className="content-head"></thead>
-              {activeReport === "View Employees" ? (
+              {activeReport === "View Employees" ? ( 
                 <tbody>
                   {tableData.map((element, index) => (
                     <tr key={index}>
