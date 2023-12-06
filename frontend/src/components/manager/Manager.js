@@ -482,207 +482,278 @@ function Manager() {
         </div>
       </div>
       <div className="main-manager">
-        {activeReport !== "Usage Chart" && (
-          <>
-            {/* Conditional rendering for labels of each report */}
-            {activeReport === "Sales Report" && (
-              <div className="label-container">
-                <div className="label-item">Menu Item</div>
-                <div className="label-item">Price</div>
-                <div className="label-item">Amount Sold</div>
-                <div className="label-item">Total sales</div>
-              </div>
-            )}
+        {/* ================ SORRY FOR THIS MESS, COULDN'T FORMAT IT CORRECTLY AS A COMPONENT ================== */}
+        {/* ================ AHHHH MY EYESSSS THEY'RE BLEEDING AT THIS MESS YOU'VE MADE AHHHH *dies* ================== */}
+        <div
+          className={
+            activeReport === "Sales Report"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Menu Item</div>
+          <div className="label-item">Price</div>
+          <div className="label-item">Amount Sold</div>
+          <div className="label-item">Total sales</div>
+        </div>
+        <div
+          className={
+            activeReport === "Excess Report"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Ingredient</div>
+          <div className="label-item">Total Consumed</div>
+          <div className="label-item">Current Stock</div>
+          <div className="label-item">Past Stock</div>
+          <div className="label-item">% Sold</div>
+        </div>
+        <div
+          className={
+            activeReport === "Restock Report"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Menu Item</div>
+          <div className="label-item">Ingredient</div>
+          <div className="label-item">Stock Level</div>
+          <div className="label-item">Restock Level</div>
+          <div className="label-item">Measurement Type</div>
+        </div>
+        <div
+          className={
+            activeReport === "Sells Together"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Menu Item 1</div>
+          <div className="label-item">Menu Item 2</div>
+          <div className="label-item">Occurrences</div>
+          
+          
+        </div>
+        <div
+          className={
+            activeReport === "Usage Chart" ? "label-container" : "passive-label"
+          }
+        >
+          <div className="label-item">Amount of Ingredients Used</div>
+        </div>
+        <div
+          className={
+            activeReport === "View Orders"
+              ? "label-container"
+              : "passive-label"
+          }
+        //   "Order ID",
+        // "Date & Time",
+        // "Total Cost",
+        // "Product ID",
+        // "Quantity",
+        >
+          <div className="label-item">Order #</div>
+          <div className="label-item">Timestamp</div>
+          <div className="label-item">Total Cost</div>
+          <div className="label-item">Product Name</div>
+          <div className="label-item">Quantity</div>
 
-            {activeReport === "Excess Report" && (
-              <div className="label-container">
-                <div className="label-item">Ingredient</div>
-                <div className="label-item">Total Consumed</div>
-                <div className="label-item">Current Stock</div>
-                <div className="label-item">Past Stock</div>
-                <div className="label-item">% Sold</div>
-              </div>
-            )}
+        </div>
+        <div
+          className={
+            activeReport === "View Employees"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Employee ID</div>
+          <div className="label-item">First Name</div>
+          <div className="label-item">Last Name</div>
+          <div className="label-item">Phone</div>
+          <div className="label-item">Email</div>
+          <div className="label-item">Username</div>
+          <div className="label-item">Edit</div>
+          <div className="label-item">Remove</div>
 
-            {activeReport === "Restock Report" && (
-              <div className="label-container">
-                <div className="label-item">Menu Item</div>
-                <div className="label-item">Ingredient</div>
-                <div className="label-item">Stock Level</div>
-                <div className="label-item">Restock Level</div>
-                <div className="label-item">Measurement Type</div>
-              </div>
-            )}
+        </div>
+        <div
+          className={
+            activeReport === "View Menu Items"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Product ID</div>
+          <div className="label-item">Product Name</div>
+          <div className="label-item">Price</div>
+          <div className="label-item">Cateogry</div>
+          <div className="label-item">Description</div>
+          <div className="label-item">Edit</div>
+          <div className="label-item">Remove</div>
+        </div>
 
-            {activeReport === "Sells Together" && (
-              <div className="label-container">
-                <div className="label-item">Menu Item 1</div>
-                <div className="label-item">Menu Item 2</div>
-                <div className="label-item">Occurrences</div>
-              </div>
-            )}
+        <div
+          className={
+            activeReport === "View Inventory Items"
+              ? "label-container"
+              : "passive-label"
+          }
+        >
+          <div className="label-item">Inventory ID</div>
+          <div className="label-item">Item Name</div>
+          <div className="label-item">Stock Level</div>
+          <div className="label-item">Restock Level</div>
+          <div className="label-item">Measuring Type</div>
+          <div className="label-item">Price</div>
+          <div className="label-item">Edit</div>
+          <div className="label-item">Remove</div>
+        </div>
 
-            {activeReport === "View Orders" && (
-              <div className="label-container">
-                <div className="label-item">Order #</div>
-                <div className="label-item">Timestamp</div>
-                <div className="label-item">Total Cost</div>
-                <div className="label-item">Product Name</div>
-                <div className="label-item">Quantity</div>
-              </div>
-            )}
+        <div className="main-content">
+          {isFormOpen && activeFormType === "addEmployee" && (
+            <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee}
+            handleCancelEditing={handleCancelEditing} />
+          )}
 
-            {activeReport === "View Employees" && (
-              <div className="label-container">
-                <div className="label-item">Employee ID</div>
-                <div className="label-item">First Name</div>
-                <div className="label-item">Last Name</div>
-                <div className="label-item">Phone</div>
-                <div className="label-item">Email</div>
-                <div className="label-item">Username</div>
-                <div className="label-item">Password</div>
-                <div className="label-item">Edit</div>
-                <div className="label-item">Remove</div>
-              </div>
-            )}
+          {isFormOpen && activeFormType === "addMenuItem" && (
+            <AddMenuItem onFinishAddingMenuItem={handleFinishAddingMenuItem}
+            handleCancelEditing={handleCancelEditing} />
+          )}
 
-            {activeReport === "View Menu Items" && (
-              <div className="label-container">
-                <div className="label-item">Product ID</div>
-                <div className="label-item">Product Name</div>
-                <div className="label-item">Price</div>
-                <div className="label-item">Category</div>
-                <div className="label-item">Description</div>
-                <div className="label-item">Edit</div>
-                <div className="label-item">Remove</div>
-              </div>
-            )}
+          {isFormOpen && activeFormType === "addInventoryItem" && (
+            <AddInventoryItem onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
+            handleCancelEditing={handleCancelEditing} />
+          )}
 
-            {activeReport === "View Inventory Items" && (
-              <div className="label-container">
-                <div className="label-item">Inventory ID</div>
-                <div className="label-item">Item Name</div>
-                <div className="label-item">Stock Level</div>
-                <div className="label-item">Restock Level</div>
-                <div className="label-item">Measuring Type</div>
-                <div className="label-item">Price</div>
-                <div className="label-item">Edit</div>
-                <div className="label-item">Remove</div>
-              </div>
-            )}
+          {isEditFormOpen && selectedRowData && activeEditFormType === 'editEmployee' && (
+            <EditEmployee
+              selectedRowData={selectedRowData}
+              handleFinishEditing={handleFinishEditing}
+              handleCancelEditing={handleCancelEditing}
+            />
+          )}
 
-            <div className="main-content">
-              {isFormOpen && activeFormType === "addEmployee" && (
-                <AddEmployee
-                  onFinishAddingEmployee={handleFinishAddingEmployee}
-                  handleCancelEditing={handleCancelEditing}
-                />
-              )}
-              {isFormOpen && activeFormType === "addMenuItem" && (
-                <AddMenuItem
-                  onFinishAddingMenuItem={handleFinishAddingMenuItem}
-                  handleCancelEditing={handleCancelEditing}
-                />
-              )}
-              {isFormOpen && activeFormType === "addInventoryItem" && (
-                <AddInventoryItem
-                  onFinishAddingInventoryItem={handleFinishAddingInventoryItem}
-                  handleCancelEditing={handleCancelEditing}
-                />
-              )}
-              {isEditFormOpen &&
-                selectedRowData &&
-                activeEditFormType === "editEmployee" && (
-                  <EditEmployee
-                    selectedRowData={selectedRowData}
-                    handleFinishEditing={handleFinishEditing}
-                    handleCancelEditing={handleCancelEditing}
-                  />
-                )}
-              {isEditFormOpen &&
-                selectedRowData &&
-                activeEditFormType === "editMenuItem" && (
-                  <EditMenuItem
-                    selectedRowData={selectedRowData}
-                    handleFinishEditing={handleFinishEditing}
-                    handleCancelEditing={handleCancelEditing}
-                  />
-                )}
-              {isEditFormOpen &&
-                selectedRowData &&
-                activeEditFormType === "editInventoryItem" && (
-                  <EditInventoryItem
-                    selectedRowData={selectedRowData}
-                    handleFinishEditing={handleFinishEditing}
-                    handleCancelEditing={handleCancelEditing}
-                  />
-                )}
-              {isDeleteConfirmationOpen && (
-                <RemoveConfirmation
-                  onConfirm={confirmDelete}
-                  onCancel={closeDeleteConfirmation}
-                />
-              )}
-              {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
-                <table className="main-content-table">
-                  <thead className="content-head"></thead>
-                  <tbody>
-                    {tableData.map((element, index) => (
-                      <tr key={index}>
-                        {columns.map((column, columnIndex) => (
+          {isEditFormOpen && selectedRowData && activeEditFormType === 'editMenuItem' && (
+            <EditMenuItem
+              selectedRowData={selectedRowData}
+              handleFinishEditing={handleFinishEditing}
+              handleCancelEditing={handleCancelEditing}
+            />
+          )}
+
+          {isEditFormOpen && selectedRowData && activeEditFormType === 'editInventoryItem' && (
+            <EditInventoryItem
+              selectedRowData={selectedRowData}
+              handleFinishEditing={handleFinishEditing}
+              handleCancelEditing={handleCancelEditing}
+            />
+          )} 
+
+          {isDeleteConfirmationOpen && (
+            <RemoveConfirmation onConfirm={confirmDelete} onCancel={closeDeleteConfirmation} />
+          )}
+
+          {!isFormOpen && !isEditFormOpen && !isDeleteConfirmationOpen && (
+            <table className="main-content-table">
+              <thead className="content-head"></thead>
+              {activeReport === "View Employees" ? ( 
+                <tbody>
+                {tableData.map((element, index) => (
+                  <tr key={index}>
+                    {columns.map((column, columnIndex) => {
+                      if (columnIndex === 6) {
+                        return null; // Do not render the column at index 6 (password column)
+                      } else {
+                        return (
                           <td key={columnIndex}>{element[column]}</td>
-                        ))}
-                        <td>
-                          <button onClick={() => handleEdit(element)}>
-                            Edit
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            onClick={() => openDeleteConfirmation(element)}
-                          >
-                            Remove
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                        );
+                      }
+                    })}
+                    <td>
+                      <button onClick={() => handleEdit(element)}>Edit</button>
+                    </td>
+                    <td>
+                      <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              
+              
+              ) : activeReport === "View Menu Items" ? (
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                      <td>
+                        <button onClick={() => handleEdit(element)}>Edit</button>
+                      </td>
+                      <td>
+                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              ) : activeReport === "View Inventory Items" ? (
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                      <td>
+                        <button onClick={() => handleEdit(element)}>Edit</button>
+                      </td>
+                      <td>
+                        <button onClick={() => openDeleteConfirmation(element)}>Remove</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              ) : (
+                <tbody>
+                  {tableData.map((element, index) => (
+                    <tr key={index}>
+                      {columns.map((column, columnIndex) => (
+                        <td key={columnIndex}>{element[column]}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
               )}
-              {activeReport === "View Employees" && (
-                <div className="label-item2">
-                  <div
-                    className="label-item-button2"
-                    onClick={handleAddEmployeeClicked}
-                  >
-                    Add an Employee
-                  </div>
-                </div>
-              )}
-              {activeReport === "View Menu Items" && (
-                <div className="label-item2">
-                  <div
-                    className="label-item-button2"
-                    onClick={handleAddMenuItemClicked}
-                  >
-                    Add a Menu Item
-                  </div>
-                </div>
-              )}
-              {activeReport === "View Inventory Items" && (
-                <div className="label-item2">
-                  <div
-                    className="label-item-button2"
-                    onClick={handleAddInventoryItemClicked}
-                  >
-                    Add an Inventory Item
-                  </div>
-                </div>
-              )}
+            </table>
+          )}
+        </div>
+
+         {(activeReport === "View Employees") && (
+            <div className="label-item2">
+              <div className="label-item-button2" onClick={handleAddEmployeeClicked}>
+                Add an Employee
+              </div>
             </div>
-          </>
-        )}
-        {activeReport === "Usage Chart" && showChart && (
+          )}
+
+          {(activeReport === "View Menu Items") && (
+            <div className="label-item2">
+              <div className="label-item-button2" onClick={handleAddMenuItemClicked}>
+                Add a Menu Item
+              </div>
+            </div>
+          )}
+
+          {(activeReport === "View Inventory Items") && (
+            <div className="label-item2">
+              <div className="label-item-button2" onClick={handleAddInventoryItemClicked}>
+                Add an Inventory Item
+              </div>
+            </div>
+          )}
+
+      {activeReport === "Usage Chart" && showChart && (
           <div className="chart-container">
             <CChart
               type="bar"
@@ -728,20 +799,23 @@ function Manager() {
             />
           </div>
         )}
-        <div className="date-btn">
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            showTimeSelect
-            timeFormat="HH:mm"
-          />
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            showTimeSelect
-            timeFormat="HH:mm"
-          />
-        </div>
+
+        {activeReport !== "View Employees" && activeReport !== "View Menu Items" && activeReport !== "View Inventory Items" && (
+          <div className="date-btn">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              showTimeSelect
+              timeFormat="HH:mm"
+            />
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              showTimeSelect
+              timeFormat="HH:mm"
+            />
+          </div>
+        )}
       </div>
     </div>
   );

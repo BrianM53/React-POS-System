@@ -3,7 +3,7 @@ var router = express.Router();
 const Order = require("../models/Order");
 
 router.post("/create", async (req, res) => {
-  const { employeeId, customerId, totalCost, paymentStatus } = req.body;
+  const { employeeId, customerId, totalCost, paymentStatus, cart } = req.body;
 
   try {
     console.log("Trying to create order");
@@ -16,6 +16,7 @@ router.post("/create", async (req, res) => {
         totalCost,
         paymentStatus,
         'Online Transfer', // Set payment method to 'Online Transfer' by default
+        cart,
         (error, id) => {
           if (error) {
             reject(error);
@@ -37,6 +38,7 @@ router.post("/create", async (req, res) => {
 
     console.log(newOrder.toString());
     res.status(200).json({ message: "Order created successfully", orderId: newOrderId });
+
   } catch (error) {
     console.error("Error creating order", error);
     res.status(500).json({ error: "Error creating order" });
@@ -44,11 +46,10 @@ router.post("/create", async (req, res) => {
 });
 
 
-router.post("/:orderId/products", (req, res) => {
+router.post("/products", (req, res) => {
   const { productId, quantity } = req.body;
-  const orderId = req.params.orderId;
 
-  Order.addProductToOrder(orderId, productId, quantity, (error, orderId) => {
+  Order.addProductToOrder(productId, quantity, (error, orderId) => {
     if (error) {
       return res.status(500).json({ error: "Error creating order" });
     }
@@ -79,5 +80,44 @@ router.put("/:orderId/summary", (req, res) => {
     res.json({ success });
   });
 });
+
+router.get("/falsePaymentStatus", async (req, res) => {
+  try {
+    const orders = await Order.getOrdersWithFalsePaymentStatus(); // Assuming you have a method in your Order model to fetch orders with false payment status
+    res.json(orders);
+  } catch (error) {
+    console.error("Error fetching orders with false payment status:", error);
+    res.status(500).json({ error: "Error fetching orders" });
+  }
+});
+
+router.delete("/delete/:orderId", async (req, res) => {
+  const orderId = req.params.orderId;
+
+  try {
+    // Call the method to delete order details for the provided orderId
+    await Order.deleteOrder(orderId);
+
+    res.json({ message: `Order with ID ${orderId} and its details deleted successfully` });
+  } catch (error) {
+    console.error(`Error deleting order with ID ${orderId}:`, error);
+    res.status(500).json({ error: "Error deleting order and its details" });
+  }
+});
+
+router.post("/:orderId/toggle-payment", async (req, res) => {
+  const orderId = req.params.orderId;
+
+  try {
+    // Call the method to update payment status to true for the provided orderId
+    await Order.updatePaymentStatusToTrue(orderId);
+
+    res.json({ message: `Payment status for order ${orderId} toggled to true` });
+  } catch (error) {
+    console.error(`Error toggling payment status for order ${orderId}:`, error);
+    res.status(500).json({ error: "Error toggling payment status" });
+  }
+});
+
 
 module.exports = router;
