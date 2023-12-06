@@ -75,44 +75,24 @@ const Settings = () => {
         </SpecialFontText> */}
 
         <div className="menu-main-settings-container">
-          <div className="menu-main-settings-left-container">
-            <div
-              className="settings-color-container"
-            >
-              <div>
-                Color:   
-              </div>
-              <div>
-                <select
-                  value={colorStyle}
-                  onChange={handleColorChange}
-                  className="color-dropdown"
-                >
-                  <option value="dark">Dark</option>
-                  <option value="light">Light</option>
-                  <option value="high-contrast">Contrast</option>
-                </select>
-              </div>
+          <div
+            className="settings-color-container"
+          >
+            <div className='color-title'>
+              Color:   
             </div>
-            <div
-              className="settings-font-container"
-            >
-              Font Size:
+            <div>
               <select
-                value={fontSize}
-                className="font-dropdown"
-                onChange={handleFontSizeChange}
+                value={colorStyle}
+                onChange={handleColorChange}
+                className="color-dropdown"
               >
-                <option value="normal">Normal</option>
-                <option value="large">Large</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="high-contrast">Contrast</option>
               </select>
             </div>
           </div>
-
-
-
-
-
 
 
           <div className="menu-main-settings-right-container">

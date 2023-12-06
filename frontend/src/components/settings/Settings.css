@@ -67,7 +67,7 @@
 
 .menu-main-settings-container
 {
-    height: 70vh;
+    height: fit-content;
     border: 3px solid var(--border);
     display: flex;
     flex-direction: column;
@@ -92,6 +92,14 @@
 
 .settings-color-container {
     /* margin-right: 4%; */
+    /* padding: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.color-title {
+    margin-right: 10px;
 }
 
 .settings-font-container
