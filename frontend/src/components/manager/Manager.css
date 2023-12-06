@@ -1,4 +1,4 @@
-@import '../utility/colors.css';
+@import "../utility/colors.css";
 
 /* :root {
   --bright: #BDE3DF;
@@ -29,14 +29,14 @@
   overflow: scroll;
 }
 .left-panel::-webkit-scrollbar {
-  display:none;
+  display: none;
 }
 
 /* =============== RIght side ======================= */
 .main-manager {
   width: 80%;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-      url("../../images/bird-tree.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../images/bird-tree.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--dark);
@@ -50,7 +50,7 @@
   background-color: var(--bright);
   overflow-x: scroll;
 }
-.main-manager::-webkit-scrollbar  {
+.main-manager::-webkit-scrollbar {
   display: flex;
   /* display: none; */
 }
@@ -98,8 +98,7 @@
   /* margin-top: 30px; */
 }
 
-.report-btn ul li 
-{
+.report-btn ul li {
   margin: 10% 0;
 }
 
@@ -123,7 +122,6 @@
   margin-right: 10%;
 }
 
-
 .utility-btn {
   list-style-type: none;
   display: flex;
@@ -135,14 +133,12 @@
   max-height: fit-content;
 }
 
-
 .date-btn {
   list-style-type: none;
   display: flex;
   margin-top: 30px;
   margin-right: 50px;
 }
-
 
 /* ================== REPORT LABELS ============= */
 /* .report-label {
@@ -193,11 +189,9 @@
   cursor: pointer;
 }
 
-.label-item-button:hover{
+.label-item-button:hover {
   background-color: var(--shade2);
 }
-
-
 
 .label-item::-webkit-scrollbar {
   display: none;
@@ -217,11 +211,11 @@
   /* white-space: nowrap; */
   /* padding: 10px; */
   /* text-wrap: nowrap; */
-  
+
   background-color: var(--normal);
   /* padding: .25em; */
   /* scale: 85%; */
-  
+
   border: 2px solid var(--bright);
   border-radius: 55px;
   align-items: center;
@@ -252,14 +246,15 @@ thead {
   /* background-color: red; */
 }
 
-.row-color1{
+.row-color1 {
   background-color: red;
 }
-.row-color2{
+.row-color2 {
   background-color: green;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   border: 1px solid var(--normal);
   text-align: center;
@@ -300,9 +295,8 @@ td::-webkit-scrollbar-track {
 }
 
 .error-msg {
-  color:red;
+  color: red;
 }
-
 
 /* ================== add buttons at the bottom =============== */
 .label-item2 {
@@ -337,6 +331,16 @@ td::-webkit-scrollbar-track {
   cursor: pointer;
 }
 
-.label-item-button2:hover{
+.label-item-button2:hover {
   background-color: var(--shade2);
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
