@@ -68,13 +68,13 @@ function Header() {
             </div>
 
             <header>
-                <div class="header-title-container">
+                <div role="main" class="header-title-container">
                     <h1 class="header-title1">Sweet Paris</h1>
                     <h1 class="header-title2">Crêperie & Café</h1>
                 </div>
             </header>
 
-            <div className='header-nav-right'>
+            <nav role="navigation" className='header-nav-right'>
                 <ul>
                     <li>
                         <Link to="/order-now" onClick={() => handleActivePage('Order Now')}>
@@ -102,7 +102,7 @@ function Header() {
                         </Link>
                     </li>
                 </ul>
-            </div>
+            </nav>
         </div>
     );
 }

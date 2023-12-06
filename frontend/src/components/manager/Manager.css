@@ -260,7 +260,7 @@ td {
   text-align: center;
   width: 25%;
   /* overflow-x: auto; */
-  color: var(--text-color);
+  color: var(--new-text-color);
   word-wrap: break-word; /* Enable word wrapping */
   white-space: normal; /* Ensure wrapping behavior */
 }
