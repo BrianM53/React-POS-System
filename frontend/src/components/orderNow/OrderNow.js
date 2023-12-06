@@ -64,31 +64,29 @@ const OrderNow = () => {
   const increment = (product) => {
     // Check if the product is already in the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
-
+  
     if (cartItemIndex !== -1) {
       // If the product is already in the cart, update its quantity
-      // console.log("found in cart. adding", product);
       const updatedCart = [...cart];
       updatedCart[cartItemIndex].quantity += 1;
       setCart(updatedCart); // Update the cart
     } else {
-      // If the product is not in the cart, add it to the cart
-      // console.log("not in cart. adding", product);
+      // If the product is not in the cart, add it to the cart with quantity 1
       setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
     }
-
+  
     // Update the category data
     const categoryData = productData[activeSection];
     const updatedCategoryData = categoryData.map((p) =>
       p.product_id === product.product_id ? { ...p, quantity: p.quantity + 1 } : p
     );
-
+  
     setProductData((prevData) => ({
       ...prevData,
       [activeSection]: updatedCategoryData,
     }));
-
-    addToCart(product);
+  
+    addToCart(product); // Assuming addToCart is a function from CartContext, add the product to context
   };
 
 
@@ -162,7 +160,6 @@ const OrderNow = () => {
       } else {
         alert('Error fetching customer ID:', error);
         console.error('Error fetching customer ID:', error);
-        setCustomerId(-1);
         return -1;
       }
     }
@@ -195,7 +192,9 @@ const OrderNow = () => {
         paymentMethod,
         cart,
       });
-      
+      for (const product of cart) {
+        console.log("Order details response:", product);
+      }
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
