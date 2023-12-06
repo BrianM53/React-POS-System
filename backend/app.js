@@ -14,6 +14,7 @@ var reportsRouter = require("./routes/reports");
 var ordersRouter = require("./routes/orders");
 
 var employeesRouter = require("./routes/employees");
+var customersRouter = require("./routes/customers");
 var addproductsRouter = require("./routes/addproducts");
 var inventoryRouter = require("./routes/inventory");
 
@@ -44,7 +45,8 @@ app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/reports", reportsRouter);
 app.use("/orders", ordersRouter);
-app.use("/employees", employeesRouter); /*more localhost:3001/___ routes set up */
+app.use("/employees", employeesRouter); 
+app.use("/customers", customersRouter); 
 app.use("/addproducts", addproductsRouter);
 app.use("/inventory", inventoryRouter); 
 app.use("/adminemployees", adminemployeesRouter);
