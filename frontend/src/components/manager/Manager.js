@@ -501,7 +501,7 @@ function Manager()
   return (
     <div className="manager-stage">
       <div className="left-panel">
-        <div className="header">
+        <div className="manager-header">
           <h2>Welcome,</h2>
           <div>{userName}</div>
           <div>{userEmail}</div>

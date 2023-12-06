@@ -148,7 +148,7 @@
 /* .report-label {
   background: red;
 } */
-.header {
+.manager-header {
   text-align: center;
   padding: 10px;
   background-color: var(--shade2);
@@ -156,6 +156,7 @@
   flex-direction: column;
   gap: 70%;
   margin: 10% 0 0 0;
+  color: var(--text-color);
 
   border-radius: 30px;
 }

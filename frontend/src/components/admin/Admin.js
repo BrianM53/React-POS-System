@@ -380,11 +380,11 @@ function Admin() {
   return (
     <div className="manager-stage">
       <div className="left-panel">
-        <div className="header">
-          <h1>ADMIN SCREEN</h1>
-        </div>
+        <div className="admin-header">
+          <h1>Welcome,</h1>
         <div>{userName}</div>
         <div>{userEmail}</div>
+        </div>
 
         <AdminReportButtons
           activeReport={activeReport}
