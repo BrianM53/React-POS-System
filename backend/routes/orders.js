@@ -81,4 +81,14 @@ router.put("/:orderId/summary", (req, res) => {
   });
 });
 
+router.get("/falsePaymentStatus", async (req, res) => {
+  try {
+    const orders = await Order.getOrdersWithFalsePaymentStatus(); // Assuming you have a method in your Order model to fetch orders with false payment status
+    res.json(orders);
+  } catch (error) {
+    console.error("Error fetching orders with false payment status:", error);
+    res.status(500).json({ error: "Error fetching orders" });
+  }
+});
+
 module.exports = router;

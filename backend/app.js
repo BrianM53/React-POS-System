@@ -10,6 +10,7 @@ var app = express();
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var productsRouter = require("./routes/products");
+var ordersRouter = require("./routes/orders");
 var reportsRouter = require("./routes/reports");
 
 var employeesRouter = require("./routes/employees");
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
+app.use("/orders", ordersRouter);
 app.use("/reports", reportsRouter);
 app.use("/employees", employeesRouter); /*more localhost:3001/___ routes set up */
 app.use("/addproducts", addproductsRouter);

@@ -25,6 +25,7 @@ const Cashier = () => {
   const [customerEmail, setCustomerEmail] = useState(""); // State for customer email
   const [employeeId, setEmployeeId] = useState(""); // State for employee ID
   const [customerId, setCustomerId] = useState("");
+  const [ordersWithFalsePayment, setOrdersWithFalsePayment] = useState([]);
 
   // dynamic scrollbar display
   const scrollRefs = {
@@ -155,7 +156,7 @@ const Cashier = () => {
 
     const orderId = 1; // Replace with the actual order ID if available
     const totalCost = calculateTotalCost(); // Implement this function to calculate the total cost
-    const paymentStatus = true; // Replace with the actual payment status
+    const paymentStatus = false; // Replace with the actual payment status
     const paymentMethod = "card"; // Replace with the actual payment method
 
     try {
@@ -256,6 +257,59 @@ const Cashier = () => {
     });
   };
 
+  const fetchOrdersWithFalsePayment = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/orders/falsePaymentStatus`);
+      const orders = response.data;
+      console.log("Orders with false payment status:", orders);
+      setOrdersWithFalsePayment(orders);
+      // Handle the fetched orders as needed
+    } catch (error) {
+      console.error("Error fetching orders with false payment status:", error);
+      // Handle errors here
+    }
+  };
+
+  const renderOrdersTable = () => {
+    if (!ordersWithFalsePayment || ordersWithFalsePayment.length === 0) {
+      return <div>No orders found.</div>;
+    }
+  
+    const togglePaymentStatus = (orderId) => {
+      // Logic to toggle the payment status for a specific order ID
+      // This function should interact with your backend to update the payment status
+      console.log(`Toggle payment status for order ${orderId}`);
+    };
+  
+    return (
+      <table className="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Total Cost</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ordersWithFalsePayment.map((order) => (
+            <tr key={order.order_id}>
+              <td>{order.order_id}</td>
+              <td>{order.customer_id}</td>
+              <td>${order.total_cost}</td>
+              <td>{order.payment_status ? 'True' : 'False'}</td>
+              <td>
+                <button onClick={() => togglePaymentStatus(order.order_id)}>
+                  Toggle Payment
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <div className="menu-body">
@@ -320,6 +374,13 @@ const Cashier = () => {
           </div>
         </div>
       </main>
+
+      <div className="fetch-orders-button" onClick={fetchOrdersWithFalsePayment}>
+        Show Orders with False Payment Status
+      </div>
+
+      {ordersWithFalsePayment.length > 0 && renderOrdersTable()}
+
     </div>
   );
 };

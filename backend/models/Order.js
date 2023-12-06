@@ -50,7 +50,20 @@ class Order {
     }
   }
 
-
+  static async getOrdersWithFalsePaymentStatus() {
+    try {
+      const query = `
+        SELECT * FROM orders
+        WHERE payment_status = $1
+      `;
+      const ordersResult = await connection.query(query, [false]);
+  
+      return ordersResult.rows;
+    } catch (error) {
+      console.error("Error fetching orders with false payment status:", error);
+      throw error;
+    }
+  }
 
   // add a product to an order
   static async addProductToOrder(orderId, productId, quantity) {

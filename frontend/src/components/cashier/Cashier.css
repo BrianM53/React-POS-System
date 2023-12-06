@@ -652,3 +652,31 @@
     top: 10px; /* Adjust this value to position it vertically */
     right: 10px; /* Adjust this value to position it horizontally */
   }
+
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    border: 2px solid var(--shade2);
+    padding: 0.5em;
+    text-align: center;
+  }
+  
+  .orders-table th {
+    background-color: var(--normal);
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .orders-table tbody tr:nth-child(even) {
+    background-color: var(--shade1);
+  }
+  
+  .orders-table tbody tr:hover {
+    background-color: var(--shade2);
+  }
