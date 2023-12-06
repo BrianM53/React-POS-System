@@ -140,13 +140,45 @@ const OrderNow = () => {
       console.log(customerId);
       return customerId;
     } catch (error) {
-      alert("Please enter a valid email address.") // Propagate the error back to the caller for handling
-      console.error("Error fetching customer ID:", error);
+      if (error.response && error.response.status === 404) {
+        try {
+          // Check if the email is a valid address
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailRegex.test(customerEmail)) {
+            // Email is valid, attempt to add it as a new customer
+            const response = await axios.post(`${BACKEND_URL}/customers/new-customer`, {
+              email: customerEmail,
+            });
+            const customerId = response.data.customerID;
+            console.log('New customer added with ID:', customerId);
+            return customerId;
+          } else {
+            alert('Please enter a valid email address.');
+          }
+        } catch (error) {
+          alert('Error adding new customer:', error);
+          console.error('Error adding new customer:', error);
+        }
+      } else {
+        alert('Error fetching customer ID:', error);
+        console.error('Error fetching customer ID:', error);
+        setCustomerId(-1);
+        return -1;
+      }
     }
   };
 
   const submitOrder = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+  
     const customerId = await fetchCustomerId();
+    if (customerId === -1) {
+      return;
+    }
+
     const orderId = 1; // Replace with the actual order ID if available
     const employeeId = 1; // Replace with the actual employee ID
     const totalCost = calculateTotalCost(); // Implement this function to calculate the total cost
@@ -161,12 +193,20 @@ const OrderNow = () => {
         totalCost,
         paymentStatus,
         paymentMethod,
+        cart,
       });
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
       // If your cart is stateful, update the state with the empty cart array
       setCart(updatedCart);
+      const updatedProductData = { ...productData };
+      Object.keys(updatedProductData).forEach((category) => {
+        updatedProductData[category] = updatedProductData[category].map((product) => ({
+          ...product,
+          quantity: 0,
+        }));
+      });
       alert("Your order has been placed! Thank you for shopping with us!")
     } catch (error) {
       console.error("Error submitting order:", error);
