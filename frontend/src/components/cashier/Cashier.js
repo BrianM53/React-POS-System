@@ -238,6 +238,7 @@ const Cashier = () => {
       await axios.delete(`${BACKEND_URL}/orders/delete/${orderIdToRemove}`);
       console.log(`Order with ID ${orderIdToRemove} removed successfully`);
       setOrderIdRemove('');
+      fetchOrdersWithFalsePayment();
       // Additional logic if needed, such as updating UI state
     } catch (error) {
       console.error("Error removing order:", error);
