@@ -91,6 +91,20 @@ router.get("/falsePaymentStatus", async (req, res) => {
   }
 });
 
+router.delete("/delete/:orderId", async (req, res) => {
+  const orderId = req.params.orderId;
+
+  try {
+    // Call the method to delete order details for the provided orderId
+    await Order.deleteOrder(orderId);
+
+    res.json({ message: `Order with ID ${orderId} and its details deleted successfully` });
+  } catch (error) {
+    console.error(`Error deleting order with ID ${orderId}:`, error);
+    res.status(500).json({ error: "Error deleting order and its details" });
+  }
+});
+
 router.post("/:orderId/toggle-payment", async (req, res) => {
   const orderId = req.params.orderId;
 

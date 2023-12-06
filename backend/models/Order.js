@@ -3,7 +3,11 @@ const connection = require("../connection");
 class Order {
   static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod, cart) {
     try {
-      const currentDate = new Date().toISOString();
+      const currentDate = new Date();
+      const centralTime = currentDate.toLocaleString('en-US', {
+        timeZone: 'America/Chicago',
+        hour12: false,
+      });
 
       const getMaxOrderIdQuery = `
         SELECT MAX(order_id) AS max_order_id FROM orders
@@ -16,7 +20,7 @@ class Order {
 
       console.log("Values for Insert Query:");
       console.log("Order ID:", orderId);
-      console.log("Date Time:", currentDate);
+      console.log("Date Time:", centralTime);
       console.log("Employee ID:", employeeId);
       console.log("Customer ID:", customerId);
       console.log("Total Cost:", totalCost);
@@ -29,7 +33,7 @@ class Order {
       `;
       const newOrderResult = await connection.query(query, [
         orderId,
-        currentDate,
+        centralTime,
         employeeId,
         customerId,
         totalCost,
@@ -57,10 +61,39 @@ class Order {
         WHERE payment_status = $1
       `;
       const ordersResult = await connection.query(query, [false]);
-  
+
       return ordersResult.rows;
     } catch (error) {
       console.error("Error fetching orders with false payment status:", error);
+      throw error;
+    }
+  }
+
+  static async deleteOrder(orderId) {
+    try {
+      // Delete order details associated with the orderId first
+      await this.deleteOrderDetails(orderId);
+
+      const deleteOrderQuery = `
+        DELETE FROM orders WHERE order_id = $1
+      `;
+      await connection.query(deleteOrderQuery, [orderId]);
+      return `Order with ID ${orderId} deleted successfully`;
+    } catch (error) {
+      console.error(`Error deleting order ${orderId}:`, error);
+      throw error;
+    }
+  }
+
+  static async deleteOrderDetails(orderId) {
+    try {
+      const deleteOrderDetailsQuery = `
+        DELETE FROM order_details WHERE order_id = $1
+      `;
+      await connection.query(deleteOrderDetailsQuery, [orderId]);
+      return `Order details for order ID ${orderId} deleted successfully`;
+    } catch (error) {
+      console.error(`Error deleting order details for order ${orderId}:`, error);
       throw error;
     }
   }
@@ -103,7 +136,7 @@ class Order {
         "SELECT quantity, inventory_id FROM product_ingredients WHERE product_id = $1",
         [productId]
       );
-  
+
       for (const item of quantityAndID.rows) {
         const inventoryId = item.inventory_id;
         const stockLevelResult = await connection.query(
@@ -112,7 +145,7 @@ class Order {
         );
         const currentStockLevel = stockLevelResult.rows[0].stock_level;
         const newStockLevel = parseInt(currentStockLevel - quantity * item.quantity);
-        
+
         await connection.query(
           "UPDATE inventory SET stock_level = $1 WHERE inventory_id = $2",
           [newStockLevel, inventoryId]

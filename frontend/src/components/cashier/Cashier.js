@@ -26,6 +26,7 @@ const Cashier = () => {
   const [employeeId, setEmployeeId] = useState(""); // State for employee ID
   const [customerId, setCustomerId] = useState("");
   const [ordersWithFalsePayment, setOrdersWithFalsePayment] = useState([]);
+  const [orderIdRemove, setOrderIdRemove] = useState("");
 
   // dynamic scrollbar display
   const scrollRefs = {
@@ -162,7 +163,6 @@ const Cashier = () => {
       } else {
         alert('Error fetching customer ID:', error);
         console.error('Error fetching customer ID:', error);
-        setCustomerId(-1);
         return -1;
       }
     }
@@ -175,11 +175,11 @@ const Cashier = () => {
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) && customerEmail) {
       alert('Please enter a valid email address.');
       return;
     }
-  
+
     const customerId = await fetchCustomerId();
     if (customerId === -1) {
       return;
@@ -228,6 +228,21 @@ const Cashier = () => {
   const calculateTotalCost = () => {
     // Implement this function to calculate the total cost based on items in the cart
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const removeOrder = async () => {
+    try {
+      // Implement functionality to remove an order
+      // For example:
+      const orderIdToRemove = orderIdRemove; // Replace with the actual order ID to remove
+      await axios.delete(`${BACKEND_URL}/orders/delete/${orderIdToRemove}`);
+      console.log(`Order with ID ${orderIdToRemove} removed successfully`);
+      setOrderIdRemove('');
+      // Additional logic if needed, such as updating UI state
+    } catch (error) {
+      console.error("Error removing order:", error);
+      // Handle error, show error message, etc.
+    }
   };
 
   const renderProducts = () => {
@@ -297,7 +312,7 @@ const Cashier = () => {
       console.log("Orders with false payment status:", orders);
       setOrdersWithFalsePayment(orders);
       // Handle the fetched orders as needed
-      
+
     } catch (error) {
       console.error("Error fetching orders with false payment status:", error);
       // Handle errors here
@@ -410,6 +425,19 @@ const Cashier = () => {
                 </div>
                 <div className="ticket-submit-button" onClick={submitOrder}>
                   Submit Order
+                </div>
+              </div>
+              <div className="ticket-submit-container">
+                <div className="customer-info spaced-inputs">
+                  <input
+                    type="orderId"
+                    placeholder="Order ID"
+                    value={orderIdRemove}
+                    onChange={(e) => setOrderIdRemove(e.target.value)}
+                  />
+                </div>
+                <div className="ticket-submit-button" onClick={removeOrder}>
+                  Remove Order
                 </div>
               </div>
             </div>

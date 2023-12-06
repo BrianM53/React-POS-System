@@ -169,7 +169,7 @@ const OrderNow = () => {
   };
 
   const submitOrder = async () => {
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) && customerEmail) {
       alert('Please enter a valid email address.');
       return;
     }
@@ -195,6 +195,7 @@ const OrderNow = () => {
         paymentMethod,
         cart,
       });
+      
 
       console.log("Order submitted successfully:", response.data);
       const updatedCart = [];
