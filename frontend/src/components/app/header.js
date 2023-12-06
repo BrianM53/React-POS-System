@@ -39,7 +39,7 @@ function Header() {
         <div 
         ref={scrollRef}
         className={hasOverflow ? 'header-nav' : 'header-nav-noscroll'}>
-            <div className='header-nav-left'>
+            <nav role='navigation' className='header-nav-left'>
                 <ul>
                     <li>
                         <Link to="/settings" onClick={() => handleActivePage('Settings')}>
@@ -65,12 +65,12 @@ function Header() {
                         </div>
                     </li>
                 </ul>
-            </div>
+            </nav>
 
             <header>
                 <div role="main" class="header-title-container">
                     <h1 class="header-title1">Sweet Paris</h1>
-                    <h1 class="header-title2">Crêperie & Café</h1>
+                    <h2 class="header-title2">Crêperie & Café</h2>
                 </div>
             </header>
 
