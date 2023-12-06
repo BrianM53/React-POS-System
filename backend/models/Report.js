@@ -118,134 +118,27 @@ class Report {
     );
   }
 
-  static async generateUsageChart() {
-    // Assuming you have startDatePicker and endDatePicker as references to your date pickers
-    // const startDate = startDatePicker.value;
-    // const endDate = endDatePicker.value;
+  static generateUsageChart(startDate, endDate, callback) {
+    const usageQuery = `
+        SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, 
+              SUM(pi.quantity) as amountUsed 
+        FROM orders o 
+        JOIN order_details od ON o.order_id = od.order_id 
+        JOIN product_ingredients pi ON od.product_id = pi.product_id 
+        JOIN inventory i ON pi.inventory_id = i.inventory_id 
+        WHERE o.date_time BETWEEN $1::timestamp AND $2::timestamp 
+        GROUP BY i.inventory_item, i.measurement_type 
+        ORDER BY SUM(pi.quantity) DESC 
+        LIMIT 10;
+      `;
 
-    // const usageQuery =
-    //   "SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, SUM(pi.quantity) as amountUsed " +
-    //   "FROM orders o " +
-    //   "JOIN order_details od ON o.order_id = od.order_id " +
-    //   "JOIN product_ingredients pi ON od.product_id = pi.product_id " +
-    //   "JOIN inventory i ON pi.inventory_id = i.inventory_id " +
-    //   "WHERE o.date_time >= ? AND o.date_time <= ? " +
-    //   "GROUP BY i.inventory_item, i.measurement_type";
-
-    // try {
-    //   const response = await axios.post("/your-backend-endpoint", {
-    //     startDate: startDate.toISOString().slice(0, 10),
-    //     endDate: endDate.toISOString().slice(0, 10),
-    //     query: usageQuery,
-    //   });
-
-    //   const data = response.data;
-
-    //   const labels = data.map((item) => item.inventoryItem);
-    //   const amounts = data.map((item) => item.amountUsed);
-
-    //   const ctx = document.getElementById("usageChart").getContext("2d");
-
-    //   new Chart(ctx, {
-    //     type: "bar",
-    //     data: {
-    //       labels: labels,
-    //       datasets: [
-    //         {
-    //           label: `Inventory items used from ${startDate} to ${endDate}`,
-    //           data: amounts,
-    //           backgroundColor: "rgba(75, 192, 192, 0.2)",
-    //           borderColor: "rgba(75, 192, 192, 1)",
-    //           borderWidth: 1,
-    //         },
-    //       ],
-    //     },
-    //     options: {
-    //       scales: {
-    //         x: {
-    //           type: "category",
-    //           title: {
-    //             display: true,
-    //             text: "Inventory Item",
-    //           },
-    //         },
-    //         y: {
-    //           type: "linear",
-    //           position: "left",
-    //           title: {
-    //             display: true,
-    //             text: "Amount",
-    //           },
-    //         },
-    //       },
-    //     },
-    //   });
-    // } catch (error) {
-    //   console.error("Error fetching data:", error);
-    // }
+    connection.query(usageQuery, [startDate, endDate], (error, results) => {
+      if (error) {
+        return callback(error);
+      }
+      callback(null, results.rows);
+    });
   }
-
-  // static async generateUsageChart(startDate, endDate, callback) {
-  //     const usageQuery =
-  //       "SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, SUM(pi.quantity) as amountUsed " +
-  //       "FROM orders o " +
-  //       "JOIN order_details od ON o.order_id = od.order_id " +
-  //       "JOIN product_ingredients pi ON od.product_id = pi.product_id " +
-  //       "JOIN inventory i ON pi.inventory_id = i.inventory_id " +
-  //       "WHERE o.date_time >= ? AND o.date_time <= ? " +
-  //       "GROUP BY i.inventory_item, i.measurement_type";
-
-  //     try {
-  //       const response = await axios.post("/reports/usage-chart", {
-  //         startDate: startDate.toISOString().slice(0, 10),
-  //         endDate: endDate.toISOString().slice(0, 10),
-  //       });
-
-  //       const data = response.data.data;
-
-  //       const labels = data.map((item) => item.inventoryItem);
-  //       const amounts = data.map((item) => item.amountUsed);
-
-  //       const ctx = document.getElementById("usageChart").getContext("2d");
-
-  //       new Chart(ctx, {
-  //         type: "bar",
-  //         data: {
-  //           labels: labels,
-  //           datasets: [
-  //             {
-  //               label: `Inventory items used from ${startDate} to ${endDate}`,
-  //               data: amounts,
-  //               backgroundColor: "rgba(75, 192, 192, 0.2)",
-  //               borderColor: "rgba(75, 192, 192, 1)",
-  //               borderWidth: 1,
-  //             },
-  //           ],
-  //         },
-  //         options: {
-  //           scales: {
-  //             x: {
-  //               type: "category",
-  //               title: {
-  //                 display: true,
-  //                 text: "Inventory Item",
-  //               },
-  //             },
-  //             y: {
-  //               type: "linear",
-  //               position: "left",
-  //               title: {
-  //                 display: true,
-  //                 text: "Amount",
-  //               },
-  //             },
-  //           },
-  //         },
-  //       });
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  // }
 
   static getOrdersInTimeInterval(startDate, endDate, callback) {
     const query = `
@@ -264,18 +157,17 @@ class Report {
     });
   }
 
-  static generateViewEmployees(callback) 
-  {
+  static generateViewEmployees(callback) {
     connection.query(
       "SELECT " +
-      " employees.employee_id," + 
-      "  employees.first_name, " +
-      "  employees.last_name, " +
-      "  employees.phone, " +
-      "  employees.email, " +
-      "  employees.username, " +
-      "  employees.password " +
-      "FROM employees;",
+        " employees.employee_id," +
+        "  employees.first_name, " +
+        "  employees.last_name, " +
+        "  employees.phone, " +
+        "  employees.email, " +
+        "  employees.username, " +
+        "  employees.password " +
+        "FROM employees;",
 
       (error, results) => {
         if (error) {
@@ -286,48 +178,43 @@ class Report {
     );
   }
 
-  static generateMenuItems(callback)
-  {
+  static generateMenuItems(callback) {
     connection.query(
       "SELECT " +
-      " products.product_id," + 
-      "  products.product_name, " +
-      "  products.price, " +
-      "  products.category, " +
-      "  products.product_description " +
-      "FROM products;",
+        " products.product_id," +
+        "  products.product_name, " +
+        "  products.price, " +
+        "  products.category, " +
+        "  products.product_description " +
+        "FROM products;",
 
       (error, results) => {
-        if (error) 
-        {
+        if (error) {
           return callback(error);
         }
         callback(null, results.rows);
       }
-    )
+    );
   }
 
-  static generateInventoryItems(callback)
-  {
+  static generateInventoryItems(callback) {
     connection.query(
       "SELECT " +
-      " inventory.inventory_id," + 
-      "  inventory.inventory_item, " +
-      "  inventory.stock_level, " +
-      "  inventory.restock_level, " +
-      "  inventory.measurement_type, " +
-      "  inventory.price " +
-      "FROM inventory;",
+        " inventory.inventory_id," +
+        "  inventory.inventory_item, " +
+        "  inventory.stock_level, " +
+        "  inventory.restock_level, " +
+        "  inventory.measurement_type, " +
+        "  inventory.price " +
+        "FROM inventory;",
       (error, results) => {
-        if (error) 
-        {
+        if (error) {
           return callback(error);
         }
         callback(null, results.rows);
       }
-    )
+    );
   }
-
 }
 
 module.exports = Report;

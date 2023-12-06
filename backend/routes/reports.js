@@ -71,20 +71,16 @@ router.post("/sells-together", (req, res) => {
 });
 
 router.post("/usage-chart", (req, res) => {
-    const startDate = '2022-08-06 06:22:00';
-    const endDate = '2023-10-06 08:25:00';
-    // const startDate = req.body.startDate;
-    // const endDate = req.body.endDate;
-    // console.log("usage");
-    res.send("usage");
-    
-    Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
-            if (error) {
-                    res.status(500).json({ error: "Error generating usage chart" });
-        } else {
-            res.json({ data: usageChartData });
-        }
-    });
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+
+  Report.generateUsageChart(startDate, endDate, (error, usageChartData) => {
+    if (error) {
+      res.status(500).json({ error: "Error generating usage chart" });
+    } else {
+      res.json({ data: usageChartData });
+    }
+  });
 });
 
 router.post("/view-orders", (req, res) => {
@@ -99,7 +95,6 @@ router.post("/view-orders", (req, res) => {
   });
 });
 
-
 router.post("/view-employees", (req, res) => {
   // const startDate = req.body.startDate;
   // const endDate = req.body.endDate;
@@ -112,7 +107,7 @@ router.post("/view-employees", (req, res) => {
       // console.log("nothing wrong with the report.gen");
     }
   });
-})
+});
 
 // router.post("/view-managers", (req, res) => {
 //   // const startDate = req.body.startDate;
@@ -153,7 +148,7 @@ router.post("/view-menu-items", (req, res) => {
       res.json({ data: menuItemsData });
     }
   });
-})
+});
 
 router.post("/view-inventory-items", (req, res) => {
   Report.generateInventoryItems((error, inventoryItemsData) => {
@@ -163,8 +158,6 @@ router.post("/view-inventory-items", (req, res) => {
       res.json({ data: inventoryItemsData });
     }
   });
-})
+});
 
 module.exports = router;
-
-
