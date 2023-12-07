@@ -361,7 +361,7 @@
 
 }
 
-.product-container, .product-container-noscroll 
+.menu-main-menu-body, .menu-main-menu-body-noscroll 
 {
     margin-left: 2%;
     height: 77%;
@@ -387,18 +387,18 @@
     gap: 2em;
     background-color: red;
 } */
-.product-container::-webkit-scrollbar {
+.menu-main-menu-body::-webkit-scrollbar {
     width: 8px;
     background-color: #565a57;
     margin-top: 15px;
     border-radius: 6px;
 }
   
-.product-container::-webkit-scrollbar-thumb {
+.menu-main-menu-body::-webkit-scrollbar-thumb {
     background: var(--bright); 
     border-radius: 6px;
 } 
-.product-container-noscroll::-webkit-scrollbar {
+.menu-main-menu-body-noscroll::-webkit-scrollbar {
     display: none;
 }
 
@@ -575,9 +575,7 @@
 /* .order-now-filler-block {
 } */
 
-.product-container {
-    align-items: center;
-    justify-content: center;
+.menu-main-menu-body {
     display: flex;
     overflow-x: auto;
     gap: 10px;
@@ -599,7 +597,6 @@
     padding: 5px;
     transition: all 0.3s ease;
     flex: 0 0 auto;
-    
   }
   
   .menu-product-name {
@@ -654,4 +651,66 @@
     position: absolute;
     top: 10px; /* Adjust this value to position it vertically */
     right: 10px; /* Adjust this value to position it horizontally */
+  }
+
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th {
+    border: 2px solid var(--shade2);
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  .orders-table td {
+    border: 2px solid var(--shade2);
+    padding: 0.5em;
+    text-align: center;
+    color: black; /* Set the text color to black */
+    font-size: 1.8rem;
+  }
+  
+  .orders-table th {
+    background-color: var(--normal);
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .orders-table tbody tr:hover {
+    background-color: whitesmoke;
+  }
+  
+  .fetch-orders-button {
+    height: 50px; /* Adjust height as needed */
+    font-size: 2rem; /* Increase font size */
+    line-height: 40px; /* Center text vertically */
+    text-align: center; /* Center text horizontally */
+    background-color: var(--shade2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    bottom: 20px; /* Adjust this value to set the distance from the bottom */
+  }
+  
+  .fetch-orders-button:hover {
+    background-color: var(--shade1);
+  }
+
+  .toggle-payment-button {
+    background-color: red; /* Set the background color to red */
+    color: black; /* Text color */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px; /* Adjust padding as needed */
+    font-size: 1.5rem; /* Adjust the font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-payment-button:hover {
+    background-color: darkred; /* Change color on hover */
   }
