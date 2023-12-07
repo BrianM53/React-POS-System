@@ -7,6 +7,15 @@ import SubmitMenuItem from "./submitMenuItem";
 
 import "./add.css";
 
+/**
+ * Component for adding a menu item.
+ * @component
+ * @function AddMenuItem
+ * @param {Object} props - The component props.
+ * @param {Function} props.onFinishAddingMenuItem - Callback function when adding a menu item is finished.
+ * @param {Function} props.handleCancelEditing - Callback function to handle canceling the editing process.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function AddMenuItem({ onFinishAddingMenuItem, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [menuItemData, setMenuItemData] = useState({
@@ -16,11 +25,22 @@ function AddMenuItem({ onFinishAddingMenuItem, handleCancelEditing }) {
     product_description: "",
   });
 
+  /**
+   * Handles the input change event.
+   * @function handleInputChange
+   * @param {Object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setMenuItemData({ ...menuItemData, [name]: value });
   };
 
+  /**
+   * Adds a menu item.
+   * @async
+   * @function addMenuItem
+   * @param {Object} e - The form submit event.
+   */
   const addMenuItem = async (e) => {
     e.preventDefault();
     const BACKEND_URL =

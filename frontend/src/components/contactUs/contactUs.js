@@ -12,6 +12,10 @@ import Header from '../app/header';
 import Socials from '../socials/socials';
 library.add(fas,fab); 
 
+/**
+ * A functional component representing the Contact Us page.
+ * @component
+ */
 const ContactUs = () => {
 
   const [formData, setFormData] = useState({
@@ -25,6 +29,11 @@ const ContactUs = () => {
   //   document.body.style.zoom = "80%";
   // }, []);
 
+    /**
+   * Handles changes in the form data.
+   * @function handleChange
+   * @param {Object} e - The event object.
+   */
   const handleChange = (e) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -32,6 +41,11 @@ const ContactUs = () => {
     }));
   };
 
+   /**
+   * Handles the form submission.
+   * @function handleSubmit
+   * @param {Object} e - The event object.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 

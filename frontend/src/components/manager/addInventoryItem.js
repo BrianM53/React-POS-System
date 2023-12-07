@@ -7,6 +7,15 @@ import SubmitInventoryItem from "./submitInventoryItem";
 
 import "./add.css";
 
+/**
+ * Component for adding an inventory item.
+ * @component
+ * @function AddInventoryItem
+ * @param {Object} props - The component props.
+ * @param {Function} props.onFinishAddingInventoryItem - Callback function when adding an inventory item is finished.
+ * @param {Function} props.handleCancelEditing - Callback function to handle canceling the editing process.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function AddInventoryItem({ onFinishAddingInventoryItem, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [inventoryItemData, setInventoryItemData] = useState({
@@ -17,11 +26,22 @@ function AddInventoryItem({ onFinishAddingInventoryItem, handleCancelEditing }) 
     price: 0,
   });
 
+  /**
+   * Handles the input change event.
+   * @function handleInputChange
+   * @param {Object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInventoryItemData({ ...inventoryItemData, [name]: value });
   };
 
+  /**
+   * Adds an inventory item.
+   * @async
+   * @function addInventoryItem
+   * @param {Object} e - The form submit event.
+   */
   const addInventoryItem = async (e) => 
   {
     e.preventDefault();

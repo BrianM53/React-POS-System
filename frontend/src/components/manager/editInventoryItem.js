@@ -5,6 +5,16 @@ import SubmitEditInventoryItem from "./submitEditInventoryItem";
 
 import "./add.css";
 
+/**
+ * Component for editing an inventory item.
+ * @component
+ * @function EditInventoryItem
+ * @param {Object} props - The component props.
+ * @param {Object} props.selectedRowData - The data of the selected row to be edited.
+ * @param {Function} props.handleFinishEditing - Callback function when finishing the editing process.
+ * @param {Function} props.handleCancelEditing - Callback function to handle canceling the editing process.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function EditInventoryItem({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [editedInventoryItemData, setEditedInventoryItemData] = useState({
@@ -21,11 +31,22 @@ function EditInventoryItem({ selectedRowData, handleFinishEditing, handleCancelE
     }
   }, [selectedRowData]);
 
+  /**
+   * Handles the input change event.
+   * @function handleInputChange
+   * @param {Object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedInventoryItemData({ ...editedInventoryItemData, [name]: value });
   };
 
+  /**
+   * Updates an inventory item.
+   * @async
+   * @function updateInventoryItem
+   * @param {Object} e - The form submit event.
+   */
   const updateInventoryItem = async (e) => {
     e.preventDefault();
     const BACKEND_URL =

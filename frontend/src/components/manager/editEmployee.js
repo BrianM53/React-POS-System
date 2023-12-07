@@ -5,6 +5,16 @@ import SubmitEmployee from "./submitEmployee";
 
 import "./add.css";
 
+/**
+ * Component for editing an employee.
+ * @component
+ * @function EditEmployee
+ * @param {Object} props - The component props.
+ * @param {Object} props.selectedRowData - The data of the selected row to be edited.
+ * @param {Function} props.handleFinishEditing - Callback function when finishing the editing process.
+ * @param {Function} props.handleCancelEditing - Callback function to handle canceling the editing process.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [editedEmployeeData, setEditedEmployeeData] = useState({
@@ -22,11 +32,22 @@ function EditEmployee({ selectedRowData, handleFinishEditing, handleCancelEditin
     }
   }, [selectedRowData]);
 
+  /**
+   * Handles the input change event.
+   * @function handleInputChange
+   * @param {Object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedEmployeeData({ ...editedEmployeeData, [name]: value });
   };
 
+  /**
+   * Updates an employee.
+   * @async
+   * @function updateEmployee
+   * @param {Object} e - The form submit event.
+   */
   const updateEmployee = async (e) => {
     e.preventDefault();
      const BACKEND_URL =

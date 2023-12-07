@@ -5,8 +5,25 @@ import AdminSubmitEditCustomer from "./adminSubmitEditCustomer";
 
 import "./adminAdd.css";
 
+/**
+ * Renders the form for editing a customer's details, allowing the user to modify customer information.
+ * @function AdminEditCustomer
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.selectedRowData - The data of the selected customer for editing.
+ * @param {Function} props.handleFinishEditing - Callback function triggered when the editing process is successfully completed.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the editing process.
+ * @returns {JSX.Element} - The JSX markup for the AdminEditCustomer component.
+ */
 function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
+   /**
+   * Manages the error message state for displaying feedback to the user.
+   * @type {[string, Function]} errorMsg
+   */
   const [errorMsg, setErrorMsg] = useState("");
+  /**
+   * Manages the state for edited customer data, reflecting the changes made during the edit process.
+   * @type {[Object, Function]} editedCustomerData
+   */
   const [editedCustomerData, setEditedCustomerData] = useState({
     first_name: "",
     last_name: "",
@@ -16,17 +33,34 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
     password: "",
   });
 
+    /**
+   * Updates the editedCustomerData state when the selectedRowData changes.
+   * @function useEffect
+   * @param {Function} effect - The effect function to execute.
+   * @param {Array} dependencies - The dependencies to watch for changes.
+   */
+
   useEffect(() => {
     if (selectedRowData) {
       setEditedCustomerData({ ...selectedRowData });
     }
   }, [selectedRowData]);
 
+  /**
+   * Handles changes in the input fields and updates the editedCustomerData state.
+   * @function handleInputChange
+   * @param {Object} e - The event object triggered by the input field.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedCustomerData({ ...editedCustomerData, [name]: value });
   };
 
+  /**
+   * Sends a request to the backend to update a customer's details based on the entered changes.
+   * @function updateEditCustomer
+   * @param {Object} e - The event object triggered by the form submission.
+   */
   const updateEditCustomer = async (e) => {
     e.preventDefault();
      const BACKEND_URL =
@@ -64,6 +98,11 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
     }
   };
 
+  /**
+   * Handles the delete-and-add process for changing the role of the customer.
+   * @function handleDeleteAndAdd
+   * @param {string} role - The new role to assign to the customer (employee, manager, or customer).
+   */
   const handleDeleteAndAdd = async (role) => {
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
     

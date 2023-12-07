@@ -1,5 +1,14 @@
 import React from "react";
 
+/**
+ * Component for rendering navigation buttons for different reports.
+ * @component
+ * @function ReportButtons
+ * @param {Object} props - The component props.
+ * @param {string} props.activeReport - The currently active report.
+ * @param {Function} props.handleReport - Callback function for handling report selection.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function ReportButtons({ activeReport, handleReport }) {
   return (
     <div className="report-btn">

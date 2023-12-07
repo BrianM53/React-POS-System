@@ -7,6 +7,14 @@ import AdminSubmitEmployee from "./adminSubmitEmployee";
 
 import "./adminAdd.css";
 
+/**
+ * Renders the form for adding a new employee, allowing the user to input employee details.
+ * @function AdminAddEmployee
+ * @param {Object} props - The properties passed to the component.
+ * @param {Function} props.onFinishAddingEmployee - Callback function triggered when an employee is successfully added.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the employee addition.
+ * @returns {JSX.Element} - The JSX markup for the AdminAddEmployee component.
+ */
 function AdminAddEmployee({ onFinishAddingEmployee, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [employeeData, setEmployeeData] = useState({
@@ -18,11 +26,21 @@ function AdminAddEmployee({ onFinishAddingEmployee, handleCancelEditing }) {
     password: "",
   });
 
+  /**
+   * Handles changes in the input fields and updates the employeeData state.
+   * @function handleInputChange
+   * @param {Object} e - The event object triggered by the input field.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEmployeeData({ ...employeeData, [name]: value });
   };
 
+  /**
+   * Sends a request to the backend to add a new employee based on the entered details.
+   * @function addEmployee
+   * @param {Object} e - The event object triggered by the form submission.
+   */
   const addEmployee = async (e) => {
     e.preventDefault();
     const BACKEND_URL =

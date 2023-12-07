@@ -4,6 +4,13 @@ import axios from "axios"; // Import axios or your preferred HTTP library
 import { useUser } from "../utility/userControl";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * A component representing a Google Login button.
+ * @component
+ * @param {Object} props - Component props.
+ * @param {function} props.setLoginMsg - Function to set login messages.
+ * @returns {JSX.Element} - Rendered component.
+ */
 const GoogleLoginButton = ({ setLoginMsg }) => {
   const {
     userRole,
@@ -16,6 +23,13 @@ const GoogleLoginButton = ({ setLoginMsg }) => {
   const navigate = useNavigate();
   const backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
+  /**
+   * Handles the success response from Google Login.
+   * @function handleSuccess
+   * @async
+   * @param {Object} credential - The Google credential.
+   * @returns {Object} - Response data from the server.
+   */
   const handleSuccess = async (credential) => {
     try {
       console.log("trying",backendURL);

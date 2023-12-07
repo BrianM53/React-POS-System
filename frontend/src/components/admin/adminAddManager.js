@@ -6,6 +6,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import AdminSubmitManager from "./adminSubmitManager";
 import "./adminAdd.css";
 
+/**
+ * Renders the form for adding a new manager, allowing the user to input manager details.
+ * @function AdminAddManager
+ * @param {Object} props - The properties passed to the component.
+ * @param {Function} props.onFinishAddingManager - Callback function triggered when a manager is successfully added.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the manager addition.
+ * @returns {JSX.Element} - The JSX markup for the AdminAddManager component.
+ */
 function AdminAddManager({ onFinishAddingManager, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [managerData, setManagerData] = useState({
@@ -17,11 +25,21 @@ function AdminAddManager({ onFinishAddingManager, handleCancelEditing }) {
     password: "",
   });
 
+  /**
+   * Handles changes in the input fields and updates the managerData state.
+   * @function handleInputChange
+   * @param {Object} e - The event object triggered by the input field.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setManagerData({ ...managerData, [name]: value });
   };
 
+    /**
+   * Sends a request to the backend to add a new manager based on the entered details.
+   * @function addManager
+   * @param {Object} e - The event object triggered by the form submission.
+   */
   const addManager = async (e) => {
     e.preventDefault();
     const BACKEND_URL =

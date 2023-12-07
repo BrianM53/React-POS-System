@@ -7,6 +7,14 @@ import AdminSubmitCustomer from "./adminSubmitCustomer";
 
 import "./adminAdd.css";
 
+/**
+ * Renders the form for adding a new customer, allowing the user to input customer details.
+ * @function AdminAddCustomer
+ * @param {Object} props - The properties passed to the component.
+ * @param {Function} props.onFinishAddingCustomer - Callback function triggered when a customer is successfully added.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the customer addition.
+ * @returns {JSX.Element} - The JSX markup for the AdminAddCustomer component.
+ */
 function AdminAddCustomer({ onFinishAddingCustomer, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [customerData, setCustomerData] = useState({
@@ -16,10 +24,21 @@ function AdminAddCustomer({ onFinishAddingCustomer, handleCancelEditing }) {
     email: "",
   });
 
+    /**
+   * Handles changes in the input fields and updates the customerData state.
+   * @function handleInputChange
+   * @param {Object} e - The event object triggered by the input field.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCustomerData({ ...customerData, [name]: value });
   };
+
+  /**
+   * Sends a request to the backend to add a new customer based on the entered details.
+   * @function addCustomer
+   * @param {Object} e - The event object triggered by the form submission.
+   */
 
   const addCustomer = async (e) => {
     e.preventDefault();

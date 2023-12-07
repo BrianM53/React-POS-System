@@ -5,6 +5,16 @@ import SubmitEditMenuItem from "./submitEditMenuItem";
 
 import "./add.css";
 
+/**
+ * Component for editing a menu item.
+ * @component
+ * @function EditMenuItem
+ * @param {Object} props - The component props.
+ * @param {Object} props.selectedRowData - The data of the selected row to be edited.
+ * @param {Function} props.handleFinishEditing - Callback function when finishing the editing process.
+ * @param {Function} props.handleCancelEditing - Callback function to handle canceling the editing process.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function EditMenuItem({ selectedRowData, handleFinishEditing, handleCancelEditing }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [editedMenuItemData, setEditedMenuItemData] = useState({
@@ -20,11 +30,22 @@ function EditMenuItem({ selectedRowData, handleFinishEditing, handleCancelEditin
     }
   }, [selectedRowData]);
 
+   /**
+   * Handles the input change event.
+   * @function handleInputChange
+   * @param {Object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedMenuItemData({ ...editedMenuItemData, [name]: value });
   };
 
+  /**
+   * Updates a menu item.
+   * @async
+   * @function updateMenuItem
+   * @param {Object} e - The form submit event.
+   */
   const updateMenuItem = async (e) => 
   {
     e.preventDefault();

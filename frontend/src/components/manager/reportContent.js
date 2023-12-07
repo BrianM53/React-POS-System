@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+/**
+   * Adds a new row to the table with columns based on the current column count.
+   * @function addRow
+   * @memberof ReportContent
+   */
 const ReportContent = () => {
   const [rows, setRows] = useState([]);
   const [cols, setCols] = useState(0);

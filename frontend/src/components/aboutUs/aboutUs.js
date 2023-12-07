@@ -10,6 +10,10 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Header from '../app/header';
 library.add(fas,fab); 
 
+ /**
+ * Sets up the about us page using JSX
+ * @param {function} AboutUs - Tells the user the history of Sweet Paris Cafe
+ */
 function AboutUs() {
   // useEffect(() => {
   //   document.body.style.zoom = "80%";

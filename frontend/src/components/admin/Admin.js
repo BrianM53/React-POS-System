@@ -33,6 +33,10 @@ import AdminSubmitEditCustomer from "./adminSubmitEditCustomer";
 
 import AdminRemoveConfirmation from "./adminRemoveConfirmation";
 
+/**
+ * Sets states for forms
+ * @function Admin - sets all values for arrays used for reports and headers
+ */
 function Admin() {
   const navigate = useNavigate();
   const BACKEND_URL =
@@ -78,6 +82,12 @@ function Admin() {
     localStorage.setItem("activeReport", activeReport);
   }, [activeReport]);
 
+  /**
+ * put data in arrays based on the report type
+ * @param {object} data - contains data from the query on the report
+ * @param {object} reportType - Contains string of the report name
+ * @function generateReport - sets data for the report
+ */
   function generateReport(reportType, data) 
   {
     console.log(reportType);
@@ -121,6 +131,12 @@ function Admin() {
     }
   }
 
+  /**
+ * Handles requests for generating and displaying reports, updating activeReport state.
+ * @function handleReport
+ * @param {object} e - The request event.
+ * @param {string} reportType - The type of report to be displayed.
+ */
   function handleReport(e, reportType) 
   {
     if (e) {
@@ -201,6 +217,11 @@ function Admin() {
     }
   }
 
+  /**
+ * Handles the deletion of an element based on the active report type.
+ * @function handleDelete
+ * @param {object} element - The element to be deleted.
+ */
   function handleDelete(element) 
   {
     // console.log("inside of handleDelete");
@@ -251,6 +272,11 @@ function Admin() {
     }
   }
 
+  /**
+ * Handles the editing of an element based on the active report type.
+ * @function handleEdit
+ * @param {object} element - The element to be edited.
+ */
   function handleEdit(element)
   {
     setEditFormOpen(true);
@@ -272,6 +298,10 @@ function Admin() {
     }
   } 
 
+  /**
+ * Handles the finish of the editing process, closing the edit form and triggering data refresh.
+ * @function handleFinishEditing
+ */
   const handleFinishEditing = () => {
     setEditFormOpen(false);
     setSelectedRowData(null);
@@ -279,6 +309,10 @@ function Admin() {
     fetchAndRenderData();
   };
 
+  /**
+ * Handles the cancellation of editing, closing the form and resetting relevant states.
+ * @function handleCancelEditing
+ */
   const handleCancelEditing = () => {
     setFormOpen(false);
     setEditFormOpen(false);
@@ -287,6 +321,10 @@ function Admin() {
     setActiveEditFormType(null);
   }
 
+  /**
+ * Handles the click event when adding an employee, opening the add employee form.
+ * @function handleAddEmployeeClicked
+ */
   function handleAddEmployeeClicked() {
     // Open the form
     setFormOpen(true);
@@ -294,6 +332,10 @@ function Admin() {
     // console.log("inside of the handle add employee clicked");
   }
 
+  /**
+ * Handles the finish of adding an employee, closing the form and triggering data refresh.
+ * @function handleFinishAddingEmployee
+ */
   function handleFinishAddingEmployee() {
     // Close the form
     setFormOpen(false);
@@ -303,6 +345,10 @@ function Admin() {
 
   }
 
+  /**
+ * Handles the click event when adding a manager, opening the add manager form.
+ * @function handleAddManagerClicked
+ */
   function handleAddManagerClicked() {
     // Open the form
     setFormOpen(true);
@@ -310,6 +356,10 @@ function Admin() {
     // console.log("inside of the handle add manager clicked");
   }
 
+  /**
+ * Handles the finish of adding a manager, closing the form and triggering data refresh.
+ * @function handleFinishAddingManager
+ */
   function handleFinishAddingManager() {
     // Close the form
     setFormOpen(false);
@@ -318,6 +368,10 @@ function Admin() {
     fetchAndRenderData();
   }
 
+  /**
+ * Handles the click event when adding a customer, opening the add customer form.
+ * @function handleAddCustomerClicked
+ */
   function handleAddCustomerClicked() {
     // Open the form
     setFormOpen(true);
@@ -326,6 +380,10 @@ function Admin() {
 
   }
 
+  /**
+ * Handles the finish of adding a customer, closing the form and triggering data refresh.
+ * @function handleFinishAddingCustomer
+ */
   function handleFinishAddingCustomer() {
     // Close the form
     setFormOpen(false);
@@ -337,16 +395,29 @@ function Admin() {
   const [isDeleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
 
+  /**
+ * Opens the delete confirmation modal for the specified item.
+ * @function openDeleteConfirmation
+ * @param {object} item - The item for which the deletion confirmation is opened.
+ */
   function openDeleteConfirmation(item) {
     setItemToDelete(item);
     setDeleteConfirmationOpen(true);
   }
 
+  /**
+ * Closes the delete confirmation modal.
+ * @function closeDeleteConfirmation
+ */
   function closeDeleteConfirmation() {
     setItemToDelete(null);
     setDeleteConfirmationOpen(false);
   }
 
+  /**
+ * Confirms the deletion of the item and triggers the deletion process.
+ * @function confirmDelete
+ */
   function confirmDelete() {
     if (itemToDelete) {
       handleDelete(itemToDelete);

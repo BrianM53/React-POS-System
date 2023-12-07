@@ -36,6 +36,11 @@ const Cashier = () => {
   const menuHasOverflow = useDynamicScrollbar(productData[activeSection], scrollRefs.menuScrollRef);
   // const descriptionHasOverflow = true;
 
+  /**
+   * Fetches product data for the specified category from the backend.
+   * @function fetchProductData
+   * @param {string} category - The category for which product data needs to be fetched.
+   */
   useEffect(() => {
     // document.body.style.zoom = "80%";
     // Check if product data for the active category is already fetched
@@ -60,6 +65,11 @@ const Cashier = () => {
     }
   }, [activeSection, productData]);
 
+  /**
+   * Increments the quantity of a product in the cart and updates the UI.
+   * @function increment
+   * @param {Object} product - The product to be incremented.
+   */
   const increment = (product) => {
     // Check if the product is already in the cart
     const cartItemIndex = cart.findIndex((item) => item.product_id === product.product_id);
@@ -90,7 +100,11 @@ const Cashier = () => {
     addToCart(product);
   };
 
-
+/**
+   * Decrements the quantity of a product in the cart and updates the UI.
+   * @function decrement
+   * @param {number} productId - The ID of the product to be decremented.
+   */
   const decrement = (productId) => {
     // Find the product in the active section's data
     const categoryData = productData[activeSection];
@@ -125,6 +139,11 @@ const Cashier = () => {
     decrementQuantity(productId);
   };
 
+  /**
+   * Fetches the customer ID based on the provided email address.
+   * @function fetchCustomerId
+   * @returns {Promise<number>} - A promise that resolves to the customer ID.
+   */
   const fetchCustomerId = async () => {
     // console.log(customerEmail);
     try {
@@ -144,6 +163,10 @@ const Cashier = () => {
     }
   };
 
+  /**
+   * Submits the order to the backend.
+   * @function submitOrder
+   */
   const submitOrder = async () => {
     if (!employeeId) {
       // Prompt the user that employee ID is required

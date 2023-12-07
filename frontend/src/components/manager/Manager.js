@@ -22,6 +22,12 @@ import RemoveConfirmation from "./removeConfirmation";
 
 import { CChart } from "@coreui/react-chartjs";
 
+/**
+ * Component for managing the application as a manager.
+ * @component
+ * @function Manager
+ * @returns {JSX.Element} - Rendered component.
+ */
 function Manager() {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
@@ -74,12 +80,24 @@ function Manager() {
     localStorage.setItem("activeReport", activeReport);
   }, [activeReport]);
 
+  /**
+ * Generates a timestamp string from a given date.
+ * @function generateTimestamp
+ * @param {Date} date - The date for which to generate the timestamp.
+ * @returns {string} - Timestamp string.
+ */
   function generateTimestamp(date) {
     const date_val = date.toISOString().slice(0, 10).replace("T", " ");
     const time_val = date.toLocaleTimeString([], { hour12: false }).slice(0, 8);
     return date_val + " " + time_val;
   }
 
+  /**
+ * Generates a report based on the selected report type and data.
+ * @function generateReport
+ * @param {string} reportType - The type of report to generate.
+ * @param {Array} data - The data used to generate the report.
+ */
   function generateReport(reportType, data) {
     console.log(reportType);
     if (reportType === "Sales Report") {
@@ -174,6 +192,12 @@ function Manager() {
     }
   }
 
+  /**
+ * Handles the selection of a report and fetches the corresponding data.
+ * @function handleReport
+ * @param {Event} e - The event triggering the report selection.
+ * @param {string} reportType - The selected report type.
+ */
   function handleReport(e, reportType) {
     if (e) {
       e.preventDefault();
@@ -281,6 +305,11 @@ function Manager() {
     }
   }
 
+  /**
+ * Handles the deletion of an element based on its type.
+ * @function handleDelete
+ * @param {Object} element - The element to be deleted.
+ */
   function handleDelete(element) {
     // console.log("inside of handleDelete");
     const elementType = activeReport.toLowerCase().replace(/\s+/g, "");
@@ -329,6 +358,11 @@ function Manager() {
     }
   }
 
+  /**
+ * Handles the initiation of the editing process for a selected element.
+ * @function handleEdit
+ * @param {Object} element - The element to be edited.
+ */
   function handleEdit(element) {
     setEditFormOpen(true);
     setSelectedRowData(element);
@@ -347,6 +381,11 @@ function Manager() {
         console.error(`Unknown element type`);
     }
   }
+
+/**
+ * Finishes the editing process and updates the state.
+ * @function handleFinishEditing
+ */
   const handleFinishEditing = () => {
     setEditFormOpen(false);
     setSelectedRowData(null);
@@ -354,6 +393,10 @@ function Manager() {
     fetchAndRenderData();
   };
 
+  /**
+ * Cancels the editing process and resets the state.
+ * @function handleCancelEditing
+ */
   const handleCancelEditing = () => {
     setFormOpen(false);
     setEditFormOpen(false);
@@ -361,7 +404,10 @@ function Manager() {
     setActiveFormType(null);
     setActiveEditFormType(null);
   };
-
+/**
+ * Handles the addition of a new employee and updates the state.
+ * @function handleAddEmployeeClicked
+ */
   function handleAddEmployeeClicked() {
     // Open the form
     setFormOpen(true);
@@ -369,7 +415,10 @@ function Manager() {
     // console.log("inside of the handle add employee clicked");
     // setAddEmployeeClicked(true);
   }
-
+/**
+ * Finishes the process of adding a new employee and updates the state.
+ * @function handleFinishAddingEmployee
+ */
   function handleFinishAddingEmployee() {
     // Close the form
     setFormOpen(false);
@@ -378,7 +427,10 @@ function Manager() {
     // console.log("handleFinishAddingEmployee");
     fetchAndRenderData();
   }
-
+/**
+ * Handles the addition of a new menu item and updates the state.
+ * @function handleAddMenuItemClicked
+ */
   function handleAddMenuItemClicked() {
     // Open the form
     setFormOpen(true);
@@ -387,6 +439,10 @@ function Manager() {
     // console.log("inside of the handle add menu item clicked");
   }
 
+  /**
+ * Finishes the process of adding a new menu item and updates the state.
+ * @function handleFinishAddingMenuItem
+ */
   function handleFinishAddingMenuItem() {
     // Close the form
     setFormOpen(false);
@@ -396,6 +452,10 @@ function Manager() {
     fetchAndRenderData();
   }
 
+  /**
+ * Handles the addition of a new inventory item and updates the state.
+ * @function handleAddInventoryItemClicked
+ */
   function handleAddInventoryItemClicked() {
     // Open the form
     setFormOpen(true);
@@ -404,6 +464,10 @@ function Manager() {
     // console.log("inside of the handle add inventory item clicked");
   }
 
+  /**
+ * Finishes the process of adding a new inventory item and updates the state.
+ * @function handleFinishAddingInventoryItem
+ */
   function handleFinishAddingInventoryItem() {
     // Close the form
     setFormOpen(false);
@@ -422,16 +486,29 @@ function Manager() {
   const [isDeleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
 
+  /**
+ * Opens the delete confirmation modal for a selected item.
+ * @function openDeleteConfirmation
+ * @param {Object} item - The item for which to confirm deletion.
+ */
   function openDeleteConfirmation(item) {
     setItemToDelete(item);
     setDeleteConfirmationOpen(true);
   }
 
+  /**
+ * Closes the delete confirmation modal.
+ * @function closeDeleteConfirmation
+ */
   function closeDeleteConfirmation() {
     setItemToDelete(null);
     setDeleteConfirmationOpen(false);
   }
 
+  /**
+ * Confirms the deletion of the selected item.
+ * @function confirmDelete
+ */
   function confirmDelete() {
     if (itemToDelete) {
       handleDelete(itemToDelete);
@@ -452,6 +529,10 @@ function Manager() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeReport, tableDataKey]);
 
+  /**
+ * Fetches and renders data based on the active report.
+ * @function fetchAndRenderData
+ */
   function fetchAndRenderData() {
     // Fetch data based on the active report, and update the state
     handleReport(null, activeReport);

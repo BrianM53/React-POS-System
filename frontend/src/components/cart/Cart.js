@@ -9,6 +9,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 library.add(fas, fab);
 
+/**
+ * Renders the Cart component, displaying items in the user's cart.
+ * @function Cart
+ * @returns {JSX.Element} - The JSX markup for the Cart component.
+ */
 const Cart = () => {
   const { cartItems, removeFromCart } = useCart();
 

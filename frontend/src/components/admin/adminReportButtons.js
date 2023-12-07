@@ -1,5 +1,13 @@
 import React from "react";
 
+/**
+ * Renders a set of buttons for selecting different reports in the admin panel.
+ * @function AdminReportButtons
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} props.activeReport - The currently active report type.
+ * @param {Function} props.handleReport - Callback function triggered when a report button is clicked.
+ * @returns {JSX.Element} - The JSX markup for the AdminReportButtons component.
+ */
 function AdminReportButtons({ activeReport, handleReport }) {
   return (
     <div className="report-btn">

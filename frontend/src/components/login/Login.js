@@ -9,6 +9,11 @@ import { useUser } from "../utility/userControl";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
 
+/**
+ * A component representing the login functionality.
+ * @component
+ * @returns {JSX.Element} - Rendered component.
+ */
 function Login() {
   const navigate = useNavigate();
   const { userRole, setUserRole } = useUser();
@@ -19,11 +24,22 @@ function Login() {
     password: "",
   });
 
+  /**
+   * Handles input changes in the login form.
+   * @function handleInputChange
+   * @param {Object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
   };
 
+  /**
+   * Handles the login process.
+   * @function login
+   * @async
+   * @param {Object} event - The form submit event.
+   */
   const login = async (event) => {
     const { isCashier, isManager, isAdmin } = await handleSubmit(event, loginData);
     console.log("login attempt with role " + userRole);
