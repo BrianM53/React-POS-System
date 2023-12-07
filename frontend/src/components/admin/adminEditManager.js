@@ -172,12 +172,12 @@ function AdminEditManager({ selectedRowData, handleFinishEditing, handleCancelEd
         <div className="make-employee-btn make-btn" onClick={() => handleDeleteAndAdd("employee")}>
           Delete and Add as Employee
         </div>
-        <div className="make-manager-btn make-btn" onClick={() => handleDeleteAndAdd("manager")}>
+        {/* <div className="make-manager-btn make-btn" onClick={() => handleDeleteAndAdd("manager")}>
           Delete and Add as Manager
-        </div>
-        <div className="make-customer-btn make-btn" onClick={() => handleDeleteAndAdd("customer")}>
+        </div> */}
+        {/* <div className="make-customer-btn make-btn" onClick={() => handleDeleteAndAdd("customer")}>
           Delete and Add as Customer
-        </div>
+        </div> */}
       </div>
 
     </div>

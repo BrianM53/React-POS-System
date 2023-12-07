@@ -145,7 +145,7 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
         </div>
       </Form>
 
-      <div className="role-buttons">
+      {/* <div className="role-buttons">
         <div className="make-employee-btn make-btn" onClick={() => handleDeleteAndAdd("employee")}>
           Delete and Add as Employee
         </div>
@@ -155,7 +155,7 @@ function AdminEditCustomer({ selectedRowData, handleFinishEditing, handleCancelE
         <div className="make-customer-btn make-btn" onClick={() => handleDeleteAndAdd("customer")}>
           Delete and Add as Customer
         </div>
-      </div>
+      </div> */}
 
     </div>
   );
