@@ -2,6 +2,13 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const UserContext = createContext();
 
+/**
+ * Provider component for managing user-related data and actions.
+ * @component
+ * @param {Object} props - Component props.
+ * @param {React.ReactNode} props.children - Child components.
+ * @returns {React.ReactNode} JSX element.
+ */
 export function UserProvider({ children }) {
   const [userRole, setUserRole] = useState(
     () => localStorage.getItem("userRole") || "customer"
@@ -65,6 +72,11 @@ export function UserProvider({ children }) {
   );
 }
 
+/**
+ * Hook for accessing user-related data and actions from the UserContext.
+ * @function
+ * @returns {UserContext} User context values.
+ */
 export function useUser() {
   return useContext(UserContext);
 }

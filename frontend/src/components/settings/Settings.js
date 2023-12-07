@@ -12,10 +12,22 @@ import Header from '../app/header';
 import { useSettings } from './settingsControl';
 library.add(fas,fab); 
 
+/**
+ * Component for managing user settings.
+ * @component
+ * @function Settings
+ * @returns {JSX.Element} - Rendered component.
+ */
 const Settings = () => {
   const { colorStyle, setColorStyle, fontSize, setFontSize } = useSettings();
   const scriptLoaded = useRef(false);
 
+  /**
+   * Loads the Google Translate script.
+   * Initializes the translation element with specified settings.
+   * @function loadGoogleTranslateScript
+   * @returns {void}
+   */
   const loadGoogleTranslateScript = () => {
     if (!scriptLoaded.current) {
       if (!window.googleTranslateElementInit) {
@@ -50,11 +62,25 @@ const Settings = () => {
     loadGoogleTranslateScript(); // Load script on initial mount
   }, []);
 
+  /**
+   * Handles color change in the settings.
+   * Updates the color style and stores it in local storage.
+   * @function handleColorChange
+   * @param {React.ChangeEvent<HTMLSelectElement>} e - The change event.
+   * @returns {void}
+   */
   const handleColorChange = (e) => {
     setColorStyle(e.target.value);
     localStorage.setItem("color-style", e.target.value);
   };
 
+  /**
+   * Handles font size change in the settings.
+   * Updates the font size and stores it in local storage.
+   * @function handleFontSizeChange
+   * @param {React.ChangeEvent<HTMLSelectElement>} e - The change event.
+   * @returns {void}
+   */
   const handleFontSizeChange = (e) => {
     setFontSize(e.target.value);
     localStorage.setItem("font-size", e.target.value);

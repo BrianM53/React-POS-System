@@ -16,6 +16,12 @@ import useDynamicScrollbar from "../utility/dynamicScrollbar";
 
 library.add(fas, fab);
 
+/**
+ * Component for ordering products.
+ * @component
+ * @function OrderNow
+ * @returns {JSX.Element} - Rendered component.
+ */
 const OrderNow = () => {
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
@@ -124,6 +130,13 @@ const OrderNow = () => {
     decrementQuantity(productId);
   };
 
+   /**
+   * Fetches the customer ID based on the provided email.
+   * If the customer does not exist, attempts to add a new customer.
+   * @async
+   * @function fetchCustomerId
+   * @returns {Promise<number>} - Resolves with the customer ID.
+   */
   const fetchCustomerId = async () => {
     console.log(customerEmail);
     try {
@@ -165,6 +178,13 @@ const OrderNow = () => {
     }
   };
 
+  /**
+   * Submits the order to the backend.
+   * Fetches the customer ID, then sends order details to the server.
+   * @async
+   * @function submitOrder
+   * @returns {void}
+   */
   const submitOrder = async () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) && customerEmail) {
       alert('Please enter a valid email address.');
@@ -214,11 +234,21 @@ const OrderNow = () => {
     }
   };
 
+  /**
+   * Calculates the total cost of items in the cart.
+   * @function calculateTotalCost
+   * @returns {number} - Total cost.
+   */
   const calculateTotalCost = () => {
     // Implement this function to calculate the total cost based on items in the cart
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
+   /**
+   * Renders the product items based on the active category.
+   * @function renderProducts
+   * @returns {JSX.Element[]} - Array of rendered product items.
+   */
   const renderProducts = () => {
     const categoryData = productData[activeSection];
 
@@ -276,7 +306,11 @@ const OrderNow = () => {
       );
     });
   };
-
+  /**
+   * Renders the items in the shopping cart.
+   * @function renderCartItems
+   * @returns {JSX.Element[]} - Array of rendered cart items.
+   */
   const renderCartItems = () => {
     return cart.map((item) => {
       return (

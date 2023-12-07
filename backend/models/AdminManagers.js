@@ -2,6 +2,17 @@ const connection = require("../connection");
 
 class AdminManagers {
 
+  /**
+   * Adds an employee to the database.
+   *
+   * @param {string} first_name - The first name of the employee.
+   * @param {string} last_name - The last name of the employee.
+   * @param {string} phone - The phone number of the employee.
+   * @param {string} email - The email of the employee.
+   * @param {string} username - The username of the employee.
+   * @param {string} password - The password of the employee.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addEmployee(
     first_name,
     last_name,
@@ -24,6 +35,17 @@ class AdminManagers {
     );
   }
 
+  /**
+   * Adds a manager to the database.
+   *
+   * @param {string} first_name - The first name of the manager.
+   * @param {string} last_name - The last name of the manager.
+   * @param {string} phone - The phone number of the manager.
+   * @param {string} email - The email of the manager.
+   * @param {string} username - The username of the manager.
+   * @param {string} password - The password of the manager.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addManager(
     first_name,
     last_name,
@@ -46,7 +68,15 @@ class AdminManagers {
     );
   }
 
-
+  /**
+   * Adds a customer to the database.
+   *
+   * @param {string} first_name - The first name of the customer.
+   * @param {string} last_name - The last name of the customer.
+   * @param {string} phone - The phone number of the customer.
+   * @param {string} email - The email of the customer.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addCustomer(
     first_name,
     last_name,
@@ -67,6 +97,12 @@ class AdminManagers {
       );
   }
 
+  /**
+   * Deletes a manager from the database.
+   *
+   * @param {number} managerId - The ID of the manager to delete.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static deleteManager(managerId, callback) {
     connection.query(
       "DELETE FROM managers WHERE manager_id = $1 RETURNING *",
@@ -81,6 +117,18 @@ class AdminManagers {
     );
   }
 
+  /**
+   * Updates manager information in the database.
+   *
+   * @param {number} managerId - The ID of the manager to update.
+   * @param {string} first_name - The new first name of the manager.
+   * @param {string} last_name - The new last name of the manager.
+   * @param {string} phone - The new phone number of the manager.
+   * @param {string} email - The new email of the manager.
+   * @param {string} username - The new username of the manager.
+   * @param {string} password - The new password of the manager.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static updateManager(
     managerId,
     first_name,

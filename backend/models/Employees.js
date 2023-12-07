@@ -1,6 +1,17 @@
 const connection = require("../connection");
 
 class Employees {
+  /**
+   * Adds an employee to the database.
+   *
+   * @param {string} first_name - The first name of the employee.
+   * @param {string} last_name - The last name of the employee.
+   * @param {string} phone - The phone number of the employee.
+   * @param {string} email - The email of the employee.
+   * @param {string} username - The username of the employee.
+   * @param {string} password - The password of the employee.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addEmployee(
     first_name,
     last_name,
@@ -22,6 +33,18 @@ class Employees {
     );
   }
 
+  /**
+   * Updates an existing employee in the database.
+   *
+   * @param {number} employeeId - The ID of the employee to update.
+   * @param {string} first_name - The new first name of the employee.
+   * @param {string} last_name - The new last name of the employee.
+   * @param {string} phone - The new phone number of the employee.
+   * @param {string} email - The new email of the employee.
+   * @param {string} username - The new username of the employee.
+   * @param {string} password - The new password of the employee.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static updateEmployee(
     employeeId,
     first_name,
@@ -44,6 +67,12 @@ class Employees {
     );
   }
 
+  /**
+   * Deletes an employee from the database.
+   *
+   * @param {number} employeeId - The ID of the employee to delete.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static deleteEmployee(employeeId, callback) 
   {
     const query = "DELETE FROM employees WHERE employee_id = $1";

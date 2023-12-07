@@ -2,6 +2,13 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 
+/**
+ * Handles user login using Google OAuth.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @throws {Error} Throws an error if any operation fails.
+ */
 const loginController = async(req, res) => {
     if (req.body.googleAccessToken) {
         axios.get("https://www.googleapis.com/oauth/v3/userinfo", {

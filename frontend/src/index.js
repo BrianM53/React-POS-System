@@ -34,6 +34,14 @@ import { SettingsProvider } from "./components/settings/settingsControl";
 const clientID =
   "646591237506-j4196n8a0k2tqoaaqclv314puj8q6i3n.apps.googleusercontent.com";
 
+  /**
+ * PrivateRoute component for controlling access to specific routes based on user roles.
+ * @component
+ * @param {Object} props - Component props.
+ * @param {React.ReactNode} props.element - The element to render if the user has the required role.
+ * @param {string} props.requiredRole - The required user role to access the route.
+ * @returns {React.ReactNode} JSX element.
+ */
 function PrivateRoute({ element, requiredRole }) {
   const { userRole } = useUser();
   console.log("User role:", userRole);
@@ -47,6 +55,11 @@ function PrivateRoute({ element, requiredRole }) {
   }
 }
 
+/**
+ * Routing component for defining application routes.
+ * @component
+ * @returns {React.ReactNode} JSX element.
+ */
 function Routing() {
   // const [path, setPath] = useState("");
 

@@ -1,6 +1,17 @@
 const connection = require("../connection");
 
 class AdminEmployees {
+  /**
+   * Adds an employee to the database.
+   *
+   * @param {string} first_name - The first name of the employee.
+   * @param {string} last_name - The last name of the employee.
+   * @param {string} phone - The phone number of the employee.
+   * @param {string} email - The email of the employee.
+   * @param {string} username - The username of the employee.
+   * @param {string} password - The password of the employee.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addEmployee(
     first_name,
     last_name,
@@ -23,6 +34,17 @@ class AdminEmployees {
     );
   }
 
+  /**
+   * Adds a manager to the database.
+   *
+   * @param {string} first_name - The first name of the manager.
+   * @param {string} last_name - The last name of the manager.
+   * @param {string} phone - The phone number of the manager.
+   * @param {string} email - The email of the manager.
+   * @param {string} username - The username of the manager.
+   * @param {string} password - The password of the manager.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addManager(
       first_name,
       last_name,
@@ -45,6 +67,15 @@ class AdminEmployees {
       );
   }
 
+  /**
+   * Adds a customer to the database.
+   *
+   * @param {string} first_name - The first name of the customer.
+   * @param {string} last_name - The last name of the customer.
+   * @param {string} phone - The phone number of the customer.
+   * @param {string} email - The email of the customer.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addCustomer(
       first_name,
       last_name,
@@ -65,6 +96,12 @@ class AdminEmployees {
         );
   }
 
+  /**
+   * Deletes an employee from the database.
+   *
+   * @param {number} employeeId - The ID of the employee to delete.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static deleteEmployee(employeeId, callback) {
     connection.query(
       "DELETE FROM employees WHERE employee_id = $1 RETURNING *",
@@ -78,6 +115,19 @@ class AdminEmployees {
       }
     );
   }
+
+  /**
+   * Updates employee information in the database.
+   *
+   * @param {number} employeeId - The ID of the employee to update.
+   * @param {string} first_name - The new first name of the employee.
+   * @param {string} last_name - The new last name of the employee.
+   * @param {string} phone - The new phone number of the employee.
+   * @param {string} email - The new email of the employee.
+   * @param {string} username - The new username of the employee.
+   * @param {string} password - The new password of the employee.
+   * @param {function} callback - The callback function to handle the result.
+   */
 
   static updateEmployee(
     employeeId,
@@ -101,6 +151,11 @@ class AdminEmployees {
     );
   }
 
+  /**
+   * Retrieves a list of employees from the database.
+   *
+   * @param {function} callback - The callback function to handle the result.
+   */
   static generateViewEmployees(callback) 
   {
     connection.query(

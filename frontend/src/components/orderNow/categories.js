@@ -1,5 +1,14 @@
 import "./categories.css"
 
+/**
+ * Component for displaying menu categories.
+ * @component
+ * @function Categories
+ * @param {Object} props - Component props.
+ * @param {string} props.activeSection - The currently active category.
+ * @param {Function} props.setActiveSection - Function to set the active category.
+ * @returns {JSX.Element} - Rendered component.
+ */
 export function Categories( {activeSection, setActiveSection} ) {
     return (
         <div className="menu-main-menu-categories">

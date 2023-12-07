@@ -2,10 +2,21 @@ import React, { useState, useEffect } from "react";
 import SpecialFontText from "../../fonts/specialFontText/SpecialFontText";
 import './Weather.css';
 
+/**
+ * Weather component displays current weather information.
+ * @component
+ * @returns {React.ReactNode} JSX element.
+ */
 const Weather = () => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
+    /**
+     * Fetch weather data from OpenWeatherMap API.
+     * @async
+     * @function
+     * @returns {Promise<void>} A Promise that resolves when the data is fetched.
+     */
     const fetchWeather = async () => {
       const API_KEY = "b0d4d178a473858f771e581f7d291995";
       const city = "College Station";
@@ -28,10 +39,19 @@ const Weather = () => {
     )
   }
 
+/**
+   * Capitalizes the first letter of each word in a string.
+   * @param {string} str - The input string.
+   * @returns {string} The string with first letters capitalized.
+   */
   const capitalizeFirstLetters = (str) => {
     return str.replace(/\b\w/g, (match) => match.toUpperCase());
   };
 
+  /**
+   * Mapping of weather conditions to corresponding image paths.
+   * @type {Object.<string, string>}
+   */
   const weatherImageMap = 
   {
     "Clear Sky": "/clearsky.png",

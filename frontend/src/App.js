@@ -5,6 +5,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Header from './components/app/header';
 import './App.css'
 
+/**
+ * Main application component representing the home page.
+ * @component
+ * @returns {React.ReactNode} JSX element.
+ */
 const App = () => {
   localStorage.setItem('activePage', "Home");
   

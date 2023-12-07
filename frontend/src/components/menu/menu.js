@@ -7,11 +7,31 @@ import Header from "../app/header";
 import './menu.css'
 library.add(fas, fab);
 
-
+/**
+ * Component for displaying the menu.
+ * @component
+ * @function Menu
+ * @returns {JSX.Element} - Rendered component.
+ */
 const Menu = () => {
+  /**
+   * Backend URL for fetching product data.
+   * @type {string}
+   */
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+  /**
+   * State to store products categorized by their types.
+   * @type {Object}
+   * @property {Object} productsByCategory - Products categorized by their types.
+   * @property {Function} setProductsByCategory - Function to update productsByCategory state.
+   */
   const [productsByCategory, setProductsByCategory] = useState({});
 
+  /**
+   * Fetches products for a given category and updates the state.
+   * @function fetchProducts
+   * @param {string} category - The category of products to fetch.
+   */
   const fetchProducts = (category) => {
     fetch(`${BACKEND_URL}/products/${category}`)
       .then((response) => response.json())
@@ -41,6 +61,12 @@ const Menu = () => {
     fetchProducts("WOW");
   }, []);
 
+  /**
+   * Renders the products for a given category.
+   * @function renderProducts
+   * @param {string} category - The category of products to render.
+   * @returns {JSX.Element} - Rendered product components.
+   */
   const renderProducts = (category) => {
     const products = productsByCategory[category];
   

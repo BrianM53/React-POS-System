@@ -3,6 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import "./socials.css"
 
+/**
+ * Footer component displaying social media icons.
+ * @component
+ * @function Footer
+ * @returns {JSX.Element} - Rendered component.
+ */
 export default function Footer() {
     return(
         <div>

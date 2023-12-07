@@ -1,0 +1,8 @@
+{
+    "source":{
+        "include":["./frontend/src/components/admin"]
+    },
+    "opts":{
+        "destination":["./docs"]
+    }
+}

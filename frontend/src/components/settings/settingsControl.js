@@ -1,7 +1,23 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
+/**
+ * Context to manage user settings.
+ * @typedef {Object} SettingsContext
+ * @property {string} colorStyle - The current color style.
+ * @property {function} setColorStyle - Function to set the color style.
+ * @property {string} fontSize - The current font size.
+ * @property {function} setFontSize - Function to set the font size.
+ */
 const SettingsContext = createContext();
 
+/**
+ * Provider component to manage user settings.
+ * @component
+ * @function SettingsProvider
+ * @param {Object} props - React props.
+ * @param {React.ReactNode} props.children - Child components.
+ * @returns {JSX.Element} - Rendered component.
+ */
 export function SettingsProvider({ children }) {
     const [colorStyle, setColorStyle] = useState( localStorage.getItem("color-style") || "dark");
     const [fontSize, setFontSize] = useState( localStorage.getItem("font-size") || "normal");
@@ -80,6 +96,11 @@ export function SettingsProvider({ children }) {
     );
 }
 
+/**
+ * Custom hook to access user settings.
+ * @function useSettings
+ * @returns {SettingsContext} - Context with user settings.
+ */
 export function useSettings() {
   return useContext(SettingsContext);
 }

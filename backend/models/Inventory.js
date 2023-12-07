@@ -1,6 +1,16 @@
 const connection = require("../connection");
 
 class Inventory {
+  /**
+   * Adds an inventory item to the database.
+   *
+   * @param {string} inventory_item - The name of the inventory item.
+   * @param {number} stock_level - The current stock level of the inventory item.
+   * @param {number} restock_level - The restock level of the inventory item.
+   * @param {string} measurement_type - The measurement type of the inventory item.
+   * @param {number} price - The price of the inventory item.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addInventoryItem(
     inventory_item,
     stock_level,
@@ -21,6 +31,17 @@ class Inventory {
     );
   }
 
+  /**
+   * Updates an existing inventory item in the database.
+   *
+   * @param {number} inventoryId - The ID of the inventory item to update.
+   * @param {string} inventory_item - The new name of the inventory item.
+   * @param {number} stock_level - The new stock level of the inventory item.
+   * @param {number} restock_level - The new restock level of the inventory item.
+   * @param {string} measurement_type - The new measurement type of the inventory item.
+   * @param {number} price - The new price of the inventory item.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static updateInventory(
     inventoryId,
     inventory_item,
@@ -42,6 +63,12 @@ class Inventory {
     );
   }
 
+  /**
+   * Deletes an inventory item from the database.
+   *
+   * @param {number} inventoryItemId - The ID of the inventory item to delete.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static deleteInventoryItem(inventoryItemId, callback)
   {
     const query = "DELETE FROM inventory WHERE inventory_id = $1";

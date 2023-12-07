@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Custom hook for handling scrollbar visibility
+/**
+ * Custom hook for handling scrollbar visibility based on content overflow.
+ * @function useDynamicScrollbar
+ * @param {any} content - The content for which scrollbar visibility is checked.
+ * @param {React.RefObject} scrollRef - Reference to the scrolling container element.
+ * @returns {boolean} - Boolean indicating whether the content has overflow and scrollbar is visible.
+ */
 const useDynamicScrollbar = (content, scrollRef) => {
   const [hasOverflow, setHasOverflow] = useState(false);
 
@@ -9,6 +16,11 @@ const useDynamicScrollbar = (content, scrollRef) => {
       // console.log(content);
       const container = scrollRef.current;
   
+      /**
+       * Checks if the content overflows the container and sets the scrollbar visibility.
+       * @function checkOverflow
+       * @private
+       */
       const checkOverflow = () => {
         if (container.scrollHeight > container.clientHeight) {
           // console.log("has overflow");

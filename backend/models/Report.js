@@ -1,6 +1,14 @@
 const connection = require("../connection");
 
 class Report {
+  /**
+   * Generates a sales report for a specified date range.
+   *
+   * @param {string} startDate - The start date of the report.
+   * @param {string} endDate - The end date of the report.
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateSalesReport(startDate, endDate, callback) {
     // console.log(startDate, " ", endDate);
     connection.query(
@@ -33,6 +41,12 @@ class Report {
     );
   }
 
+  /**
+   * Generates a restock report for products with low stock levels.
+   *
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateRestockReport(callback) {
     connection.query(
       "SELECT products.product_name, inventory.inventory_item, inventory.stock_level, inventory.restock_level, inventory.measurement_type \r\n" + //
@@ -52,6 +66,14 @@ class Report {
     );
   }
 
+  /**
+   * Generates an excess report for products with low sales percentages.
+   *
+   * @param {string} startDate - The start date of the report.
+   * @param {string} endDate - The end date of the report.
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateExcessReport(startDate, endDate, callback) {
     connection.query(
       `WITH usedStock AS (
@@ -93,6 +115,14 @@ class Report {
     );
   }
 
+  /**
+   * Generates a report on products frequently sold together.
+   *
+   * @param {string} startDate - The start date of the report.
+   * @param {string} endDate - The end date of the report.
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateSellsTogether(startDate, endDate, callback) {
     connection.query(
       `SELECT 
@@ -125,6 +155,14 @@ class Report {
     );
   }
 
+  /**
+   * Generates a usage chart for the top 10 inventory items used in a specified date range.
+   *
+   * @param {string} startDate - The start date of the report.
+   * @param {string} endDate - The end date of the report.
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateUsageChart(startDate, endDate, callback) {
     const usageQuery = `
         SELECT CONCAT(i.inventory_item, ' (', i.measurement_type, ')') as inventoryItem, 
@@ -147,6 +185,14 @@ class Report {
     });
   }
 
+  /**
+   * Retrieves orders within a specified time interval.
+   *
+   * @param {string} startDate - The start date of the interval.
+   * @param {string} endDate - The end date of the interval.
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static getOrdersInTimeInterval(startDate, endDate, callback) {
     const query = `
       SELECT
@@ -175,6 +221,12 @@ class Report {
     });
   }
 
+  /**
+   * Generates a view of all employees in the system.
+   *
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateViewEmployees(callback) {
     connection.query(
       "SELECT " +
@@ -196,6 +248,12 @@ class Report {
     );
   }
 
+  /**
+   * Generates a list of menu items.
+   *
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateMenuItems(callback) {
     connection.query(
       "SELECT " +
@@ -215,6 +273,12 @@ class Report {
     );
   }
 
+  /**
+   * Generates a list of inventory items.
+   *
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static generateInventoryItems(callback) {
     connection.query(
       "SELECT " +

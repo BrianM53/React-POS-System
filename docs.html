@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            margin: 0 2px;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Code Documentation</h1>
+
+    <!-- Admin Functions -->
+    <h2>Admin Functions</h2>
+    
+    <!-- AdminEditCustomer -->
+    <h3>AdminEditCustomer</h3>
+    <pre><code>/**
+ * Renders the form for editing a customer's details, allowing the user to modify customer information.
+ * @function AdminEditCustomer
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.selectedRowData - The data of the selected customer for editing.
+ * @param {Function} props.handleFinishEditing - Callback function triggered when the editing process is successfully completed.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the editing process.
+ * @returns {JSX.Element} - The JSX markup for the AdminEditCustomer component.
+ */</code></pre>
+
+    <!-- AdminEditEmployee -->
+    <h3>AdminEditEmployee</h3>
+    <pre><code>/**
+ * Renders the form for editing an employee's details, allowing the user to modify employee information.
+ * @function AdminEditEmployee
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.selectedRowData - The data of the selected employee for editing.
+ * @param {Function} props.handleFinishEditing - Callback function triggered when the editing process is successfully completed.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the editing process.
+ * @returns {JSX.Element} - The JSX markup for the AdminEditEmployee component.
+ */</code></pre>
+
+    <!-- AdminEditManager -->
+    <h3>AdminEditManager</h3>
+    <pre><code>/**
+ * Renders the form for editing a manager's details, allowing the user to modify manager information.
+ * @function AdminEditManager
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.selectedRowData - The data of the selected manager for editing.
+ * @param {Function} props.handleFinishEditing - Callback function triggered when the editing process is successfully completed.
+ * @param {Function} props.handleCancelEditing - Callback function triggered when the user cancels the editing process.
+ * @returns {JSX.Element} - The JSX markup for the AdminEditManager component.
+ */</code></pre>
+
+    <!-- AdminRemoveConfirmation -->
+    <h3>AdminRemoveConfirmation</h3>
+    <pre><code>/**
+ * Renders a confirmation dialog for removing an item, providing options to confirm or cancel the removal.
+ * @function AdminRemoveConfirmation
+ * @param {Object} props - The properties passed to the component.
+ * @param {Function} props.onConfirm - Callback function triggered when the removal is confirmed.
+ * @param {Function} props.onCancel - Callback function triggered when the removal is canceled.
+ * @returns {JSX.Element} - The JSX markup for the AdminRemoveConfirmation component.
+ */</code></pre>
+
+    <!-- AdminReportButtons -->
+    <h3>AdminReportButtons</h3>
+    <pre><code>/**
+ * Renders a set of buttons for selecting different reports in the admin panel.
+ * @function AdminReportButtons
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} props.activeReport - The currently active report type.
+ * @param {Function} props.handleReport - Callback function triggered when a report button is clicked.
+ * @returns {JSX.Element} - The JSX markup for the AdminReportButtons component.
+ */</code></pre>
+
+    <!-- AdminSubmitCustomer -->
+    <h3>AdminSubmitCustomer</h3>
+    <pre><code>/**
+ * Renders a button for submitting customer data.
+ * @function AdminSubmitCustomer
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.customerData - The customer data to be submitted.
+ * @returns {JSX.Element} - The JSX markup for the AdminSubmitCustomer component.
+ */</code></pre>
+
+    <!-- AdminSubmitEditCustomer -->
+    <h3>AdminSubmitEditCustomer</h3>
+    <pre><code>/**
+ * Renders a button for submitting edited customer data.
+ * @function AdminSubmitEditCustomer
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.editedCustomerData - The edited customer data to be submitted.
+ * @returns {JSX.Element} - The JSX markup for the AdminSubmitEditCustomer component.
+ */</code></pre>
+
+    <!-- AdminSubmitEditEmployee -->
+    <h3>AdminSubmitEditEmployee</h3>
+    <pre><code>/**
+ * Renders a button for submitting edited employee data.
+ * @function AdminSubmitEditEmployee
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.editedEmployeeData - The edited employee data to be submitted.
+ * @returns {JSX.Element} - The JSX markup for the AdminSubmitEditEmployee component.
+ */</code></pre>
+
+    <!-- AdminSubmitEditManager -->
+    <h3>AdminSubmitEditManager</h3>
+    <pre><code>/**
+ * Renders a button for submitting edited manager data.
+ * @function AdminSubmitEditManager
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.editedManagerData - The edited manager data to be submitted.
+ * @returns {JSX.Element} - The JSX markup for the AdminSubmitEditManager component.
+ */</code></pre>
+
+    <!-- AdminSubmitEmployee -->
+    <h3>AdminSubmitEmployee</h3>
+    <pre><code>/**
+ * Renders a button for submitting employee data.
+ * @function AdminSubmitEmployee
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.employeeData - The employee data to be submitted.
+ * @returns {JSX.Element} - The JSX markup for the AdminSubmitEmployee component.
+ */</code></pre>
+
+    <!-- AdminSubmitManager -->
+    <h3>AdminSubmitManager</h3>
+    <pre><code>/**
+ * Renders a button for submitting manager data.
+ * @function AdminSubmitManager
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.managerData - The manager data to be submitted.
+ * @returns {JSX.Element} - The JSX markup for the AdminSubmitManager component.
+ */</code></pre>
+
+    <!-- Cart -->
+    <h2>Cart</h2>
+
+    <!-- useCart -->
+    <h3>useCart</h3>
+    <pre><code>/**
+ * Provides access to the shopping cart functionality.
+ * @function useCart
+ * @returns {Object} - The cart context and its methods.
+ */</code></pre>
+
+    <!-- CartProvider -->
+    <h3>CartProvider</h3>
+    <pre><code>/**
+ * A context provider for managing the shopping cart state and operations.
+ * @function CartProvider
+ * @param {Object} props - The React component properties.
+ * @param {React.ReactNode} props.children - The child components to be wrapped by the provider.
+ * @returns {React.ReactNode} - The wrapped child components with access to the shopping cart context.
+ */</code></pre>
+
+    <!-- addToCart -->
+    <h3>addToCart</h3>
+    <pre><code>/**
+ * Adds a product to the shopping cart.
+ * @function addToCart
+ * @param {Object} product - The product to be added to the cart.
+ */</code></pre>
+
+    <!-- removeFromCart -->
+    <h3>removeFromCart</h3>
+    <pre><code>/**
+ * Removes a product from the shopping cart.
+ * @function removeFromCart
+ * @param {number} productId - The ID of the product to be removed.
+ */</code></pre>
+
+    <!-- getCartLength -->
+    <h3>getCartLength</h3>
+    <pre><code>/**
+ * Retrieves the total quantity of items in the shopping cart.
+ * @function getCartLength
+ * @returns {number} - The total quantity of items in the cart.
+ */</code></pre>
+
+    <!-- decrementQuantity -->
+    <h3>decrementQuantity</h3>
+    <pre><code>/**
+ * Decrements the quantity of a product in the shopping cart.
+ * @function decrementQuantity
+ * @param {number} productId - The ID of the product whose quantity needs to be decremented.
+ */</code></pre>
+
+    <!-- fetchProductData -->
+    <h3>fetchProductData</h3>
+    <pre><code>/**
+ * Fetches product data for the specified category from the backend.
+ * @function fetchProductData
+ * @param {string} category - The category for which product data needs to be fetched.
+ */</code></pre>
+
+    <!-- increment -->
+    <h3>increment</h3>
+    <pre><code>/**
+ * Increments the quantity of a product in the cart and updates the UI.
+ * @function increment
+ * @param {Object} product - The product to be incremented.
+ */</code></pre>
+
+    <!-- decrement -->
+    <h3>decrement</h3>
+    <pre><code>/**
+ * Decrements the quantity of a product in the cart and updates the UI.
+ * @function decrement
+ * @param {number} productId - The ID of the product to be decremented.
+ */</code></pre>
+
+    <!-- fetchCustomerId -->
+    <h3>fetchCustomerId</h3>
+    <pre><code>/**
+ * Fetches the customer ID based on the provided email address.
+ * @function fetchCustomerId
+ * @returns {Promise<number>} - A promise that resolves to the customer ID.
+ */</code></pre>
+
+<!-- Submit Order -->
+<h2>Submit Order</h2>
+<pre><code>/**
+ * Submits the order to the backend.
+ * @function submitOrder
+ * @returns {Promise<void>} - A Promise that resolves when the order is successfully submitted.
+ */</code></pre>
+
+<!-- Add Employee -->
+<h2>Add Employee</h2>
+<pre><code>/**
+ * Component for adding an employee.
+ * @component
+ * @function AddEmployee
+ * @param {Object} props - React props.
+ * @param {Function} props.onAddEmployee - Function to handle adding an employee.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Add Inventory Item -->
+<h2>Add Inventory Item</h2>
+<pre><code>/**
+ * Component for adding an inventory item.
+ * @component
+ * @function AddInventoryItem
+ * @param {Object} props - React props.
+ * @param {Function} props.onAddInventoryItem - Function to handle adding an inventory item.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Add Menu Item -->
+<h2>Add Menu Item</h2>
+<pre><code>/**
+ * Component for adding a menu item.
+ * @component
+ * @function AddMenuItem
+ * @param {Object} props - React props.
+ * @param {Function} props.onAddMenuItem - Function to handle adding a menu item.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Edit Employee -->
+<h2>Edit Employee</h2>
+<pre><code>/**
+ * Component for editing an employee.
+ * @component
+ * @function EditEmployee
+ * @param {Object} props - React props.
+ * @param {Object} props.employeeData - Data of the employee being edited.
+ * @param {Function} props.onUpdateEmployee - Function to handle updating an employee.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Edit Inventory Item -->
+<h2>Edit Inventory Item</h2>
+<pre><code>/**
+ * Component for editing an inventory item.
+ * @component
+ * @function EditInventoryItem
+ * @param {Object} props - React props.
+ * @param {Object} props.inventoryItemData - Data of the inventory item being edited.
+ * @param {Function} props.onUpdateInventoryItem - Function to handle updating an inventory item.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Edit Menu Item -->
+<h2>Edit Menu Item</h2>
+<pre><code>/**
+ * Component for editing a menu item.
+ * @component
+ * @function EditMenuItem
+ * @param {Object} props - React props.
+ * @param {Object} props.menuItemData - Data of the menu item being edited.
+ * @param {Function} props.onUpdateMenuItem - Function to handle updating a menu item.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Manager -->
+<h2>Manager</h2>
+<pre><code>/**
+ * Component for managing the application as a manager.
+ * @component
+ * @function Manager
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Report Buttons -->
+<h2>Report Buttons</h2>
+<pre><code>/**
+ * Component for rendering navigation buttons for different reports.
+ * @component
+ * @function ReportButtons
+ * @param {Object} props - React props.
+ * @param {string} props.activeReport - The currently active report.
+ * @param {Function} props.onReportSelect - Function to handle report selection.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Report Content -->
+<h2>Report Content</h2>
+<pre><code>/**
+ * Component for rendering the content of the selected report.
+ * @component
+ * @function ReportContent
+ * @param {Object} props - React props.
+ * @param {string} props.activeReport - The currently active report.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Add Row -->
+<h2>Add Row</h2>
+<pre><code>/**
+ * Adds a new row to the table with columns based on the current column count.
+ * @function addRow
+ * @memberof ReportContent
+ */</code></pre>
+
+<!-- Handle Column Change -->
+<h2>Handle Column Change</h2>
+<pre><code>/**
+ * Handles the change in the number of columns.
+ * @function handleColumnChange
+ * @memberof ReportContent
+ * @param {Object} event - The event object.
+ */</code></pre>
+
+<!-- Validate Input for Editing Employee -->
+<h2>Validate Input for Editing Employee</h2>
+<pre><code>/**
+ * Validates the input data for editing an employee.
+ * @function validateInput
+ * @param {Object} editedEmployeeData - The data of the edited employee.
+ * @returns {boolean} - Indicates whether the input is valid or not.
+ */</code></pre>
+
+<!-- Submit Edit Employee -->
+<h2>Submit Edit Employee</h2>
+<pre><code>/**
+ * Component for submitting the edited employee data.
+ * @component
+ * @function SubmitEditEmployee
+ * @param {Object} props - React props.
+ * @param {Object} props.editedEmployeeData - The data of the edited employee.
+ * @param {Function} props.onSubmitEditEmployee - Function to handle submitting edited employee data.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>
+
+<!-- Validate Input for Editing Inventory Item -->
+<h2>Validate Input for Editing Inventory Item</h2>
+<pre><code>/**
+ * Validates the input data for editing an inventory item.
+ * @function validateInput
+ * @param {Object} editedInventoryItemData - The data of the edited inventory item.
+ * @returns {boolean} - Indicates whether the input is valid or not.
+ */</code></pre>
+
+<!-- Submit Edit Inventory Item -->
+<h2>Submit Edit Inventory Item</h2>
+<pre><code>/**
+ * Component for submitting the edited inventory item data.
+ * @component
+ * @function SubmitEditInventoryItem
+ * @param {Object} props - React props.
+ * @param {Object} props.editedInventoryItemData - The data of the edited inventory item.
+ * @param {Function} props.onSubmitEditInventoryItem - Function to handle submitting edited inventory item data.
+ * @returns {JSX.Element} - Rendered component.
+ */</code></pre>

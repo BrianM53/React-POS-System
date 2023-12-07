@@ -1,6 +1,12 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
 
+/**
+ * Validates the input data for editing a menu item.
+ * @function validateInput
+ * @param {Object} editedMenuItemData - The data of the edited menu item.
+ * @returns {boolean} - Indicates whether the input is valid or not.
+ */
 function validateInput(editedMenuItemData) {
   return (
     editedMenuItemData.product_name.length > 0 &&
@@ -10,7 +16,19 @@ function validateInput(editedMenuItemData) {
   );
 }
 
+/**
+ * Component for submitting the edited menu item data.
+ * @component
+ * @function SubmitEditMenuItem
+ * @param {Object} props - Component props.
+ * @param {Object} props.editedMenuItemData - The data of the edited menu item.
+ * @returns {JSX.Element} - Rendered component.
+ */
 function SubmitEditMenuItem({ editedMenuItemData }) {
+    /**
+   * Indicates whether the input data is valid for submission.
+   * @type {boolean}
+   */
   const isInputValid = validateInput(editedMenuItemData);
 
   return (

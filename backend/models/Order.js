@@ -1,6 +1,19 @@
 const connection = require("../connection");
 
+
 class Order {
+  /**
+   * Creates a new order in the database.
+   *
+   * @param {number} orderId - The ID of the order.
+   * @param {number} employeeId - The ID of the employee placing the order.
+   * @param {number} customerId - The ID of the customer associated with the order.
+   * @param {number} totalCost - The total cost of the order.
+   * @param {boolean} paymentStatus - The payment status of the order.
+   * @param {string} paymentMethod - The payment method used for the order.
+   * @param {Array} cart - The array containing the products in the order.
+   * @throws {Error} Throws an error if any operation fails.
+   */
   static async createOrder(orderId, employeeId, customerId, totalCost, paymentStatus, paymentMethod, cart) {
     try {
       const currentDate = new Date();
@@ -56,6 +69,12 @@ class Order {
     }
   }
 
+  /**
+   * Retrieves orders with a false payment status from the database.
+   *
+   * @returns {Array} Returns an array of orders with false payment status.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static async getOrdersWithFalsePaymentStatus() {
     try {
       const query = `
@@ -71,6 +90,13 @@ class Order {
     }
   }
 
+   /**
+   * Deletes an order and its associated details from the database.
+   *
+   * @param {number} orderId - The ID of the order to delete.
+   * @returns {string} Returns a success message upon successful deletion.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static async deleteOrder(orderId) {
     try {
       // Delete order details associated with the orderId first
@@ -87,6 +113,13 @@ class Order {
     }
   }
 
+   /**
+   * Deletes order details associated with a given order ID from the database.
+   *
+   * @param {number} orderId - The ID of the order for which to delete details.
+   * @returns {string} Returns a success message upon successful deletion.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static async deleteOrderDetails(orderId) {
     try {
       const deleteOrderDetailsQuery = `
@@ -101,6 +134,14 @@ class Order {
   }
 
   // add a product to an order
+  /**
+   * Adds a product to an existing order in the database.
+   *
+   * @param {number} orderId - The ID of the order.
+   * @param {number} productId - The ID of the product to add to the order.
+   * @param {number} quantity - The quantity of the product to add.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static async addProductToOrder(orderId, productId, quantity) {
 
     try {
@@ -116,6 +157,12 @@ class Order {
     }
   }
 
+  /**
+   * Updates the payment status of an order to true in the database.
+   *
+   * @param {number} orderId - The ID of the order.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static async updatePaymentStatusToTrue(orderId) {
     console.log("Updating payment Status");
     try {
@@ -132,6 +179,13 @@ class Order {
     }
   }
 
+  /**
+   * Updates the inventory after placing an order.
+   *
+   * @param {number} productId - The ID of the product.
+   * @param {number} quantity - The quantity of the product.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static async updateInventory(productId, quantity) {
     try {
       const quantityAndID = await connection.query(
@@ -160,6 +214,14 @@ class Order {
   }
 
   // Update product details of an existing order
+   /**
+   * Updates product details of an existing order.
+   *
+   * @param {number} orderId - The ID of the order.
+   * @param {Array} updatedProducts - An array containing updated product details.
+   * @param {function} callback - The callback function to handle the result.
+   * @throws {Error} Throws an error if the operation fails.
+   */
   static updateOrderDetails(orderId, updatedProducts, callback) {
     // Delete existing product entries for the order
     connection.query(

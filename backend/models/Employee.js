@@ -1,6 +1,18 @@
 const connection = require("../connection");
 
 class Employee {
+
+   /**
+   * Adds an employee to the database.
+   *
+   * @param {string} first_name - The first name of the employee.
+   * @param {string} last_name - The last name of the employee.
+   * @param {string} phone - The phone number of the employee.
+   * @param {string} email - The email of the employee.
+   * @param {string} username - The username of the employee.
+   * @param {string} password - The password of the employee.
+   * @param {function} callback - The callback function to handle the result.
+   */
   static addEmployee(
     first_name,
     last_name,
@@ -21,6 +33,13 @@ class Employee {
       }
     );
   }
+
+  /**
+   * Checks if an email already exists in the employees table.
+   *
+   * @param {string} email - The email to check.
+   * @param {function} callback - The callback function to handle the result.
+   */
 
   static emailExists(email, callback) {
     connection.query(
