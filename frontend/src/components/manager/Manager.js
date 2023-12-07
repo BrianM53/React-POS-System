@@ -37,7 +37,7 @@ function Manager() {
   const BACKEND_URL =
     process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
 
-  console.log("Manager query ", BACKEND_URL);
+  // console.log("Manager query ", BACKEND_URL);
 
   // default variables are for Sales Report
   const [activeReport, setActiveReport] = useState(
@@ -54,8 +54,7 @@ function Manager() {
   const [tableData, setTableData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [showChart, setShowChart] = useState(false);
-
-  let colorFlag = true;
+  const [hideContent, setHideContent] = useState(false);
 
   // user variables
   const {
@@ -72,6 +71,13 @@ function Manager() {
   useEffect(() => {
     // Check if there's an active report in local storage and set it
     localStorage.setItem("activeReport", activeReport);
+
+    if (activeReport === "Usage Chart") {
+      setHideContent(true);
+    }
+    else {
+      setHideContent(false);
+    }
   }, [activeReport]);
 
   function generateTimestamp(date) {
@@ -150,6 +156,9 @@ function Manager() {
         }))
       );
     } else if (reportType === "Usage Chart") {
+      setColumns([
+        "Usage Chart",
+      ]);
     } else if (reportType === "View Menu Items") {
       setColumns([
         "product_id",
@@ -452,6 +461,7 @@ function Manager() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeReport, tableDataKey]);
 
+
   function fetchAndRenderData() {
     // Fetch data based on the active report, and update the state
     handleReport(null, activeReport);
@@ -535,13 +545,12 @@ function Manager() {
           
           
         </div>
-        <div
+        {/* <div
           className={
             activeReport === "Usage Chart" ? "label-container" : "passive-label"
           }
         >
-          <div className="label-item">Amount of Ingredients Used</div>
-        </div>
+        </div> */}
         <div
           className={
             activeReport === "View Orders"
@@ -611,7 +620,7 @@ function Manager() {
           <div className="label-item">Remove</div>
         </div>
 
-        <div className="main-content">
+        <div className={!hideContent ? "main-content" : "main-content-none"}>
           {isFormOpen && activeFormType === "addEmployee" && (
             <AddEmployee onFinishAddingEmployee={handleFinishAddingEmployee}
             handleCancelEditing={handleCancelEditing} />

@@ -78,7 +78,7 @@ function Header() {
                 <ul>
                     <li>
                         <Link to="/order-now" onClick={() => handleActivePage('Order Now')}>
-                        <a className={activePage === 'Order Now' ? 'button-nav-active' : 'button-nav-passive'}>Order Now</a>
+                        <a className={ activePage === 'Order Now' ? 'button-nav-active' : 'button-nav-passive'}>Order Now</a>
                         </Link>
                     </li>
                     <li>

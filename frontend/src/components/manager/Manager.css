@@ -49,6 +49,7 @@
   height: 100vh;
   background-color: var(--bright);
   overflow-x: scroll;
+  
 }
 .main-manager::-webkit-scrollbar {
   display: flex;
@@ -62,8 +63,13 @@
   background: var(--dark);
   border: 3px solid var(--bright);
   overflow: auto;
+  
 }
 .main-content::-webkit-scrollbar {
+  display: none;
+}
+
+.main-content-none {
   display: none;
 }
 
@@ -240,6 +246,7 @@
   border-collapse: collapse;
   margin-bottom: 20px;
   table-layout: fixed;
+
 }
 
 thead {
@@ -263,6 +270,7 @@ td {
   color: var(--new-text-color);
   word-wrap: break-word; /* Enable word wrapping */
   white-space: normal; /* Ensure wrapping behavior */
+
 }
 
 /* td::-webkit-scrollbar {
