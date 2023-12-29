@@ -3,8 +3,8 @@
 
 ## Project 3 Point of Sales system
 ---
-- Project Manager: James Guandolo
-- Members: Deric Le, Oreoluwa Ogunleye-Olawuyi, Lex Unwin, Brian McKeown
+- Project Manager: Brian McKeown
+- Members: Deric Le, Oreoluwa Ogunleye-Olawuyi, Lex Unwin, James Guandolo
 
 ### Local Usage
 ---
